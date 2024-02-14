@@ -1,3 +1,2 @@
-function df {
-    Get-Volume
-}
+# using starship prompt
+Invoke-Expression (&starship init powershell)
