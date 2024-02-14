@@ -1,0 +1,129 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.yaml",
+  "window_hiding_behaviour": "Minimize",
+  "cross_monitor_move_behaviour": "Insert",
+  "alt_focus_hack": false,
+  "default_workspace_padding": 100,
+  "default_container_padding": 20,
+  "focus_follows_mouse": "Windows",
+  "mouse_follows_focus": false,
+  "active_window_border": true,
+  "active_window_border_width": 15,
+  "active_window_border_colours": {
+    "single": {
+      "r": 66,
+      "g": 165,
+      "b": 245
+    },
+    "stack": {
+      "r": 256,
+      "g": 165,
+      "b": 66
+    },
+    "monocle": {
+      "r": 255,
+      "g": 51,
+      "b": 153
+    }
+  },
+
+  "border_overflow_applications": [],
+
+  "float_rules": [],
+
+  "manage_rules": [],
+
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "1-chat",
+          "layout": "UltrawideVerticalStack",
+          "workspace_padding": 100,
+          "workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Teams.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "Spark Desktop.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "Discord.exe"
+            }
+          ]
+        },
+        {
+          "name": "2-todoist/morgen",
+          "layout": "BSP",
+          "workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Todoist.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "Morgen.exe"
+            }
+          ]
+        },
+        {
+          "name": "3-terminal",
+          "layout": "UltrawideVerticalStack",
+          "workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "wezterm-gui.exe"
+            }
+          ]
+        },
+        {
+          "name": "4-arcgis",
+          "layout": "UltrawideVerticalStack",
+          "workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "ArcGISPro.exe"
+            }
+          ]
+        },
+        {
+          "name": "5-rdp",
+          "layout": "BSP",
+          "workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "RemoteDesktopMAnager.exe"
+            }
+          ]
+        },
+        {
+          "name": "6-obsidian",
+          "layout": "UltrawideVerticalStack",
+          "workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Obsidian.exe"
+            }
+          ]
+        },
+        {
+          "name": "7-music",
+          "layout": "UltrawideVerticalStack",
+          "workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Spotify.exe"
+            }
+          ]
+        },
+        {
+          "name": "8-no-tiled"
+        }
+      ]
+    }
+  ]
+}
