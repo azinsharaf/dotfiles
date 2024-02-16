@@ -1,0 +1,9 @@
+version=1.4.1
+
+what's new: ##
+
+* minor bug fixes with v1.4.0
+* cleaner updater window
+* improved discord sync
+* better replaceWin.exe
+* if you're updating from v1.4.0 you get to test the new updater :3
