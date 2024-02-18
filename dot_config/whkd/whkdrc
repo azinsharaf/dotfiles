@@ -64,6 +64,7 @@ alt + 8                 : komorebic focus-workspace 7
 
 
 alt + a                 : komorebic cycle-workspace previous
+alt + s                 : komorebic focus-last-workspace
 alt + d                 : komorebic cycle-workspace next
 
 alt + r                 : komorebic cycle-layout next
