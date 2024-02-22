@@ -1,0 +1,15 @@
+0000000000000000000000000000000000000000 37ff0fc1fc5451ca9535c47492080653599ac73f Azin Sharaf <azin.sharaf@icloud.com> 1702681434 -0800	commit (initial): initial commit
+37ff0fc1fc5451ca9535c47492080653599ac73f 37ff0fc1fc5451ca9535c47492080653599ac73f Azin Sharaf <azin.sharaf@icloud.com> 1702681638 -0800	Branch: renamed refs/heads/master to refs/heads/main
+37ff0fc1fc5451ca9535c47492080653599ac73f 0673a4a2cab9ec65248d6ce5cc80198c0340ca0b Azin Sharaf <azin.sharaf@icloud.com> 1704311666 -0800	commit: more edits
+0673a4a2cab9ec65248d6ce5cc80198c0340ca0b da310320b8f688803de57e7a08ed2d8a33eeea34 Azin Sharaf <azin.sharaf@icloud.com> 1704312353 -0800	commit: adding alpha dashbaord plugin
+da310320b8f688803de57e7a08ed2d8a33eeea34 25a13a763cf4307274503af62d8578321d69f2a2 Azin Sharaf <azin.sharaf@icloud.com> 1704395540 -0800	commit: highlights
+25a13a763cf4307274503af62d8578321d69f2a2 ee157eb642471e57f6226141f0c1bfff5e0d06dc Azin Sharaf <azin.sharaf@icloud.com> 1704395553 -0800	commit: flash plugin
+ee157eb642471e57f6226141f0c1bfff5e0d06dc 68d891cc901bf053ef559b4b93e01f5f8dd76983 Azin Sharaf <azin.sharaf@icloud.com> 1704395562 -0800	commit: status bar
+68d891cc901bf053ef559b4b93e01f5f8dd76983 842099355016ac2a76695c7ea5fccd0cf5e292f4 Azin Sharaf <azin.sharaf@icloud.com> 1704395581 -0800	commit: treesitter
+842099355016ac2a76695c7ea5fccd0cf5e292f4 1d9338099b13c3c23f5e37bcd6633af927fa6df7 Azin Sharaf <azin.sharaf@icloud.com> 1704395603 -0800	commit: require highlights
+1d9338099b13c3c23f5e37bcd6633af927fa6df7 cdf5124f9a904b19c8dad631073054776d44d303 Azin Sharaf <azin.sharaf@icloud.com> 1705600194 -0800	commit: adding custom pyt file type
+cdf5124f9a904b19c8dad631073054776d44d303 90b1fa2228eaee3213739165565e39d623c8a987 Azin Sharaf <azin.sharaf@icloud.com> 1705600223 -0800	commit: remove pylint
+90b1fa2228eaee3213739165565e39d623c8a987 a2cf0c76951ed3f3ceaf5faacd796c9b1c35d498 Azin Sharaf <azin.sharaf@icloud.com> 1705600248 -0800	commit: add coderunner plugin for python
+a2cf0c76951ed3f3ceaf5faacd796c9b1c35d498 1aa5ca16f8b5298960855fc8ea946a5eb14c45ad Azin Sharaf <azin.sharaf@icloud.com> 1705600289 -0800	commit: adding some options
+1aa5ca16f8b5298960855fc8ea946a5eb14c45ad 77cf2de1a2d6b999b9a6351dde83b6257537b455 Azin Sharaf <azin.sharaf@icloud.com> 1705600310 -0800	commit: adding custom file type in init
+77cf2de1a2d6b999b9a6351dde83b6257537b455 c2376b90f32ab94859742f8b2764b93b84cfe23b Azin Sharaf <azin.sharaf@icloud.com> 1705600337 -0800	commit: clean code
