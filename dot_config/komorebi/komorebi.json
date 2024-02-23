@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
   "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.yaml",
-  "window_hiding_behaviour": "Cloak",
+  "window_hiding_behaviour": "Minimize",
   "cross_monitor_move_behaviour": "Insert",
   "default_workspace_padding": 20,
   "default_container_padding": 20,
@@ -57,7 +57,7 @@
         },
         {
           "name": "2-todoist/morgen",
-          "layout": "BSP",
+          "layout": "UltrawideVerticalStack",
           "workspace_rules": [
             {
               "kind": "Exe",
@@ -66,13 +66,17 @@
             {
               "kind": "Exe",
               "id": "Morgen.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "Obsidian.exe"
             }
           ]
         },
         {
           "name": "3-terminal",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "wezterm-gui.exe"
@@ -82,7 +86,7 @@
         {
           "name": "4-arcgis",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "ArcGISPro.exe"
@@ -100,13 +104,10 @@
           ]
         },
         {
-          "name": "6-obsidian",
+          "name": "6",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "Obsidian.exe"
-            }
+          "initial_workspace_rules": [
+
           ]
         },
         {
