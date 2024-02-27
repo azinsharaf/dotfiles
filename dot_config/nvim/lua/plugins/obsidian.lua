@@ -18,10 +18,13 @@ return {
 	},
 	opts = {
 		workspaces = {
-
+			{
+				name = "personal",
+				path = "C:\\Users\\asharaf\\iCloudDrive\\Obsidian_personal"
+			},
 			{
 				name = "work",
-				path = "C:\\Users\\asharaf\\OneDrive - EXAMPLE_ORG\\Obsidian-work",
+				path = "C:\\Users\\asharaf\\OneDrive - EXAMPLE_ORG\\Obsidian_work",
 			},
 		},
 
