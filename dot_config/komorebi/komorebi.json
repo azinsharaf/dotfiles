@@ -58,7 +58,7 @@
         {
           "name": "2-todoist/morgen",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "Todoist.exe"
