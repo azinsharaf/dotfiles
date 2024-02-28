@@ -1,3 +1,15 @@
+local Path = require("plenary.path")
+
+local workspaces = {}
+
+-- Check if the workspace path exists and add it to the workspaces table if it does
+if Path:new("C:\\Users\\asharaf\\OneDrive - Wood Rodgers Inc\\Obsidian\\Obsidian_work"):exists() then
+	table.insert(workspaces, {
+		name = "work", -- Provide a name for the workspace
+		path = "C:\\Users\\asharaf\\OneDrive - Wood Rodgers Inc\\Obsidian\\Obsidian_work", -- Adjust the path accordingly
+	})
+end
+
 return {
 	"epwalsh/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit
@@ -17,16 +29,7 @@ return {
 		-- see below for full list of optional dependencies 👇
 	},
 	opts = {
-		workspaces = {
-			{
-				name = "personal",
-				path = "C:\\Users\\asharaf\\iCloudDrive\\Obsidian_personal"
-			},
-			{
-				name = "work",
-				path = "C:\\Users\\asharaf\\OneDrive - Wood Rodgers Inc\\Obsidian_work",
-			},
-		},
+		workspaces = workspaces,
 
 		-- see below for full list of options 👇
 	},
