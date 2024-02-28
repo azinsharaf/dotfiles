@@ -47,3 +47,5 @@ opt.updatetime = 50
 
 opt.wildignorecase = true
 opt.wildmenu = true
+
+opt.conceallevel = 1
