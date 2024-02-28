@@ -29,7 +29,13 @@
 
   "border_overflow_applications": [],
 
-  "float_rules": [],
+  "float_rules": [
+    {
+      "kind": "Title",
+      "id": "Workspot",
+      "matching_strategy": "Equals"
+    }
+  ],
 
   "manage_rules": [],
 
@@ -100,15 +106,18 @@
             {
               "kind": "Exe",
               "id": "RemoteDesktopMAnager.exe"
+            },
+            {
+              "kind": "Title",
+              "id": "Oakland GPU",
+              "matching_strategy": "Equals"
             }
           ]
         },
         {
           "name": "6",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-
-          ]
+          "initial_workspace_rules": []
         },
         {
           "name": "7-music",
