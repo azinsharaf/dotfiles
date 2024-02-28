@@ -12,7 +12,7 @@ return {
 				additional_vim_regex_highlighting = false,
 			},
 			-- A list of parser names, or "all" (the five listed parsers should always be installed)
-			ensure_installed = { "python", "lua" },
+			ensure_installed = { "python", "lua", "markdown" },
 		})
 	end,
 }
