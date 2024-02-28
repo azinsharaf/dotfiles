@@ -54,17 +54,16 @@ function cdiff {chezmoi diff}
 
 
 function ks {
-	& "C:\Program Files\komorebi\bin\komorebic.exe" start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --whkd
+	& "C:\Program Files\komorebi\bin\komorebic.exe" start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd
 }
 
-function ke {komorebic stop}
+function ke {komorebic stop --whkd}
 
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
-$Env:KOMOREBI_CONFIG_HOME = '$Env:USERPROFILE\.config\komorebi'
-$Env:WHKD_CONFIG_HOME = '$Env:USERPROFILE\.config\whkd'
-# $Env:WHKD_CONFIG_HOME = 'C:\Users\asharaf\.config\whkd'
+$Env:KOMOREBI_CONFIG_HOME = 'C:\Users\asharaf\.config\komorebi'
+$Env:WHKD_CONFIG_HOME = 'C:\Users\asharaf\.config\whkd'
 
 $Env:SHELL = 'pwsh'
 $Env:VISUAL = 'nvim'
