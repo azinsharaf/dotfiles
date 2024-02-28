@@ -1,13 +1,21 @@
 local Path = require("plenary.path")
 
+local workspacePaths = {
+	{ name = "work", path = "C:/Users/asharaf/OneDrive - Wood Rodgers Inc/Obsidian/Obsidian_work" },
+	{ name = "personal", path = "C:/Users/asharaf/iCloudDrive/iCloud~md~obsidian/obsidian_personal" },
+}
+
 local workspaces = {}
 
--- Check if the workspace path exists and add it to the workspaces table if it does
-if Path:new("C:\\Users\\asharaf\\OneDrive - Wood Rodgers Inc\\Obsidian\\Obsidian_work"):exists() then
-	table.insert(workspaces, {
-		name = "work", -- Provide a name for the workspace
-		path = "C:\\Users\\asharaf\\OneDrive - Wood Rodgers Inc\\Obsidian\\Obsidian_work", -- Adjust the path accordingly
-	})
+for _, workspaceInfo in ipairs(workspacePaths) do
+	local workspacePath = workspaceInfo.path
+	if Path:new(workspacePath):exists() then
+		local workspace = {
+			name = workspaceInfo.name,
+			path = workspacePath,
+		}
+		table.insert(workspaces, workspace)
+	end
 end
 
 return {
