@@ -48,10 +48,10 @@ function fzfp {fzf --preview 'cat {}'}
 function fzfn {nvim $(fzf --preview 'cat {}')}
 function reboot {Restart-Computer}
 
-function ca {chezmoi -v apply}
+function cst {chezmoi status}
 function ccd {chezmoi cd}
-function cdiff {chezmoi diff}
-
+function cdi {chezmoi diff}
+function cap {chezmoi -v apply}
 
 function ks {
 	& "C:\Program Files\komorebi\bin\komorebic.exe" start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd
@@ -75,3 +75,7 @@ $Env:PYENV_ROOT = '$Env:USERPROFILE\.pyenv\pyenv-win\'
 
 
 $env:Path += ";C:\msys64\mingw64\bin"
+
+
+
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
