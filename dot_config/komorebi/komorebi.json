@@ -50,6 +50,11 @@
       "kind": "Title",
       "id": "ArcGIS Project",
       "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Add Data",
+      "matching_strategy": "Equals"
     }
   ],
 
