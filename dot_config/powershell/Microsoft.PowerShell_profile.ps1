@@ -48,14 +48,13 @@ function fzfp {fzf --preview 'cat {}'}
 function fzfn {nvim $(fzf --preview 'cat {}')}
 function reboot {Restart-Computer}
 
+function ce {chezmoi edit}
 function ca {chezmoi -v apply}
-function ccd {chezmoi cd}
-function cdiff {chezmoi diff}
+function cc {chezmoi cd}
+function cd {chezmoi diff}
 
 
-function ks {
-	& "C:\Program Files\komorebi\bin\komorebic.exe" start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd
-}
+function ks { 'komorebic.exe start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd'}
 
 function ke {komorebic stop --whkd}
 
