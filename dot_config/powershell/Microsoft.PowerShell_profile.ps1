@@ -44,15 +44,21 @@ function lt {lsd --tree}
 function e {exit}
 function :q {exit}
 function c {clear}
+
 function fzfp {fzf --preview 'cat {}'}
 function fzfn {nvim $(fzf --preview 'cat {}')}
+
 function reboot {Restart-Computer}
 
+function n {nvim}
+
+function lg {lazygit}
+
 function ce {chezmoi edit}
+function cd {chezmoi diff}
+function cs {chezmoi status}
 function ca {chezmoi -v apply}
 function cc {chezmoi cd}
-function cd {chezmoi diff}
-
 
 function ks { 'komorebic.exe start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd'}
 
