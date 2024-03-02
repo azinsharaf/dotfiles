@@ -54,11 +54,11 @@ function n {nvim}
 
 function lg {lazygit}
 
-function ce {chezmoi edit}
-function cd {chezmoi diff}
-function cs {chezmoi status}
-function ca {chezmoi -v apply}
-function cc {chezmoi cd}
+function cedit {chezmoi edit}
+function cdiff {chezmoi diff}
+function cstatus {chezmoi status}
+function capply {chezmoi -v apply}
+function ccd {chezmoi cd}
 
 function ks { 'komorebic.exe start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd'}
 
