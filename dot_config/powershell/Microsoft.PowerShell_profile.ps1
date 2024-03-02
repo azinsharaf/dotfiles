@@ -74,3 +74,7 @@ $Env:PYENV_ROOT = '$Env:USERPROFILE\.pyenv\pyenv-win\'
 
 
 $env:Path += ";C:\msys64\mingw64\bin"
+
+
+
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
