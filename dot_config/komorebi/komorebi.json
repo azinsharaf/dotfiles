@@ -34,6 +34,27 @@
       "kind": "Title",
       "id": "Workspot",
       "matching_strategy": "Equals"
+    },
+
+    {
+      "kind": "Title",
+      "id": "Properties",
+      "matching_strategy": "Contains"
+    },
+    {
+      "kind": "Title",
+      "id": "WR",
+      "matching_strategy": "Contains"
+    },
+    {
+      "kind": "Title",
+      "id": "ArcGIS Project",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Add Data",
+      "matching_strategy": "Equals"
     }
   ],
 
