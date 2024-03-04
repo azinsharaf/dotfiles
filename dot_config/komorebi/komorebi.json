@@ -55,6 +55,16 @@
       "kind": "Title",
       "id": "Add Data",
       "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Open Project",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Create New Project From Template",
+      "matching_strategy": "Equals"
     }
   ],
 
