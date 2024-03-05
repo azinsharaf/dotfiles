@@ -51,6 +51,7 @@ function fzfn {nvim $(fzf --preview 'cat {}')}
 function reboot {Restart-Computer}
 
 function n {nvim}
+function nvim-remove {Remove-Item -Path "$Env:USERPROFILE\AppData\Local\nvim-data" -Recurse -Force}
 
 function lg {lazygit}
 
@@ -60,7 +61,7 @@ function cstatus {chezmoi status}
 function capply {chezmoi -v apply}
 function ccd {chezmoi cd}
 
-function ks { 'komorebic.exe start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd'}
+function ks { 'komorebic start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd'}
 
 function ke {komorebic stop --whkd}
 
@@ -81,6 +82,7 @@ $Env:PYENV_ROOT = '$Env:USERPROFILE\.pyenv\pyenv-win\'
 
 $env:Path += ";C:\msys64\mingw64\bin"
 
+$env:Path += ";C:\Users\asharaf\scoop\apps\msys2\2024-01-13\usr\bin"
 
 
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
