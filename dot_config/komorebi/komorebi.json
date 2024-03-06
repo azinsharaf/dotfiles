@@ -8,7 +8,8 @@
   "focus_follows_mouse": "Windows",
   "mouse_follows_focus": false,
   "active_window_border": true,
-  "active_window_border_width": 5,
+  "border_width": 8,
+  "boder_offset": -1,
   "active_window_border_colours": {
     "single": {
       "r": 66,
