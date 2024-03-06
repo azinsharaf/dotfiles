@@ -42,7 +42,7 @@ alt + shift + oem_minus : komorebic resize-axis vertical decrease
 
 # Manipulate windows
 alt + t                 : komorebic toggle-float
-alt + shift + f         : komorebic toggle-monocle
+alt + f                 : komorebic toggle-monocle
 
 # Window manager options
 alt + shift + r         : komorebic retile
