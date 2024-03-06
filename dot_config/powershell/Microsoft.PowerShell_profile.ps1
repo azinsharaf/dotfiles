@@ -61,7 +61,7 @@ function cstatus {chezmoi status}
 function capply {chezmoi -v apply}
 function ccd {chezmoi cd}
 
-function ks { 'komorebic start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd'}
+function ks {komorebic-no-console start --config C:\Users\asharaf\.config\komorebi\komorebi.json --whkd}
 
 function ke {komorebic stop --whkd}
 
