@@ -1,5 +1,4 @@
-# using starship prompt
-Invoke-Expression (&starship init powershell)
+
 
 Set-PSReadlineOption -EditMode vi -viModeIndicator Cursor
 
@@ -65,6 +64,8 @@ function ks {komorebic-no-console start --config C:\Users\asharaf\.config\komore
 
 function ke {komorebic stop --whkd}
 
+function ca {conda activate arcgispro-py3-clone}
+
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
@@ -80,9 +81,14 @@ $Env:PYENV_HOME = '$Env:USERPROFILE\.pyenv\pyenv-win\'
 $Env:PYENV_ROOT = '$Env:USERPROFILE\.pyenv\pyenv-win\'
 
 
-$env:Path += ";C:\msys64\mingw64\bin"
+$Env:Path += ";C:\msys64\mingw64\bin"
+$Env:Path += ";C:\msys64\mingw64\bin"
 
-$env:Path += ";C:\Users\asharaf\scoop\apps\msys2\2024-01-13\usr\bin"
 
 
+# using starship prompt
+Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+
+
