@@ -66,6 +66,11 @@
       "kind": "Title",
       "id": "Create New Project From Template",
       "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Environment Manager",
+      "matching_strategy": "Equals"
     }
   ],
 
