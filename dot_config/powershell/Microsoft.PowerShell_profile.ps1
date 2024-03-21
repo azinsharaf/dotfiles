@@ -44,8 +44,8 @@ function e {exit}
 function :q {exit}
 function c {clear}
 
-function fzfp {fzf --preview 'cat {}'}
-function fzfn {nvim $(fzf --preview 'cat {}')}
+function fzfp {fzf --preview "cat {}"}
+function fzfn {nvim $(fzf --preview "cat {}")}
 
 function reboot {Restart-Computer}
 
@@ -60,7 +60,7 @@ function cstatus {chezmoi status}
 function capply {chezmoi -v apply}
 function ccd {chezmoi cd}
 
-function ks {komorebic-no-console start --config C:\Users\asharaf\.config\komorebi\komorebi.json --whkd}
+function ks {komorebic-no-console start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --whkd}
 
 function ke {komorebic stop --whkd}
 
@@ -69,22 +69,22 @@ function ca {conda activate arcgispro-py3-clone}
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
-$Env:KOMOREBI_CONFIG_HOME = 'C:\Users\asharaf\.config\komorebi'
-$Env:WHKD_CONFIG_HOME = 'C:\Users\asharaf\.config\whkd'
+$Env:KOMOREBI_CONFIG_HOME = "$Env:USERPROFILE\.config\komorebi"
+$Env:WHKD_CONFIG_HOME = "$Env:USERPROFILE\.config\whkd"
 
-$Env:SHELL = 'pwsh'
-$Env:VISUAL = 'nvim'
-$Env:EDITOR = 'nvim'
+$Env:SHELL = "pwsh"
+$Env:VISUAL = "nvim"
+$Env:EDITOR = "nvim"
 
-$Env:PYENV = '$Env:USERPROFILE\.pyenv\pyenv-win\'
-$Env:PYENV_HOME = '$Env:USERPROFILE\.pyenv\pyenv-win\'
-$Env:PYENV_ROOT = '$Env:USERPROFILE\.pyenv\pyenv-win\'
+$Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
+$Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
+$Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";C:\msys64\mingw64\bin"
 
-
+conda activate arcgispro-py3-clone
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
