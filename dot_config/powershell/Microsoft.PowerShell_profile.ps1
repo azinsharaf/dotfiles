@@ -60,7 +60,7 @@ function cstatus {chezmoi status}
 function capply {chezmoi -v apply}
 function ccd {chezmoi cd}
 
-function ks { 'komorebic.exe start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd'}
+function ks { 'komorebic start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd'}
 
 function ke {komorebic stop --whkd}
 
@@ -73,6 +73,7 @@ $Env:WHKD_CONFIG_HOME = 'C:\Users\asharaf\.config\whkd'
 $Env:SHELL = 'pwsh'
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
+# $Env:HOME = $Env:USERPROFILE
 
 $Env:PYENV = '$Env:USERPROFILE\.pyenv\pyenv-win\'
 $Env:PYENV_HOME = '$Env:USERPROFILE\.pyenv\pyenv-win\'
