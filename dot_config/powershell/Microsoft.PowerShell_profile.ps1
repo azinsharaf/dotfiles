@@ -76,11 +76,9 @@ function cstatus {chezmoi status}
 function capply {chezmoi -v apply}
 function ccd {chezmoi cd}
 
-function ks { 'komorebic start --config "C:\Users\asharaf\.config\komorebi\komorebi.json" --whkd'}
+function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --whkd}
 
 function ke {komorebic stop --whkd}
-
-function ca {conda activate arcgispro-py3-clone}
 
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
