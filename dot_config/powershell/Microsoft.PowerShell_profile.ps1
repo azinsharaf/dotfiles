@@ -2,6 +2,22 @@
 
 Set-PSReadlineOption -EditMode vi -viModeIndicator Cursor
 
+#arcgis pro python env activation
+
+$Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+$Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
+$Env:_CE_M = ""
+$Env:_CE_CONDA = ""
+$Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
+$Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+$CondaModuleArgs = @{ChangePs1 = $True}
+Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
+
+conda activate arcgispro-py3-clone
+
+Remove-Variable CondaModuleArgs
+
+
 # Does the the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
 function dirs {
     if ($args.Count -gt 0) {
