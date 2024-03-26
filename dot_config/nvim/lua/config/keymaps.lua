@@ -1,14 +1,15 @@
 local keymap = vim.keymap.set
+local telescope = require("telescope")
 local opt = {
 	noremap = true,
 	silent = true,
 }
 
 -- general
-keymap("n", "<leader>w", ":w<CR>", { desc = "Write" })
-keymap("n", "<leader>q", "<cmd>confirm q<cr>", { desc = "Quit" })
-keymap("n", "<leader>Q", "<cmd>confirm qall<cr>", { desc = "Quit All" })
-keymap("n", "<leader>n", "<cmd>enew<cr>", { desc = "New File" })
+-- keymap("n", "<leader>w", ":w<CR>", { desc = "Write" })
+-- keymap("n", "<leader>q", "<cmd>confirm q<cr>", { desc = "Quit" })
+-- keymap("n", "<leader>Q", "<cmd>confirm qall<cr>", { desc = "Quit All" })
+-- keymap("n", "<leader>n", "<cmd>enew<cr>", { desc = "New File" })
 
 -- keep the cursor in center (needs to be tested)
 keymap("n", "<C-d>", "<C-d>zz", opt)
@@ -79,5 +80,19 @@ wk.register({
 			"find keymaps",
 		},
 		b = { ":Telescope file_browser find_command=rg,--ignore,--hidden,--files<cr>", "file browser" },
+
+		require("telescope").load_extension("chezmoi"),
+		c = { telescope.extensions.chezmoi.find_files, "open chezmoi files" },
+	},
+
+	r = {
+		name = "code runner",
+		r = { ":RunCode<cr>", "Run Code" },
+		-- { "<leader>rf", "<cmd>RunFile<cr>", desc = "Run File" },
+		-- { "<leader>rft", "<cmd>RunFile tab<cr>", desc = "Run File Tab" },
+		-- { "<leader>rp", "<cmd>RunProject<cr>", desc = "Run Project" },
+		-- { "<leader>rc", "<cmd>RunClose<cr>", desc = "Run Close" },
+		-- { "<leader>crf", "<cmd>CRFiletype<cr>", desc = "Open Json supported files" },
+		-- { "<leader>crp", "<cmd>CRProject<cr>", desc = "Open Json list of projects" },
 	},
 }, { prefix = "<leader>" })

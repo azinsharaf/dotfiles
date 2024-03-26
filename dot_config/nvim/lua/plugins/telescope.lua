@@ -49,7 +49,5 @@ return {
 		})
 
 		require("telescope").load_extension("fzf")
-		require("telescope").load_extension("chezmoi")
-		vim.keymap.set("n", "<leader>cz", telescope.extensions.chezmoi.find_files, {})
 	end,
 }
