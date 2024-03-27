@@ -99,8 +99,6 @@ $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";C:\msys64\mingw64\bin"
 
-conda activate arcgispro-py3-clone
-
 # using starship prompt
 Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
