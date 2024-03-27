@@ -31,6 +31,12 @@
 
   "float_rules": [
     {
+      "kind": "Exe",
+      "id": "Zebar.exe",
+      "matching_strategy": "Equals"
+    },
+
+    {
       "kind": "Title",
       "id": "Workspot",
       "matching_strategy": "Equals"
