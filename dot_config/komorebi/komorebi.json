@@ -7,8 +7,9 @@
   "default_container_padding": 20,
   "focus_follows_mouse": "Windows",
   "mouse_follows_focus": false,
-  "active_window_border": false,
-  "active_window_border_width": 15,
+  "active_window_border": true,
+  "border_width": 6,
+  "border_offset": -1,
   "active_window_border_colours": {
     "single": {
       "r": 66,
@@ -97,7 +98,7 @@
         {
           "name": "1-chat",
           "layout": "UltrawideVerticalStack",
-          "workspace_padding": 20,
+          "workspace_padding": 40,
           "workspace_rules": [
             {
               "kind": "Exe",
