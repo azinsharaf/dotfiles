@@ -95,4 +95,122 @@ wk.register({
 		-- { "<leader>crf", "<cmd>CRFiletype<cr>", desc = "Open Json supported files" },
 		-- { "<leader>crp", "<cmd>CRProject<cr>", desc = "Open Json list of projects" },
 	},
+
+	o = {
+		name = "Obsidian",
+		-- o = {
+		-- 	function()
+		-- 		vim.cmd(":ObsidianOpen")
+		-- 	end,
+		-- 	"Open note in Obsidian app",
+		-- },
+		n = {
+			function()
+				vim.cmd(":ObsidianNew")
+			end,
+			"Create a new note",
+		},
+		o = {
+			function()
+				vim.cmd(":ObsidianQuickSwitch")
+			end,
+			"Quickly switch to another note",
+		},
+		f = {
+			function()
+				vim.cmd(":ObsidianFollowLink")
+			end,
+			"Follow note reference under cursor",
+		},
+		b = {
+			function()
+				vim.cmd(":ObsidianBacklinks")
+			end,
+			"Get references to current buffer",
+		},
+		t = {
+			function()
+				vim.cmd(":ObsidianTags")
+			end,
+			"Get all occurrences of given tags",
+		},
+		-- today = {
+		-- 	function()
+		-- 		vim.cmd(":ObsidianToday")
+		-- 	end,
+		-- 	"Open/create daily note for today",
+		-- },
+		-- yesterday = {
+		-- 	function()
+		-- 		vim.cmd(":ObsidianYesterday")
+		-- 	end,
+		-- 	"Open/create daily note for yesterday",
+		-- },
+		-- tomorrow = {
+		-- 	function()
+		-- 		vim.cmd(":ObsidianTomorrow")
+		-- 	end,
+		-- 	"Open/create daily note for tomorrow",
+		-- },
+		d = {
+			function()
+				vim.cmd(":ObsidianDailies")
+			end,
+			"Open picker list of daily notes",
+		},
+		-- template = {
+		-- 	function()
+		-- 		vim.cmd(":ObsidianTemplate")
+		-- 	end,
+		-- 	"Insert template from templates folder",
+		-- },
+		g = {
+			function()
+				vim.cmd(":ObsidianSearch")
+			end,
+			"Grep for notes in vault",
+		},
+		l = {
+			function()
+				vim.cmd(":ObsidianLink")
+			end,
+			"Link visual selection to note",
+		},
+		-- ln = {
+		-- 	function()
+		-- 		vim.cmd(":ObsidianLinkNew")
+		-- 	end,
+		-- 	"Create new note and link visual selection",
+		-- },
+		-- links = {
+		-- 	function()
+		-- 		vim.cmd(":ObsidianLinks")
+		-- 	end,
+		-- 	"Collect all links within current buffer",
+		-- },
+		-- extract = {
+		-- 	function()
+		-- 		vim.cmd(":ObsidianExtractNote")
+		-- 	end,
+		-- 	"Extract visually selected text into new note",
+		-- },
+		w = {
+			function()
+				vim.cmd(":ObsidianWorkspace")
+			end,
+			"Switch to another workspace",
+		},
+		-- pasteimg = {
+		-- 	function()
+		-- 		vim.cmd(":ObsidianPasteImg")
+		-- 	end,
+		-- 	"Paste image from clipboard into note",
+		-- },
+		-- rename = {
+		-- 	function()
+		-- 		vim.cmd(":ObsidianRename")
+		-- 	end,
+		-- 	"Rename note of current buffer or reference",
+		-- },
+	},
 }, { prefix = "<leader>" })
