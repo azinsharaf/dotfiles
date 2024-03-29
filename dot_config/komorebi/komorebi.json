@@ -7,7 +7,7 @@
   "default_container_padding": 20,
   "focus_follows_mouse": "Windows",
   "mouse_follows_focus": false,
-  "active_window_border": true,
+  "active_window_border": false,
   "border_width": 6,
   "border_offset": -1,
   "active_window_border_colours": {
@@ -37,6 +37,11 @@
       "matching_strategy": "Equals"
     },
 
+    // {
+    //   "kind": "Exe",
+    //   "id": "ArcGISPro.exe",
+    //   "matching_strategy": "Equals"
+    // },
     {
       "kind": "Title",
       "id": "Workspot",
