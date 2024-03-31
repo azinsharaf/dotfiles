@@ -223,4 +223,12 @@ wk.register({
 		-- 	"Rename note of current buffer or reference",
 		-- },
 	},
+
+	t = {
+		name = "toggles on/off",
+		c = {
+			"<CR>:Copilot toggle<CR>",
+			"toggle copilot",
+		},
+	},
 }, { prefix = "<leader>" })
