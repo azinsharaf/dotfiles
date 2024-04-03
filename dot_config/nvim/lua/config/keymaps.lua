@@ -85,6 +85,16 @@ wk.register({
 		c = { telescope.extensions.chezmoi.find_files, "open chezmoi files" },
 	},
 
+	b = {
+		name = "buffer",
+		b = {
+			function()
+				builtin.buffers()
+			end,
+			"list buffers",
+		},
+	},
+
 	r = {
 		name = "code runner",
 		r = { ":RunCode<cr>", "Run Code" },
@@ -212,5 +222,13 @@ wk.register({
 		-- 	end,
 		-- 	"Rename note of current buffer or reference",
 		-- },
+	},
+
+	t = {
+		name = "toggles on/off",
+		c = {
+			"<CR>:Copilot toggle<CR>",
+			"toggle copilot",
+		},
 	},
 }, { prefix = "<leader>" })
