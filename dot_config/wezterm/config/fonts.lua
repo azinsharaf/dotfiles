@@ -3,7 +3,7 @@ local platform = require("utils.platform")
 
 local font = "FiraCode Nerd Font"
 -- local font = "JetBrainsMono Nerd Font"
-local font_size = 12 --platform().is_mac and 12 or 13
+local font_size = 11.5 --platform().is_mac and 12 or 13
 
 return {
 
