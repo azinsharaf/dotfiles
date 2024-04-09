@@ -7,7 +7,7 @@
   "default_container_padding": 20,
   "focus_follows_mouse": "Windows",
   "mouse_follows_focus": false,
-  "active_window_border": false,
+  "active_window_border": true,
   "border_width": 6,
   "border_offset": -1,
   "active_window_border_colours": {
@@ -25,6 +25,17 @@
       "r": 255,
       "g": 51,
       "b": 153
+    }
+  },
+
+  "stackbar": {
+    "height": 40,
+    "mode": "OnStack",
+    "tabs": {
+      "width": 300,
+      "focused_text": "#00a542",
+      "unfocused_text": "#b3b3b3",
+      "background": "#141414"
     }
   },
 
