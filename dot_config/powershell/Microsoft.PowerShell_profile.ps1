@@ -80,6 +80,7 @@ function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komoreb
 
 function ke {komorebic stop --whkd}
 
+function sql {C:\Users\asharaf\scoop\apps\go-sqlcmd\current\sqlcmd.exe}
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
@@ -98,6 +99,7 @@ $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";C:\msys64\mingw64\bin"
+$Env:Path += ";C:\Users\asharaf\scoop\apps\nodejs\current"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
