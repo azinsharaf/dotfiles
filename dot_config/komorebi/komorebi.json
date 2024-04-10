@@ -3,8 +3,8 @@
   "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.yaml",
   "window_hiding_behaviour": "Minimize",
   "cross_monitor_move_behaviour": "Insert",
-  "default_workspace_padding": 20,
-  "default_container_padding": 20,
+  "default_workspace_padding": 14,
+  "default_container_padding": 14,
   "focus_follows_mouse": "Windows",
   "mouse_follows_focus": false,
   "active_window_border": true,
@@ -110,6 +110,12 @@
 
   "monitors": [
     {
+      "work_area_offset": {
+        "top": 35,
+        "bottom": 35,
+        "left": 0,
+        "right": 0
+      },
       "workspaces": [
         {
           "name": "1 chat",
