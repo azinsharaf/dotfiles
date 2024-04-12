@@ -51,6 +51,8 @@ function pgrep($name) {
     Get-Process $name
 }
 
+function btop {btop4win}
+
 function ls {lsd}
 function l {lsd -l}
 function la {lsd -a}
@@ -96,6 +98,7 @@ $Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
+$ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";C:\msys64\mingw64\bin"
