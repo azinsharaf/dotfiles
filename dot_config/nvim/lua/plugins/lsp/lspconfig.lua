@@ -137,6 +137,11 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- configure json language server
+		lspconfig["jsonls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,
