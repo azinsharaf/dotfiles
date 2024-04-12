@@ -43,7 +43,7 @@ return {
 				cvs = false,
 				["."] = false,
 			},
-			copilot_node_command = "C:/Users/asharaf/scoop/apps/nodejs/current/node.exe", -- Node.js version must be > 18.x
+			copilot_node_command = os.getenv("NEOVIM_NODE_PATH"), -- Use the environment variable for Node.js path. the version must be > 18.x
 			server_opts_overrides = {},
 		})
 	end,

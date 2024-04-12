@@ -100,6 +100,13 @@ $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
+if ($env:COMPUTERNAME -eq "Desktop-Azin") {
+    $env:NEOVIM_NODE_PATH = "C:\Program Files\nodejs\node.exe"
+} elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
+    $env:NEOVIM_NODE_PATH = "C:\Users\asharaf\scoop\apps\nodejs\current"
+}
+
+
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";C:\Users\asharaf\scoop\apps\nodejs\current"
