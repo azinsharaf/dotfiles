@@ -103,7 +103,7 @@ $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 if ($env:COMPUTERNAME -eq "Desktop-Azin") {
     $env:NEOVIM_NODE_PATH = "C:\Program Files\nodejs\node.exe"
 } elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
-    $env:NEOVIM_NODE_PATH = "C:\Users\asharaf\scoop\apps\nodejs\current"
+    $env:NEOVIM_NODE_PATH = "C:\Users\asharaf\scoop\apps\nodejs\current\node.exe"
 }
 
 
