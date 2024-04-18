@@ -57,5 +57,11 @@ wk.register({
 		m = { "<cmd>Mason<cr>", "Mason" },
 	},
 
+	-- toggles
+	t = {
+		name = "Toggle",
+		k = { "<cmd>Screenkey<cr>", "Screenkey" },
+	},
+
 	c = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
 }, { prefix = "<leader>" })
