@@ -110,6 +110,7 @@ if ($env:COMPUTERNAME -eq "Desktop-Azin") {
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";C:\Users\asharaf\scoop\apps\nodejs\current"
+$Env:Path += ";C:\Users\asharaf\.cargo\bin"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
