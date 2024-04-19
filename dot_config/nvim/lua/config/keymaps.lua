@@ -35,19 +35,19 @@ local wk = require("which-key")
 wk.register({
 
 	-- file related
-	f = {
-		name = "File",
-		f = { "<cmd>Telescope find_files<cr>", "Find Files" },
-		c = { telescope.extensions.chezmoi.find_files, "Find chezmoi files" },
-		g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
-		b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-		h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
-		o = { "<cmd>Telescope oldfiles<cr>", "Old Files" },
-		r = { "<cmd>Telescope registers<cr>", "Registers" },
-		s = { "<cmd>Telescope spell_suggest<cr>", "Spell Suggestions" },
-		k = { "<cmd>Telescope keymaps<cr>", "Key Maps" },
-		x = { "<cmd>Telescope file_browser hidden=true<cr>", "File Browser" },
-	},
+	-- f = {
+	-- 	name = "File",
+	-- 	f = { "<cmd>Telescope find_files<cr>", "Find Files" },
+	-- 	c = { telescope.extensions.chezmoi.find_files, "Find chezmoi files" },
+	-- 	g = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+	-- 	b = { "<cmd>Telescope buffers<cr>", "Buffers" },
+	-- 	h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
+	-- 	o = { "<cmd>Telescope oldfiles<cr>", "Old Files" },
+	-- 	r = { "<cmd>Telescope registers<cr>", "Registers" },
+	-- 	s = { "<cmd>Telescope spell_suggest<cr>", "Spell Suggestions" },
+	-- 	k = { "<cmd>Telescope keymaps<cr>", "Key Maps" },
+	-- 	x = { "<cmd>Telescope file_browser hidden=true<cr>", "File Browser" },
+	-- },
 
 	-- git related using telescope
 	g = {
