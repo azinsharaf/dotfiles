@@ -1,6 +1,6 @@
 require("config.globals")
 require("config.lazy")
-require("config.options")
 require("config.keymaps")
+require("config.options")
 require("config.highlights")
 require("config.custom_file_types")
