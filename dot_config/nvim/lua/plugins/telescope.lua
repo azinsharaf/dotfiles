@@ -25,6 +25,7 @@ return {
 
 		telescope.setup({
 			defaults = {
+				path_display = { "smart" },
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, --move to prev result
@@ -49,5 +50,22 @@ return {
 		})
 
 		require("telescope").load_extension("fzf")
+
+		-- set keymaps
+
+		local keymap = vim.keymap
+
+		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "find files" })
+		keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "old files" })
+		keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "grep a word" })
+		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+		-- keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+		keymap.set("n", "<leader>fc", telescope.extensions.chezmoi.find_files, { desc = "Find chezmoi files" })
+		keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser hidden=true<cr>", { desc = "browser" })
+		keymap.set("n", "<leader>fx", "<cmd>Telescope buffers<cr>", { desc = "buffers" })
+		keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help Tags" })
+		keymap.set("n", "<leader>fr", "<cmd>Telescope registers<cr>", { desc = "Registers" })
+		keymap.set("n", "<leader>fs", "<cmd>Telescope spell_suggest<cr>", { desc = "Spell Suggestions" })
+		keymap.set("n", "<leader>fs", "<cmd>Telescope keymaps<cr>", { desc = "Key Maps" })
 	end,
 }
