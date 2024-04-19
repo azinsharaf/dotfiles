@@ -50,13 +50,13 @@ wk.register({
 	-- },
 
 	-- git related using telescope
-	g = {
-		name = "Git",
-		s = { "<cmd>Telescope git_status<cr>", "Git Status" },
-		c = { "<cmd>Telescope git_commits<cr>", "Git Commits" },
-		b = { "<cmd>Telescope git_branches<cr>", "Git Branches" },
-		f = { "<cmd>Telescope git_files<cr>", "Git Files" },
-	},
+	-- g = {
+	-- 	name = "Git",
+	-- 	s = { "<cmd>Telescope git_status<cr>", "Git Status" },
+	-- 	c = { "<cmd>Telescope git_commits<cr>", "Git Commits" },
+	-- 	b = { "<cmd>Telescope git_branches<cr>", "Git Branches" },
+	-- 	f = { "<cmd>Telescope git_files<cr>", "Git Files" },
+	-- },
 
 	-- package manager and mason related
 	p = {
