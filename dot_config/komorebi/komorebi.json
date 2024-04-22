@@ -49,23 +49,17 @@
       "matching_strategy": "Equals"
     },
 
-    {
-      "kind": "Title",
-      "id": "Workspot",
+    [{
+      "kind": "Exe",
+      "id": "WorkspotClient.exe",
       "matching_strategy": "Equals"
-    }
-    // [
-    //   {
-    //     "kind": "Exe",
-    //     "id": "ArcGISPro.exe",
-    //     "matching_strategy": "Equals"
-    //   },
-    //   {
-    //     "kind": "Class",
-    //     "id": "ArcGISPro",
-    //     "matching_strategy": "DoesNotContain"
-    //   }
-    // ]
+    },
+    {
+        "kind": "Title",
+        "id": "Workspot",
+        "matching_strategy": "Equals"
+    },
+    ],
   ],
 
   "manage_rules": [],
@@ -99,13 +93,9 @@
           ]
         },
         {
-          "name": "2 moob",
+          "name": "2 caltsk",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "Todoist.exe"
-            },
             {
               "kind": "Exe",
               "id": "Morgen.exe"
@@ -139,15 +129,14 @@
         {
           "name": "5 rdp",
           "layout": "BSP",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
-              "id": "RemoteDesktopMAnager.exe"
+              "id": "RemoteDesktopManager.exe"
             },
             {
-              "kind": "Title",
-              "id": "Oakland GPU",
-              "matching_strategy": "Equals"
+              "kind": "Exe",
+              "id": "WorkspotClient.exe"
             }
           ]
         },
@@ -159,7 +148,7 @@
         {
           "name": "7 mus",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "Spotify.exe"
