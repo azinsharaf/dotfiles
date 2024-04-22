@@ -49,6 +49,11 @@
       "matching_strategy": "Equals"
     },
 
+    {
+      "kind": "Exe",
+      "id": "ArcGISPro.exe",
+      "matching_strategy": "Equals"
+    },
     [{
       "kind": "Exe",
       "id": "WorkspotClient.exe",
@@ -58,8 +63,8 @@
         "kind": "Title",
         "id": "Workspot",
         "matching_strategy": "Equals"
-    },
-    ],
+    }
+    ]
   ],
 
   "manage_rules": [],
