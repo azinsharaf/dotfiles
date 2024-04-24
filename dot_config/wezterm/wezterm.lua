@@ -59,7 +59,7 @@ config.front_end = "WebGpu"
 config.enable_scroll_bar = false
 config.scrollback_lines = 10240
 config.font_size = 11
-config.enable_tab_bar = false
+config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
 config.automatically_reload_config = true
 config.default_cursor_style = "BlinkingBar"
@@ -76,55 +76,15 @@ config.window_padding = {
 	bottom = 30,
 }
 config.window_frame = {
-	font = wezterm.font({ family = "SF Mono" }),
-	-- font = wezterm.font({ family = "Geist Mono" }),
+	font = wezterm.font({ family = "JetBrainsMono Nerd Font Mono" }),
 	active_titlebar_bg = "#1e1e1e",
 	inactive_titlebar_bg = "#1e1e1e",
-	font_size = 15.0,
+	font_size = 11.0,
 }
 
 config.window_background_opacity = 0.95
 
-config.color_scheme = "OneDark (base16)"
-config.color_scheme = "OneDark"
-config.color_schemes = {
-	["OneDark"] = {
-		foreground = "#f0f6fc",
-		background = "#1e1e1e",
-		-- background = "#21262d",
-		-- background = "#1e1e2e",
-		-- background = "#1a1b26",
-		cursor_bg = "#b1cad8",
-		cursor_fg = "#21262d",
-		cursor_border = "#CF7277",
-		selection_fg = "#21262d",
-		selection_bg = "#2A4668",
-		scrollbar_thumb = "#30363d",
-		split = "#6e7681",
-
-		ansi = {
-			"#8b949e",
-			"#ff7b72",
-			"#aff5b4",
-			"#FFE08C",
-			"#79c0ff",
-			"#d2a8ff",
-			"#a5d6ff",
-			"#c9d1d9",
-		},
-		brights = {
-
-			"#8b949e",
-			"#ff7b72",
-			"#aff5b4",
-			"#FFE08C",
-			"#79c0ff",
-			"#d2a8ff",
-			"#a5d6ff",
-			"#c9d1d9",
-		},
-	},
-}
+config.color_scheme = "catppuccin-mocha"
 
 config.colors = {
 	tab_bar = {
