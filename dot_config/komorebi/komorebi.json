@@ -79,48 +79,48 @@
       },
       "workspaces": [
         {
-          "name": "1 chat",
+          "name": "1 office365",
           "layout": "UltrawideVerticalStack",
           "workspace_padding": 15,
           "workspace_rules": [
             {
               "kind": "Exe",
-              "id": "Teams.exe"
+              "id": "ms-teams.exe"
             },
             {
               "kind": "Exe",
-              "id": "Spark Desktop.exe"
+              "id": "olk.exe"
+            },
+          ]
+        },
+        {
+          "name": "2 email/cal",
+          "layout": "UltrawideVerticalStack",
+          "workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "mailspring.exe"
             },
             {
               "kind": "Exe",
-              "id": "Discord.exe"
+              "id": "Morgen.exe"
             }
           ]
         },
         {
-          "name": "2 caltsk",
+          "name": "3 notes",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "Morgen.exe"
-            },
-            {
+          "workspace_rules": [
+          {
               "kind": "Exe",
               "id": "Obsidian.exe"
             }
           ]
         },
         {
-          "name": "3 term",
-          "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-          ]
-        },
-        {
           "name": "4 gis",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
+          "workspace_rules": [
             {
               "kind": "Exe",
               "id": "ArcGISPro.exe"
@@ -130,7 +130,7 @@
         {
           "name": "5 rdp",
           "layout": "BSP",
-          "initial_workspace_rules": [
+          "workspace_rules": [
             {
               "kind": "Exe",
               "id": "RemoteDesktopManager.exe"
@@ -147,8 +147,8 @@
           "initial_workspace_rules": []
         },
         {
-          "name": "7 mus",
-          "layout": "UltrawideVerticalStack",
+          "name": "7 music",
+          "layout": "BSP",
           "initial_workspace_rules": [
             {
               "kind": "Exe",
@@ -157,7 +157,7 @@
           ]
         },
         {
-          "name": "8 no-t"
+          "name": "8 no-tiled"
         }
       ]
     }
