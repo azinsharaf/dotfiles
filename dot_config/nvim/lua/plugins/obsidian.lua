@@ -50,5 +50,22 @@ return {
 			-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
 			template = nil,
 		},
+        -- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
+        completion = {
+          -- Set to false to disable completion.
+          nvim_cmp = true,
+          -- Trigger completion at 2 chars.
+          min_chars = 1,
+        },
 	},
+    keys = {
+
+    { "<leader>oo", "<cmd>ObsidianOpen<cr>", desc = "Open in Obsidian" },
+    { "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian New" },
+    { "<leader>oq", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian Quick Switch" },
+    { "<leader>ol", "<cmd>ObsidianFollowLink<cr>", desc = "Obsidian Folow Link" },
+    { "<leader>og", "<cmd>ObsidianTags<cr>", desc = "Obsidian Tags" },
+    { "<leader>ot", "<cmd>ObsidianToday<cr>", desc = "Obsidian Today" },
+
+    }
 }
