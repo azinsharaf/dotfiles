@@ -82,7 +82,7 @@
           "name": "1 office365",
           "layout": "UltrawideVerticalStack",
           "workspace_padding": 15,
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "ms-teams.exe"
@@ -96,7 +96,7 @@
         {
           "name": "2 email/cal",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "mailspring.exe"
@@ -110,7 +110,7 @@
         {
           "name": "3 notes",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
           {
               "kind": "Exe",
               "id": "Obsidian.exe"
@@ -130,7 +130,7 @@
         {
           "name": "5 rdp",
           "layout": "BSP",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "RemoteDesktopManager.exe"
