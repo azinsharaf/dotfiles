@@ -8,7 +8,7 @@
   "focus_follows_mouse": "Komorebi",
   "mouse_follows_focus": false,
   "active_window_border": true,
-  "border_width": 6,
+  "border_width": 8,
   "border_offset": -1,
   "active_window_border_style": "Square",
   "active_window_border_colours": {
@@ -28,7 +28,6 @@
       "b": 153
     }
   },
-
   "stackbar": {
     "height": 40,
     "mode": "OnStack",
@@ -39,44 +38,39 @@
       "background": "#141414"
     }
   },
-
   "border_overflow_applications": [],
-
   "float_rules": [
     {
       "kind": "Exe",
       "id": "Zebar.exe",
       "matching_strategy": "Equals"
     },
-
+    {
+      "kind": "Exe",
+      "id": "python.exe",
+      "matching_strategy": "Equals"
+    },
     {
       "kind": "Exe",
       "id": "ArcGISPro.exe",
       "matching_strategy": "Equals"
     },
-    [{
-      "kind": "Exe",
-      "id": "WorkspotClient.exe",
-      "matching_strategy": "Equals"
-    },
-    {
+    [
+      {
+        "kind": "Exe",
+        "id": "WorkspotClient.exe",
+        "matching_strategy": "Equals"
+      },
+      {
         "kind": "Title",
         "id": "Workspot",
         "matching_strategy": "Equals"
-    }
+      }
     ]
   ],
-
   "manage_rules": [],
-
   "monitors": [
     {
-      "work_area_offset": {
-        "top": 30,
-        "bottom": 15,
-        "left": 0,
-        "right": 0
-      },
       "workspaces": [
         {
           "name": "1 office365",
@@ -111,7 +105,7 @@
           "name": "3 notes",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-          {
+            {
               "kind": "Exe",
               "id": "Obsidian.exe"
             }
@@ -120,7 +114,7 @@
         {
           "name": "4 gis",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "ArcGISPro.exe"
