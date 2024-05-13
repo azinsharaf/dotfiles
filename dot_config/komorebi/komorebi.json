@@ -38,7 +38,14 @@
       "background": "#141414"
     }
   },
+
   "border_overflow_applications": [],
+  "global_work_area_offset": {
+    "top": 30,
+    "bottom": 15,
+    "left": 0,
+    "right": 0
+  },
   "float_rules": [
     {
       "kind": "Exe",
