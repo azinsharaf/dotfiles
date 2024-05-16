@@ -51,8 +51,6 @@ function pgrep($name) {
     Get-Process $name
 }
 
-function btop {btop4win}
-
 function ls {lsd}
 function l {lsd -l}
 function la {lsd -a}
