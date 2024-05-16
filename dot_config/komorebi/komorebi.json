@@ -95,21 +95,31 @@
           ]
         },
         {
-          "name": "2 email/cal",
+          "name": "2 email",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "mailspring.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "Morgen.exe"
             }
           ]
         },
         {
-          "name": "3 notes",
+          "name": "3 cal/todoo",
+          "layout": "UltrawideVerticalStack",
+          "initial_workspace_rules": [
+            {
+              "kind": "Exe",
+              "id": "Morgen.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "Todoist.exe"
+            }
+          ]
+        },
+        {
+          "name": "4 notes",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
             {
@@ -119,7 +129,7 @@
           ]
         },
         {
-          "name": "4 gis",
+          "name": "5 gis",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
             {
@@ -129,7 +139,7 @@
           ]
         },
         {
-          "name": "5 rdp",
+          "name": "6 rdp",
           "layout": "BSP",
           "initial_workspace_rules": [
             {
@@ -143,12 +153,12 @@
           ]
         },
         {
-          "name": "6",
+          "name": "7",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": []
         },
         {
-          "name": "7 music",
+          "name": "8 music",
           "layout": "BSP",
           "initial_workspace_rules": [
             {
@@ -158,7 +168,7 @@
           ]
         },
         {
-          "name": "8 no-tiled"
+          "name": "9 no-tiled"
         }
       ]
     }
