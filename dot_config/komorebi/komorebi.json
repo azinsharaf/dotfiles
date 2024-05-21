@@ -57,11 +57,6 @@
       "id": "python.exe",
       "matching_strategy": "Equals"
     },
-    {
-      "kind": "Exe",
-      "id": "ArcGISPro.exe",
-      "matching_strategy": "Equals"
-    },
     [
       {
         "kind": "Exe",
@@ -73,9 +68,27 @@
         "id": "Workspot",
         "matching_strategy": "Equals"
       }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "id": "olk.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "id": "Reminders",
+        "matching_strategy": "StartsWith"
+      }
     ]
   ],
-  "manage_rules": [],
+  "manage_rules": [
+    {
+      "kind": "Exe",
+      "id": "Survey123",
+      "matching_strategy": "Contains"
+    }
+  ],
   "monitors": [
     {
       "workspaces": [
