@@ -7,11 +7,11 @@
   "default_container_padding": 10,
   "focus_follows_mouse": "Komorebi",
   "mouse_follows_focus": false,
-  "active_window_border": true,
+  "border": true,
   "border_width": 8,
   "border_offset": -1,
-  "active_window_border_style": "Square",
-  "active_window_border_colours": {
+  "border_style": "Square",
+  "border_colours": {
     "single": {
       "r": 66,
       "g": 165,
