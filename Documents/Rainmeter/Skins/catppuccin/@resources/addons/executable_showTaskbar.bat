@@ -1,1 +1,0 @@
-taskkill /f /im hidetaskbar.exe && taskkill /f /im explorer.exe && start explorer.exe
