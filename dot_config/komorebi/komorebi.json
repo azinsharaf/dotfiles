@@ -12,25 +12,15 @@
   "border_offset": -1,
   "border_style": "Square",
   "border_colours": {
-    "single": {
-      "r": 66,
-      "g": 165,
-      "b": 245
-    },
-    "stack": {
-      "r": 256,
-      "g": 165,
-      "b": 66
-    },
-    "monocle": {
-      "r": 255,
-      "g": 51,
-      "b": 153
-    }
+    "single": "#42a5f5",
+    "stack": "#00a542",
+    "monocle": "#ff3399",
+    "unfocused": "#808080"
   },
   "stackbar": {
     "height": 40,
     "mode": "OnStack",
+    "label": "Title",
     "tabs": {
       "width": 300,
       "focused_text": "#00a542",
