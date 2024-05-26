@@ -3,19 +3,19 @@ vim.cmd("let g:netrw_lifestyle = 3")
 local opt = vim.opt
 
 -- Tab / Indentation
-opt.tabstop = 4 -- 4 spaces for tabs
-opt.shiftwidth = 4 --4 spaces for indent width
+opt.tabstop = 4       -- 4 spaces for tabs
+opt.shiftwidth = 4    --4 spaces for indent width
 opt.softtabstop = 4
-opt.expandtab = true -- expand tab to spaces
+opt.expandtab = true  -- expand tab to spaces
 opt.smartindent = true
 opt.autoindent = true -- copy indent from current line when starting new
 opt.wrap = false
-opt.linebreak = true -- linebreak soft wrap at words
+opt.linebreak = true  -- linebreak soft wrap at words
 
 -- Search
 opt.incsearch = true
 opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.smartcase = true  -- if you include mixed case in your search, assumes you want case-sensitive
 opt.hlsearch = false
 
 -- Appearance
@@ -24,7 +24,7 @@ opt.relativenumber = true
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.colorcolumn = "100"
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.signcolumn = "yes"  -- show sign column so that text doesn't shift
 opt.cmdheight = 1
 opt.scrolloff = 10
 opt.completeopt = "menuone,noinsert,noselect"
@@ -52,4 +52,4 @@ opt.updatetime = 50
 opt.wildignorecase = true
 opt.wildmenu = true
 
-opt.conceallevel = 1
+opt.conceallevel = 0
