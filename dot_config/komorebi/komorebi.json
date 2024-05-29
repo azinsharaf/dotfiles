@@ -70,7 +70,49 @@
         "id": "Reminders",
         "matching_strategy": "StartsWith"
       }
-    ]
+    ],
+    {
+
+        "kind": "Title",
+        "id": "Arc extension popup",
+        "matching_strategy": "Equals"
+    },
+    {
+        "kind": "Title",
+        "id": "ActiproWindowChromeShadow",
+        "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "komorebi-gui",
+      "matching_strategy": "Equals"
+    },
+
+    {
+        "kind": "Title",
+        "id": "New Project",
+        "matching_strategy": "Contains"
+    },
+    [
+    {
+        "kind": "Exe",
+        "id": "ArcGISPro.exe",
+        "matching_strategy": "Equals"
+    },
+    {
+       "kind": "Title",
+       "id": "Properties",
+       "matching_strategy": "Contains"
+    }
+    ],
+
+    {
+
+       "kind": "Title",
+       "id": "ArcGIS Project",
+       "matching_strategy": "Contains"
+    }
+
   ],
   "manage_rules": [
     {
