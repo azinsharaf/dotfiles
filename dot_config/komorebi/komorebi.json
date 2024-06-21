@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
   "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.yaml",
-  "window_hiding_behaviour": "Minimize",
+  "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
   "default_workspace_padding": 10,
   "default_container_padding": 10,
@@ -23,12 +23,14 @@
     "label": "Title",
     "tabs": {
       "width": 300,
-      "focused_text": "#00a542",
-      "unfocused_text": "#b3b3b3",
+      "focused_text": "#42a5f5",
+      "unfocused_text": "#bd93f9",
       "background": "#141414"
     }
   },
 
+  "transparency" : true,
+  "transparency_alpha" : 200,
   "border_overflow_applications": [],
   "global_work_area_offset": {
     "top": 30,
@@ -72,7 +74,6 @@
       }
     ],
     {
-
         "kind": "Title",
         "id": "Arc extension popup",
         "matching_strategy": "Equals"
@@ -87,7 +88,6 @@
       "id": "komorebi-gui",
       "matching_strategy": "Equals"
     },
-
     {
         "kind": "Title",
         "id": "New Project",
@@ -105,29 +105,63 @@
        "matching_strategy": "Contains"
     }
     ],
-
     {
-
        "kind": "Title",
        "id": "ArcGIS Project",
        "matching_strategy": "Contains"
-    }
-
+    },
+    [
+      {
+        "kind": "Exe",
+        "id": "RemoteDesktopManager.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "id": "Remote Desktop Manager - Password List",
+        "matching_strategy": "Equals"
+      }
+    ]
   ],
+
   "manage_rules": [
     {
       "kind": "Exe",
       "id": "Survey123",
       "matching_strategy": "Contains"
+    },
+    [
+    {
+      "kind": "Exe",
+      "id": "RemoteDesktopManager.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "[",
+      "matching_strategy": "Contains"
     }
-  ],
+    ],
+    [
+    {
+      "kind": "Exe",
+      "id": "RemoteDesktopManager.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Remote Desktop Manager",
+      "matching_strategy": "Equals"
+    }
+    ]
+   ],
   "monitors": [
     {
       "window_based_work_area_offset_limit": 1,
       "window_based_work_area_offset": {
-        "left": 500,
+        "left": 300,
         "top": 0,
-        "right": 1000,
+        "right": 600,
         "bottom": 0
       },
 
@@ -153,7 +187,7 @@
           "initial_workspace_rules": [
             {
               "kind": "Exe",
-              "id": "mailspring.exe"
+              "id": "thunderbird.exe"
             }
           ]
         },
@@ -194,10 +228,14 @@
         {
           "name": "6 rdp",
           "layout": "BSP",
-          "initial_workspace_rules": [
+          "workspace_rules": [
             {
               "kind": "Exe",
               "id": "RemoteDesktopManager.exe"
+            },
+            {
+              "kind": "Exe",
+              "id": "WorkspotClient.exe"
             },
             {
               "kind": "Exe",
