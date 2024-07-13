@@ -17,6 +17,12 @@
     "monocle": "#ff3399",
     "unfocused": "#808080"
   },
+  "animation": {
+    "enabled": true,
+    "duration": 150,
+    "style": "Linear",
+        "fps": 120
+  },
   "stackbar": {
     "height": 40,
     "mode": "OnStack",
@@ -30,7 +36,7 @@
   },
 
   "transparency" : true,
-  "transparency_alpha" : 200,
+  "transparency_alpha" : 240,
   "border_overflow_applications": [],
   "global_work_area_offset": {
     "top": 30,
@@ -170,7 +176,7 @@
           "name": "1 office365",
           "layout": "UltrawideVerticalStack",
           "workspace_padding": 15,
-          "initial_workspace_rules": [
+          "workspace_rules": [
             {
               "kind": "Exe",
               "id": "ms-teams.exe"
@@ -184,7 +190,7 @@
         {
           "name": "2 email",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
+          "workspace_rules": [
             {
               "kind": "Exe",
               "id": "thunderbird.exe"
@@ -194,7 +200,7 @@
         {
           "name": "3 cal/todoo",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
+          "workspace_rules": [
             {
               "kind": "Exe",
               "id": "Morgen.exe"
@@ -208,7 +214,7 @@
         {
           "name": "4 notes",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
+          "workspace_rules": [
             {
               "kind": "Exe",
               "id": "Obsidian.exe"
@@ -218,7 +224,7 @@
         {
           "name": "5 gis",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
+          "workspace_rules": [
             {
               "kind": "Exe",
               "id": "ArcGISPro.exe"
@@ -236,22 +242,18 @@
             {
               "kind": "Exe",
               "id": "WorkspotClient.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "WorkspotClient.exe"
             }
           ]
         },
         {
           "name": "7",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": []
+          "workspace_rules": []
         },
         {
           "name": "8 music",
           "layout": "BSP",
-          "initial_workspace_rules": [
+          "workspace_rules": [
             {
               "kind": "Exe",
               "id": "Spotify.exe"
