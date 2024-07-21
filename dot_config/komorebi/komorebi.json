@@ -8,7 +8,8 @@
   "focus_follows_mouse": "Komorebi",
   "mouse_follows_focus": false,
   "border": true,
-  "border_width": 8,
+  "border_implementation": "Komorebi",
+  "border_width": 6,
   "border_offset": -1,
   "border_style": "Square",
   "border_colours": {
@@ -19,9 +20,9 @@
   },
   "animation": {
     "enabled": true,
-    "duration": 150,
+    "duration": 250,
     "style": "Linear",
-        "fps": 120
+    "fps": 60
   },
   "stackbar": {
     "height": 40,
@@ -31,12 +32,14 @@
       "width": 300,
       "focused_text": "#42a5f5",
       "unfocused_text": "#bd93f9",
-      "background": "#141414"
+      "background": "#141414",
+      "font_family": "JetBrains Mono",
+      "font_size": 34
     }
   },
 
   "transparency" : true,
-  "transparency_alpha" : 240,
+  "transparency_alpha" : 220,
   "border_overflow_applications": [],
   "global_work_area_offset": {
     "top": 30,
