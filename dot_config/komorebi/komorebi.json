@@ -50,7 +50,7 @@
   "float_rules": [
     {
       "kind": "Exe",
-      "id": "Zebar.exe",
+      "id": "zebar.exe",
       "matching_strategy": "Equals"
     },
     {
