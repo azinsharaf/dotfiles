@@ -16,7 +16,7 @@ global:
 window/bar:
   providers: ['self']
   # Width of the window in physical pixels.
-  width: '3440' # '{{ self.args.MONITOR_WIDTH }}'
+  width: '{{ self.args.MONITOR_WIDTH }}'
   # Height of the window in physical pixels.
   height: '40'
   # X-position of the window in physical pixels.
@@ -66,6 +66,12 @@ window/bar:
       template: |
         <i class="nf nf-fa-windows"></i>
 
+
+  group/center:
+    styles: |
+      justify-self: center;
+
+
     template/workspaces:
       styles: |
         display: flex;
@@ -81,7 +87,7 @@ window/bar:
           border-radius: 2px;
         
           &.active {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.4);
           }
         }
       providers: ['komorebi']
@@ -91,12 +97,6 @@ window/bar:
             {{ workspace.name }}
           </button>
         }
-
-  group/center:
-    styles: |
-      justify-self: center;
-
-
 
   group/right:
     styles: |
