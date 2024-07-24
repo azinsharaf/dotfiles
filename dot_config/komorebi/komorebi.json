@@ -38,8 +38,8 @@
     }
   },
 
-  "transparency" : true,
-  "transparency_alpha" : 240,
+  "transparency" : false,
+  "transparency_alpha" : 250,
   "border_overflow_applications": [],
   "global_work_area_offset": {
     "top": 30,
@@ -154,7 +154,7 @@
    ],
   "monitors": [
     {
-      "window_based_work_area_offset_limit": 1,
+      "window_based_work_area_offset_limit": 2,
       "window_based_work_area_offset": {
         "left": 300,
         "top": 0,
