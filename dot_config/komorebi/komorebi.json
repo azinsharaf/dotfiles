@@ -39,7 +39,7 @@
   },
 
   "transparency" : true,
-  "transparency_alpha" : 220,
+  "transparency_alpha" : 240,
   "border_overflow_applications": [],
   "global_work_area_offset": {
     "top": 30,
@@ -58,18 +58,6 @@
       "id": "python.exe",
       "matching_strategy": "Equals"
     },
-    [
-      {
-        "kind": "Exe",
-        "id": "WorkspotClient.exe",
-        "matching_strategy": "Equals"
-      },
-      {
-        "kind": "Title",
-        "id": "Workspot",
-        "matching_strategy": "Equals"
-      }
-    ],
     [
       {
         "kind": "Exe",
