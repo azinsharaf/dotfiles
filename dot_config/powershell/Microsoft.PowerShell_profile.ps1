@@ -109,6 +109,7 @@ $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";C:\Users\asharaf\scoop\apps\nodejs\current"
 $Env:Path += ";C:\Users\asharaf\.cargo\bin"
+$Env:Path += ";C:\Program Files\7-Zip"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
