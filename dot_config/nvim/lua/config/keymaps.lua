@@ -46,7 +46,7 @@ keymap("n", "<leader>gg", function()
     local lazygit = term:new({
         cmd = "lazygit",
         dir = "git_dir",
-        direction = "tab",
+        direction = "float",
     })
     lazygit:toggle()
 end, { desc = "Lazygit" })
