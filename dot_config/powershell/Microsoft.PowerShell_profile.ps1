@@ -87,9 +87,9 @@ $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 $Env:KOMOREBI_CONFIG_HOME = "$Env:USERPROFILE\.config\komorebi"
 $Env:WHKD_CONFIG_HOME = "$Env:USERPROFILE\.config\whkd"
 
-$Env:SHELL = 'pwsh'
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
+$Env:SHELL = 'pwsh'
 
 $Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
@@ -102,7 +102,6 @@ $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 # } elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
 #     $env:NEOVIM_NODE_PATH = "C:\Users\asharaf\scoop\apps\nodejs\current\node.exe"
 # }
-
 
 $Env:Path = "C:\Users\asharaf\scoop\apps\nodejs-nightly\current;$Env:PATH"
 $Env:Path += ";C:\msys64\mingw64\bin"
