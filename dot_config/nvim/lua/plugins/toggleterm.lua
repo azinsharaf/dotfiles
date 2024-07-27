@@ -13,7 +13,7 @@ return {
         direction = "float",
         float_opts = {
             -- Hide border
-            border = "none",
+            -- border = "none",
         },
     },
 }
