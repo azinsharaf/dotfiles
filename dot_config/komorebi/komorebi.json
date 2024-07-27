@@ -9,7 +9,7 @@
   "mouse_follows_focus": false,
   "border": true,
   "border_implementation": "Komorebi",
-  "border_width": 16,
+  "border_width": 6,
   "border_offset": -1,
   "border_style": "Square",
   "border_colours": {
