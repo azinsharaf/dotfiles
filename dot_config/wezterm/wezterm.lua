@@ -7,7 +7,7 @@ if wezterm.config_builder then
 end
 
 -- Spawn a pwsh shell in login mode
-config.default_prog = { 'pwsh.exe', '-l' }
+config.default_prog = { "pwsh.exe", "-l" }
 
 local fonts = {
 	-- "MonoLisa",
@@ -51,14 +51,35 @@ local emoji_fonts = { "Apple Color Emoji", "Joypixels", "Twemoji", "Noto Color E
 -- 	{ "calt", "liga", "dlig", "zero", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "-ss09" }
 -- monolisa
 -- @ <=0xF \\ \n
-config.harfbuzz_features =
-	{ "calt", "liga", "zero", "-ss01", "ss02", "-ss03", "ss04", "ss05", "-ss06", "-ss07", "-ss08", "-ss09", "ss10", "ss11", "ss12", "-ss13", "ss14", "ss15", "ss16", "ss17", "ss18" }
+config.harfbuzz_features = {
+	"calt",
+	"liga",
+	"zero",
+	"-ss01",
+	"ss02",
+	"-ss03",
+	"ss04",
+	"ss05",
+	"-ss06",
+	"-ss07",
+	"-ss08",
+	"-ss09",
+	"ss10",
+	"ss11",
+	"ss12",
+	"-ss13",
+	"ss14",
+	"ss15",
+	"ss16",
+	"ss17",
+	"ss18",
+}
 config.font = wezterm.font_with_fallback({ fonts[1], emoji_fonts[1], emoji_fonts[2] })
 -- config.disable_default_key_bindings = true
 config.front_end = "WebGpu"
 config.enable_scroll_bar = false
 config.scrollback_lines = 10240
-config.font_size = 11
+config.font_size = 10
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = false
 config.automatically_reload_config = true
@@ -120,4 +141,3 @@ config.colors = {
 -- }
 
 return config
-
