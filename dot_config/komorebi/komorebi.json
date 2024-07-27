@@ -9,7 +9,7 @@
   "mouse_follows_focus": false,
   "border": true,
   "border_implementation": "Komorebi",
-  "border_width": 6,
+  "border_width": 16,
   "border_offset": -1,
   "border_style": "Square",
   "border_colours": {
@@ -164,7 +164,7 @@
 
       "workspaces": [
         {
-          "name": "1 office365",
+          "name": "office365",
           "layout": "UltrawideVerticalStack",
           "workspace_padding": 15,
           "workspace_rules": [
@@ -179,7 +179,7 @@
           ]
         },
         {
-          "name": "2 email",
+          "name": "email",
           "layout": "UltrawideVerticalStack",
           "workspace_rules": [
             {
@@ -189,7 +189,7 @@
           ]
         },
         {
-          "name": "3 cal/todoo",
+          "name": "cal/todoo",
           "layout": "UltrawideVerticalStack",
           "workspace_rules": [
             {
@@ -203,7 +203,7 @@
           ]
         },
         {
-          "name": "4 notes",
+          "name": "notes",
           "layout": "UltrawideVerticalStack",
           "workspace_rules": [
             {
@@ -213,7 +213,7 @@
           ]
         },
         {
-          "name": "5 gis",
+          "name": "gis",
           "layout": "UltrawideVerticalStack",
           "workspace_rules": [
             {
@@ -223,7 +223,7 @@
           ]
         },
         {
-          "name": "6 rdp",
+          "name": "rdp",
           "layout": "BSP",
           "workspace_rules": [
             {
@@ -242,7 +242,7 @@
           "workspace_rules": []
         },
         {
-          "name": "8 music",
+          "name": "music",
           "layout": "BSP",
           "workspace_rules": [
             {
@@ -252,7 +252,7 @@
           ]
         },
         {
-          "name": "9 no-tiled"
+          "name": "no-tiled"
         }
       ]
     }
