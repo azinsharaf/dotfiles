@@ -167,7 +167,7 @@
           "name": "office365",
           "layout": "UltrawideVerticalStack",
           "workspace_padding": 15,
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "ms-teams.exe"
@@ -181,7 +181,7 @@
         {
           "name": "email",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "thunderbird.exe"
@@ -191,7 +191,7 @@
         {
           "name": "cal/todoo",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "Morgen.exe"
@@ -205,7 +205,7 @@
         {
           "name": "notes",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "Obsidian.exe"
@@ -215,7 +215,7 @@
         {
           "name": "gis",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "ArcGISPro.exe"
@@ -225,7 +225,7 @@
         {
           "name": "rdp",
           "layout": "BSP",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "RemoteDesktopManager.exe"
@@ -239,12 +239,12 @@
         {
           "name": "7",
           "layout": "UltrawideVerticalStack",
-          "workspace_rules": []
+          "initial_workspace_rules": []
         },
         {
           "name": "music",
           "layout": "BSP",
-          "workspace_rules": [
+          "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "Spotify.exe"
