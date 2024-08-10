@@ -33,7 +33,7 @@ return {
                 { "<leader>?", group = "Buffer Local Keymaps (which-key)" },
                 { "<leader>b", group = "buffer" },
                 { "<leader>e", group = "explorer" },
-                { "<leader>f", group = "file/find" },
+                { "<leader>f", group = "find" },
                 { "<leader>g", group = "git" },
                 { "<leader>o", group = "obsidian" },
                 { "<leader>s", group = "split" },
