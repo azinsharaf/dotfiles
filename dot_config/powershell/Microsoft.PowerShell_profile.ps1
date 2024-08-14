@@ -76,16 +76,17 @@ function cstatus {chezmoi status}
 function capply {chezmoi -v apply}
 function ccd {chezmoi cd}
 
-function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --whkd}
+function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --ahk}
 
-function ke {komorebic stop --whkd}
+function ke {komorebic stop}
 
 function sql {C:\Users\asharaf\scoop\apps\go-sqlcmd\current\sqlcmd.exe}
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
 $Env:KOMOREBI_CONFIG_HOME = "$Env:USERPROFILE\.config\komorebi"
-$Env:WHKD_CONFIG_HOME = "$Env:USERPROFILE\.config\whkd"
+$Env:KOMOREBI_AHK_EXE = "$Env:USERPROFILE\AppData\Local\Programs\AutoHotkey\v2\AutoHotkey64.exe"
+# $Env:WHKD_CONFIG_HOME = "$Env:USERPROFILE\.config\whkd"
 
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
