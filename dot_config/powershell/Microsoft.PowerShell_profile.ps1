@@ -89,7 +89,7 @@ $Env:WHKD_CONFIG_HOME = "$Env:USERPROFILE\.config\whkd"
 
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
-$Env:SHELL = 'pwsh'
+$Env:SHELL = 'pwsh -NoLogo'
 
 $Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
