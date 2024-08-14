@@ -97,6 +97,8 @@ $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
+$ENV:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
+
 # if ($env:COMPUTERNAME -eq "Desktop-Azin") {
 #     $env:NEOVIM_NODE_PATH = "C:\Program Files\nodejs\node.exe"
 # } elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
