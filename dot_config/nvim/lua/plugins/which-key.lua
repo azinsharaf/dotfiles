@@ -37,6 +37,7 @@ return {
                 { "<leader>g", group = "git" },
                 { "<leader>o", group = "obsidian" },
                 { "<leader>s", group = "split" },
+                { "<leader>t", group = "toggle" },
             },
         })
     end,
