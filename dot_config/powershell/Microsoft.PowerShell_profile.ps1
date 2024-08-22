@@ -106,10 +106,11 @@ $ENV:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
 #     $env:NEOVIM_NODE_PATH = "C:\Users\asharaf\scoop\apps\nodejs\current\node.exe"
 # }
 
-$Env:Path = "C:\Users\asharaf\scoop\apps\nodejs-nightly\current;$Env:PATH"
+$Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-nightly\current;$Env:PATH"
 $Env:Path += ";C:\msys64\mingw64\bin"
-$Env:Path += ";C:\Users\asharaf\.cargo\bin"
+$Env:Path += ";$Env:USERPROFILE\.cargo\bin"
 $Env:Path += ";C:\Program Files\7-Zip"
+$Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.1\env-shellgpt\Scripts"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
