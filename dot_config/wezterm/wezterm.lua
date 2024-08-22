@@ -2,12 +2,12 @@ local wezterm = require 'wezterm'
 
 return {
     -- Appearance
-    color_scheme = "catppuccin-mocha",              -- Change to your preferred color scheme
+    color_scheme = "Catppuccin Mocha",              -- Change to your preferred color scheme
     font = wezterm.font("JetBrainsMono Nerd Font"), -- Change to your preferred font
     font_size = 10.0,
 
     -- Transparency
-    window_background_opacity = 0.95, -- Set transparency (0.0 to 1.0, where 1.0 is fully opaque)
+    window_background_opacity = 1, -- Set transparency (0.0 to 1.0, where 1.0 is fully opaque)
 
     -- Keybindings (Vim-like motions)
     keys = {
@@ -68,6 +68,17 @@ return {
             event = { Up = { streak = 1, button = "Left" } },
             mods = "CTRL",
             action = wezterm.action.OpenLinkAtMouseCursor,
+        },
+
+        {
+            event = { Drag = { streak = 1, button = 'Left' } },
+            mods = 'SUPER',
+            action = wezterm.action.StartWindowDrag,
+        },
+        {
+            event = { Drag = { streak = 1, button = 'Left' } },
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.StartWindowDrag,
         },
     },
 
