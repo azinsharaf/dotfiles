@@ -33,7 +33,7 @@
   },
 
   "transparency" : true,
-  "transparency_alpha" : 220,
+  "transparency_alpha" : 250,
   "border_overflow_applications": [],
   "global_work_area_offset": {
     "top": 30,
