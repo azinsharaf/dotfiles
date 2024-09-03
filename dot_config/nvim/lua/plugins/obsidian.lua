@@ -1,8 +1,8 @@
 local Path = require("plenary.path")
 
 local workspacePaths = {
-    { name = "work",     path = "C:/Users/asharaf/OneDrive - Wood Rodgers Inc/Obsidian/Obsidian_work" },
-    { name = "personal", path = "C:/Users/asharaf/iCloudDrive/iCloud~md~obsidian/obsidian_personal" },
+    { name = "work",     path = Path:new(os.getenv("USERPROFILE") .. "/OneDrive - Wood Rodgers Inc/Obsidian/Obsidian_work"):expand() },
+    { name = "personal", path = Path:new(os.getenv("USERPROFILE") .. "/iCloudDrive/iCloud~md~obsidian/obsidian_personal"):expand() },
 }
 
 local workspaces = {}
