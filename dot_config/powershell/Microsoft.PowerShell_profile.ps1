@@ -80,8 +80,6 @@ function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komoreb
 
 function ke {komorebic stop}
 
-function sql {C:\Users\asharaf\scoop\apps\go-sqlcmd\current\sqlcmd.exe}
-
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
 $Env:KOMOREBI_CONFIG_HOME = "$Env:USERPROFILE\.config\komorebi"
@@ -98,7 +96,7 @@ $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
-$ENV:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
+$ENV:YAZI_FILE_ONE = "$Env:USERPROFILE\scoop\apps\git\current\usr\bin\file.exe"
 
 # if ($env:COMPUTERNAME -eq "Desktop-Azin") {
 #     $env:NEOVIM_NODE_PATH = "C:\Program Files\nodejs\node.exe"
@@ -106,11 +104,12 @@ $ENV:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
 #     $env:NEOVIM_NODE_PATH = "C:\Users\asharaf\scoop\apps\nodejs\current\node.exe"
 # }
 
-$Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-nightly\current;$Env:PATH"
+$Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current;$Env:PATH"
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
-$Env:Path += ";C:\Program Files\7-Zip"
+$Env:Path += ";$Env:USERPROFILE\scoop\apps\7zip\current"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.1\env-shellgpt\Scripts"
+$Env:Path += ";$Env:USERPROFILE\scoop\apps\git\current\usr\bin"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
