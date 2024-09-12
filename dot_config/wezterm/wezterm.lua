@@ -2,9 +2,14 @@ local wezterm = require 'wezterm'
 
 return {
     -- Appearance
-    color_scheme = "Catppuccin Mocha",              -- Change to your preferred color scheme
+    color_scheme = "tokyonight_night", -- Change to your preferred color scheme
+    -- colors = {
+    --     background = "#000000",
+    -- },
     font = wezterm.font("JetBrainsMono Nerd Font"), -- Change to your preferred font
     font_size = 10.0,
+    initial_cols = 300,
+    initial_rows = 50,
 
     -- Transparency
     window_background_opacity = 1, -- Set transparency (0.0 to 1.0, where 1.0 is fully opaque)
