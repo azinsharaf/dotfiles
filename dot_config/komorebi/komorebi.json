@@ -7,7 +7,7 @@
   "default_container_padding": 10,
   "focus_follows_mouse": "Komorebi",
   "mouse_follows_focus": false,
-  "border": false,
+  "border": true,
   "border_implementation": "Komorebi",
   "border_width": 3,
   "border_offset": -1,
@@ -145,7 +145,7 @@
           ]
         },
         {
-          "name": "cal/todoo",
+          "name": "cal",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
             {
