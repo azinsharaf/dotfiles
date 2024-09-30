@@ -4,19 +4,31 @@ Set-PSReadlineOption -EditMode vi -viModeIndicator Cursor
 
 #arcgis pro python env activation
 
-$Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-$Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
+# $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+# $Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
+# $Env:_CE_M = ""
+# $Env:_CE_CONDA = ""
+# $Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
+# $Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+# $CondaModuleArgs = @{ChangePs1 = $True}
+# Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
+#
+# conda activate arcgispro-py3-clone
+
+# cmu python env activation
+
+$Env:CONDA_EXE = "C:\Users\azin\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
+$Env:CONDA_ENV_EXE = "C:\Users\azin\scoop\apps\anaconda3\current\App\Scripts\conda-env.exe"
 $Env:_CE_M = ""
 $Env:_CE_CONDA = ""
-$Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
-$Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+$Env:_CONDA_ROOT = "C:\Users\azin\scoop\apps\anaconda3\current\App"
+$Env:_CONDA_EXE = "C:\Users\azin\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
 $CondaModuleArgs = @{ChangePs1 = $True}
 Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
 
-conda activate arcgispro-py3-clone
+conda activate cmu-python-1
 
 Remove-Variable CondaModuleArgs
-
 
 # Does the the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
 function dirs {
@@ -76,9 +88,9 @@ function cstatus {chezmoi status}
 function capply {chezmoi -v apply}
 function ccd {chezmoi cd}
 
-function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --ahk}
+function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --ahk --bar}
 
-function ke {komorebic stop}
+function ke {komorebic stop --bar}
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
