@@ -5,7 +5,7 @@ Komorebic(cmd) {
     RunWait(format("komorebic.exe {}", cmd), , "Hide")
 }
     
-!+s::Komorebic("start --config '$Env:USERPROFILE\.config\komorebi\komorebi.json' --ahk")
+!+s::Komorebic("start --config '$Env:USERPROFILE\.config\komorebi\komorebi.json' --ahk --bar")
 
 !+e::{
       Komorebic("stop")
