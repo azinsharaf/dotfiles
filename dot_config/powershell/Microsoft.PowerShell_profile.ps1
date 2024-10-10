@@ -1,6 +1,8 @@
 
 
 Set-PSReadlineOption -EditMode vi -viModeIndicator Cursor
+# Enabling Menu Completion 
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 #arcgis pro python env activation
 
@@ -63,10 +65,12 @@ function pgrep($name) {
     Get-Process $name
 }
 
-function ls {lsd}
-function l {lsd -l}
+Remove-Item -Path Alias:ls
+
+function ls {lsd -la}
+
+function ll {lsd -l}
 function la {lsd -a}
-function lla {lsd -la}
 function lt {lsd --tree}
 function e {exit}
 function :q {exit}
