@@ -106,11 +106,11 @@
       "id": "[",
       "matching_strategy": "Contains"
     }
-    ],
-   ],
+    ]
+  ],
   "monitors": [
     {
-      "window_based_work_area_offset_limit": 2,
+      "window_based_work_area_offset_limit": 1,
       "window_based_work_area_offset": {
         "left": 700,
         "top": 0,
@@ -120,9 +120,8 @@
 
       "workspaces": [
         {
-          "name": "chat",
+          "name": "I chat",
           "layout": "UltrawideVerticalStack",
-          "workspace_padding": 15,
           "initial_workspace_rules": [
             {
               "kind": "Exe",
@@ -139,13 +138,7 @@
           ]
         },
         {
-          "name": "2",
-          "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-          ]
-        },
-        {
-          "name": "cal",
+          "name": "II seconed brain",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
             {
@@ -155,33 +148,21 @@
             {
               "kind": "Exe",
               "id": "Todoist.exe"
-            }
-          ]
-        },
-        {
-          "name": "notes",
-          "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
+            },
             {
               "kind": "Exe",
               "id": "Obsidian.exe"
             }
-          ]
+          ] 
         },
         {
-          "name": "gis",
+          "name": "III",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
             {
               "kind": "Exe",
               "id": "ArcGISPro.exe"
-            }
-          ]
-        },
-        {
-          "name": "rdp",
-          "layout": "BSP",
-          "initial_workspace_rules": [
+            },
             {
               "kind": "Exe",
               "id": "RemoteDesktopManager.exe"
@@ -189,26 +170,12 @@
             {
               "kind": "Exe",
               "id": "WorkspotClient.exe"
-            }
-          ]
-        },
-        {
-          "name": "7",
-          "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": []
-        },
-        {
-          "name": "music",
-          "layout": "BSP",
-          "initial_workspace_rules": [
+            },
             {
               "kind": "Exe",
               "id": "Spotify.exe"
             }
           ]
-        },
-        {
-          "name": "no-tiled"
         }
       ]
     }
