@@ -176,6 +176,18 @@
               "id": "Spotify.exe"
             }
           ]
+        },
+        {
+          "name": "IV",
+          "layout": "UltrawideVerticalStack",
+          "initial_workspace_rules": [
+          ]
+        },
+        {
+          "name": "V",
+          "layout": "UltrawideVerticalStack",
+          "initial_workspace_rules": [
+          ]
         }
       ]
     }
