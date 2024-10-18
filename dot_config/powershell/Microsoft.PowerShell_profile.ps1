@@ -37,6 +37,23 @@ if ($env:COMPUTERNAME -eq "Desktop-Azin") {
     Remove-Variable CondaModuleArgs
 }
 
+
+# to open the last dir
+# Path to store the last directory
+$lastDirPath = "$HOME\last-dir.txt"
+# If the file exists, change to the directory stored in it
+if (Test-Path $lastDirPath) {
+    Set-Location (Get-Content $lastDirPath)
+}
+# Save the last directory on exit
+function Save-LastLocation {
+    $PWD.Path | Out-File -Encoding UTF8 -FilePath $lastDirPath
+}
+# Register the function to run when PowerShell exits
+Register-EngineEvent PowerShell.Exiting -Action { Save-LastLocation } | Out-Null
+#
+
+
 # Does the the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
 function dirs {
     if ($args.Count -gt 0) {
