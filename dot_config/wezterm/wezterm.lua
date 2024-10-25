@@ -103,7 +103,7 @@ return {
 	enable_scroll_bar = false, -- Disable the scroll bar
 	hide_tab_bar_if_only_one_tab = true, -- Hide tab bar if there's only one tab
 	use_fancy_tab_bar = false, -- Simple tab bar
-	-- window_decorations = "RESIZE",       -- Only allow resizing
+	window_decorations = "RESIZE", -- Only allow resizing
 
 	-- Set default program for Windows (using PowerShell)
 	default_prog = { "pwsh.exe", "-Nologo" },
