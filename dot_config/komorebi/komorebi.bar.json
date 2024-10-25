@@ -12,6 +12,16 @@
       "bottom": 40
     }
   },
+  "viewport": {
+      "position":{
+          "x": 0,
+          "y": 0
+      },
+      "inner_size": {
+          "x": 5120,
+          "y": 16
+      }
+  },
   // run komorebi-bar --fonts to list fonts installed on your system
   // remember to only use the family here, not the weight (bold, light etc)
   "font_family": "JetBrainsMono Nerd Font",
