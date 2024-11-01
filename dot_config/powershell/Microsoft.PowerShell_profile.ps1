@@ -142,6 +142,7 @@ if ($env:COMPUTERNAME -eq "Desktop-Azin") {
     $ENV:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
     $env:NEOVIM_NODE_PATH = "C:\Users\asharaf\scoop\apps\nodejs\current\node.exe"
 }
+$Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
 
 $Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current;$Env:PATH"
 $Env:Path += ";C:\msys64\mingw64\bin"
