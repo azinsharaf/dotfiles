@@ -4,40 +4,44 @@
 
 [manager]
 ratio          = [ 1, 4, 3 ]
-sort_by        = "alphabetical"
+sort_by        = "natural"
 sort_sensitive = false
-sort_reverse 	 = false
+sort_reverse   = false
 sort_dir_first = true
-sort_translit  = false
-linemode       = "none"
+sort_translit  = false # for hungarian char
+linemode       = "size_and_mtime"
 show_hidden    = true
-show_symlink   = true
+show_symlink   = false
 scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
+title_format   = "Yazi: {cwd}"
 
 [preview]
 tab_size        = 2
-max_width       = 600
-max_height      = 900
+max_width       = 690
+max_height      = 930 # image preview size is fixed under this value, and cannot adapt to terminal size
 cache_dir       = ""
+image_delay     = 30
 image_filter    = "triangle"
-image_quality   = 75
+image_quality   = 75 # doesn't works in windows-terminal
 sixel_fraction  = 15
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
+# open file using terminal program like nvim without 'block = true', Error invokes
+# 'orphan' keep the process even if yazi is exited, but it is regardless of setting when I open gui program
 edit = [
-	{ run = '${EDITOR:=vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
-	{ run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
-	{ run = 'nvim %*', desc = "nvim",           for = "windows" },
+	{ run = '${EDITOR:-vi} "$@"', block = true    , desc = "$EDITOR", for = "unix" }   ,
+	{ run = 'nvim %*'           , block = true    , desc = "nvim"   , for = "windows" },
+	{ run = 'nvim-qt %*'        , orphan = true   , desc = "nvim-qt", for = "windows" },
 ]
-open = [
+open = [ # if folder, open explorer location under cursor
 	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
 	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
 	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
 ]
-reveal = [
+reveal = [ # if folder, open explorer current location
 	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
 	{ run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
 	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
@@ -45,18 +49,19 @@ reveal = [
 ]
 extract = [
 	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
-	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
+	{ run = 'bandizip bx -target:auto %*',   desc = "Extract here", for = "windows" },
 ]
 play = [
 	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
-	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
+	{ run = 'start "" "%1"', orphan = true,  for = "windows" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 
-[open]
+[open] # set rules for opening for specific file + show open list
+# mime is detected by file() function
 rules = [
 	# Folder
-	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+	{ name = "*/", use = [ "open", "reveal" ] }, # open explorer of current selected directory
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image
@@ -88,10 +93,15 @@ suppress_preload = false
 fetchers = [
 	# Mimetype
 	{ id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
+	# plugins - git.yazi
+	{ id = "git", name = "*", run = "git"},
+	{ id = "git", name = "*/", run = "git"},
+	{ id = "githead", name = "*", run = "githead"},
+	{ id = "githead", name = "*/", run = "githead"},
 ]
 preloaders = [
 	# Image
-	{ mime = "image/{avif,heic,jxl,svg+xml}", run = "magick" },
+	{ mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
 	{ mime = "image/*", run = "image" },
 	# Video
 	{ mime = "video/*", run = "video" },
@@ -104,12 +114,12 @@ preloaders = [
 previewers = [
 	{ name = "*/", run = "folder", sync = true },
 	# Code
-	{ mime = "text/*", run = "nvim" },
-	{ mime = "*/{xml,javascript,x-wine-extension-ini}", run = "nvim" },
+	{ mime = "text/*", run = "code" },
+	{ mime = "*/{xml,javascript,x-wine-extension-ini}", run = "code" },
 	# JSON
 	{ mime = "application/{json,x-ndjson}", run = "json" },
 	# Image
-	{ mime = "image/{avif,heic,jxl,svg+xml}", run = "magick" },
+	{ mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
 	{ mime = "image/*", run = "image" },
 	# Video
 	{ mime = "video/*", run = "video" },
@@ -121,8 +131,20 @@ previewers = [
 	# Font
 	{ mime = "font/*", run = "font" },
 	{ mime = "application/vnd.ms-opentype", run = "font" },
+	# Empty file
+	{ mime = "inode/x-empty", run = "empty" },
 	# Fallback
-	{ name = "*", run = "file" },
+	{ name = "*", run = "filename" },
+]
+
+prepend_previewers = [
+	# plugin : ouch.yazi / preview zip file
+	{ mime = "application/*zip"           , run = "ouch" }, # for zip
+	{ mime = "application/x-tar"          , run = "ouch" }, # for tar
+	{ mime = "application/x-bzip2"        , run = "ouch" },
+	{ mime = "application/x-7z-compressed", run = "ouch" }, # for 7z
+	{ mime = "application/x-rar"          , run = "ouch" },
+	{ mime = "application/x-xz"           , run = "ouch" },
 ]
 
 [input]
@@ -142,16 +164,6 @@ create_offset = [ 0, 2, 50, 3 ]
 rename_title  = "Rename:"
 rename_origin = "hovered"
 rename_offset = [ 0, 1, 50, 3 ]
-
-# trash
-trash_title 	= "Move {n} selected file{s} to trash? (y/N)"
-trash_origin	= "top-center"
-trash_offset	= [ 0, 2, 50, 3 ]
-
-# delete
-delete_title 	= "Delete {n} selected file{s} permanently? (y/N)"
-delete_origin	= "top-center"
-delete_offset	= [ 0, 2, 50, 3 ]
 
 # filter
 filter_title  = "Filter:"
@@ -173,15 +185,28 @@ shell_title  = [ "Shell:", "Shell (block):" ]
 shell_origin = "top-center"
 shell_offset = [ 0, 2, 50, 3 ]
 
+[confirm]
+# trash
+trash_title 	= "Trash {n} selected file{s}?"
+trash_origin	= "center"
+trash_offset	= [ 0, 0, 70, 20 ]
+
+# delete
+delete_title 	= "Permanently delete {n} selected file{s}?"
+delete_origin	= "center"
+delete_offset	= [ 0, 0, 70, 20 ]
+
 # overwrite
-overwrite_title  = "Overwrite an existing file? (y/N)"
-overwrite_origin = "top-center"
-overwrite_offset = [ 0, 2, 50, 3 ]
+overwrite_title   = "Overwrite file?"
+overwrite_content = "Will overwrite the following file:"
+overwrite_origin  = "center"
+overwrite_offset  = [ 0, 0, 50, 15 ]
 
 # quit
-quit_title  = "{n} task{s} running, sure to quit? (y/N)"
-quit_origin = "top-center"
-quit_offset = [ 0, 2, 50, 3 ]
+quit_title   = "Quit?"
+quit_content = "The following task is still running, are you sure you want to quit?"
+quit_origin  = "center"
+quit_offset  = [ 0, 0, 50, 15 ]
 
 [select]
 open_title  = "Open with:"
