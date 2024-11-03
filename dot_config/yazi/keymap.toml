@@ -13,8 +13,8 @@ keymap = [
 	{ on = "<C-z>", run = "suspend",            desc = "Suspend the process" },
 
 	# Hopping
-	{ on = "j", run = "arrow -1", desc = "Move cursor up" },
-	{ on = "k", run = "arrow 1",  desc = "Move cursor down" },
+	{ on = "k", run = "arrow -1", desc = "Move cursor up" },
+	{ on = "j", run = "arrow 1",  desc = "Move cursor down" },
 
 
 	{ on = "<Up>",    run = "arrow -1", desc = "Move cursor up" },
@@ -68,7 +68,7 @@ keymap = [
 	{ on = "<C-->",     run = "hardlink",                    desc = "Hardlink yanked files" },
 	{ on = ["c", "y"],  run = "unyank",                      desc = "Cancel the yank status" },
 	{ on = "X",         run = "unyank",                      desc = "Cancel the yank status" },
-	# { on = "d",         run = "remove --force",              desc = "Trash selected files" },
+	{ on = "d",         run = "remove",              desc = "Trash selected files" },
 	{ on = "D",         run = "remove --force",        		 desc = "Trash selected files" },
 	{ on = "a",         run = "create",                      desc = "Create a file (ends with / for directories)" },
 	{ on = "A",         run = "plugin newfile",       	 	 desc = "Create xlsx or pptx file" },
@@ -123,9 +123,16 @@ keymap = [
 
 	# Goto
 	{ on = "~",    run = "cd ~", desc = "go to the home directory" },
-	# { on = [ "g", "h" ],       run = "cd ~",             desc = "Go to the home directory" },
-	# { on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
-	# { on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
+	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go to the home directory" },
+	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
+	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
+	{ on = [ "g", "D" ],       run = "cd D:",   desc = "Go to the D: drive" },
+	{ on = [ "g", "p", "A" ],       run = "cd J:",   desc = "Go to the project A" },
+	{ on = [ "g", "p", "B" ],       run = "cd J:",   desc = "Go to the project B" },
+	{ on = [ "g", "p", "C" ],       run = "cd J:",   desc = "Go to the project C" },
+	{ on = [ "g", "J" ],       run = "cd J:",   desc = "Go to the J: drive" },
+	{ on = [ "g", "K" ],       run = "cd K:",   desc = "Go to the K: drive" },
+	{ on = [ "g", "R" ],       run = "cd R:",   desc = "Go to the R: drive" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
 
 	# Tabs
@@ -191,7 +198,7 @@ prepend_keymap = [
 	{ on = "P", run = "plugin clipboard --args=paste",     desc = "Paste files from system clipboard" },
 
 	# manual : dir-open.yazi
-	{ on = ["g", 'd'], run = "plugin dir-open",      desc = "open explorer of current dir" },
+	# { on = ["g", 'D'], run = "plugin dir-open",      desc = "open explorer of current dir" },
 
 	# manual : compress.yazi
 	{ on = ["g", 'z'], run = "plugin compress",      desc = "compress of selected files" },
