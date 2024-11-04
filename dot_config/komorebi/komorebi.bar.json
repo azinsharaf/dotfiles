@@ -19,7 +19,7 @@
       },
       "inner_size": {
           "x": 5120,
-          "y": 16
+          "y": 40
       }
   },
   // run komorebi-bar --fonts to list fonts installed on your system
@@ -27,9 +27,9 @@
   "font_family": "JetBrainsMono Nerd Font",
   // we have some pre-bundled themes!
   "theme": {
-    "palette": "Base16",
-    "name": "Ashes",
-    "accent": "Base0D"
+    "palette": "Catppuccin",
+    "name": "Mocha",
+    "accent": "Rosewater"
   },
   // laid out left to right
   "left_widgets": [
