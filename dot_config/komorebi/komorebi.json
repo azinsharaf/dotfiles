@@ -1,11 +1,10 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
-  "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.yaml",
+  "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
   "default_workspace_padding": 10,
   "default_container_padding": 10,
-  "focus_follows_mouse": "Komorebi",
   "mouse_follows_focus": false,
   "border": true,
   "border_implementation": "Komorebi",
@@ -49,7 +48,7 @@
       "matching_strategy": "Equals"
     }
   ],
-  "float_rules": [
+  "ignore_rules": [
     {
       "kind": "Exe",
       "id": "zebar.exe",

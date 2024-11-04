@@ -114,9 +114,8 @@ function cstatus {chezmoi status}
 function capply {chezmoi -v apply}
 function ccd {chezmoi cd}
 
-function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --ahk --bar}
-
-function ke {komorebic stop --bar}
+function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --bar --ahk}
+function ke {komorebic stop --bar --ahk}
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
