@@ -17,7 +17,7 @@ if ($env:COMPUTERNAME -eq "Desktop-Azin") {
     $CondaModuleArgs = @{ChangePs1 = $True}
     Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
 
-    conda activate cmu-python-1
+    conda activate cmu-python
 
     Remove-Variable CondaModuleArgs
 } elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
