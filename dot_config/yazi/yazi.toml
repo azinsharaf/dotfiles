@@ -4,44 +4,43 @@
 
 [manager]
 ratio          = [ 1, 4, 3 ]
-sort_by        = "natural"
+sort_by        = "alphabetical"
 sort_sensitive = false
-sort_reverse   = false
+sort_reverse 	 = false
 sort_dir_first = true
-sort_translit  = false # for hungarian char
-linemode       = "size_and_mtime"
-show_hidden    = true
-show_symlink   = false
+sort_translit  = false
+linemode       = "none"
+show_hidden    = false
+show_symlink   = true
 scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
 title_format   = "Yazi: {cwd}"
 
 [preview]
+wrap            = "no"
 tab_size        = 2
-max_width       = 690
-max_height      = 930 # image preview size is fixed under this value, and cannot adapt to terminal size
+max_width       = 600
+max_height      = 900
 cache_dir       = ""
 image_delay     = 30
 image_filter    = "triangle"
-image_quality   = 75 # doesn't works in windows-terminal
+image_quality   = 75
 sixel_fraction  = 15
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
-# open file using terminal program like nvim without 'block = true', Error invokes
-# 'orphan' keep the process even if yazi is exited, but it is regardless of setting when I open gui program
 edit = [
-	{ run = '${EDITOR:-vi} "$@"', block = true    , desc = "$EDITOR", for = "unix" }   ,
-	{ run = 'nvim %*'           , block = true    , desc = "nvim"   , for = "windows" },
-	{ run = 'nvim-qt %*'        , orphan = true   , desc = "nvim-qt", for = "windows" },
+	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+	{ run = 'code %*',    orphan = true, desc = "code",           for = "windows" },
+	{ run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
 ]
-open = [ # if folder, open explorer location under cursor
+open = [
 	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
 	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
 	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
 ]
-reveal = [ # if folder, open explorer current location
+reveal = [
 	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
 	{ run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
 	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
@@ -49,19 +48,18 @@ reveal = [ # if folder, open explorer current location
 ]
 extract = [
 	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
-	{ run = 'bandizip bx -target:auto %*',   desc = "Extract here", for = "windows" },
+	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
 ]
 play = [
 	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
-	{ run = 'start "" "%1"', orphan = true,  for = "windows" },
+	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 
-[open] # set rules for opening for specific file + show open list
-# mime is detected by file() function
+[open]
 rules = [
 	# Folder
-	{ name = "*/", use = [ "open", "reveal" ] }, # open explorer of current selected directory
+	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image
@@ -93,11 +91,6 @@ suppress_preload = false
 fetchers = [
 	# Mimetype
 	{ id = "mime", name = "*", run = "mime", if = "!mime", prio = "high" },
-	# plugins - git.yazi
-	{ id = "git", name = "*", run = "git"},
-	{ id = "git", name = "*/", run = "git"},
-	{ id = "githead", name = "*", run = "githead"},
-	{ id = "githead", name = "*/", run = "githead"},
 ]
 preloaders = [
 	# Image
@@ -134,17 +127,7 @@ previewers = [
 	# Empty file
 	{ mime = "inode/x-empty", run = "empty" },
 	# Fallback
-	{ name = "*", run = "filename" },
-]
-
-prepend_previewers = [
-	# plugin : ouch.yazi / preview zip file
-	{ mime = "application/*zip"           , run = "ouch" }, # for zip
-	{ mime = "application/x-tar"          , run = "ouch" }, # for tar
-	{ mime = "application/x-bzip2"        , run = "ouch" },
-	{ mime = "application/x-7z-compressed", run = "ouch" }, # for 7z
-	{ mime = "application/x-rar"          , run = "ouch" },
-	{ mime = "application/x-xz"           , run = "ouch" },
+	{ name = "*", run = "file" },
 ]
 
 [input]
@@ -221,3 +204,13 @@ sort_translit  = false
 
 [log]
 enabled = false
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
