@@ -121,8 +121,19 @@ keymap = [
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go to the home directory" },
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
-	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
+	{ on = [ "g", "D" ],       run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
+
+	{ on = [ "g", "d", "H" ],       run = "cd H:/",        desc = "H drive - SAC" },
+	{ on = [ "g", "d", "J" ],       run = "cd J:/Jobs/",   desc = "J drive - OAK" },
+	{ on = [ "g", "d", "K" ],       run = "cd K:/",        desc = "K drive - GIS" },
+	{ on = [ "g", "d", "R" ],       run = "cd R:/",        desc = "R drive - OAK-REF" },
+
+	{ on = [ "g", "p", "A" ],       run = "cd J:/Jobs/8894_AlisoViejo_SDMP/GIS",                            desc = "Aliso Viejo DMP 8894" },
+	{ on = [ "g", "p", "L" ],       run = "cd J:/Jobs/8165_CityofAlbany_DMP/CityofAlbany_DMP/GIS",          desc = "Albany DMP 8165" },
+	{ on = [ "g", "p", "B" ],       run = "cd J:/Jobs/8721_CityofBerkeley_SWMP/Berkeley_SWMP/GIS",          desc = "berkeley DMP 8721" },
+	{ on = [ "g", "p", "O" ],       run = "cd J:/Jobs/8792_CityofOakland_DMP/Oakland_DMP/GIS",                  desc = "Oakland DMP 8792" },
+	{ on = [ "g", "p", "K" ],       run = "cd H:/3000-s/3614_MBK_Engineers/3614008_Knights Landing",        desc = "Knights Landing 3614" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
