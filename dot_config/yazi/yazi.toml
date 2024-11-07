@@ -9,8 +9,8 @@ sort_sensitive = false
 sort_reverse 	 = false
 sort_dir_first = true
 sort_translit  = false
-linemode       = "none"
-show_hidden    = false
+linemode       = "size_and_mtime"
+show_hidden    = true
 show_symlink   = true
 scrolloff      = 5
 mouse_events   = [ "click", "scroll" ]
@@ -21,9 +21,9 @@ wrap            = "no"
 tab_size        = 2
 max_width       = 1000
 max_height      = 1200
-cache_dir       = ""
-image_delay     = 30
-image_filter    = "triangle"
+cache_dir       = "D:/temp/yazi_cache/"
+image_delay     = 0
+image_filter    = "nearest"
 image_quality   = 75
 sixel_fraction  = 15
 ueberzug_scale  = 1
@@ -32,8 +32,7 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 [opener]
 edit = [
 	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
-	{ run = 'code %*',    orphan = true, desc = "code",           for = "windows" },
-	{ run = 'code -w %*', block = true,  desc = "code (block)",   for = "windows" },
+	{ run = 'nvim %*',    block = true    , desc = "nvim"   , for = "windows" },
 ]
 open = [
 	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
@@ -58,6 +57,8 @@ play = [
 
 [open]
 rules = [
+    # ArcGIS Project File (.aprx)
+    { name = "*.aprx", use = [ "open-arcgis" ] },
 	# Folder
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 	# Text
@@ -74,9 +75,15 @@ rules = [
 	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
 	# Empty file
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
+
+  
+
 	# Fallback
 	{ name = "*", use = [ "open", "reveal" ] },
 ]
+
+[command]
+open-arcgis = "start ArcGISPro %s"
 
 [tasks]
 micro_workers    = 10
@@ -214,3 +221,4 @@ run  = "git"
 id   = "git"
 name = "*/"
 run  = "git"
+
