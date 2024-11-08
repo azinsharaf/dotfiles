@@ -131,11 +131,19 @@ previewers = [
 	# Font
 	{ mime = "font/*", run = "font" },
 	{ mime = "application/vnd.ms-opentype", run = "font" },
+
+
 	# Empty file
 	{ mime = "inode/x-empty", run = "empty" },
 	# Fallback
 	{ name = "*", run = "file" },
 ]
+
+
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+]
+
 
 [input]
 cursor_blink = false
