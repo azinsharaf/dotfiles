@@ -24,6 +24,9 @@ require("starship"):setup()
 -- [plugin] system clipboard
 require("system-clipboard")
 
+-- [plugin] - glow
+require("glow")
+
 -- [plugin] - status-line
 require("yatline"):setup({
 	theme = "catppuccin_theme",
