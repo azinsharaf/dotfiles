@@ -55,10 +55,15 @@ play = [
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 
+open-arcgispro = [
+    # ArcGIS Pro execute file location. 
+    { run = '"C:\Program Files\ArcGIS\Pro\bin\ArcGISPro.exe" %*', orphan = true, for = "windows" }
+]
+
 [open]
 rules = [
     # ArcGIS Project File (.aprx)
-    # { name = "*.aprx", use = [ "open-arcgis" ] },
+    { name = "*.aprx", use = [ "open-arcgispro" ] },
 	# Folder
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 	# Text
@@ -67,21 +72,18 @@ rules = [
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	# Media
 	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
-	# # Archive
-	# { mime = "application/{,g}zip", use = [ "extract", "reveal" ] },
-	# { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", use = [ "extract", "reveal" ] },
+	# Archive
+	{ mime = "application/{,g}zip", use = [ "extract", "reveal" ] },
+	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", use = [ "extract", "reveal" ] },
 	# JSON
 	{ mime = "application/{json,x-ndjson}", use = [ "edit", "reveal" ] },
 	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
 	# Empty file
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
-
 	# Fallback
 	{ name = "*", use = [ "open", "reveal" ] },
 ]
 
-# [command]
-# open-arcgis = "start ArcGISPro %s"
 
 [tasks]
 micro_workers    = 10
