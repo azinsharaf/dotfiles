@@ -1,5 +1,13 @@
 local wezterm = require("wezterm")
 
+local default_prog
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  default_prog = { "pwsh.exe", "-NoLogo" }
+else
+  default_prog = { "/bin/zsh" }
+end
+
+
 return {
 	-- Appearance
 	color_scheme = "Catppuccin Mocha", -- Change to your preferred color scheme
@@ -106,5 +114,14 @@ return {
 	window_decorations = "RESIZE", -- Only allow resizing
 
 	-- Set default program for Windows (using PowerShell)
-	default_prog = { "pwsh.exe", "-Nologo" },
+
+        default_prog = default_prog,
+
+
 }
+
+
+
+
+
+
