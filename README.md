@@ -1,2 +1,2 @@
-# dotfiles_win
-my windows dotfiles managed by chezmoi
+# dotfiles
+my dotfiles managed by chezmoi
