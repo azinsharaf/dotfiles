@@ -125,15 +125,17 @@ keymap = [
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
 
 	{ on = [ "g", "r" ],            run = "cd ~/Repos",desc = "Go to Repos directory" },
+	{ on = [ "g", "d", "D" ],       run = "cd D:/",        desc = "D drive - TEMP" },
 	{ on = [ "g", "d", "H" ],       run = "cd H:/",        desc = "H drive - SAC" },
 	{ on = [ "g", "d", "J" ],       run = "cd J:/Jobs/",   desc = "J drive - OAK" },
 	{ on = [ "g", "d", "K" ],       run = "cd K:/",        desc = "K drive - GIS" },
 	{ on = [ "g", "d", "R" ],       run = "cd R:/",        desc = "R drive - OAK-REF" },
 
-	{ on = [ "g", "p", "A" ],       run = "cd J:/Jobs/8894_AlisoViejo_SDMP/GIS",                            desc = "Aliso Viejo DMP 8894" },
+	{ on = [ "g", "p", "A" ],       run = "cd J:/Jobs/8349-Alameda_Database/",                            desc = "Alameda Database 8349" },
+	{ on = [ "g", "p", "V" ],       run = "cd J:/Jobs/8894_AlisoViejo_SDMP/GIS",                            desc = "Aliso Viejo DMP 8894" },
 	{ on = [ "g", "p", "L" ],       run = "cd J:/Jobs/8165_CityofAlbany_DMP/CityofAlbany_DMP/GIS",          desc = "Albany DMP 8165" },
 	{ on = [ "g", "p", "B" ],       run = "cd J:/Jobs/8721_CityofBerkeley_SWMP/Berkeley_SWMP/GIS",          desc = "berkeley DMP 8721" },
-	{ on = [ "g", "p", "O" ],       run = "cd J:/Jobs/8792_CityofOakland_DMP/Oakland_DMP/GIS",                  desc = "Oakland DMP 8792" },
+	{ on = [ "g", "p", "O" ],       run = "cd J:/Jobs/8792_CityofOakland_DMP/Oakland_DMP/GIS",              desc = "Oakland DMP 8792" },
 	{ on = [ "g", "p", "K" ],       run = "cd H:/3000-s/3614_MBK_Engineers/3614008_Knights Landing",        desc = "Knights Landing 3614" },
 
 	# Tabs
@@ -337,9 +339,14 @@ keymap = [
 
 
 [[manager.prepend_keymap]]
-on   = "T"
+on   = "M"
 run  = "plugin --sync max-preview"
 desc = "Maximize or restore preview"
+
+[[manager.prepend_keymap]]
+on   = "T"
+run  = "plugin --sync hide-preview"
+desc = "Hide or show preview"
 
 [[manager.prepend_keymap]]
 on   = "F"
