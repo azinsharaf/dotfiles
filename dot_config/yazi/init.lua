@@ -25,7 +25,7 @@ end
 -- require("system-clipboard"):setup()
 
 -- [plugin] relative motion
--- require("relative-motions"):setup({ show_numbers = "relative" })
+require("relative-motions"):setup({ show_numbers = "relative" })
 
 -- [plugin] - glow
 -- require("glow")
