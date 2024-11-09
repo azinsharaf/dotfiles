@@ -6,7 +6,7 @@
 ratio          = [ 1, 4, 6 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
-sort_reverse 	 = false
+sort_reverse   = false
 sort_dir_first = true
 sort_translit  = false
 linemode       = "size_and_mtime"
