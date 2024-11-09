@@ -138,7 +138,8 @@ scoop install neovim-nightly
 scoop install steam
 scoop install clipboard
 scoop install glow
-scoop install pipx
+#scoop install pipx
+scoop install hexyl
 
 scoop bucket add nerd-fonts
 scoop install nerd-fonts/JetBrainsMono-NF
@@ -415,7 +416,7 @@ brew install wezterm@nightly
 brew install lazygit
 brew install starship
 brew install chezmoi
-brew install yazi
+brew install yazi --HEAD
 brew install whatsapp
 brew install btop
 brew install spotify
@@ -437,6 +438,12 @@ brew install ripgrep
 brew install fzf
 brew install imagemagick
 brew install ghostscript
+brew install hexyl
+#brew install pipx
+brew install rich-cli
+
+
+
 ``
 ```
 
