@@ -123,7 +123,7 @@ keymap = [
 	{ on = [ "g", "c" ],       run = "cd ~/.local/share/chezmoi/",     desc = "Go to the chezmoi config directory" },
 	{ on = [ "g", "D" ],       run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
-
+	{ on = [ "g", "u" ], run = "cd C:/Users/azin/iCloudDrive/artificial_inteligence/cmu_graduate_certificate/11605-A2_python_for_data_science_2/", desc = "Go To CMU dir" },
 	{ on = [ "g", "r" ],            run = "cd ~/Repos",desc = "Go to Repos directory" },
 	{ on = [ "g", "d", "D" ],       run = "cd D:/",        desc = "D drive - TEMP" },
 	{ on = [ "g", "d", "H" ],       run = "cd H:/",        desc = "H drive - SAC" },
@@ -375,7 +375,8 @@ on = [ ".", "s" ]
 run = "plugin what-size"
 desc = "Calc size of selection or cwd"
 
-
-
-
+[[manager.prepend_keymap]]
+on   = "<C-s>"
+run  = 'shell "pwsh.exe" --block --confirm'
+desc = "Open PowerShell here"
 
