@@ -87,7 +87,7 @@ function pgrep($name) {
     Get-Process $name
 }
 
-Remove-Item -Path Alias:ls
+# Remove-Item -Path Alias:ls
 
 function ls {lsd -la}
 
@@ -149,6 +149,7 @@ $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
 $Env:Path += ";$Env:USERPROFILE\scoop\apps\7zip\current"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.1\env-shellgpt\Scripts"
 $Env:Path += ";$Env:USERPROFILE\scoop\apps\git\current\usr\bin"
+$Env:Path += ";$Env:USERPROFILE\.local\bin"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
