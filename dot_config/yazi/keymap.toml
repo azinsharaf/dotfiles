@@ -357,4 +357,7 @@ desc = "Smart filter"
 on = "<C-y>"
 run = ["plugin system-clipboard"]
 
-
+[[manager.prepend_keymap]]
+on = [ "p" ]
+run = "plugin relative-motions"
+desc = "Trigger a new relative motion"

@@ -22,10 +22,19 @@ require("git"):setup()
 require("starship"):setup()
 
 -- [plugin] system clipboard
-require("system-clipboard")
+-- require("system-clipboard"):setup()
+
+-- [plugin] relative motion
+require("relative-motions"):setup({ show_numbers = "relative" })
 
 -- [plugin] - glow
-require("glow")
+-- require("glow")
+
+-- [plugin] - nbpreview
+-- require("nbpreview")
+
+-- [plugin] - rich-preview
+-- require("rich-preview"):setup()
 
 -- [plugin] - status-line
 require("yatline"):setup({
