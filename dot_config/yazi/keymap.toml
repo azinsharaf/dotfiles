@@ -353,6 +353,14 @@ on   = "F"
 run  = "plugin smart-filter"
 desc = "Smart filter"
 
+
+
+[[manager.prepend_keymap]]
+on   = [ "g", "l" ]
+run  = "plugin lazygit"
+desc = "run lazygit"
+
+
 [[manager.prepend_keymap]]
 on = "<C-y>"
 run = ["plugin system-clipboard"]
@@ -361,3 +369,13 @@ run = ["plugin system-clipboard"]
 on = [ "m" ]
 run = "plugin relative-motions"
 desc = "Trigger a new relative motion"
+
+[[manager.prepend_keymap]]
+on = [ ".", "s" ]
+run = "plugin what-size"
+desc = "Calc size of selection or cwd"
+
+
+
+
+
