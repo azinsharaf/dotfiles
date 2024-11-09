@@ -241,3 +241,8 @@ id   = "git"
 name = "*/"
 run  = "git"
 
+
+# use the noop builtin preloader for a remote mount point like /remote, disabling preloads in that directory
+[[plugin.prepend_preloaders]]
+name = "J:/Jobs/**"
+run  = "noop"
