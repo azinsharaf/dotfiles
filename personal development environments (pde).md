@@ -138,16 +138,19 @@ scoop install neovim-nightly
 scoop install steam
 scoop install clipboard
 scoop install glow
-#scoop install pipx
 scoop install hexyl
-
+scoop install ffmpeg
+scoop install chafa
 scoop bucket add nerd-fonts
 scoop install nerd-fonts/JetBrainsMono-NF
 
 scoop install treesize-free
 
 scoop install motrix
+scoop install pipx
 
+
+pipx install rich-cli
 ```
 
 
@@ -168,8 +171,9 @@ sudp apt install curl
 sudo apt install build-essential -y
 
 # install rust and cargo
-curl https://sh.rustup.rs -sSf | sh
-sudo apt install wmctrl -y
+curl https://sh.rustup.rs -sSf | s
+oscoop install pipx
+trl -y
 cargo install macchina
 sudo apt install zsh -y
 sudo apt install git -y
@@ -429,6 +433,7 @@ brew tap zen-browser/browser https://github.com/zen-browser/desktop.git
 brew install --cask zen-browser
 brew install zoxide
 brew install glow
+brew install ffmpeg
 brew install ffmpegthumbnailer
 brew install 7-zip
 brew install jq
