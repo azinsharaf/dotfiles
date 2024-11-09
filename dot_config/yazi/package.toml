@@ -1,5 +1,5 @@
 [plugin]
-deps = [{ use = "Reledia/glow", rev = "388e847" }, { use = "Reledia/hexyl", rev = "ccc0a4a" }, { use = "AnirudhG07/rich-preview", rev = "fe43219" }, { use = "dedukun/relative-motions", rev = "1d6d686" }]
+deps = [{ use = "Reledia/glow", rev = "388e847" }, { use = "Reledia/hexyl", rev = "ccc0a4a" }, { use = "AnirudhG07/rich-preview", rev = "fe43219" }, { use = "dedukun/relative-motions", rev = "1d6d686" }, { use = "yazi-rs/plugins:full-border", rev = "dc11879" }, { use = "yazi-rs/plugins:git", rev = "dc11879" }, { use = "yazi-rs/plugins:hide-preview", rev = "dc11879" }, { use = "yazi-rs/plugins:max-preview", rev = "dc11879" }, { use = "yazi-rs/plugins:smart-filter", rev = "dc11879" }, { use = "Lil-Dank/lazygit", rev = "c82794f" }, { use = "Rolv-Apneseth/starship", rev = "77a65f5" }, { use = "orhnk/system-clipboard", rev = "7775a80" }, { use = "imsi32/yatline", rev = "7b56434" }, { use = "pirafrank/what-size", rev = "f08f7f2" }]
 
 [flavor]
-deps = []
+deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "d504f70" }]
