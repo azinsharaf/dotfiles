@@ -1,0 +1,5 @@
+[plugin]
+deps = [{ use = "Reledia/glow", rev = "388e847" }, { use = "Reledia/hexyl", rev = "ccc0a4a" }, { use = "AnirudhG07/rich-preview", rev = "fe43219" }, { use = "dedukun/relative-motions", rev = "1d6d686" }]
+
+[flavor]
+deps = []

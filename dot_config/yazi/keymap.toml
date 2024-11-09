@@ -358,6 +358,6 @@ on = "<C-y>"
 run = ["plugin system-clipboard"]
 
 [[manager.prepend_keymap]]
-on = [ "p" ]
+on = [ "m" ]
 run = "plugin relative-motions"
 desc = "Trigger a new relative motion"
