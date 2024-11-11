@@ -37,6 +37,22 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
+                ['<Tab>'] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        -- Select the next item, but if it's the first time, it'll select the first item
+                        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                    else
+                        fallback()  -- Fall back to the default Tab behavior (e.g., inserting a tab character)
+                    end
+                end, { 'i', 's' }), -- 'i' for insert mode, 's' for select mode
+                ['<S-Tab>'] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item() -- Select the previous item in the completion list
+                    else
+                        fallback()             -- Fall back to the default Shift-Tab behavior
+                    end
+                end, { 'i', 's' }),
+
                 ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
                 ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),

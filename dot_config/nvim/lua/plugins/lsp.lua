@@ -31,7 +31,6 @@ return {
             },
             handlers = {
                 function(server_name) -- default handler (optional)
-
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
@@ -43,7 +42,7 @@ return {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
-				    runtime = { version = "Lua 5.1" },
+                                runtime = { version = "Lua 5.1" },
                                 diagnostics = {
                                     globals = { "vim", "it", "describe", "before_each", "after_each" },
                                 }
@@ -51,6 +50,26 @@ return {
                         }
                     }
                 end,
+
+                ["pyright"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pyright.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                analysis = {
+                                    typeCheckingMode = "off", -- Disable type-checking
+                                    diagnosticSeverityOverrides = {
+                                        reportGeneralTypeIssues = "none",
+                                        reportOptionalSubscript = "none",
+                                        reportOptionalMemberAccess = "none",
+                                    },
+                                },
+                            },
+                        },
+                    }
+                end,
+
             }
         })
 
@@ -77,7 +96,10 @@ return {
         })
 
         vim.diagnostic.config({
-            -- update_in_insert = true,
+            virtual_text = false, -- Hide virtual text (warnings/info)
+            signs = true,         -- Display signs in the gutter
+            underline = false,    -- Underline diagnostics
+            update_in_insert = false,
             float = {
                 focusable = false,
                 style = "minimal",
