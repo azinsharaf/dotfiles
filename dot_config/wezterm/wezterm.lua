@@ -29,6 +29,7 @@ config.window_decorations = "RESIZE"
 config.keys = {
     -- Command Palette launcher
     { key = "Space",      mods = "CTRL|SHIFT", action = wezterm.action.ShowLauncher },
+    { key = "X",          mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
 
     -- Pane navigation
     { key = "H",          mods = "CTRL|SHIFT", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
