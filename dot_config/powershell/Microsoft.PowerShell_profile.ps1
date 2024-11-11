@@ -6,7 +6,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 #python env activation
 
-if ($env:COMPUTERNAME -eq "Desktop-Azin") {
+if ($env:COMPUTERNAME -eq "Desktop-Azin_temp") {
 # cmu python env activation
     $Env:CONDA_EXE = "C:\Users\azin\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
     $Env:CONDA_ENV_EXE = "C:\Users\azin\scoop\apps\anaconda3\current\App\Scripts\conda-env.exe"
@@ -20,7 +20,26 @@ if ($env:COMPUTERNAME -eq "Desktop-Azin") {
     conda activate cmu-python
 
     Remove-Variable CondaModuleArgs
-} elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
+}
+
+elseif ($env:COMPUTERNAME -eq "Desktop-Azin") {
+    # arcgis pro python env activation
+
+    $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+    $Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
+    $Env:_CE_M = ""
+    $Env:_CE_CONDA = ""
+    $Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
+    $Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+    $CondaModuleArgs = @{ChangePs1 = $True}
+    Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
+
+    conda activate arcgispro-py3-clone
+
+    Remove-Variable CondaModuleArgs
+}
+
+elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
     # arcgis pro python env activation
 
     $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
@@ -87,13 +106,13 @@ function pgrep($name) {
     Get-Process $name
 }
 
-# Remove-Item -Path Alias:ls
+Remove-Item -Path Alias:ls
 
-function ls {lsd -la}
+function ls {eza -l}
 
-function ll {lsd -l}
-function la {lsd -a}
-function lt {lsd --tree}
+function ll {eza -l}
+function la {eza -a}
+function lt {eza --tree}
 function e {exit}
 function :q {exit}
 function c {clear}
