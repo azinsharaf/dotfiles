@@ -143,7 +143,7 @@ scoop install ffmpeg
 scoop install chafa
 scoop bucket add nerd-fonts
 scoop install nerd-fonts/JetBrainsMono-NF
-
+scoop install eza
 scoop install treesize-free
 
 scoop install motrix
@@ -151,6 +151,7 @@ scoop install pipx
 
 
 pipx install rich-cli
+pipx install shell-gpt
 ```
 
 
