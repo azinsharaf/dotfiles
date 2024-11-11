@@ -126,11 +126,11 @@ keymap = [
 	{ on = [ "g", "u" ], run = "cd C:/Users/azin/iCloudDrive/artificial_inteligence/cmu_graduate_certificate/11605-A2_python_for_data_science_2/", desc = "Go To CMU dir" },
 	{ on = [ "g", "r" ],            run = "cd ~/Repos",desc = "Go to Repos directory" },
 	{ on = [ "g", "d", "D" ],       run = "cd D:/",        desc = "D drive - TEMP" },
+	{ on = [ "g", "d", "E" ],       run = "cd //woodrodgers.loc/ReferenceData/Employees",        desc = "Employee Drive" },
 	{ on = [ "g", "d", "H" ],       run = "cd H:/",        desc = "H drive - SAC" },
 	{ on = [ "g", "d", "J" ],       run = "cd J:/Jobs/",   desc = "J drive - OAK" },
 	{ on = [ "g", "d", "K" ],       run = "cd K:/",        desc = "K drive - GIS" },
 	{ on = [ "g", "d", "R" ],       run = "cd R:/",        desc = "R drive - OAK-REF" },
-
 	{ on = [ "g", "p", "A" ],       run = "cd J:/Jobs/8349-Alameda_Database/",                            desc = "Alameda Database 8349" },
 	{ on = [ "g", "p", "V" ],       run = "cd J:/Jobs/8894_AlisoViejo_SDMP/GIS",                            desc = "Aliso Viejo DMP 8894" },
 	{ on = [ "g", "p", "L" ],       run = "cd J:/Jobs/8165_CityofAlbany_DMP/CityofAlbany_DMP/GIS",          desc = "Albany DMP 8165" },
