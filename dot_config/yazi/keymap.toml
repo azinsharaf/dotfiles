@@ -131,7 +131,9 @@ keymap = [
 	{ on = [ "g", "d", "J" ],       run = "cd J:/Jobs/",   desc = "J drive - OAK" },
 	{ on = [ "g", "d", "K" ],       run = "cd K:/",        desc = "K drive - GIS" },
 	{ on = [ "g", "d", "R" ],       run = "cd R:/",        desc = "R drive - OAK-REF" },
-	{ on = [ "g", "p", "A" ],       run = "cd J:/Jobs/8349-Alameda_Database/",                            desc = "Alameda Database 8349" },
+
+	{ on = [ "g", "p", "A" ],       run = "cd J:/Jobs/8349-Alameda_Database/",                              desc = "Alameda Database 8349" },
+	{ on = [ "g", "p", "D" ],       run = "cd J:/Jobs/8819_DanvilleStormDrainMP/GIS/",             desc = "Danville DMP 8819" },
 	{ on = [ "g", "p", "V" ],       run = "cd J:/Jobs/8894_AlisoViejo_SDMP/GIS",                            desc = "Aliso Viejo DMP 8894" },
 	{ on = [ "g", "p", "L" ],       run = "cd J:/Jobs/8165_CityofAlbany_DMP/CityofAlbany_DMP/GIS",          desc = "Albany DMP 8165" },
 	{ on = [ "g", "p", "B" ],       run = "cd J:/Jobs/8721_CityofBerkeley_SWMP/Berkeley_SWMP/GIS",          desc = "berkeley DMP 8721" },
@@ -354,7 +356,6 @@ run  = "plugin smart-filter"
 desc = "Smart filter"
 
 
-
 [[manager.prepend_keymap]]
 on   = [ "g", "l" ]
 run  = "plugin lazygit"
@@ -380,3 +381,8 @@ on   = "<C-s>"
 run  = 'shell "pwsh.exe" --block --confirm'
 desc = "Open PowerShell here"
 
+
+
+# [[plugin.prepend_previewers]]
+# name = "D:/**/*"
+# run  = "noop"
