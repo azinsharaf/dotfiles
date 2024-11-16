@@ -86,5 +86,6 @@ config.mouse_bindings = {
 -- Other settings
 config.enable_scroll_bar = false
 config.default_prog = config.default_prog
+config.audible_bell = "Disabled"
 
 return config
