@@ -14,19 +14,33 @@ end
 config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 10.0
+config.adjust_window_size_when_changing_font_size = false
 config.command_palette_font_size = 10
 config.window_frame = {
     font = wezterm.font("IBM Plex Sans"),
 }
 config.initial_cols = 200
 config.initial_rows = 50
-config.window_background_opacity = 0.9 -- Fully opaque
+config.window_background_opacity = 0.95
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = true
 config.window_decorations = "RESIZE"
 
--- Keybindings (Vim-like motions)
+config.default_workspace = "main"
+
+-- Dim inactive panes
+config.inactive_pane_hsb = {
+    saturation = 0.24,
+    brightness = 0.5
+}
+
+-- config.disable_default_key_bindings = true
+
+-- config.leader = { key = "A", mods = "CTRL", timeout_milliseconds = 1000 }
+
 config.keys = {
+
+
     -- Command Palette launcher
     { key = "Space",      mods = "CTRL|SHIFT", action = wezterm.action.ShowLauncher },
     { key = "X",          mods = "CTRL|SHIFT", action = wezterm.action.ActivateCopyMode },
@@ -52,8 +66,8 @@ config.keys = {
     { key = "V",          mods = "CTRL",       action = wezterm.action({ PasteFrom = "Clipboard" }) },
 
     -- Tab management
-    { key = "T",          mods = "CTRL|SHIFT", action = wezterm.action({ SpawnTab = "DefaultDomain" }) },
-    { key = "W",          mods = "CTRL|SHIFT", action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
+    { key = "T",          mods = "CTRL|SHIFT", action = wezterm.action({ SpawnTab = "CurrentPaneDomain" }) },
+    { key = "W",          mods = "CTRL|SHIFT", action = wezterm.action({ CloseCurrentTab = { confirm = false } }) },
 
     -- Quick tab switching
     { key = "1",          mods = "CTRL|SHIFT", action = wezterm.action({ ActivateTab = 0 }) },
@@ -79,13 +93,40 @@ config.mouse_bindings = {
     { event = { Up = { streak = 1, button = "Left" } },    mods = "CTRL",       action = wezterm.action.OpenLinkAtMouseCursor },
 
     -- Window drag with Super or Ctrl + Shift + Left-click
-    { event = { Drag = { streak = 1, button = "Left" } },  mods = "SUPER",      action = wezterm.action.StartWindowDrag },
     { event = { Drag = { streak = 1, button = "Left" } },  mods = "CTRL|SHIFT", action = wezterm.action.StartWindowDrag },
 }
 
 -- Other settings
 config.enable_scroll_bar = false
-config.default_prog = config.default_prog
 config.audible_bell = "Disabled"
+
+
+-- Function to set up tabs on startup
+wezterm.on("gui-startup", function(cmd)
+    local mux = wezterm.mux
+
+    -- Create the first tab and set its title to "Neovim"
+    local tab1, pane1, window = mux.spawn_window(cmd or {})
+
+    tab1:set_title("Neovim")
+
+    -- Split the first tab horizontally
+    local pane2 = pane1:split({
+        direction = "Right",
+        cwd = wezterm.home_dir
+    })
+
+    -- Create the second tab and set its title to ""
+    local tab2  = window:spawn_tab({
+        cwd = wezterm.home_dir,
+        args = { "yazi" }
+    })
+    tab2:set_title("Yazi")
+
+    -- Activate the first tab by default
+    window:activate_tab(tab1)
+end)
+
+
 
 return config
