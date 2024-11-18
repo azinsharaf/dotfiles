@@ -32,7 +32,7 @@
   },
 
   "transparency" : true,
-  "transparency_alpha" : 250,
+  "transparency_alpha" : 240,
   "border_overflow_applications": [],
   "global_work_area_offset": {
     "top": 30,
@@ -49,16 +49,11 @@
     }
   ],
   "ignore_rules": [
-    {
-      "kind": "Exe",
-      "id": "zebar.exe",
-      "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Exe",
-      "id": "python.exe",
-      "matching_strategy": "Equals"
-    },
+    // {
+    //   "kind": "Exe",
+    //   "id": "python.exe",
+    //   "matching_strategy": "Equals"
+    // },
     [
       {
         "kind": "Exe",
@@ -73,11 +68,6 @@
     ],
     {
         "kind": "Title",
-        "id": "Arc extension popup",
-        "matching_strategy": "Equals"
-    },
-    {
-        "kind": "Title",
         "id": "ActiproWindowChromeShadow",
         "matching_strategy": "Equals"
     },
@@ -90,6 +80,11 @@
       "kind": "Title",
       "id": "Workspot",
       "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Autodesk Installer",
+      "matching_strategy": "Equals"
     }
   ],
 
@@ -99,13 +94,13 @@
       "id": "Survey123",
       "matching_strategy": "Contains"
     },
-    [
-    {
-      "kind": "Title",
-      "id": "[",
-      "matching_strategy": "Contains"
-    }
-    ]
+    // [
+    // {
+    //   "kind": "Title",
+    //   "id": "[",
+    //   "matching_strategy": "Contains"
+    // }
+    // ]
   ],
   "monitors": [
     {
@@ -158,22 +153,22 @@
           "name": "III",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "ArcGISPro.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "RemoteDesktopManager.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "WorkspotClient.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "Spotify.exe"
-            }
+          //   {
+          //     "kind": "Exe",
+          //     "id": "ArcGISPro.exe"
+          //   },
+          //   {
+          //     "kind": "Exe",
+          //     "id": "RemoteDesktopManager.exe"
+          //   },
+          //   {
+          //     "kind": "Exe",
+          //     "id": "WorkspotClient.exe"
+          //   },
+          //   {
+          //     "kind": "Exe",
+          //     "id": "Spotify.exe"
+          //   }
           ]
         },
         {
