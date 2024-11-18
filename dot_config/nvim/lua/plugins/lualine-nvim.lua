@@ -3,6 +3,15 @@ local function get_codeium_status()
     return vim.api.nvim_call_function("codeium#GetStatusString", {})
 end
 
+-- Function to get the name of the active workspace
+local function get_active_workspace_name()
+    -- Get the current active workspace using obsidian.nvim
+    local workspace = require('obsidian').workspace()
+
+    -- Check if a workspace is active and return its name, or return a fallback string
+    return workspace and workspace.name or "No Active Workspace"
+end
+
 local config = function()
     require("lualine").setup({
         options = {
@@ -30,7 +39,7 @@ local config = function()
 
             lualine_x = { get_codeium_status, "encoding", "fileformat", "filetype" },
             lualine_y = { "progress" },
-            lualine_z = { "location" },
+            lualine_z = { "location", get_active_workspace_name },
         },
         inactive_sections = {
             lualine_a = {},
@@ -46,6 +55,8 @@ local config = function()
         extensions = {},
     })
 end
+
+
 
 return {
     "nvim-lualine/lualine.nvim",
