@@ -102,30 +102,30 @@ config.audible_bell = "Disabled"
 
 
 -- Function to set up tabs on startup
-wezterm.on("gui-startup", function(cmd)
-    local mux = wezterm.mux
-
-    -- Create the first tab and set its title to "Neovim"
-    local tab1, pane1, window = mux.spawn_window(cmd or {})
-
-    tab1:set_title("Neovim")
-
-    -- Split the first tab horizontally
-    local pane2 = pane1:split({
-        direction = "Right",
-        cwd = wezterm.home_dir
-    })
-
-    -- Create the second tab and set its title to ""
-    local tab2  = window:spawn_tab({
-        cwd = wezterm.home_dir,
-        args = { "yazi" }
-    })
-    tab2:set_title("Yazi")
-
-    -- Activate the first tab by default
-    window:activate_tab(tab1)
-end)
+-- wezterm.on("gui-startup", function(cmd)
+--     local mux = wezterm.mux
+--
+--     -- Create the first tab and set its title to "Neovim"
+--     local tab1, pane1, window = mux.spawn_window(cmd or {})
+--
+--     tab1:set_title("Neovim")
+--
+--     -- Split the first tab horizontally
+--     local pane2 = pane1:split({
+--         direction = "Right",
+--         cwd = wezterm.home_dir
+--     })
+--
+--     -- Create the second tab and set its title to ""
+--     local tab2  = window:spawn_tab({
+--         cwd = wezterm.home_dir,
+--         args = { "yazi" }
+--     })
+--     tab2:set_title("Yazi")
+--
+--     -- Activate the first tab by default
+--     window:activate_tab(tab1)
+-- end)
 
 
 
