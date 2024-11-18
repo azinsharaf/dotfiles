@@ -99,6 +99,7 @@ config.mouse_bindings = {
 -- Other settings
 config.enable_scroll_bar = false
 config.audible_bell = "Disabled"
+config.max_fps = 240
 
 
 -- Function to set up tabs on startup
