@@ -1,47 +1,188 @@
 return {
-    "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-        on_attach = function(bufnr)
-            local gs = package.loaded.gitsigns
+    {
+        "lewis6991/gitsigns.nvim",
+        lazy = false,
+        config = function()
+            -- local icons = require('config.icons')
+            require("gitsigns").setup {
+                -- signs = {
+                --   add = {
+                --     hl = "GitSignsAdd",
+                --     text = icons.ui.BoldLineLeft,
+                --     numhl = "GitSignsAddNr",
+                --     linehl = "GitSignsAddLn",
+                --   },
+                --   change = {
+                --     hl = "GitSignsChange",
+                --     text = icons.ui.BoldLineLeft,
+                --     numhl = "GitSignsChangeNr",
+                --     linehl = "GitSignsChangeLn",
+                --   },
+                --   delete = {
+                --     hl = "GitSignsDelete",
+                --     text = icons.ui.TriangleShortArrowRight,
+                --     numhl = "GitSignsDeleteNr",
+                --     linehl = "GitSignsDeleteLn",
+                --   },
+                --   topdelete = {
+                --     hl = "GitSignsDelete",
+                --     text = icons.ui.TriangleShortArrowRight,
+                --     numhl = "GitSignsDeleteNr",
+                --     linehl = "GitSignsDeleteLn",
+                --   },
+                --   changedelete = {
+                --     hl = "GitSignsChange",
+                --     text = icons.ui.BoldLineLeft,
+                --     numhl = "GitSignsChangeNr",
+                --     linehl = "GitSignsChangeLn",
+                --   },
+                -- },
+                signcolumn = true,
+                numhl = false,
+                linehl = false,
+                word_diff = false,
+                watch_gitdir = {
+                    interval = 1000,
+                    follow_files = true,
+                },
+                attach_to_untracked = true,
+                current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+                current_line_blame_opts = {
+                    virt_text = true,
+                    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+                    delay = 1000,
+                    ignore_whitespace = false,
+                },
+                current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
+                sign_priority = 6,
+                status_formatter = nil,
+                update_debounce = 200,
+                max_file_length = 40000,
+                preview_config = {
+                    border = "rounded",
+                    style = "minimal",
+                    relative = "cursor",
+                    row = 0,
+                    col = 1,
+                },
+                -- yadm = { enable = false },
 
-            local function map(mode, l, r, desc)
-                vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
-            end
+                on_attach = function(bufnr)
+                    vim.keymap.set('n', '<leader>H', require('gitsigns').preview_hunk,
+                        { buffer = bufnr, desc = 'Preview git hunk' })
 
-            -- Navigation
-            map("n", "]h", gs.next_hunk, "Next Hunk")
-            map("n", "[h", gs.prev_hunk, "Prev Hunk")
+                    vim.keymap.set('n', ']]', require('gitsigns').next_hunk,
+                        { buffer = bufnr, desc = 'Next git hunk' })
 
-            -- Actions
-            map("n", "<leader>gs", gs.stage_hunk, "Stage hunk")
-            map("n", "<leader>gr", gs.reset_hunk, "Reset hunk")
-            map("v", "<leader>gs", function()
-                gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-            end, "Stage hunk")
-            map("v", "<leader>gr", function()
-                gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-            end, "Reset hunk")
-
-            map("n", "<leader>gS", gs.stage_buffer, "Stage buffer")
-            map("n", "<leader>gR", gs.reset_buffer, "Reset buffer")
-
-            map("n", "<leader>gu", gs.undo_stage_hunk, "Undo stage hunk")
-
-            map("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
-
-            map("n", "<leader>gb", function()
-                gs.blame_line({ full = true })
-            end, "Blame line")
-            map("n", "<leader>gB", gs.toggle_current_line_blame, "Toggle line blame")
-
-            map("n", "<leader>gd", gs.diffthis, "Diff this")
-            map("n", "<leader>gD", function()
-                gs.diffthis("~")
-            end, "Diff this ~")
-
-            -- Text object
-            map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
+                    vim.keymap.set('n', '[[', require('gitsigns').prev_hunk,
+                        { buffer = bufnr, desc = 'Previous git hunk' })
+                end,
+            }
         end,
+        keys = {
+            {
+                "<leader>Gk",
+                function()
+                    require("gitsigns").prev_hunk({ navigation_message = false })
+                end,
+                desc = "Prev Hunk"
+            },
+            {
+                "<leader>Gl",
+                function()
+                    require("gitsigns").blame_line()
+                end,
+                desc = "Blame"
+            },
+            {
+                "<leader>Gp",
+                function()
+                    require("gitsigns").preview_hunk()
+                end,
+                desc = "Preview Hunk"
+            },
+            {
+                "<leader>Gr",
+                function()
+                    require("gitsigns").reset_hunk()
+                end,
+                desc = "Reset Hunk"
+            },
+            {
+                "<leader>GR",
+                function()
+                    require("gitsigns").reset_buffer()
+                end,
+                desc = "Reset Buffer"
+            },
+            {
+                "<leader>Gj",
+                function()
+                    require("gitsigns").next_hunk({ navigation_message = false })
+                end,
+                desc = "Next Hunk"
+            },
+            {
+                "<leader>Gs",
+                function()
+                    require("gitsigns").stage_hunk()
+                end,
+                desc = "Stage Hunk"
+            },
+            {
+                "<leader>Gu",
+                function()
+                    require("gitsigns").undo_stage_hunk()
+                end,
+                desc = "Undo Stage Hunk"
+            },
+            {
+                "<leader>Go",
+                require("telescope.builtin").git_status,
+                desc = "Open changed file"
+            },
+            {
+                "<leader>Gb",
+                require("telescope.builtin").git_branches,
+                desc = "Checkout branch"
+            },
+            {
+                "<leader>Gc",
+                require("telescope.builtin").git_commits,
+                desc = "Checkout commit"
+            },
+            {
+                "<leader>GC",
+                require("telescope.builtin").git_bcommits,
+                desc = "Checkout commit(for current file)"
+            },
+            {
+                "<leader>Gd",
+                function()
+                    vim.cmd("Gitsigns diffthis HEAD")
+                end,
+                desc = "Git Diff HEAD"
+            },
+        },
+    },
+    {
+        "sindrets/diffview.nvim",
+        event = "VeryLazy",
+        cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+    },
+    -- Git related plugins
+    'tpope/vim-fugitive',
+    'tpope/vim-rhubarb',
+
+    -- not git, but it's okay
+    {
+        "mbbill/undotree",
+        keys = {
+            {
+                "<leader>GU",
+                ":UndotreeToggle<CR>",
+                desc = "Toggle UndoTree"
+            },
+        }
     },
 }
