@@ -166,9 +166,10 @@ $Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current;$Env:PATH"
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
 $Env:Path += ";$Env:USERPROFILE\scoop\apps\7zip\current"
-$Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.1\env-shellgpt\Scripts"
 $Env:Path += ";$Env:USERPROFILE\scoop\apps\git\current\usr\bin"
-$Env:Path += ";$Env:USERPROFILE\.local\bin"
+$Env:Path += ";C:\Program Files\Git\usr\bin"
+$Env:Path += ";$Env:USERPROFILE\pipx\venvs\shell-gpt\Scripts"
+$Env:Path += ";$Env:USERPROFILE\pipx\venvs\rich-cli\Scripts"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
