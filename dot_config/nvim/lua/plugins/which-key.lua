@@ -38,6 +38,7 @@ return {
                 { "<leader>o", group = "obsidian" },
                 { "<leader>s", group = "split" },
                 { "<leader>t", group = "toggle" },
+                { "<leader>x", group = "trouble" },
             },
         })
     end,
