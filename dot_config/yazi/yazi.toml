@@ -81,7 +81,7 @@ rules = [
 	# Empty file
 	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
 	# Fallback
-	{ name = "*", use = [ "open", "reveal" ] },
+	# { name = "*", use = [ "open", "reveal" ] },
 ]
 
 
@@ -136,7 +136,7 @@ previewers = [
 	# Empty file
 	{ mime = "inode/x-empty", run = "empty" },
 	# Fallback
-	{ name = "*", run = "file" },
+	# { name = "*", run = "file" },
 ]
 
 
@@ -152,9 +152,15 @@ prepend_previewers = [
 
 ]
 
+# append_previewers = [
+#   { name = "*", run = "hexyl" },
+# ]
+
+
 append_previewers = [
-  { name = "*", run = "hexyl" },
+    { name = "*", run = "file-extra-metadata" },
 ]
+
 
 [input]
 cursor_blink = false
