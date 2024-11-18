@@ -5,7 +5,7 @@ local telescope = require("telescope")
 telescope.load_extension("chezmoi")
 
 -- general
-keymap("i", "jk", "<ESC>", { desc = "exit insert mode with jk" })
+-- keymap("i", "jk", "<ESC>", { desc = "exit insert mode with jk" })
 -- keymap("n", "<leader>nh", ":noh<CR>", { desc = "No Highlight" })
 keymap("n", "<leader>w", ":w<CR>", { desc = "Write" })
 -- keymap("n", "<leader>q", "<cmd>confirm q<cr>", { desc = "Quit" })
