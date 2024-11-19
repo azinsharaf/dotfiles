@@ -121,14 +121,13 @@ config.mouse_bindings = {
 
 -- Other settings
 config.enable_scroll_bar = false
-config.scrollback_lines = 1000  -- Default is 3500, reduce to speed up 
+config.scrollback_lines = 1000 -- Default is 3500, reduce to speed up
 config.audible_bell = "Disabled"
 config.max_fps = 240
 config.front_end = "WebGpu"
 
 -- Optional: Configure some additional GPU-related optimizations
-config.freetype_load_target = "Light", -- Font rendering optimization
-
+config.freetype_load_target = "Light" -- Font rendering optimization
 
 -- Function to set up tabs on startup
 -- wezterm.on("gui-startup", function(cmd)
@@ -155,5 +154,5 @@ config.freetype_load_target = "Light", -- Font rendering optimization
 --     -- Activate the first tab by default
 --     window:activate_tab(tab1)
 -- end)
-
+--
 return config
