@@ -15,6 +15,7 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
+		"hrsh7th/cmp-emoji",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -28,13 +29,24 @@ return {
 
 		cmp.setup({
 			completion = {
-				keyword_length = 2, -- Set the minimum keyword length to trigger completion
+				keyword_length = 1, -- Set the minimum keyword length to trigger completion
 				completeopt = "menu,menuone,preview,noselect",
 			},
 			snippet = { -- configure how nvim-cmp interacts with snippet engine
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
+			},
+
+			window = {
+				completion = cmp.config.window.bordered({}),
+				documentation = cmp.config.window.bordered({}),
+			},
+
+			view = {
+				entries = {
+					follow_cursor = true,
+				},
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<Tab>"] = cmp.mapping(function(fallback)
