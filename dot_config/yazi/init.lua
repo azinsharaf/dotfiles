@@ -24,6 +24,9 @@ require("starship"):setup()
 -- [plugin] relative motion
 require("relative-motions"):setup({ show_numbers = "relative" })
 
+-- [plugin] eza-preview
+require("eza-preview"):setup()
+
 -- [plugin] - status-line
 require("yatline"):setup({
 	theme = "catppuccin_theme",

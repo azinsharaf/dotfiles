@@ -165,6 +165,9 @@ keymap = [
 	# Help
 	{ on = "~",    run = "help", desc = "Open help" },
 	{ on = "<F1>", run = "help", desc = "Open help" },
+
+    # eza-preview
+	{ on = [ "E" ], run = "plugin eza-preview",  desc = "Toggle tree/list dir preview" },
 ]
 
 [tasks]
