@@ -72,7 +72,7 @@ return {
             completion = {
                 -- Set to false to disable completion.
                 nvim_cmp = true,
-                -- Trigger completion at 2 chars.
+                -- Trigger completion
                 min_chars = 1,
             },
             -- Optional, for templates (see below).
@@ -82,6 +82,30 @@ return {
                 time_format = "%H:%M",
                 -- A map for custom variables, the key should be the variable and the value a function
                 substitutions = {},
+            },
+        })
+
+
+        -- Replace backslashes with forward slashes
+        local function normalize_path(path)
+            return path:gsub("\\", "/")
+        end
+
+        -- Function to get the active workspace name
+        local function get_active_workspace_name()
+            local obsidian = require("obsidian")
+            local workspace = obsidian.workspace()
+
+            print(workspace)
+            return workspace --or "No Active Workspace"
+        end
+
+        -- Configure lualine to display the active workspace
+        require("lualine").setup({
+            sections = {
+                lualine_c = {
+                    { get_active_workspace_name, color = { fg = "#ffaa00", gui = "bold" } },
+                },
             },
         })
     end,
