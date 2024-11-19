@@ -7,15 +7,15 @@ telescope.load_extension("chezmoi")
 -- general
 -- keymap("i", "jk", "<ESC>", { desc = "exit insert mode with jk" })
 -- keymap("n", "<leader>nh", ":noh<CR>", { desc = "No Highlight" })
-keymap("n", "<leader>w", ":w<CR>", { desc = "Write" })
+-- keymap("n", "<leader>w", ":w<CR>", { desc = "Write" })
 -- keymap("n", "<leader>q", "<cmd>confirm q<cr>", { desc = "Quit" })
 -- keymap("n", "<leader>Q", "<cmd>confirm qall<cr>", { desc = "Quit All" })
 -- keymap("n", "<leader>n", "<cmd>enew<cr>", { desc = "New File" })
 
 -- window management
-keymap("n", "<leader>sv", "<C-w>v", { desc = "split window vertically" })     -- split window vertically
-keymap("n", "<leader>sh", "<C-w>s", { desc = "split window horizontally" })   -- split window horizontally
-keymap("n", "<leader>se", "<C-w>=", { desc = "make splits equal size" })      -- make split windows equal width & height
+keymap("n", "<leader>sv", "<C-w>v", { desc = "split window vertically" }) -- split window vertically
+keymap("n", "<leader>sh", "<C-w>s", { desc = "split window horizontally" }) -- split window horizontally
+keymap("n", "<leader>se", "<C-w>=", { desc = "make splits equal size" }) -- make split windows equal width & height
 keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "close current split" }) -- close current split window
 
 -- Keybinds to make split navigation easier.
