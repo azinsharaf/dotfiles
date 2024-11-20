@@ -4,6 +4,7 @@ return {
 		lazy = false,
 		enabled = true,
 		name = "catppuccin",
+		priority = 1000,
 		opts = {
 			integrations = {
 				aerial = true,
