@@ -131,6 +131,7 @@ keymap = [
 	{ on = [ "g", "d", "J" ],       run = "cd J:/Jobs/",   desc = "J drive - OAK" },
 	{ on = [ "g", "d", "K" ],       run = "cd K:/",        desc = "K drive - GIS" },
 	{ on = [ "g", "d", "R" ],       run = "cd R:/",        desc = "R drive - OAK-REF" },
+	{ on = [ "g", "d", "Z" ],       run = "cd Z:/Jobs/",        desc = "Z drive - RENO" },
 
 	{ on = [ "g", "p", "A" ],       run = "cd J:/Jobs/8349-Alameda_Database/",                              desc = "Alameda Database 8349" },
 	{ on = [ "g", "p", "D" ],       run = "cd J:/Jobs/8819_DanvilleStormDrainMP/GIS/",             desc = "Danville DMP 8819" },
