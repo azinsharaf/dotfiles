@@ -1,7 +1,7 @@
-
 # windows
 
 ## extra notes
+
 ```powershell
 
 # setting powershell to work with arcgis pro conda env:
@@ -60,10 +60,7 @@ conda activate arcgispro-py3-clone
 
 ```
 
-
-
 ## windows, apps installation
-
 
 ```
 # ms store apps
@@ -73,7 +70,7 @@ conda activate arcgispro-py3-clone
 winget install KeeperSecurity.KeeperDesktop
 winget install CLechasseur.PathCopyCopy
 winget install Doist.Todoist
-winget install Microsoft.Office 
+winget install Microsoft.Office
 winget install Logitech.OptionsPlus
 winget install Microsoft.SQLServerManagementStudio
 winget install  Microsoft.SQLServer.2022.Developer
@@ -145,19 +142,25 @@ scoop bucket add nerd-fonts
 scoop install nerd-fonts/JetBrainsMono-NF
 scoop install eza
 scoop install treesize-free
-
+scoop install luarocks
 scoop install motrix
 scoop install pipx
-
+scoop install tree-sitter
 
 pipx install rich-cli
 pipx install shell-gpt
-```
 
+
+
+
+npm install -g neovim
+
+```
 
 ## wsl setup
 
 wsl installation:
+
 ```powershell admin access
 wsl --install Debain
 wsl --update
@@ -229,7 +232,6 @@ sudo apt install qt6-tools-dev
 
 ```
 
-
 ## WSL Arch Linux setup
 
 ```powershell
@@ -246,7 +248,7 @@ Invoke-WebRequest -Uri https://wslstorestorage.blob.core.windows.net/wslblob/wsl
 # install it silently
 Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$Env:USERPROFILE\Downloads\wsl_update_x64.msi`" /qn" -Verb RunAs
 
-# reboot 
+# reboot
 Restart-Computer
 
 mkdir C:\WSL\Arch
@@ -265,7 +267,7 @@ C:\WSL\Arch\Arch.exe # run it again to setup root password
 [root@PC-NAME] echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 #(setup sudoers file.)
 
-# (add user) change {username} 
+# (add user) change {username}
 [root@PC-NAME] useradd -m -G wheel -s /bin/bash {username}
 
 # (set default user password)
@@ -290,7 +292,6 @@ wsl.exe --update
 wsl.exe --shutdown
 
 ```
-
 
 ```shell
 # in linux terminal
@@ -386,8 +387,6 @@ sudo apt install qt6-tools-dev
 ~/.pyenv/versions/3.11.5/envs/env-wsl-apps/bin/python -m pip install qutebrowser
 ```
 
-
-
 some wls notes ot investigate:
 
 running arcpy script from wsl:
@@ -401,11 +400,10 @@ this works too: py on wsl location
 ❯ /mnt/c/Program\ Files/ArcGIS/Pro/bin/Python/envs/arcgispro-py3/python.exe icm_calc_pipe_deficiency.py
 Start Time: 02/02/2024 10:06:05 AM
 
-
-
 # macos
 
 `
+
 ```shell
 
 # install homebrew
