@@ -19,9 +19,8 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 
-
 		{
-			'nvim-telescope/telescope-ui-select.nvim'
+			"nvim-telescope/telescope-ui-select.nvim",
 		},
 	},
 	config = function()
