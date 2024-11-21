@@ -18,6 +18,11 @@ return {
 		{
 			"nvim-tree/nvim-web-devicons",
 		},
+
+
+		{
+			'nvim-telescope/telescope-ui-select.nvim'
+		},
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -50,6 +55,7 @@ return {
 		})
 
 		require("telescope").load_extension("fzf")
+		require("telescope").load_extension("ui-select")
 
 		-- set keymaps
 
