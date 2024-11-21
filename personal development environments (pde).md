@@ -146,7 +146,8 @@ scoop install luarocks
 scoop install motrix
 scoop install pipx
 scoop install tree-sitter
-
+scoop install gh
+gh extension install dlvhdr/gh-dash
 pipx install rich-cli
 pipx install shell-gpt
 
