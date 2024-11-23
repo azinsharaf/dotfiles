@@ -1,34 +1,39 @@
 local Path = require("plenary.path")
 
--- define workspaces
-local workspacePaths = {
-	{
-		name = "work",
-		path = Path:new(os.getenv("USERPROFILE") .. "/OneDrive - Wood Rodgers Inc/Obsidian/Obsidian_work"):expand(),
-	},
-	{
-		name = "personal",
-		path = Path:new(os.getenv("USERPROFILE") .. "/azin_obsidian_personal"):expand(),
-	},
-}
-
-local workspaces = {}
-
-for _, workspaceInfo in ipairs(workspacePaths) do
-	local workspacePath = workspaceInfo.path
-	if Path:new(workspacePath):exists() then
-		local workspace = {
-			name = workspaceInfo.name,
-			path = workspacePath,
+-- Get the OS-specific vault path
+local function get_vault_path()
+	local os_name = vim.loop.os_uname().sysname
+	if os_name == "Windows_NT" then
+		return {
+			work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "Obsidian", "Obsidian_work"):absolute(),
+			personal = Path:new(vim.env.USERPROFILE, "azin_obsidian_personal"):absolute(),
 		}
-		table.insert(workspaces, workspace)
+	else
+		return {
+			work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc", "Obsidian", "Obsidian_work"):absolute(),
+			personal = Path:new(vim.fn.expand("~"), "azin_obsidian_personal"):absolute(),
+		}
 	end
 end
 
--- Combine to form the folder path dynamically
-local year = os.date("%Y")
-local month_name = os.date("%m-%B") -- e.g., "11-November"-
-local daily_notes_folder = "daily_notes/" .. year .. "/" .. month_name
+-- Get resolved paths and define workspaces
+local vault_paths = get_vault_path()
+
+-- Ensure workspaces are properly named and unique
+local workspaces = {
+	{ name = "work", path = vault_paths.work },
+	{ name = "personal", path = vault_paths.personal },
+}
+
+-- Validate paths and create a table of valid workspaces
+local valid_workspaces = {}
+for _, ws in ipairs(workspaces) do
+	if Path:new(ws.path):exists() then
+		table.insert(valid_workspaces, ws)
+	end
+end
+
+-- Define the plugin with dependencies and keybindings
 
 return {
 	"epwalsh/obsidian.nvim",
@@ -36,78 +41,53 @@ return {
 	version = "*", -- recommended, use latest release instead of latest commit
 	lazy = false,
 	ft = "markdown",
-	-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-	-- event = {
-	--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-	--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-	--   "BufReadPre path/to/my-vault/**.md",
-	--   "BufNewFile path/to/my-vault/**.md",
-	-- },
 	dependencies = {
 		-- Required.
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope.nvim",
-
-		-- see below for full list of optional dependencies 👇
 	},
 
 	config = function()
-		require("obsidian").setup({
-			workspaces = workspaces,
+		if #valid_workspaces > 0 then
+			-- Configure obsidian.nvim with the valid workspace
+			require("obsidian").setup({
 
-			-- see below for full list of options 👇
-			daily_notes = {
-				-- Optional, if you keep daily notes in a separate directory.
-				folder = daily_notes_folder,
-				-- Optional, if you want to change the date format for the ID of daily notes.
-				date_format = "%Y-%m-%d-%A",
-				-- Optional, if you want to change the date format of the default alias of daily notes.
-				-- alias_format = "%B %-d, %Y",
-				-- Optional, default tags to add to each new daily note created.
-				default_tags = { "daily-notes" },
-				-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-				template = "template_daily_note.md",
-			},
-			-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
-			completion = {
-				-- Set to false to disable completion.
-				nvim_cmp = true,
-				-- Trigger completion
-				min_chars = 1,
-			},
-			-- Optional, for templates (see below).
-			templates = {
-				folder = "templates",
-				date_format = "%Y-%m-%d",
-				time_format = "%H:%M",
-				-- A map for custom variables, the key should be the variable and the value a function
-				substitutions = {},
-			},
-		})
+				workspaces = valid_workspaces, -- provide all valid workspaces
 
-		-- Replace backslashes with forward slashes
-		local function normalize_path(path)
-			return path:gsub("\\", "/")
+				-- see below for full list of options 👇
+				daily_notes = {
+					-- Optional, if you keep daily notes in a separate directory.
+					folder = "daily_notes",
+					-- Optional, if you want to change the date format for the ID of daily notes.
+					date_format = "%Y-%m-%d-%A",
+					-- Optional, if you want to change the date format of the default alias of daily notes.
+					-- alias_format = "%B %-d, %Y",
+					-- Optional, default tags to add to each new daily note created.
+					default_tags = { "daily-notes" },
+					-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+					template = "template_daily_note.md",
+				},
+
+				-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
+				completion = {
+					-- Set to false to disable completion.
+					nvim_cmp = true,
+					-- Trigger completion
+					min_chars = 1,
+				},
+				-- Optional, for templates (see below).
+				templates = {
+					folder = "templates",
+					date_format = "%Y-%m-%d",
+					time_format = "%H:%M",
+					-- A map for custom variables, the key should be the variable and the value a function
+					substitutions = {},
+				},
+			})
+		else
+			-- Provide a fallback message when no workspace is found
+			print("No valid Obsidian workspace found. Obsidian.nvim is not fully configured.")
 		end
-
-		-- Function to get the active workspace name
-		-- local function get_active_workspace_name()
-		-- 	local obsidian = require("obsidian")
-		-- 	local workspace = obsidian.workspace.WorkspaceSpec[]
-		-- 	spec = workspace.get_default_workspace({ workspaces })
-		--
-		-- 	print(spec)
-		-- 	return spec.name --or "No Active Workspace"
-		-- end
-		--
-		-- -- Configure lualine to display the active workspace
-		-- require("lualine").setup({
-		-- 	sections = {
-		-- 		lualine_c = {
-		-- 			{ get_active_workspace_name, color = { fg = "#ffaa00", gui = "bold" } },
-		-- 		},
-		-- 	},
-		-- })
 	end,
 
 	keys = {
