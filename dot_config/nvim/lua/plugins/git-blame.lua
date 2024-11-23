@@ -1,23 +1,30 @@
 return {
 	"f-person/git-blame.nvim",
-	-- load the plugin at startup
+	-- Load the plugin lazily
 	event = "VeryLazy",
 	enabled = true,
-	-- Because of the keys part, you will be lazy loading this plugin.
-	-- The plugin wil only load once one of the keys is used.
-	-- If you want to load the plugin at startup, add something like event = "VeryLazy",
-	-- or lazy = false. One of both options will work.
-	opts = {
-		-- your configuration comes here
-		-- for example
-		enabled = true, -- if you want to enable the plugin
-		message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
-		date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
-		virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
-	},
 
 	config = function()
-		vim.keymap.set("n", "<leader>go", ":GitBlameOpenFileURL<CR>", { desc = "open in browser" })
-		vim.keymap.set("n", "<leader>gt", ":GitBlameToggle<CR>", { desc = "toggle git blame" })
+		-- Plugin options
+		require("gitblame").setup({
+			enabled = true, -- Enable the plugin
+			message_template = " <summary> • <date> • <author> • <<sha>>", -- Custom blame message format
+			date_format = "%m-%d-%Y %H:%M:%S", -- Date format for blame messages
+			virtual_text_column = 1, -- Starting column for virtual text
+		})
+
+		-- Define keybindings for the plugin
+		vim.keymap.set("n", "<leader>go", ":GitBlameOpenFileURL<CR>", { desc = "Open file in browser" })
+		vim.keymap.set("n", "<leader>gt", ":GitBlameToggle<CR>", { desc = "Toggle Git blame" })
+
+		-- Adjust shell settings based on the OS
+		if vim.loop.os_uname().sysname == "Windows_NT" then
+			-- Ensure Neovim uses PowerShell on Windows
+			vim.o.shell = "pwsh"
+			vim.o.shellcmdflag = "-NoProfile -Command"
+		else
+			-- Use a standard shell on Unix-like systems
+			vim.o.shell = "/bin/zsh"
+		end
 	end,
 }
