@@ -29,8 +29,12 @@ alias ll="ls -lG"                 # Long listing
 alias la="ls -laG"                # Show hidden files
 alias n="nvim"                    # Short alias for Neovim
 alias update="brew update && brew upgrade && brew cleanup"  # Update system
-alias gs="git status"             # Git status shortcut
-alias gd="git diff"               # Git diff shortcut
+
+alias lg="lazygit"
+
+alias ccd="chezmoi cd"
+alias capply="chezmoi apply -v"
+alias cstatus="chezmoi status"
 
 # --- Functions ---
 f() {
