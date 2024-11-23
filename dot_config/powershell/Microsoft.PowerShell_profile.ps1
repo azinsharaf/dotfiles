@@ -162,12 +162,13 @@ if ($env:COMPUTERNAME -eq "Desktop-Azin") {
 }
 $Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
 
-$Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current;$Env:PATH"
+# $Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current;$Env:PATH"
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
-$Env:Path += ";$Env:USERPROFILE\scoop\apps\7zip\current"
-$Env:Path += ";$Env:USERPROFILE\scoop\apps\git\current\usr\bin"
-$Env:Path += ";C:\Program Files\Git\usr\bin"
+# $Env:Path += ";$Env:USERPROFILE\scoop\apps\7zip\current"
+# $Env:Path += ";$Env:USERPROFILE\scoop\apps\git\current\usr\bin"
+$Env:Path += ";$Env:USERPROFILE\scoop\shims"
+# $Env:Path += ";C:\Program Files\Git\usr\bin"
 $Env:Path += ";$Env:USERPROFILE\pipx\venvs\shell-gpt\Scripts"
 $Env:Path += ";$Env:USERPROFILE\pipx\venvs\rich-cli\Scripts"
 
