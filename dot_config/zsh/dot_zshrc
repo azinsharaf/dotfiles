@@ -33,7 +33,7 @@ alias update="brew update && brew upgrade && brew cleanup"  # Update system
 alias lg="lazygit"
 
 alias ccd="chezmoi cd"
-alias capply="chezmoi apply -v"
+alias capply="chezmoi apply"
 alias cstatus="chezmoi status"
 
 # --- Functions ---
