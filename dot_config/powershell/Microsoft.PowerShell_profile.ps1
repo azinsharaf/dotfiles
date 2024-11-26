@@ -153,22 +153,19 @@ $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
 
-if ($env:COMPUTERNAME -eq "Desktop-Azin") {
+if ($Env:COMPUTERNAME -eq "Desktop-Azin") {
     $ENV:YAZI_FILE_ONE = "$Env:USERPROFILE\scoop\apps\git\current\usr\bin\file.exe"
-    $env:NEOVIM_NODE_PATH = "C:\Program Files\nodejs\node.exe"
-} elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
-    $ENV:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
-    $env:NEOVIM_NODE_PATH = "C:\Users\asharaf\scoop\apps\nodejs\current\node.exe"
+    $Env:NEOVIM_NODE_PATH = "C:\Program Files\nodejs\node.exe"
+} elseif ($Env:COMPUTERNAME -eq "WS-Oakland-001") {
+    $Env:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
+    $Env:NEOVIM_NODE_PATH = "C:\Users\asharaf\scoop\apps\nodejs\current\node.exe"
 }
 $Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
 
 # $Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current;$Env:PATH"
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
-# $Env:Path += ";$Env:USERPROFILE\scoop\apps\7zip\current"
-# $Env:Path += ";$Env:USERPROFILE\scoop\apps\git\current\usr\bin"
 $Env:Path += ";$Env:USERPROFILE\scoop\shims"
-# $Env:Path += ";C:\Program Files\Git\usr\bin"
 $Env:Path += ";$Env:USERPROFILE\pipx\venvs\shell-gpt\Scripts"
 $Env:Path += ";$Env:USERPROFILE\pipx\venvs\rich-cli\Scripts"
 
