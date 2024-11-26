@@ -448,7 +448,7 @@ brew install ghostscript
 brew install hexyl
 #brew install pipx
 brew install rich-cli
-
+brew install neofetch
 
 
 ``
