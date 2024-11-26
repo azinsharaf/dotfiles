@@ -108,7 +108,7 @@ function pgrep($name) {
 
 Remove-Item -Path Alias:ls
 
-function ls {eza -l}
+function ls {eza -lah}
 
 function ll {eza -l}
 function la {eza -a}
