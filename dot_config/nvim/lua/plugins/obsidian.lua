@@ -16,30 +16,6 @@ local function get_vault_path()
 	end
 end
 
--- Function to get the current year, month number, and month name
-local function get_daily_notes_folder(file_name)
-	-- Get current year, month number, and month name
-	local year = os.date("%Y")
-	local month_number = os.date("%m") -- Month as two digits
-	local month_name = os.date("%B") -- Full month name
-
-	-- Dynamically define the base folder for daily notes based on the vault path
-	local vault_paths = get_vault_path()
-
-	-- If you want the daily notes to be part of the "work" vault, use vault_paths.work
-	-- If you want the daily notes to be in the "personal" vault, use vault_paths.personal
-	-- Example: using the "work" vault:
-	local base_folder = vault_paths.work
-
-	-- Construct the path for the current month's folder
-	local folder_path = Path:new(base_folder, "daily_notes", year, month_number .. "-" .. month_name)
-	print("Daily notes folder path: " .. folder_path:absolute())
-	-- Ensure the folder exists (create if it doesn't)
-	folder_path:mkdir({ parents = true })
-
-	return folder_path
-end
-
 -- Get resolved paths and define workspaces
 local vault_paths = get_vault_path()
 
@@ -79,18 +55,6 @@ return {
 				workspaces = valid_workspaces, -- provide all valid workspaces
 
 				-- see below for full list of options 👇
-				daily_notes = {
-					-- Optional, if you keep daily notes in a separate directory.
-					folder = get_daily_notes_folder(), -- Use the dynamically constructed folder path
-					-- Optional, if you want to change the date format for the ID of daily notes.
-					date_format = "%Y-%m-%d-%A",
-					-- Optional, if you want to change the date format of the default alias of daily notes.
-					-- alias_format = "%B %-d, %Y",
-					-- Optional, default tags to add to each new daily note created.
-					default_tags = { "daily-notes" },
-					-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-					template = "template_daily_note.md",
-				},
 
 				-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
 				completion = {
@@ -98,14 +62,6 @@ return {
 					nvim_cmp = true,
 					-- Trigger completion
 					min_chars = 1,
-				},
-				-- Optional, for templates (see below).
-				templates = {
-					folder = "templates",
-					date_format = "%Y-%m-%d",
-					time_format = "%H:%M",
-					-- A map for custom variables, the key should be the variable and the value a function
-					substitutions = {},
 				},
 			})
 		else
