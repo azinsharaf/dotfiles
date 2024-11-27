@@ -449,7 +449,7 @@ brew install hexyl
 #brew install pipx
 brew install rich-cli
 brew install neofetch
-
+brew install --cask nikitabobko/tap/aerospace
 
 ``
 ```
