@@ -20,40 +20,40 @@ end
 local vault_paths = get_vault_path()
 
 -- Function to get the current year, month, day, and day of the week
-local function get_daily_notes_folder()
-	-- Get current year, month number, month name, day, and day of the week
-	local year = os.date("%Y")
-	local month_number = os.date("%m") -- Month as two digits
-	local month_name = os.date("%B") -- Full month name
-
-	-- Dynamically define the base folder for daily notes based on the vault path
-	-- local vault_paths = get_vault_path()
-	local base_folder = vault_paths.work -- You can change this to `vault_paths.personal` if needed
-	print(base_folder)
-	--
-	--
-	--
-	-- Check if the base_folder is valid
-	if not base_folder or base_folder == "" then
-		error("Invalid base folder path: " .. tostring(base_folder))
-	end
-
-	-- Construct the nested path for the current year, month, and day
-	local folder_path = Path:new(base_folder, "daily_notes", year, month_number .. "-" .. month_name):absolute()
-
-	-- Ensure the folder exists (create if it doesn't)
-
-	-- if not folder_path:exists() then
-	-- 	folder_path:mkdir({ parents = true })
-	-- end
-
-	return folder_path
-end
+-- local function get_daily_notes_folder()
+-- 	-- Get current year, month number, month name, day, and day of the week
+-- 	local year = os.date("%Y")
+-- 	local month_number = os.date("%m") -- Month as two digits
+-- 	local month_name = os.date("%B") -- Full month name
+--
+-- 	-- Dynamically define the base folder for daily notes based on the vault path
+-- 	-- local vault_paths = get_vault_path()
+-- 	local base_folder = vault_paths.work -- You can change this to `vault_paths.personal` if needed
+-- 	print(base_folder)
+-- 	--
+-- 	--
+-- 	--
+-- 	-- Check if the base_folder is valid
+-- 	if not base_folder or base_folder == "" then
+-- 		error("Invalid base folder path: " .. tostring(base_folder))
+-- 	end
+--
+-- 	-- Construct the nested path for the current year, month, and day
+-- 	local folder_path = Path:new(base_folder, "daily_notes", year, month_number .. "-" .. month_name):absolute()
+--
+-- 	-- Ensure the folder exists (create if it doesn't)
+--
+-- 	-- if not folder_path:exists() then
+-- 	-- 	folder_path:mkdir({ parents = true })
+-- 	-- end
+--
+-- 	return folder_path
+-- end
 
 -- Ensure workspaces are properly named and unique
 local workspaces = {
-	{ name = "work", path = vault_paths.work },
 	{ name = "personal", path = vault_paths.personal },
+	{ name = "work", path = vault_paths.work },
 }
 
 -- Validate paths and create a table of valid workspaces
@@ -63,6 +63,7 @@ for _, ws in ipairs(workspaces) do
 		table.insert(valid_workspaces, ws)
 	end
 end
+
 -- Define the plugin with dependencies and keybindings
 
 return {
@@ -178,5 +179,6 @@ return {
 		{ "<leader>ot", "<cmd>ObsidianToday<cr>", desc = "Obsidian Today" },
 		{ "<leader>of", "<cmd>ObsidianSearch<cr>", desc = "Obsidian Search Word" },
 		{ "<leader>ow", "<cmd>ObsidianWorkspace<cr>", desc = "Obsidian Workspace" },
+		{ "<leader>op", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian Templates" },
 	},
 }
