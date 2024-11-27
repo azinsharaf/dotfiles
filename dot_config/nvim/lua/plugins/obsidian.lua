@@ -15,9 +15,41 @@ local function get_vault_path()
 		}
 	end
 end
-
+--
 -- Get resolved paths and define workspaces
 local vault_paths = get_vault_path()
+print(vault_paths.work)
+
+-- Function to get the current year, month, day, and day of the week
+local function get_daily_notes_folder()
+	-- Get current year, month number, month name, day, and day of the week
+	local year = os.date("%Y")
+	local month_number = os.date("%m") -- Month as two digits
+	local month_name = os.date("%B") -- Full month name
+
+	-- Dynamically define the base folder for daily notes based on the vault path
+	-- local vault_paths = get_vault_path()
+	local base_folder = vault_paths.work -- You can change this to `vault_paths.personal` if needed
+	print(base_folder)
+	--
+	--
+	--
+	-- Check if the base_folder is valid
+	if not base_folder or base_folder == "" then
+		error("Invalid base folder path: " .. tostring(base_folder))
+	end
+
+	-- Construct the nested path for the current year, month, and day
+	local folder_path = Path:new(base_folder, "daily_notes", year, month_number .. "-" .. month_name):absolute()
+
+	-- Ensure the folder exists (create if it doesn't)
+
+	-- if not folder_path:exists() then
+	-- 	folder_path:mkdir({ parents = true })
+	-- end
+
+	return folder_path
+end
 
 -- Ensure workspaces are properly named and unique
 local workspaces = {
@@ -32,7 +64,6 @@ for _, ws in ipairs(workspaces) do
 		table.insert(valid_workspaces, ws)
 	end
 end
-
 -- Define the plugin with dependencies and keybindings
 
 return {
@@ -60,6 +91,19 @@ return {
 					nvim_cmp = true,
 					-- Trigger completion
 					min_chars = 1,
+				},
+
+				daily_notes = {
+					-- Optional, if you keep daily notes in a separate directory.
+					folder = get_daily_notes_folder(),
+					-- Optional, if you want to change the date format for the ID of daily notes.
+					date_format = "%Y-%m-%d-%A",
+					-- Optional, if you want to change the date format of the default alias of daily notes.
+					-- alias_format = "%B %-d, %Y",
+					-- Optional, default tags to add to each new daily note created.
+					default_tags = { "daily-notes" },
+					-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+					template = "template_daily_note.md",
 				},
 				-- Optional, for templates (see below).
 				templates = {
