@@ -451,6 +451,7 @@ brew install rich-cli
 brew install neofetch
 brew install --cask nikitabobko/tap/aerospace
 
+npm install -g neovim
 ``
 ```
 
