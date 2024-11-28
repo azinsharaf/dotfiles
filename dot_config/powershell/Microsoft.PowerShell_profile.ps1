@@ -168,6 +168,7 @@ $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
 $Env:Path += ";$Env:USERPROFILE\scoop\shims"
 $Env:Path += ";$Env:USERPROFILE\pipx\venvs\shell-gpt\Scripts"
 $Env:Path += ";$Env:USERPROFILE\pipx\venvs\rich-cli\Scripts"
+$Env:Path += ";$Env:USERPROFILE\yazi-x86_64-pc-windows-msvc"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
