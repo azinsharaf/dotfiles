@@ -82,15 +82,17 @@ local function git_sync()
 end
 
 -- Command to trigger Git synchronization manually
--- vim.api.nvim_create_user_command("GitSync", git_sync, {})
+vim.api.nvim_create_user_command("GitSync", git_sync, {})
 
 -- Automate syncing on Markdown file save
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*.md",
-	callback = git_sync,
-
-	print("Vault synced with Git!"),
+	callback = function()
+		git_sync()
+		print("Vault synced with Git!")
+	end,
 })
+
 -- Define the plugin with dependencies and keybindings
 
 return {
@@ -151,7 +153,7 @@ return {
 				-- Optional, configure additional syntax highlighting / extmarks.
 				-- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
 				ui = {
-					enable = true, -- set to false to disable all additional syntax features
+					enable = false, -- set to false to disable all additional syntax features
 					update_debounce = 200, -- update delay after a text change (in milliseconds)
 					max_file_length = 5000, -- disable UI features for files with more than this many lines
 					-- Define how various check-boxes are displayed
