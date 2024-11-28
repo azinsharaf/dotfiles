@@ -66,7 +66,7 @@ opt.wildignorecase = true
 opt.wildmenu = true
 
 -- Set global conceallevel
-opt.conceallevel = 2
+opt.conceallevel = 0
 
 -- Auto commands for specific file types
 vim.api.nvim_create_autocmd("FileType", {
