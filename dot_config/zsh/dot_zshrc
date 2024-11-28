@@ -78,8 +78,3 @@ else
   export TERM="xterm-256color"
 fi
 
-# --- Source Local Config ---
-if [ -f ~/.zshrc.local ]; then
-  source ~/.zshrc.local
-fi
-
