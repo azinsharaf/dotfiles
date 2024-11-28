@@ -6,17 +6,13 @@ setopt histfindnodups     # Ignore duplicates during search
 setopt sharehistory       # Share command history across all sessions
 setopt autocontinue       # Continue long commands over multiple lines
 
-export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/opt/homebrew/anaconda3/bin:$PATH"  # commented out by conda initialize
+
 export EDITOR="nvim"       # Set default editor to Neovim
 export PAGER="less"        # Use 'less' for paging
 export GLOW_CONFIG_DIR="$HOME/.config/glow"
 
-# --- Starship Prompt ---
-# Ensure Starship is installed via Homebrew: `brew install starship`
-# Configure Starship with a custom configuration file if needed.
-if command -v starship &> /dev/null; then
-  eval "$(starship init zsh)"
-fi
+
 
 # --- History Settings ---
 HISTFILE=~/.zsh_history      # History file location
@@ -78,3 +74,27 @@ else
   export TERM="xterm-256color"
 fi
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+conda activate python-cmu
+
+# --- Starship Prompt ---
+# Ensure Starship is installed via Homebrew: `brew install starship`
+# Configure Starship with a custom configuration file if needed.
+if command -v starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
