@@ -9,7 +9,7 @@ setopt autocontinue       # Continue long commands over multiple lines
 export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:$PATH"
 export EDITOR="nvim"       # Set default editor to Neovim
 export PAGER="less"        # Use 'less' for paging
-export GLOW_CONFIG_DIR= "$HOME/.config/glow"
+export GLOW_CONFIG_DIR="$HOME/.config/glow"
 
 # --- Starship Prompt ---
 # Ensure Starship is installed via Homebrew: `brew install starship`
