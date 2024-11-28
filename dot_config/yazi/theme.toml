@@ -79,7 +79,7 @@ permissions_s = { fg = "darkgray" }
 
 # : Select {{{
 
-[select]
+[pick]
 border   = { fg = "blue" }
 active   = { fg = "magenta", bold = true }
 inactive = {}
