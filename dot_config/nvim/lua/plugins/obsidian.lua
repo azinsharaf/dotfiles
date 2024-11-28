@@ -64,6 +64,33 @@ for _, ws in ipairs(workspaces) do
 	end
 end
 
+-- Function to perform Git Sync
+local function git_sync()
+	local vault_path = vault_paths.personal
+	if not vault_path then
+		print("Vault path is invalid!")
+		return
+	end
+	-- Navigate to vault directory
+	vim.cmd("cd " .. vault_path)
+	-- Perform Git operations
+	vim.fn.system("git pull")
+	vim.fn.system("git add .")
+	vim.fn.system("git commit -m 'Auto-sync from Obsidian.nvim'")
+	vim.fn.system("git push")
+	-- print("Vault synced with Git!")
+end
+
+-- Command to trigger Git synchronization manually
+-- vim.api.nvim_create_user_command("GitSync", git_sync, {})
+
+-- Automate syncing on Markdown file save
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "*.md",
+	callback = git_sync,
+
+	print("Vault synced with Git!"),
+})
 -- Define the plugin with dependencies and keybindings
 
 return {
@@ -84,6 +111,8 @@ return {
 			require("obsidian").setup({
 
 				workspaces = valid_workspaces, -- provide all valid workspaces
+
+				-- git_sync(), -- sync personal obsidian vault with github
 
 				-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
 				completion = {
