@@ -8,12 +8,12 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 if ($env:COMPUTERNAME -eq "Desktop-Azin_temp") {
 # cmu python env activation
-    $Env:CONDA_EXE = "C:\Users\azin\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
-    $Env:CONDA_ENV_EXE = "C:\Users\azin\scoop\apps\anaconda3\current\App\Scripts\conda-env.exe"
+    $Env:CONDA_EXE = "$USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
+    $Env:CONDA_ENV_EXE = "$USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda-env.exe"
     $Env:_CE_M = ""
     $Env:_CE_CONDA = ""
-    $Env:_CONDA_ROOT = "C:\Users\azin\scoop\apps\anaconda3\current\App"
-    $Env:_CONDA_EXE = "C:\Users\azin\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
+    $Env:_CONDA_ROOT = "$USERPROFILE\scoop\apps\anaconda3\current\App"
+    $Env:_CONDA_EXE = "$USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
     $CondaModuleArgs = @{ChangePs1 = $True}
     Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
 
@@ -56,7 +56,6 @@ elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
     Remove-Variable CondaModuleArgs
 }
 
-
 # # to open the last dir
 # # Path to store the last directory
 # $lastDirPath = "$HOME\last-dir.txt"
@@ -72,8 +71,7 @@ elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
 # Register-EngineEvent PowerShell.Exiting -Action { Save-LastLocation } | Out-Null
 # #
 
-
-# Does the the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
+# Does the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
 function dirs {
     if ($args.Count -gt 0) {
         Get-ChildItem -Recurse -Include "$args" | Foreach-Object FullName
@@ -113,6 +111,7 @@ function ls {eza -lah}
 function ll {eza -l}
 function la {eza -a}
 function lt {eza --tree}
+
 function e {exit}
 function :q {exit}
 function c {clear}
@@ -127,20 +126,19 @@ function nvim-remove {Remove-Item -Path "$Env:USERPROFILE\AppData\Local\nvim-dat
 
 function lg {lazygit}
 
+function ccd {chezmoi cd}
 function cedit {chezmoi edit}
 function cdiff {chezmoi diff}
 function cstatus {chezmoi status}
 function capply {chezmoi -v apply}
-function ccd {chezmoi cd}
 
 function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --bar --ahk}
-function ke {komorebic stop --bar --ahk}
+function ke {komorebic stop --bar}
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
 $Env:KOMOREBI_CONFIG_HOME = "$Env:USERPROFILE\.config\komorebi"
 $Env:KOMOREBI_AHK_EXE = "$Env:USERPROFILE\AppData\Local\Programs\AutoHotkey\v2\AutoHotkey64.exe"
-# $Env:WHKD_CONFIG_HOME = "$Env:USERPROFILE\.config\whkd"
 
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
@@ -158,7 +156,7 @@ if ($Env:COMPUTERNAME -eq "Desktop-Azin") {
     $Env:NEOVIM_NODE_PATH = "C:\Program Files\nodejs\node.exe"
 } elseif ($Env:COMPUTERNAME -eq "WS-Oakland-001") {
     $Env:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
-    $Env:NEOVIM_NODE_PATH = "C:\Users\asharaf\scoop\apps\nodejs\current\node.exe"
+    $Env:NEOVIM_NODE_PATH = "$USERPROFILE\scoop\apps\nodejs\current\node.exe"
 }
 $Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
 
@@ -168,7 +166,7 @@ $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
 $Env:Path += ";$Env:USERPROFILE\scoop\shims"
 $Env:Path += ";$Env:USERPROFILE\pipx\venvs\shell-gpt\Scripts"
 $Env:Path += ";$Env:USERPROFILE\pipx\venvs\rich-cli\Scripts"
-$Env:Path += ";$Env:USERPROFILE\yazi-x86_64-pc-windows-msvc"
+$Env:Path += ";$Env:USERPROFILE\temp_apps"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
