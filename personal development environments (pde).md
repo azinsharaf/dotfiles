@@ -1,70 +1,10 @@
-# windows
+# Windows Setup
 
-## extra notes
-
-```powershell
-
-# setting powershell to work with arcgis pro conda env:
-# first step - run in shell
-# Define the folders to add to the PATH environment variable
-$foldersToAdd = @("C:\Program Files\ArcGIS\Pro\bin\Python\Scripts", "C:\Users\asharaf\AppData\Local\ESRI\conda\envs\arcgispro-py3-clone\Scripts")
-
-# Get the current user PATH environment variable
-$currentPath = [Environment]::GetEnvironmentVariable("PATH", "User")
-
-# Initialize an empty string for the new folders
-$newFolders = ""
-
-# Iterate over each folder
-foreach ($folderToAdd in $foldersToAdd) {
-    # Check if the folder is already in the PATH
-    if ($currentPath -notlike "*$folderToAdd*") {
-        # If not, add the folder to the new folders string
-        $newFolders += $folderToAdd + ";"
-    } else {
-        Write-Host "$folderToAdd is already in the PATH."
-    }
-}
-
-# Add the new folders to the top of the PATH
-$newPath = $newFolders + $currentPath
-[Environment]::SetEnvironmentVariable("PATH", $newPath, "User")
-
-# second step:
-cd "C:\Program Files\ArcGIS\Pro\bin\Python\condabin"; .\conda init powershell
-
-# third step:
-Add-Content -Path "C:\Users\asharaf\Documents\PowerShell\profile.ps1" -Value @'
-Invoke-Expression (&starship init powershell)
-conda activate arcgispro-py3-clone
-'@
-
-# conda init powershell slows shell startup immensely, so run the following command in PowerShell:
-
-# (& "C:\Program Files\/pyenvArcGIS\Pro\bin\Python\Scripts\conda.exe" "shell.powershell" "hook") | Out-String
-# and copy the standard output into `profile.ps1` file and comment out the previous command in `profile.ps1`. The file should look like this after the change (remove the # signs)
-
-# $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-# $Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
-# $Env:_CE_M = ""
-# $Env:_CE_CONDA = ""
-# $Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
-# $Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-# $CondaModuleArgs = @{ChangePs1 = $True}
-# Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
-
-# conda activate arcgispro-py3-clone
-
-# Remove-Variable CondaModuleArgs
-# Invoke-Expression (&starship init powershell
-
-```
-
-## windows, apps installation
+install the applications below:
 
 ```
 # ms store apps
-#install icloud app from ms store version 15.x
+# install icloud app from ms store version 15.x
 
 #winget apps
 winget install KeeperSecurity.KeeperDesktop
@@ -73,14 +13,14 @@ winget install Doist.Todoist
 winget install Microsoft.Office
 winget install Logitech.OptionsPlus
 winget install Microsoft.SQLServerManagementStudio
-winget install  Microsoft.SQLServer.2022.Developer
+winget install Microsoft.SQLServer.2022.Developer
 winget install Devolutions.RemoteDesktopManager
 winget install Adobe.Acrobat.Reader.64-bit
 winget install Zen-Team.Zen-Browser
 winget install Nvidia.GeForceExperience
-winget install lgug2z.komorebi.nightly
+winget install lgug2z.komorebi
 
-# install manually
+# install these apps manually
 MS Teams
 Workspot Client
 ArcGIS Pro
@@ -89,12 +29,15 @@ ArcGIS Pro
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 iwr -useb get.scoop.sh | iex
 
-scoop install git-with-openssh
-scoop install make
-scoop install gcc
 scoop bucket add main
 scoop bucket add extras
 scoop bucket add versions
+scoop bucket add nerd-fonts
+
+scoop install git-with-openssh
+scoop install make
+scoop install gcc
+scoop install nerd-fonts/JetBrainsMono-NF
 scoop install main/7zip
 scoop install obsidian
 scoop install notepadplusplus
@@ -138,8 +81,6 @@ scoop install glow
 scoop install hexyl
 scoop install ffmpeg
 scoop install chafa
-scoop bucket add nerd-fonts
-scoop install nerd-fonts/JetBrainsMono-NF
 scoop install eza
 scoop install treesize-free
 scoop install luarocks
@@ -149,18 +90,62 @@ scoop install tree-sitter
 scoop install bc # basic calculator
 scoop install gh
 
-gh extension install dlvhdr/gh-dash
 pipx install rich-cli
 pipx install shell-gpt
-
-
-
 
 npm install -g neovim
 
 ```
 
-## wsl setup
+# MacOS setup
+
+```shell
+
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
+ 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+brew install --cask font-jetbrains-mono-nerd-font
+brew install wezterm@nightly
+brew install lazygit
+brew install starship
+brew install chezmoi
+brew install yazi --HEAD
+brew install whatsapp
+brew install btop
+brew install spotify
+brew install lsd
+brew install anaconda
+brew install karabiner-elements
+brew install betterdisplay
+brew install oscar
+brew tap zen-browser/browser https://github.com/zen-browser/desktop.git
+brew install --cask zen-browser
+brew install zoxide
+brew install glow
+brew install ffmpeg
+brew install ffmpegthumbnailer
+brew install 7-zip
+brew install jq
+brew install poppler
+brew install fd
+brew install ripgrep
+brew install fzf
+brew install imagemagick
+brew install ghostscript
+brew install hexyl
+brew install rich-cli
+brew install neofetch
+brew install --cask nikitabobko/tap/aerospace
+brew install wget
+brew install luarocks
+npm install -g neovim
+```
+
+# WSL setup (WIP)
 
 wsl installation:
 
@@ -232,10 +217,9 @@ sudo apt install qt6-tools-dev
 
 ~/.pyenv/versions/3.11.5/envs/env-wsl-apps/bin/python -m pip install qutebrowser
 
-
 ```
 
-## WSL Arch Linux setup
+# WSL Arch Linux setup
 
 ```powershell
 
@@ -315,31 +299,12 @@ sudo pacman -S base-devel
 
 yay -S neofetch
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # zsh
 yay -S zsh
 chsh -s /bin/bash azin
 
 # ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-
-
-
-
 
 curl -sS https://starship.rs/install.sh | sh # starship prompt
 
@@ -366,8 +331,6 @@ sudo apt install alacritty -y
 
 
 
-
-
 # pyenv pre-requisites
 sudo apt update && sudo apt install build-essential libssl-dev zlib1g-dev \
 libbz2-dev libreadline-dev libsqlite3-dev curl \
@@ -389,71 +352,3 @@ sudo apt install qt6-tools-dev
 
 ~/.pyenv/versions/3.11.5/envs/env-wsl-apps/bin/python -m pip install qutebrowser
 ```
-
-some wls notes ot investigate:
-
-running arcpy script from wsl:
-❯ /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command "& 'C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\python.exe' 'C:\Users\asharaf\repos\wr_gis_icm\icm_calc_pipe_deficiency.py'"
-
-this works too: py on wsl location
-~ via 🐍 v3.11.5
-❯ /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -Command "& 'C:\Program Files\ArcGIS\Pro\bin\Python\envs\arcgispro-py3\python.exe'" ./icm_calc_pipe_deficiency.py
-
-~ via 🐍 v3.11.5 took 16s
-❯ /mnt/c/Program\ Files/ArcGIS/Pro/bin/Python/envs/arcgispro-py3/python.exe icm_calc_pipe_deficiency.py
-Start Time: 02/02/2024 10:06:05 AM
-
-# macos
-
-`
-
-```shell
-
-# install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/azin/.zprofile
- 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-brew install --cask font-jetbrains-mono-nerd-font
-
-brew install wezterm@nightly
-brew install lazygit
-brew install starship
-brew install chezmoi
-brew install yazi --HEAD
-brew install whatsapp
-brew install btop
-brew install spotify
-brew install lsd
-brew install anaconda
-brew install karabiner-elements
-brew install betterdisplay
-brew install oscar
-brew tap zen-browser/browser https://github.com/zen-browser/desktop.git
-brew install --cask zen-browser
-brew install zoxide
-brew install glow
-brew install ffmpeg
-brew install ffmpegthumbnailer
-brew install 7-zip
-brew install jq
-brew install poppler
-brew install fd
-brew install ripgrep
-brew install fzf
-brew install imagemagick
-brew install ghostscript
-brew install hexyl
-#brew install pipx
-brew install rich-cli
-brew install neofetch
-brew install --cask nikitabobko/tap/aerospace
-brew install wget
-brew install luarocks
-npm install -g neovim
-``
-```
-
-`
