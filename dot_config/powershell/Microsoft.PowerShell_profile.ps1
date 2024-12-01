@@ -81,7 +81,7 @@ function dirs {
 }
 
 function reload-profile {
-    & "$Env:USERPROFILE\Documents\PowerShell\profile.ps1"
+. $profile
 }
 
 function touch($file) {
