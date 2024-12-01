@@ -1,0 +1,13 @@
+gui:
+  expandFocusedSidePanel: true
+  language: en
+  mouseEvents: false
+  nerdFontsVersion: "3"
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --syntax-theme="Catppuccin-mocha"
+update:
+  method: never
+notARepository: "quit"
+promptToReturnFromSubprocess: false
