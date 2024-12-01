@@ -1,5 +1,3 @@
-test git username
-
 # windows
 
 ## extra notes
@@ -452,7 +450,8 @@ brew install hexyl
 brew install rich-cli
 brew install neofetch
 brew install --cask nikitabobko/tap/aerospace
-
+brew install wget
+brew install luarocks
 npm install -g neovim
 ``
 ```
