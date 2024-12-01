@@ -6,7 +6,7 @@ install the applications below:
 # ms store apps
 # install icloud app from ms store version 15.x
 
-#winget apps
+# winget apps
 winget install KeeperSecurity.KeeperDesktop
 winget install CLechasseur.PathCopyCopy
 winget install Doist.Todoist
