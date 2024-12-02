@@ -24,7 +24,6 @@ require("starship"):setup()
 -- [plugin] relative motion
 require("relative-motions"):setup({ show_numbers = "relative" })
 
-
 -- [plugin] - status-line
 require("yatline"):setup({
 	theme = "catppuccin_theme",
@@ -107,17 +106,28 @@ require("yatline"):setup({
 	},
 })
 
--- Show user/group of files in status bar
-Status:children_add(function()
-	local h = cx.active.current.hovered
-	if h == nil or ya.target_family() ~= "unix" then
-		return ui.Line({})
-	end
+require("eza-preview"):setup({
+	-- Determines the directory depth level to tree preview (default: 3)
+	level = 3,
 
-	return ui.Line({
-		ui.Span(ya.user_name(h.cha.uid) or tostring(h.cha.uid)):fg("magenta"),
-		ui.Span(":"),
-		ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg("magenta"),
-		ui.Span(" "),
-	})
-end, 500, Status.RIGHT)
+	-- Whether to follow symlinks when previewing directories (default: false)
+	follow_symlinks = false,
+
+	-- Whether to show target file info instead of symlink info (default: false)
+	dereference = false,
+})
+
+-- -- Show user/group of files in status bar
+-- Status:children_add(function()
+-- 	local h = cx.active.current.hovered
+-- 	if h == nil or ya.target_family() ~= "unix" then
+-- 		return ui.Line({})
+-- 	end
+--
+-- 	return ui.Line({
+-- 		ui.Span(ya.user_name(h.cha.uid) or tostring(h.cha.uid)):fg("magenta"),
+-- 		ui.Span(":"),
+-- 		ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg("magenta"),
+-- 		ui.Span(" "),
+-- 	})
+-- end, 500, Status.RIGHT)
