@@ -1,5 +1,5 @@
 [plugin]
-deps = [{ use = "Reledia/glow", rev = "388e847" }, { use = "Reledia/hexyl", rev = "ccc0a4a" }, { use = "dedukun/relative-motions", rev = "44c4c1c" }, { use = "yazi-rs/plugins:full-border", rev = "d85bfd6" }, { use = "yazi-rs/plugins:git", rev = "d85bfd6" }, { use = "yazi-rs/plugins:hide-preview", rev = "d85bfd6" }, { use = "yazi-rs/plugins:max-preview", rev = "d85bfd6" }, { use = "yazi-rs/plugins:smart-filter", rev = "d85bfd6" }, { use = "Lil-Dank/lazygit", rev = "c82794f" }, { use = "Rolv-Apneseth/starship", rev = "77a65f5" }, { use = "orhnk/system-clipboard", rev = "7775a80" }, { use = "imsi32/yatline", rev = "e255f5c" }, { use = "pirafrank/what-size", rev = "f08f7f2" }, { use = "AnirudhG07/rich-preview", rev = "ee465a5" }]
+deps = [{ use = "yazi-rs/plugins:full-border", rev = "a53d544" }, { use = "yazi-rs/plugins:git", rev = "a53d544" }, { use = "Rolv-Apneseth/starship", rev = "247f49d" }, { use = "dedukun/relative-motions", rev = "df97039" }, { use = "imsi32/yatline", rev = "e255f5c" }, { use = "Reledia/glow", rev = "388e847" }, { use = "Reledia/hexyl", rev = "ccc0a4a" }, { use = "yazi-rs/plugins:hide-preview", rev = "a53d544" }, { use = "Lil-Dank/lazygit", rev = "c82794f" }, { use = "yazi-rs/plugins:max-preview", rev = "a53d544" }, { use = "AnirudhG07/rich-preview", rev = "ee465a5" }, { use = "yazi-rs/plugins:smart-filter", rev = "a53d544" }, { use = "orhnk/system-clipboard", rev = "7775a80" }, { use = "pirafrank/what-size", rev = "f08f7f2" }]
 
 [flavor]
-deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "d504f70" }]
+deps = []
