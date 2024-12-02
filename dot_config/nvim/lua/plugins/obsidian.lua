@@ -21,36 +21,30 @@ end
 -- Get resolved paths and define workspaces
 local vault_paths = get_vault_path()
 
--- Function to get the current year, month, day, and day of the week
+local Path = require("plenary.path") -- Ensure plenary is available
+
 -- local function get_daily_notes_folder()
--- 	-- Get current year, month number, month name, day, and day of the week
+-- 	-- Get current year, month number, month name
 -- 	local year = os.date("%Y")
--- 	local month_number = os.date("%m") -- Month as two digits
--- 	local month_name = os.date("%B") -- Full month name
+-- 	local month_number = os.date("%m")
+-- 	local month_name = os.date("%B")
 --
--- 	-- Dynamically define the base folder for daily notes based on the vault path
--- 	-- local vault_paths = get_vault_path()
--- 	local base_folder = vault_paths.work -- You can change this to `vault_paths.personal` if needed
--- 	print(base_folder)
--- 	--
--- 	--
--- 	--
--- 	-- Check if the base_folder is valid
+-- 	-- Base folder for daily notes
+-- 	local base_folder = vault_paths.work -- Replace with `vault_paths.personal` if needed
+--
 -- 	if not base_folder or base_folder == "" then
 -- 		error("Invalid base folder path: " .. tostring(base_folder))
 -- 	end
 --
--- 	-- Construct the nested path for the current year, month, and day
--- 	local folder_path = Path:new(base_folder, "daily_notes", year, month_number .. "-" .. month_name):absolute()
+-- 	-- Construct nested folder path
+-- 	local folder_path = Path:new(base_folder):joinpath("daily_notes", year, month_number .. "-" .. month_name)
 --
--- 	-- Ensure the folder exists (create if it doesn't)
+-- 	-- Ensure the directory exists
+-- 	if not folder_path:exists() then
+-- 		folder_path:mkdir({ parents = true })
+-- 	end
 --
--- 	-- if not folder_path:exists() then
--- 	-- 	folder_path:mkdir({ parents = true })
--- 	-- end
---
--- 	return folder_path
--- end
+-- 	return folder_path:absolute() -- Return absolute path as a string
 
 -- Ensure workspaces are properly named and unique
 local workspaces = {
