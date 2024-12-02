@@ -5,12 +5,14 @@ local function get_vault_path()
 	local os_name = vim.loop.os_uname().sysname
 	if os_name == "Windows_NT" then
 		return {
-			work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "Obsidian", "Obsidian_work"):absolute(),
+			work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "Obsidian", "azin_obsidian_work")
+				:absolute(),
 			personal = Path:new(vim.env.USERPROFILE, "azin_obsidian_personal"):absolute(),
 		}
 	else
 		return {
-			work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc", "Obsidian", "Obsidian_work"):absolute(),
+			work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc", "Obsidian", "azin_obsidian_work")
+				:absolute(),
 			personal = Path:new(vim.fn.expand("~"), "azin_obsidian_personal"):absolute(),
 		}
 	end
@@ -64,34 +66,33 @@ for _, ws in ipairs(workspaces) do
 	end
 end
 
--- Function to perform Git Sync
-local function git_sync()
-	local vault_path = vault_paths.personal
-	if not vault_path then
-		print("Vault path is invalid!")
-		return
-	end
-	-- Navigate to vault directory
-	vim.cmd("cd " .. vault_path)
-	-- Perform Git operations
-	vim.fn.system("git pull")
-	vim.fn.system("git add .")
-	vim.fn.system("git commit -m 'Auto-sync from Obsidian.nvim'")
-	vim.fn.system("git push")
-	-- print("Vault synced with Git!")
-end
+-- Function to perform Git Sync (commented out due to using Obsidian sync)
+-- local function git_sync()
+-- 	local vault_path = vault_paths.personal
+-- 	if not vault_path then
+-- 		print("Vault path is invalid!")
+-- 		return
+-- 	end
+-- 	-- Navigate to vault directory
+-- 	vim.cmd("cd " .. vault_path)
+-- 	-- Perform Git operations
+-- 	vim.fn.system("git pull")
+-- 	vim.fn.system("git add .")
+-- 	vim.fn.system("git commit -m 'Auto-sync from Obsidian.nvim'")
+-- 	vim.fn.system("git push")
+-- 	-- print("Vault synced with Git!")
+-- end
 
 -- Command to trigger Git synchronization manually
-vim.api.nvim_create_user_command("GitSync", git_sync, {})
+-- vim.api.nvim_create_user_command("GitSync", git_sync, {})
 
 -- Automate syncing on Markdown file save
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*.md",
-	callback = function()
-		git_sync()
-		print("Vault synced with Git!")
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	pattern = "*.md",
+-- 	callback = function()
+-- 		git_sync()
+-- 		print("Vault synced with Git!")
+-- 	end,
 
 -- Define the plugin with dependencies and keybindings
 
