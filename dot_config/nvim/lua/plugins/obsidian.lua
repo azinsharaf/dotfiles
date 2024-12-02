@@ -21,8 +21,6 @@ end
 -- Get resolved paths and define workspaces
 local vault_paths = get_vault_path()
 
-local Path = require("plenary.path") -- Ensure plenary is available
-
 -- local function get_daily_notes_folder()
 -- 	-- Get current year, month number, month name
 -- 	local year = os.date("%Y")
