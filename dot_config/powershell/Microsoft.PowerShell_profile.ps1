@@ -159,6 +159,28 @@ if ($Env:COMPUTERNAME -eq "Desktop-Azin") {
 }
 $Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
 
+# shell_gpt config
+ $Env:CHAT_CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\chat_cache"
+ $Env:CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\cache"
+ $Env:CHAT_CACHE_LENGTH = "100"
+ $Env:CACHE_LENGTH = "100"
+ $Env:REQUEST_TIMEOUT = "60"
+ $Env:DEFAULT_MODEL = "gpt-4o"
+ $Env:DEFAULT_COLOR = "magenta"
+ $Env:ROLE_STORAGE_PATH = "$Env:USERPROFILE\.config\shell_gpt\roles"
+ $Env:DEFAULT_EXECUTE_SHELL_CMD = "false"
+ $Env:DISABLE_STREAMING = "false"
+ $Env:CODE_THEME = "one-dark"
+ $Env:OPENAI_FUNCTIONS_PATH = "$Env:USERPROFILE\.config\shell_gpt\functions"
+ $Env:OPENAI_USE_FUNCTIONS = "true"
+ $Env:SHOW_FUNCTIONS_OUTPUT = "false"
+ $Env:API_BASE_URL = "default"
+ $Env:PRETTIFY_MARKDOWN = "true"
+ $Env:USE_LITELLM = "false"
+ $Env:SHELL_INTERACTION = "true"
+ $Env:OS_NAME = "auto"
+ $Env:SHELL_NAME = "auto"
+
 # $Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current;$Env:PATH"
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
