@@ -126,7 +126,7 @@ keymap = [
 	{ on = [ "g", "u" ],            run = "cd C:/Users/azin/iCloudDrive/artificial_inteligence/cmu_graduate_certificate/11605-A2_python_for_data_science_2/", desc = "Go To CMU dir" },
 	{ on = [ "g", "r" ],            run = "cd ~/Repos",desc = "Go to Repos directory" },
 	{ on = [ "g", "d", "D" ],       run = "cd D:/",        desc = "D drive - TEMP" },
-	{ on = [ "g", "d", "E" ],       run = "cd create a map drive for this",        desc = "Employee Drive" },
+	{ on = [ "g", "d", "E" ],       run = "cd E:/",        desc = "Employee Drive" },
 	{ on = [ "g", "d", "H" ],       run = "cd H:/",        desc = "H drive - SAC" },
 	{ on = [ "g", "d", "J" ],       run = "cd J:/Jobs/",   desc = "J drive - OAK" },
 	{ on = [ "g", "d", "K" ],       run = "cd K:/",        desc = "K drive - GIS" },
