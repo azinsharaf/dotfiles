@@ -10,9 +10,9 @@ local computer_name = vim.loop.os_gethostname()
 
 -- Define paths for each computer that has pynvim installed
 local python_paths = {
-	COMP1_NAME = "C:/Users/User1/.pyenv/pyenv-win/versions/3.12.1/env-pynvim/Scripts/python.exe",
-	COMP2_NAME = "C:/Users/User2/.pyenv/pyenv-win/versions/3.12.1/env-pynvim/Scripts/python.exe",
-	COMP3_NAME = "~/Library/Python/3.12/bin/python3",
+	["Azin-Desktop"] = "C:/Users/User1/.pyenv/pyenv-win/versions/3.12.1/env-pynvim/Scripts/python.exe",
+	["WS-Oakland-001"] = "C:/Users/asharaf/.pyenv/pyenv-win/versions/3.12.1/env-pynvim/Scripts/python.exe",
+	["Azin-Macbook"] = "~/Library/Python/3.12/bin/python3",
 }
 
 -- Set the Python 3 host program based on the computer name
