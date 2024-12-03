@@ -1,8 +1,8 @@
 return {
 	"fgheng/winbar.nvim",
+	enabled = true,
 	config = function()
 		require("winbar").setup({
-			enabled = true,
 			show_file_path = false,
 			show_symbols = true,
 			colors = {
@@ -19,6 +19,7 @@ return {
 			},
 
 			exclude_filetype = {
+				"", -- for wilder.nvim plugin
 				"help",
 				"startify",
 				"dashboard",
