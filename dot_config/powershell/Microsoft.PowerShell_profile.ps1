@@ -104,10 +104,9 @@ function pgrep($name) {
     Get-Process $name
 }
 
-# Remove-Item -Path Alias:ls
+Remove-Item -Path Alias:ls
 
-function ls {eza -lah}
-
+function ls {exa --long --group-directories-first --icons --color=auto }
 function ll {eza -l}
 function la {eza -a}
 function lt {eza --tree}
