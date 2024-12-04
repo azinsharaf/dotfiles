@@ -23,7 +23,7 @@ config.window_frame = {
 }
 config.initial_cols = 200
 config.initial_rows = 50
-config.window_background_opacity = 1.0
+config.window_background_opacity = 0.95
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = true
 config.window_decorations = "RESIZE"
@@ -33,7 +33,7 @@ config.default_workspace = "main"
 -- Dim inactive panes
 config.inactive_pane_hsb = {
 	saturation = 0.8,
-	brightness = 0.6,
+	brightness = 0.8,
 }
 
 -- config.disable_default_key_bindings = true
