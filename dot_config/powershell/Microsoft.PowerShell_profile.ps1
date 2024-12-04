@@ -80,6 +80,10 @@ function dirs {
     }
 }
 
+function clear-recyclebin {
+Clear-RecycleBin -force
+}
+
 function reload-profile {
 . $profile
 }
