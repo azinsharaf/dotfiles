@@ -95,6 +95,10 @@ pipx install shell-gpt
 
 npm install -g neovim
 
+
+# install win11 toggle rounded corner
+# https://github.com/oberrich/win11-toggle-rounded-corners
+
 ```
 
 # MacOS setup
