@@ -29,7 +29,7 @@ config.use_fancy_tab_bar = true
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.integrated_title_buttons = { "Hide", "Maximize", "Close" }
 config.integrated_title_button_style = "Windows"
-config.integrated_title_button_alignment = "Left"
+config.integrated_title_button_alignment = "Right"
 config.integrated_title_button_color = "Auto"
 
 config.default_workspace = "main"
