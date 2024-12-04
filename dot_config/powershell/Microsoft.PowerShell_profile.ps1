@@ -6,8 +6,9 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 #python env activation
 
-if ($env:COMPUTERNAME -eq "Desktop-Azin") {
-# cmu python env activation
+if ($env:COMPUTERNAME -eq "Desktop-Azin")
+{
+    # cmu python env activation
     $Env:CONDA_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
     $Env:CONDA_ENV_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda-env.exe"
     $Env:_CE_M = ""
@@ -22,7 +23,8 @@ if ($env:COMPUTERNAME -eq "Desktop-Azin") {
     Remove-Variable CondaModuleArgs
 }
 
-elseif ($env:COMPUTERNAME -eq "Desktop-Azin2") {
+elseif ($env:COMPUTERNAME -eq "Desktop-Azin2")
+{
     # arcgis pro python env activation
 
     $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
@@ -39,7 +41,8 @@ elseif ($env:COMPUTERNAME -eq "Desktop-Azin2") {
     Remove-Variable CondaModuleArgs
 }
 
-elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
+elseif ($env:COMPUTERNAME -eq "WS-Oakland-001")
+{
     # arcgis pro python env activation
 
     $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
@@ -72,71 +75,124 @@ elseif ($env:COMPUTERNAME -eq "WS-Oakland-001") {
 # #
 
 # Does the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
-function dirs {
-    if ($args.Count -gt 0) {
+function dirs
+{
+    if ($args.Count -gt 0)
+    {
         Get-ChildItem -Recurse -Include "$args" | Foreach-Object FullName
-    } else {
+    } else
+    {
         Get-ChildItem -Recurse | Foreach-Object FullName
     }
 }
 
-function clear-recyclebin {
-Clear-RecycleBin -force
+function clear-recyclebin
+{
+    Clear-RecycleBin -force
 }
 
-function reload-profile {
-. $profile
+function reload
+{
+    . $profile
 }
 
-function touch($file) {
+function touch($file)
+{
     "" | Out-File $file -Encoding ASCII
 }
 
-function df {
+function df
+{
     get-volume
 }
 
-function which($name) {
+function which($name)
+{
     Get-Command $name | Select-Object -ExpandProperty Definition
 }
 
-function pkill($name) {
+function pkill($name)
+{
     Get-Process $name -ErrorAction SilentlyContinue | Stop-Process
 }
 
-function pgrep($name) {
+function pgrep($name)
+{
     Get-Process $name
 }
 
-Remove-Item -Path Alias:ls
+if (Test-Path Alias:ls)
+{
+    Remove-Item -Path Alias:ls
+}
 
-function ls {exa --long --group-directories-first --icons --color=auto }
-function ll {eza -l}
-function la {eza -a}
-function lt {eza --tree}
+function ls
+{eza  --long --group-directories-first --icons --color=auto --header
+}
+function ll
+{eza -l
+}
+function la
+{eza -a
+}
+function lt
+{eza --tree
+}
 
-function e {exit}
-function :q {exit}
-function c {clear}
+function e
+{exit
+}
+function :q
+{exit
+}
+function c
+{clear
+}
 
-function fzfp {fzf --preview "cat {}"}
-function fzfn {nvim $(fzf --preview "cat {}")}
+function fzfp
+{fzf --preview "cat {}"
+}
+function fzfn
+{nvim $(fzf --preview "cat {}")
+}
 
-function reboot {Restart-Computer}
+function reboot
+{Restart-Computer
+}
 
-function n {nvim}
-function nvim-remove {Remove-Item -Path "$Env:USERPROFILE\AppData\Local\nvim-data" -Recurse -Force}
+function n
+{nvim
+}
+function nvim-remove
+{Remove-Item -Path "$Env:USERPROFILE\AppData\Local\nvim-data" -Recurse -Force
+}
 
-function lg {lazygit}
+function lg
+{lazygit
+}
 
-function ccd {chezmoi cd}
-function cedit {chezmoi edit}
-function cdiff {chezmoi diff}
-function cstatus {chezmoi status}
-function capply {chezmoi -v apply}
+function ccd
+{chezmoi cd
+}
+function cedit
+{chezmoi edit
+}
+function cdiff
+{chezmoi diff
+}
+function cstatus
+{chezmoi status
+}
+function capply
+{chezmoi -v apply
+}
 
-function ks {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --bar --ahk}
-function ke {komorebic stop --bar}
+function ks
+{komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --bar --ahk
+}
+function ke
+{komorebic stop --bar
+}
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
@@ -154,36 +210,38 @@ $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
 
-if ($Env:COMPUTERNAME -eq "Desktop-Azin") {
+if ($Env:COMPUTERNAME -eq "Desktop-Azin")
+{
     $ENV:YAZI_FILE_ONE = "$Env:USERPROFILE\scoop\apps\git\current\usr\bin\file.exe"
     $Env:NEOVIM_NODE_PATH = "C:\Program Files\nodejs\node.exe"
-} elseif ($Env:COMPUTERNAME -eq "WS-Oakland-001") {
+} elseif ($Env:COMPUTERNAME -eq "WS-Oakland-001")
+{
     $Env:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
     $Env:NEOVIM_NODE_PATH = "$USERPROFILE\scoop\apps\nodejs\current\node.exe"
 }
 $Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
 
 # shell_gpt config
- $Env:CHAT_CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\chat_cache"
- $Env:CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\cache"
- $Env:CHAT_CACHE_LENGTH = "100"
- $Env:CACHE_LENGTH = "100"
- $Env:REQUEST_TIMEOUT = "60"
- $Env:DEFAULT_MODEL = "gpt-4o"
- $Env:DEFAULT_COLOR = "magenta"
- $Env:ROLE_STORAGE_PATH = "$Env:USERPROFILE\.config\shell_gpt\roles"
- $Env:DEFAULT_EXECUTE_SHELL_CMD = "false"
- $Env:DISABLE_STREAMING = "false"
- $Env:CODE_THEME = "one-dark"
- $Env:OPENAI_FUNCTIONS_PATH = "$Env:USERPROFILE\.config\shell_gpt\functions"
- $Env:OPENAI_USE_FUNCTIONS = "true"
- $Env:SHOW_FUNCTIONS_OUTPUT = "false"
- $Env:API_BASE_URL = "default"
- $Env:PRETTIFY_MARKDOWN = "true"
- $Env:USE_LITELLM = "false"
- $Env:SHELL_INTERACTION = "true"
- $Env:OS_NAME = "auto"
- $Env:SHELL_NAME = "auto"
+$Env:CHAT_CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\chat_cache"
+$Env:CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\cache"
+$Env:CHAT_CACHE_LENGTH = "100"
+$Env:CACHE_LENGTH = "100"
+$Env:REQUEST_TIMEOUT = "60"
+$Env:DEFAULT_MODEL = "gpt-4o"
+$Env:DEFAULT_COLOR = "magenta"
+$Env:ROLE_STORAGE_PATH = "$Env:USERPROFILE\.config\shell_gpt\roles"
+$Env:DEFAULT_EXECUTE_SHELL_CMD = "false"
+$Env:DISABLE_STREAMING = "false"
+$Env:CODE_THEME = "one-dark"
+$Env:OPENAI_FUNCTIONS_PATH = "$Env:USERPROFILE\.config\shell_gpt\functions"
+$Env:OPENAI_USE_FUNCTIONS = "true"
+$Env:SHOW_FUNCTIONS_OUTPUT = "false"
+$Env:API_BASE_URL = "default"
+$Env:PRETTIFY_MARKDOWN = "true"
+$Env:USE_LITELLM = "false"
+$Env:SHELL_INTERACTION = "true"
+$Env:OS_NAME = "auto"
+$Env:SHELL_NAME = "auto"
 
 # $Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current;$Env:PATH"
 $Env:Path += ";C:\msys64\mingw64\bin"
