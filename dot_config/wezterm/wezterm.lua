@@ -12,8 +12,10 @@ end
 
 -- Appearance settings
 config.color_scheme = "Catppuccin Mocha"
+
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 10.0
+config.line_height = 1.0
 config.adjust_window_size_when_changing_font_size = false
 config.command_palette_font_size = 10
 config.window_frame = {
@@ -21,7 +23,7 @@ config.window_frame = {
 }
 config.initial_cols = 200
 config.initial_rows = 50
-config.window_background_opacity = 0.95
+config.window_background_opacity = 1.0
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = true
 config.window_decorations = "RESIZE"
@@ -30,8 +32,8 @@ config.default_workspace = "main"
 
 -- Dim inactive panes
 config.inactive_pane_hsb = {
-	saturation = 0.24,
-	brightness = 0.5,
+	saturation = 0.8,
+	brightness = 0.6,
 }
 
 -- config.disable_default_key_bindings = true
