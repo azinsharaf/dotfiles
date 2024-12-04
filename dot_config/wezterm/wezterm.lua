@@ -26,7 +26,11 @@ config.initial_rows = 50
 config.window_background_opacity = 0.95
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = true
-config.window_decorations = "RESIZE"
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.integrated_title_buttons = { "Hide", "Maximize", "Close" }
+config.integrated_title_button_style = "Windows"
+config.integrated_title_button_alignment = "Left"
+config.integrated_title_button_color = "Auto"
 
 config.default_workspace = "main"
 
