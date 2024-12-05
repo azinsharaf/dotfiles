@@ -143,6 +143,17 @@ brew install --cask nikitabobko/tap/aerospace
 brew install wget
 brew install luarocks
 npm install -g neovim
+
+
+
+
+brew install pyenv
+brew install pyenv-virtualenv
+
+pyenv install 3.11.11
+pyenv virtualenv 3.11.11 env-shellgpt
+~/.pyenv/versions/3.11.11/envs/env-shellgpt/bin/python -m pip install --upgrade pip
+
 ```
 
 # WSL setup (WIP)
