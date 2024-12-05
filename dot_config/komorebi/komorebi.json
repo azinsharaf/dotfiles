@@ -31,8 +31,8 @@
     }
   },
 
-  "transparency" : true,
-  "transparency_alpha" : 240,
+  "transparency": true,
+  "transparency_alpha": 230,
   "border_overflow_applications": [],
   "global_work_area_offset": {
     "top": 30,
@@ -49,11 +49,6 @@
     }
   ],
   "ignore_rules": [
-    // {
-    //   "kind": "Exe",
-    //   "id": "python.exe",
-    //   "matching_strategy": "Equals"
-    // },
     [
       {
         "kind": "Exe",
@@ -66,21 +61,25 @@
         "matching_strategy": "StartsWith"
       }
     ],
+
     {
-        "kind": "Title",
-        "id": "ActiproWindowChromeShadow",
-        "matching_strategy": "Equals"
+      "kind": "Title",
+      "id": "ActiproWindowChromeShadow",
+      "matching_strategy": "Equals"
     },
+
     {
       "kind": "Title",
       "id": "komorebi-gui",
       "matching_strategy": "Equals"
     },
+
     {
       "kind": "Title",
       "id": "Workspot",
       "matching_strategy": "Equals"
     },
+
     {
       "kind": "Title",
       "id": "Autodesk Installer",
@@ -93,24 +92,12 @@
       "kind": "Exe",
       "id": "Survey123",
       "matching_strategy": "Contains"
-    },
-    // [
-    // {
-    //   "kind": "Title",
-    //   "id": "[",
-    //   "matching_strategy": "Contains"
-    // }
-    // ]
+    }
   ],
+
   "monitors": [
     {
       "window_based_work_area_offset_limit": 1,
-      // "window_based_work_area_offset": {
-      //   "left": 700,
-      //   "top": 0,
-      //   "right": 1400,
-      //   "bottom": 10
-      // },
 
       "workspaces": [
         {
@@ -147,41 +134,22 @@
               "kind": "Exe",
               "id": "Obsidian.exe"
             }
-          ] 
+          ]
         },
         {
           "name": "III",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-          //   {
-          //     "kind": "Exe",
-          //     "id": "ArcGISPro.exe"
-          //   },
-          //   {
-          //     "kind": "Exe",
-          //     "id": "RemoteDesktopManager.exe"
-          //   },
-          //   {
-          //     "kind": "Exe",
-          //     "id": "WorkspotClient.exe"
-          //   },
-          //   {
-          //     "kind": "Exe",
-          //     "id": "Spotify.exe"
-          //   }
-          ]
+          "initial_workspace_rules": []
         },
         {
           "name": "IV",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-          ]
+          "initial_workspace_rules": []
         },
         {
           "name": "V",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-          ]
+          "initial_workspace_rules": []
         }
       ]
     }
