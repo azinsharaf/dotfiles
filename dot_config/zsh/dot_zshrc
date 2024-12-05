@@ -6,17 +6,37 @@ setopt histfindnodups     # Ignore duplicates during search
 setopt sharehistory       # Share command history across all sessions
 setopt autocontinue       # Continue long commands over multiple lines
 
-export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/opt/homebrew/anaconda3/bin:$PATH"  # commented out by conda initialize
+# Add Homebrew binaries to PATH
+export PATH="/opt/homebrew/bin"
+export PATH="$PATH:opt/homebrew/anaconda3/bin"
+
+# Add pyenv and pyenv-virtualenv to PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PATH:$PYENV_ROOT/bin"
+#eval "$(pyenv init --path)"
+#eval "$(pyenv virtualenv-init -)"
+
+# Add user-specific bin directory to PATH
+export PATH="$PATH:$HOME/bin"
+
+# Add standard system paths
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/bin"
+export PATH="$PATH:/bin"
+export PATH="$PATH:/usr/sbin"
+export PATH="$PATH:/sbin"
+
+# Add specific virtualenv paths
+export PATH="$PATH:$PYENV_ROOT/versions/env-shellgpt/bin"
+
 
 export EDITOR="nvim"       # Set default editor to Neovim
 export PAGER="less"        # Use 'less' for paging
 export GLOW_CONFIG_DIR="$HOME/.config/glow"
 
-
-
 # --- History Settings ---
 HISTFILE=~/.zsh_history      # History file location
-HISTSIZE=5000                # Number of history entries
+HISTSIZE=5000                # Number of history entrieszshrc
 SAVEHIST=5000                # Saved entries
 
 # --- Aliases ---
@@ -73,6 +93,28 @@ if [ -n "$TMUX" ]; then
 else
   export TERM="xterm-256color"
 fi
+
+# shell_gpt config
+export CHAT_CACHE_PATH="$HOME/Library/Caches/chat_cache"
+export CACHE_PATH="$HOME/Library/Caches/cache"
+export CHAT_CACHE_LENGTH="100"
+export CACHE_LENGTH="100"
+export REQUEST_TIMEOUT="60"
+export DEFAULT_MODEL="gpt-4o"
+export DEFAULT_COLOR="magenta"
+export ROLE_STORAGE_PATH="$HOME/.config/shell_gpt/roles"
+export DEFAULT_EXECUTE_SHELL_CMD="false"
+export DISABLE_STREAMING="false"
+export CODE_THEME="one-dark"
+export OPENAI_FUNCTIONS_PATH="$HOME/.config/shell_gpt/functions"
+export OPENAI_USE_FUNCTIONS="true"
+export SHOW_FUNCTIONS_OUTPUT="false"
+export API_BASE_URL="default"
+export PRETTIFY_MARKDOWN="true"
+export USE_LITELLM="false"
+export SHELL_INTERACTION="true"
+export OS_NAME="auto"
+export SHELL_NAME="auto"
 
 
 # >>> conda initialize >>>
