@@ -1,3 +1,5 @@
+[ -f ~/.zsh_secrets ] && source ~/.zsh_secrets
+
 # --- General Settings ---
 setopt autocd             # Change directories without typing 'cd'
 setopt extendedglob       # Enable advanced globbing
@@ -20,6 +22,7 @@ export PATH="$PATH:$PYENV_ROOT/bin"
 export PATH="$PATH:$HOME/bin"
 
 # Add standard system paths
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:/bin"
@@ -51,6 +54,8 @@ alias lg="lazygit"
 alias ccd="chezmoi cd"
 alias capply="chezmoi apply"
 alias cstatus="chezmoi status"
+
+alias sc='sgpt --chat computer'
 
 # --- Functions ---
 f() {
