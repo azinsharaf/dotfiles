@@ -209,6 +209,8 @@ $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
+$Env:BAT_CONFIG_DIR = "$Env:USERPROFILE\.config\bat\"
+$Env:BAT_CONFIG_PATH = "$Env:USERPROFILE\.config\bat\bat.conf"
 
 if ($Env:COMPUTERNAME -eq "Desktop-Azin")
 {
