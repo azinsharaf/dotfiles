@@ -14,18 +14,19 @@ end
 config.color_scheme = "Catppuccin Mocha"
 
 config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 10.0
+config.font_size = 12.0
 config.line_height = 1.0
 config.adjust_window_size_when_changing_font_size = false
-config.command_palette_font_size = 10
+config.command_palette_font_size = 14
 config.window_frame = {
-	font = wezterm.font("IBM Plex Sans"),
+	font = wezterm.font("JetBrainsMono Nerd Font"),
 }
 config.initial_cols = 200
 config.initial_rows = 50
 config.window_background_opacity = 0.95
-config.hide_tab_bar_if_only_one_tab = true
-config.use_fancy_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = false
+config.use_fancy_tab_bar = false
+config.tab_bar_at_bottom = true
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.integrated_title_buttons = { "Hide", "Maximize", "Close" }
 config.integrated_title_button_style = "Windows"
@@ -161,4 +162,84 @@ config.freetype_load_target = "Light" -- Font rendering optimization
 --     window:activate_tab(tab1)
 -- end)
 --
+--
+--
+--
+
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+
+tabline.setup({
+	options = {
+		icons_enabled = true,
+		theme = "Catppuccin Mocha",
+		color_overrides = {},
+		section_separators = {
+			left = wezterm.nerdfonts.pl_left_hard_divider,
+			right = wezterm.nerdfonts.pl_right_hard_divider,
+		},
+		component_separators = {
+			left = wezterm.nerdfonts.pl_left_soft_divider,
+			right = wezterm.nerdfonts.pl_right_soft_divider,
+		},
+		tab_separators = {
+			left = wezterm.nerdfonts.pl_left_hard_divider,
+			right = wezterm.nerdfonts.pl_right_hard_divider,
+		},
+	},
+	sections = {
+		tabline_a = { "mode" },
+		tabline_b = { "workspace" },
+		tabline_c = { " " },
+		tab_active = {
+			"index",
+			{ "process", padding = 0 },
+			"/",
+			{ "cwd", padding = { left = 0, right = 1 } },
+			{ "zoomed", padding = 0 },
+		},
+		tab_inactive = { "index", { "process", padding = { left = 0, right = 1 } } },
+		tabline_x = { "ram", "cpu" },
+		tabline_y = { "datetime", "battery" },
+		tabline_z = { "hostname" },
+	},
+	extensions = {},
+})
+tabline.apply_to_config(config)
+
+local mux = wezterm.mux
+
+wezterm.on("gui-startup", function(cmd)
+	-- allow `wezterm start -- something` to affect what we spawn
+	-- in our initial window
+	local args = {}
+	if cmd then
+		args = cmd.args
+	end
+
+	-- Set a workspace for coding on a current project
+	-- Top pane is for the editor, bottom pane is for the build tool
+	local project_dir = wezterm.home_dir .. "/wezterm"
+	local tab, build_pane, window = mux.spawn_window({
+		workspace = "coding",
+		cwd = project_dir,
+		args = args,
+	})
+	local editor_pane = build_pane:split({
+		direction = "Left",
+		size = 0.5,
+		cwd = project_dir,
+	})
+	-- may as well kick off a build in that pane
+	build_pane:send_text("yazi\n")
+
+	-- A workspace for interacting with a local machine that
+	-- runs some docker containers for home automation
+	local tab, pane, window = mux.spawn_window({
+		workspace = "automation",
+	})
+
+	-- We want to startup in the coding workspace
+	mux.set_active_workspace("coding")
+end)
+
 return config
