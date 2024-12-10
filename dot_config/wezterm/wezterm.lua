@@ -206,40 +206,4 @@ tabline.setup({
 })
 tabline.apply_to_config(config)
 
-local mux = wezterm.mux
-
-wezterm.on("gui-startup", function(cmd)
-	-- allow `wezterm start -- something` to affect what we spawn
-	-- in our initial window
-	local args = {}
-	if cmd then
-		args = cmd.args
-	end
-
-	-- Set a workspace for coding on a current project
-	-- Top pane is for the editor, bottom pane is for the build tool
-	local project_dir = wezterm.home_dir .. "/wezterm"
-	local tab, build_pane, window = mux.spawn_window({
-		workspace = "coding",
-		cwd = project_dir,
-		args = args,
-	})
-	local editor_pane = build_pane:split({
-		direction = "Left",
-		size = 0.5,
-		cwd = project_dir,
-	})
-	-- may as well kick off a build in that pane
-	build_pane:send_text("yazi\n")
-
-	-- A workspace for interacting with a local machine that
-	-- runs some docker containers for home automation
-	local tab, pane, window = mux.spawn_window({
-		workspace = "automation",
-	})
-
-	-- We want to startup in the coding workspace
-	mux.set_active_workspace("coding")
-end)
-
 return config
