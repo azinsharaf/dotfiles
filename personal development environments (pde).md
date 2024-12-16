@@ -89,6 +89,7 @@ scoop install pipx
 scoop install tree-sitter
 scoop install bc # basic calculator
 scoop install gh
+scoop install zebar
 
 pipx install rich-cli
 pipx install shell-gpt
