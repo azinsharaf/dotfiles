@@ -77,6 +77,10 @@ return {
 			function(server_name)
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
+					on_attach = function(client, bufnr)
+						-- Disable diagnostics by default
+						vim.diagnostic.enable(false, bufnr)
+					end,
 				})
 			end,
 			-- Special configuration for lua_ls
@@ -141,6 +145,11 @@ return {
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+
+				opts.desc = "Toggle Diagnostic"
+				keymap.set("n", "<leader>td", function()
+					vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+				end, opts)
 			end,
 		})
 	end,
