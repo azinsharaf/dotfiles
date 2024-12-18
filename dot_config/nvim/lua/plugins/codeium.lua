@@ -17,6 +17,6 @@ return {
 		vim.keymap.set("i", "<c-x>", function()
 			return vim.fn["codeium#Clear"]()
 		end, { expr = true, silent = true })
-		vim.keymap.set("n", "<leader>tc", ":CodeiumToggle<CR>", { desc = "toggle codeium" })
+		vim.keymap.set("n", "<leader>tc", ":CodeiumToggle<CR>", { desc = "Toggle Codeium" })
 	end,
 }
