@@ -4,10 +4,10 @@ local Path = require("plenary.path")
 local function get_vault_path()
 	local os_name = vim.loop.os_uname().sysname
 	if os_name == "Windows_NT" then
-		local obsidian_vault = Path:new(vim.env.USERPROFILE, "obsidian_azin"):absolute()
+		local obsidian_vault = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute()
 		return obsidian_vault
 	else
-		local obsidian_vault = Path:new(vim.fn.expand("~"), "obsidian_azin"):absolute()
+		local obsidian_vault = Path:new(vim.fn.expand("~"), "azin_notes"):absolute()
 		return obsidian_vault
 	end
 end
@@ -28,7 +28,7 @@ return {
 		-- Configure obsidian.nvim with the valid workspace
 		require("obsidian").setup({
 
-			workspaces = { { name = "obsidian_azin", path = get_vault_path() } },
+			workspaces = { { name = "azin_notes", path = get_vault_path() } },
 
 			-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
 			completion = {
