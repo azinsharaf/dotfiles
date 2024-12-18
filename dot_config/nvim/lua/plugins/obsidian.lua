@@ -12,6 +12,71 @@ local function get_vault_path()
 	end
 end
 
+-- Function to perform Git Push to Obsidian repo
+local function git_push_obsidian()
+	local current_time = os.date("%Y-%m-%d %H:%M:%S")
+	local vault_path = get_vault_path()
+	if not vault_path then
+		print("Vault path is invalid!")
+		return
+	end
+	-- Navigate to vault directory
+	vim.cmd("cd " .. vault_path)
+	-- Perform Git operations
+	vim.fn.system("git pull")
+	vim.fn.system("git add .")
+	vim.fn.system("git commit -m 'vault backup from Obsidian.nvim: " .. current_time .. "'")
+	vim.fn.system("git push")
+	print("Vault synced with Git!")
+end
+
+-- Function to perform Git Pull for Obsidian Vault
+local function git_pull_obsidian()
+	local vault_path = get_vault_path()
+	if not vault_path then
+		print("Vault path is invalid!")
+		return
+	end
+
+	-- Pull updates from the Git repository
+	local pull_output = vim.fn.system("cd " .. vault_path .. " && git pull")
+	print("Git Pull Output: " .. pull_output)
+
+	-- Reload the current buffer if it is part of the vault
+	local current_file = vim.fn.expand("%:p")
+	if vim.startswith(current_file, vault_path) then
+		vim.cmd("edit!") -- Force reload the buffer
+		print("Buffer reloaded with latest changes.")
+	end
+
+	print("Vault successfully pulled from Git!")
+end
+
+-- Command to Git pull manually
+vim.api.nvim_create_user_command("GitPullObsidian", git_pull_obsidian, {})
+
+-- Command to Git push manually
+vim.api.nvim_create_user_command("GitPushObsidian", git_push_obsidian, {})
+
+-- Autocmd to trigger Git pull when opening Markdown files in the vault
+vim.api.nvim_create_autocmd("BufReadPre", {
+	pattern = get_vault_path() .. "/*.md", -- Match Markdown files in the vault
+	callback = function()
+		git_pull_obsidian()
+	end,
+})
+
+-- Autocmd to trigger Git push when writing Markdown files in the vault
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "*.md",
+	callback = function()
+		git_push_obsidian()
+		print("Vault synced with Git!")
+	end,
+})
+
+-- Define the plugin with dependencies and keybindings
+
 return {
 	"epwalsh/obsidian.nvim",
 	enabled = true,
@@ -121,5 +186,6 @@ return {
 		{ "<leader>of", "<cmd>ObsidianSearch<cr>", desc = "Obsidian Search Word" },
 		{ "<leader>ow", "<cmd>ObsidianWorkspace<cr>", desc = "Obsidian Workspace" },
 		{ "<leader>op", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian Templates" },
+		{ "<leader>os", "<cmd>GitSync<cr>", desc = "Obsidian push with Github" },
 	},
 }
