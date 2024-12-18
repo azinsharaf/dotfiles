@@ -27,7 +27,7 @@ local function git_push_obsidian()
 	vim.fn.system("git add .")
 	vim.fn.system("git commit -m 'vault backup from Obsidian.nvim: " .. current_time .. "'")
 	vim.fn.system("git push")
-	print("Vault synced with Git!")
+	print("Obsidian Vault synced with Git!")
 end
 
 -- Function to perform Git Pull for Obsidian Vault
@@ -49,7 +49,7 @@ local function git_pull_obsidian()
 		print("Buffer reloaded with latest changes.")
 	end
 
-	print("Vault successfully pulled from Git!")
+	print("Obsidian Vault successfully pulled from Git!")
 end
 
 -- Command to Git pull manually
