@@ -39,7 +39,6 @@ return {
 				"cssls",
 				"ts_ls",
 				"jsonls",
-				"ltex",
 				"marksman",
 				"powershell_es",
 				"vimls",
