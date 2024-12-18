@@ -39,7 +39,7 @@ return {
 				"html",
 				"json",
 				"jsonc",
-				"latex",
+				-- "latex",
 				"sql",
 				"vim",
 				"yaml",
