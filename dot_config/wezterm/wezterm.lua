@@ -24,7 +24,7 @@ local config = {
 		top = 0,
 		bottom = 0,
 	},
-	hide_tab_bar_if_only_one_tab = false,
+	hide_tab_bar_if_only_one_tab = true,
 	hide_mouse_cursor_when_typing = true,
 	inactive_pane_hsb = {
 		brightness = 0.9,
@@ -145,6 +145,45 @@ wezterm.on("format-window-title", function(tab, pane, tabs, panes, config)
 
 	return zoomed .. index .. tab.active_pane.title
 end)
+
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup({
+	options = {
+		icons_enabled = true,
+		theme = "Catppuccin Mocha",
+		color_overrides = {},
+		section_separators = {
+			left = "", -- wezterm.nerdfonts.pl_left_soft_divider,
+			right = "", -- wezterm.nerdfonts.pl_right_soft_divider,
+		},
+		component_separators = {
+			left = "", --wezterm.nerdfonts.pl_left_soft_divider,
+			right = "", -- wezterm.nerdfonts.pl_right_soft_divider,
+		},
+		tab_separators = {
+			left = "", ---wezterm.nerdfonts.pl_left_soft_divider,
+			right = "", --  wezterm.nerdfonts.pl_right_soft_divider,
+		},
+	},
+	sections = {
+		tabline_a = { "mode" },
+		tabline_b = { "workspace", "window" },
+		tabline_c = { " " },
+		tab_active = {
+			"index",
+			{ "parent", padding = 0 },
+			"/",
+			{ "cwd", padding = { left = 0, right = 1 } },
+			{ "zoomed", padding = 0 },
+		},
+		tab_inactive = { "index", { "process", padding = { left = 0, right = 1 } } },
+		tabline_x = { "ram", "cpu" },
+		tabline_y = { "datetime", "battery" },
+		tabline_z = { "hostname" },
+	},
+	extensions = {},
+})
+-- tabline.apply_to_config(config)
 
 -- wezterm.on("gui-startup", function(cmd)
 -- 	local _, _, window = mux.spawn_window(cmd or {})
