@@ -1,39 +1,61 @@
 return {
 	"gelguy/wilder.nvim",
-	enabled = true,
-	dependencies = { "roxma/nvim-yarp" },
+	dependencies = {
+		"nvim-lua/plenary.nvim", -- Required for fzy-lua-native
+		"romgrk/fzy-lua-native", -- Required for fzy-based fuzzy matching
+	},
 	config = function()
 		local wilder = require("wilder")
-		wilder.setup({ modes = { ":", "/", "?" } })
 
-		wilder.set_option("pipeline", {
-			wilder.branch(
-				wilder.cmdline_pipeline({
-					-- sets the language to use, 'vim' and 'python' are supported
-					language = "python",
-					-- 0 turns off fuzzy matching
-					-- 1 turns on fuzzy matching
-					-- 2 partial fuzzy matching (match does not have to begin with the same first letter)
-					fuzzy = 1,
+		wilder.setup({
+			modes = { ":", "/", "?" }, -- Command-line modes
+			use_python_remote_plugin = 0, -- Disable Python remote plugin
+		})
+
+		local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
+			winblend = 20, -- Transparency
+			border = "rounded", -- Popup menu border style
+			empty_message = wilder.popupmenu_empty_message_with_spinner(),
+			highlighter = wilder.lua_fzy_highlighter(),
+			left = {
+				" ",
+				wilder.popupmenu_devicons(),
+				wilder.popupmenu_buffer_flags({
+					flags = " A + ",
+					icons = { ["+"] = "modified", a = "active", h = "hidden", ["%"] = "current", ["#"] = "alternate" },
 				}),
-				wilder.python_search_pipeline({
-					-- can be set to wilder#python_fuzzy_delimiter_pattern() for stricter fuzzy matching
-					pattern = wilder.python_fuzzy_pattern(),
-					-- omit to get results in the order they appear in the buffer
-					sorter = wilder.python_difflib_sorter(),
-					-- can be set to 're2' for performance, requires pyre2 to be installed
-					-- see :h wilder#python_search() for more details
-					engine = "re",
-				})
-			),
+			},
+			right = {
+				" ",
+				wilder.popupmenu_scrollbar(),
+			},
+		}))
+
+		local wildmenu_renderer = wilder.wildmenu_renderer({
+			highlighter = wilder.lua_fzy_highlighter(),
+			separator = " ¬∑ ",
+			left = { " ", wilder.wildmenu_spinner(), " " },
+			right = { " ", wilder.wildmenu_index() },
 		})
 
 		wilder.set_option(
 			"renderer",
-			wilder.popupmenu_renderer({
-				highlighter = wilder.basic_highlighter(),
+			wilder.renderer_mux({
+				[":"] = popupmenu_renderer,
+				["/"] = popupmenu_renderer,
+				["?"] = popupmenu_renderer,
+				substitute = wildmenu_renderer,
 			})
 		)
+
+		wilder.set_option("pipeline", {
+			wilder.branch(
+				wilder.cmdline_pipeline({
+					fuzzy = 1,
+					fuzzy_filter = wilder.lua_fzy_filter(),
+				}),
+				wilder.vim_search_pipeline()
+			),
+		})
 	end,
-	build = ":UpdateRemotePlugins",
 }
