@@ -91,6 +91,8 @@ scoop install bc # basic calculator
 scoop install gh
 scoop install zebar
 scoop install uutils-coreutils
+scoop install speedtest-cli
+
 pipx install rich-cli
 pipx install shell-gpt
 
