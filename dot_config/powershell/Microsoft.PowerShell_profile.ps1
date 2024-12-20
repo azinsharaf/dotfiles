@@ -149,11 +149,8 @@ function c
 {clear
 }
 
-function fzfp
-{fzf --preview "cat {}"
-}
 function fzfn
-{nvim $(fzf --preview "cat {}")
+{nvim $(fzf --preview "bat {}")
 }
 
 function reboot
@@ -222,6 +219,14 @@ if ($Env:COMPUTERNAME -eq "Desktop-Azin")
     $Env:NEOVIM_NODE_PATH = "$USERPROFILE\scoop\apps\nodejs\current\node.exe"
 }
 $Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
+
+# Define fzf options
+
+$Env:FZF_DEFAULT_OPTS = '--height=70% --layout=reverse --border ' +
+                        '--preview "if (Test-Path {}) { bat --style=numbers --color=always --line-range=:500 {} } else { Get-Item {} | Format-List * }" ' +
+                        '--preview-window=right:70% ' +
+                        '--bind "j:down,k:up,h:toggle-preview,l:accept"'
+
 
 # shell_gpt config
 $Env:CHAT_CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\chat_cache"
