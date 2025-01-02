@@ -129,10 +129,6 @@
             {
               "kind": "Exe",
               "id": "Todoist.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "Obsidian.exe"
             }
           ]
         },
