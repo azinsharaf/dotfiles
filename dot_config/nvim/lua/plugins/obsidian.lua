@@ -4,18 +4,41 @@ local Path = require("plenary.path")
 local function get_vault_path()
 	local os_name = vim.loop.os_uname().sysname
 	if os_name == "Windows_NT" then
-		local obsidian_vault = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute()
-		return obsidian_vault
+		return {
+			work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "Obsidian", "azin_obsidian_work")
+				:absolute(),
+			personal = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute(),
+		}
 	else
-		local obsidian_vault = Path:new(vim.fn.expand("~"), "azin_notes"):absolute()
-		return obsidian_vault
+		return {
+			work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc", "Obsidian", "azin_obsidian_work")
+				:absolute(),
+			personal = Path:new(vim.fn.expand("~"), "azin_notes"):absolute(),
+		}
+	end
+end
+
+-- Get resolved paths and define workspaces
+local vault_paths = get_vault_path()
+
+-- Ensure workspaces are properly named and unique
+local workspaces = {
+	{ name = "work", path = vault_paths.work },
+	{ name = "personal", path = vault_paths.personal },
+}
+
+-- Validate paths and create a table of valid workspaces
+local valid_workspaces = {}
+for _, ws in ipairs(workspaces) do
+	if Path:new(ws.path):exists() then
+		table.insert(valid_workspaces, ws)
 	end
 end
 
 -- Function to perform Git Push to Obsidian repo
 local function git_push_obsidian()
 	local current_time = os.date("%Y-%m-%d %H:%M:%S")
-	local vault_path = get_vault_path()
+	local vault_path = vault_paths.personal
 	if not vault_path then
 		print("Vault path is invalid!")
 		return
@@ -32,7 +55,7 @@ end
 
 -- Function to perform Git Pull for Obsidian Vault
 local function git_pull_obsidian()
-	local vault_path = get_vault_path()
+	local vault_path = vault_paths.personal
 	if not vault_path then
 		print("Vault path is invalid!")
 		return
@@ -59,12 +82,12 @@ vim.api.nvim_create_user_command("GitPullObsidian", git_pull_obsidian, {})
 vim.api.nvim_create_user_command("GitPushObsidian", git_push_obsidian, {})
 
 -- Autocmd to trigger Git pull when opening Markdown files in the vault
-vim.api.nvim_create_autocmd("BufReadPre", {
-	pattern = get_vault_path() .. "/*.md", -- Match Markdown files in the vault
-	callback = function()
-		git_pull_obsidian()
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufReadPre", {
+-- 	pattern = get_vault_path() .. "/*.md", -- Match Markdown files in the vault
+-- 	callback = function()
+-- 		git_pull_obsidian()
+-- 	end,
+-- })
 
 -- Autocmd to trigger Git push when writing Markdown files in the vault
 vim.api.nvim_create_autocmd("BufWritePost", {
@@ -93,7 +116,7 @@ return {
 		-- Configure obsidian.nvim with the valid workspace
 		require("obsidian").setup({
 
-			workspaces = { { name = "azin_notes", path = get_vault_path() } },
+			workspaces = valid_workspaces, -- provide all valid workspaces
 
 			-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
 			completion = {
@@ -105,7 +128,7 @@ return {
 
 			daily_notes = {
 				-- Optional, if you keep daily notes in a separate directory.
-				folder = "01_personal/daily_notes",
+				folder = "daily_notes",
 				-- Optional, if you want to change the date format for the ID of daily notes.
 				date_format = "%Y-%m-%d-%A",
 				-- Optional, if you want to change the date format of the default alias of daily notes.
@@ -117,7 +140,7 @@ return {
 			},
 			-- Optional, for templates (see below).
 			templates = {
-				folder = "01_personal/templates",
+				folder = "templates",
 				date_format = "%Y-%m-%d",
 				time_format = "%H:%M",
 				-- A map for custom variables, the key should be the variable and the value a function
