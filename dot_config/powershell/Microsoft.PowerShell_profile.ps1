@@ -187,8 +187,13 @@ function capply
 function ks
 {komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --ahk --bar
 }
+
 function ke
 {komorebic stop --ahk --bar
+}
+
+function qb
+{qutebrowser --basedir "$Env:USERPROFILE\.config\qutebrowser"
 }
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
