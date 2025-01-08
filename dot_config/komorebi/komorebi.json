@@ -8,14 +8,12 @@
   "mouse_follows_focus": false,
   "border": true,
   "border_implementation": "Komorebi",
-  "border_width": 3,
+  "border_width": 2,
   "border_offset": -1,
   "border_style": "Square",
-  "border_colours": {
-    "single": "#42a5f5",
-    "stack": "#00a542",
-    "monocle": "#ff3399",
-    "unfocused": "#808080"
+  "theme": {
+    "name": "CatppuccinMocha",
+    "palette": "Base16"
   },
   "stackbar": {
     "height": 40,
@@ -30,7 +28,12 @@
       "font_size": 20
     }
   },
-
+  "animation": {
+    "enabled": true,
+    "duration": 150,
+    "style": "Linear",
+    "fps": 165
+  },
   "transparency": true,
   "transparency_alpha": 253,
   "border_overflow_applications": [],
