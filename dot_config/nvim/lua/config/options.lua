@@ -1,18 +1,28 @@
 vim.cmd("let g:netrw_lifestyle = 3")
 
 local opt = vim.opt
+local is_windows = vim.loop.os_uname().sysname:match("Windows")
 
-local powershell_options = {
-	shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
-	shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
-	shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
-	shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
-	shellquote = "",
-	shellxquote = "",
-}
+if is_windows then
+	-- PowerShell options for Windows
+	local powershell_options = {
+		shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
+		shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+		shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+		shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+		shellquote = "",
+		shellxquote = "",
+	}
 
-for option, value in pairs(powershell_options) do
-	opt[option] = value
+	for option, value in pairs(powershell_options) do
+		vim.opt[option] = value
+	end
+else
+	-- Default shell options for macOS (or Linux)
+	vim.opt.shell = "/bin/zsh"
+	vim.opt.shellcmdflag = "-c"
+	vim.opt.shellquote = ""
+	vim.opt.shellxquote = ""
 end
 
 -- Tab / Indentation
