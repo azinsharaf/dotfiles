@@ -38,6 +38,9 @@ scoop install git-with-openssh
 scoop install make
 scoop install gcc
 scoop install nerd-fonts/JetBrainsMono-NF
+scoop install nerd-fonts/FiraCode-NF
+scoop install nerd-fonts/Hack-NF
+
 scoop install main/7zip
 scoop install obsidian
 scoop install notepadplusplus
