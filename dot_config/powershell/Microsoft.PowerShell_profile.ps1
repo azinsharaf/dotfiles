@@ -185,10 +185,10 @@ function capply
 }
 
 function ks
-{komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --ahk
+{komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --ahk --bar
 }
 function ke
-{komorebic stop --ahk
+{komorebic stop --ahk --bar
 }
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
