@@ -4,58 +4,35 @@ local Path = require("plenary.path")
 local function get_vault_path()
 	local os_name = vim.loop.os_uname().sysname
 	if os_name == "Windows_NT" then
-		return {
-			work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "Obsidian", "azin_obsidian_work")
-				:absolute(),
-			personal = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute(),
-		}
+		local obsidian_vault = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute()
+		return obsidian_vault
 	else
-		return {
-			work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc", "Obsidian", "azin_obsidian_work")
-				:absolute(),
-			personal = Path:new(vim.fn.expand("~"), "azin_notes"):absolute(),
-		}
-	end
-end
-
--- Get resolved paths and define workspaces
-local vault_paths = get_vault_path()
-
--- Ensure workspaces are properly named and unique
-local workspaces = {
-	{ name = "work", path = vault_paths.work },
-	{ name = "personal", path = vault_paths.personal },
-}
-
--- Validate paths and create a table of valid workspaces
-local valid_workspaces = {}
-for _, ws in ipairs(workspaces) do
-	if Path:new(ws.path):exists() then
-		table.insert(valid_workspaces, ws)
+		local obsidian_vault = Path:new(vim.fn.expand("~"), "azin_notes"):absolute()
+		return obsidian_vault
 	end
 end
 
 -- Function to perform Git Push to Obsidian repo
 local function git_push_obsidian()
 	local current_time = os.date("%Y-%m-%d %H:%M:%S")
-	local vault_path = vault_paths.personal
+	local vault_path = get_vault_path()
 	if not vault_path then
 		print("Vault path is invalid!")
 		return
 	end
-	-- Navigate to vault directory
-	vim.cmd("cd " .. vault_path)
-	-- Perform Git operations
-	vim.fn.system("git pull")
-	vim.fn.system("git add .")
-	vim.fn.system("git commit -m 'vault backup from Obsidian.nvim: " .. current_time .. "'")
-	vim.fn.system("git push")
+
+	local git_command = "cd "
+		.. vault_path
+		.. " && git add . && git commit -m 'vault backup from Neovim: "
+		.. current_time
+		.. "' && git push"
+	vim.fn.system(git_command)
 	print("Obsidian Vault synced with Git!")
 end
 
 -- Function to perform Git Pull for Obsidian Vault
 local function git_pull_obsidian()
-	local vault_path = vault_paths.personal
+	local vault_path = get_vault_path()
 	if not vault_path then
 		print("Vault path is invalid!")
 		return
@@ -90,13 +67,13 @@ vim.api.nvim_create_user_command("GitPushObsidian", git_push_obsidian, {})
 -- })
 
 -- Autocmd to trigger Git push when writing Markdown files in the vault
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*.md",
-	callback = function()
-		git_push_obsidian()
-		print("Vault synced with Git!")
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	pattern = "*.md",
+-- 	callback = function()
+-- 		git_push_obsidian()
+-- 		print("Vault synced with Git!")
+-- 	end,
+-- })
 
 -- Define the plugin with dependencies and keybindings
 
@@ -116,7 +93,7 @@ return {
 		-- Configure obsidian.nvim with the valid workspace
 		require("obsidian").setup({
 
-			workspaces = valid_workspaces, -- provide all valid workspaces
+			workspaces = { { name = "azin_notes", path = get_vault_path() } },
 
 			-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
 			completion = {
