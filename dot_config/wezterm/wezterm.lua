@@ -1,5 +1,5 @@
 local wezterm = require("wezterm")
-local mux = wezterm.mux
+-- local mux = wezterm.mux
 
 local is_windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
 
@@ -16,13 +16,16 @@ end
 local config = {
 	default_prog = is_windows and { "pwsh" } or { "zsh" }, -- Set default shell
 	default_workspace = "~",
-	font = wezterm.font("JetBrainsMono Nerd Font"),
+	-- font = wezterm.font("JetBrainsMono Nerd Font"),
+	font = wezterm.font("FiraCode Nerd Font"),
+	-- font = wezterm.font("Hack Nerd Font"),
+	font_size = 10,
 
 	window_padding = {
-		left = 0,
-		right = 0,
-		top = 0,
-		bottom = 0,
+		left = 10,
+		right = 10,
+		top = 10,
+		bottom = 10,
 	},
 	hide_tab_bar_if_only_one_tab = false,
 	hide_mouse_cursor_when_typing = true,
