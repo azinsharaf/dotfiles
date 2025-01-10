@@ -1,0 +1,142 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  // "logo": {
+  //   "type": "iterm",
+  //   "source": "C:\\Users\\shuen\\.config\\fastfetch\\images\\omen.png",
+  //   "height": 10,
+  //   "width": 20,
+  //   // "type": "auto",
+  //   // "source": "C:\\Users\\shuen\\.config\\fastfetch\\ascii\\kitty2.1.txt",
+  //   "padding": {
+  //     "left": 3,
+  //     "top": 3,
+  //     // "top": 1,
+  //     "right": 3
+  //   },
+  //   "color": {
+  //     "1": "magenta"
+  //   }
+  // },
+  "display": {
+    // "separator": "  »  ",
+    "separator": "",
+    "color": "magenta",
+    "size": {
+      "maxPrefix": "GB",
+      "ndigits": 2
+    },
+    "bar": {
+      "width": 10,
+      // "border": false,
+      "charTotal": "-",
+      "charElapsed": "╸"
+    },
+    "percent": {
+      "type": 6
+    },
+    "noBuffer": true
+  },
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "outputColor": "blue",
+      "format": "\u256d────{#37}System{#34}───────────────────────────\u256e"
+    },
+    {
+      "type": "os",
+      "format": " {4}",
+      "key": " \uf17a",
+      "keyWidth": 4,
+      "keyColor": "red"
+    },
+    {
+      "type": "kernel",
+      "format": " {1} {4} ({5})",
+      "key": " \udb82\udcd6",
+      "keyWidth": 4,
+      "keyColor": "red"
+    },
+    {
+      "type": "host",
+      "format": " {1}",
+      "key": " \udb80\udf22",
+      "keyWidth": 4,
+      "keyColor": "blue"
+    },
+    {
+      "type": "terminal",
+      "format": " {5}",
+      "key": " \uf155W",
+      "keyWidth": 4,
+      "keyColor": "blue"
+    },
+    {
+      "type": "shell",
+      "format": " {6} {4}",
+      "key": " \udb82\ude0a",
+      "keyWidth": 4,
+      "keyColor": "magenta"
+    },
+    {
+      "type": "packages",
+      "format": " {20} (scoop), {21} (choco), {24} (winget)",
+      "key": " \udb80\udfd3",
+      "keyWidth": 4,
+      "keyColor": "magenta"
+    },
+    {
+      "type": "custom",
+      "format": "\u2570─────────────────────────────────────\u256f"
+    },
+    {
+      "type": "custom",
+      "format": "\u256d────{#37}Hardware{#34}─────────────────────────\u256e"
+    },
+    {
+      "type": "cpu",
+      "format": " {1} ({4}) @ {7}",
+      "key": " \uf4bc",
+      "keyWidth": 4,
+      "keyColor": "green"
+    },
+    {
+      "type": "gpu",
+      "format": " {2}",
+      "key": " \uf11b",
+      "keyWidth": 4,
+      "keyColor": "green"
+    },
+    {
+      "type": "memory",
+      "key": " \uefc5",
+      "format": " {2}",
+      "keyWidth": 4,
+      "keyColor": "yellow"
+    },
+    {
+      "type": "battery",
+      "key": " \uf240",
+      "format": " {4}",
+      "keyWidth": 4,
+      "keyColor": "yellow"
+    },
+    {
+      "type": "disk",
+      "key": " \udb80\udeca",
+      "format": " {1} / {2} ({3})",
+      "keyWidth": 4,
+      "keyColor": "cyan"
+    },
+    {
+      "type": "custom",
+      "format": "\u2570─────────────────────────────────────\u256f"
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle"
+    },
+    "break"
+  ]
+}
