@@ -17,7 +17,13 @@ local config = {
 	default_prog = is_windows and { "pwsh" } or { "zsh" }, -- Set default shell
 	default_workspace = "~",
 	-- font = wezterm.font("JetBrainsMono Nerd Font"),
-	font = wezterm.font("FiraCode Nerd Font"),
+	font = wezterm.font_with_fallback({
+		"FiraCode Nerd Font", -- Primary font
+		"JetBrainsMono Nerd Font",
+		"Noto Color Emoji", -- Emoji fallback
+		"Symbola", -- For rare symbols
+		"DejaVu Sans", -- Additional fallback
+	}),
 	-- font = wezterm.font("Hack Nerd Font"),
 	font_size = 10,
 
