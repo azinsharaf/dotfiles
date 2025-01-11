@@ -14,7 +14,7 @@ local function basename(s)
 end
 
 local config = {
-	default_prog = is_windows and { "pwsh" } or { "zsh" }, -- Set default shell
+	default_prog = is_windows and { "pwsh", "-NoLogo" } or { "zsh" }, -- Set default shell
 	default_workspace = "~",
 	-- font = wezterm.font("JetBrainsMono Nerd Font"),
 	font = wezterm.font_with_fallback({
