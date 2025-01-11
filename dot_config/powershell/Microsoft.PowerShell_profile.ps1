@@ -91,6 +91,27 @@ function clear-recyclebin
     Clear-RecycleBin -force
 }
 
+# yazi shell wrapper https://yazi-rs.github.io/docs/quick-start
+function y {
+  $tmp = [System.IO.Path]::GetTempFileName()
+  yazi $args --cwd-file="$tmp"
+  $cwd = Get-Content -Path $tmp
+  if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
+    Set-Location -LiteralPath $cwd
+  }
+  Remove-Item -Path $tmp
+}
+
+function cat
+{
+bat
+}
+
+function du
+{
+dust
+}
+
 function reload
 {
     . $profile
@@ -204,6 +225,7 @@ $Env:KOMOREBI_AHK_EXE = "$Env:USERPROFILE\AppData\Local\Programs\AutoHotkey\v2\A
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
 $Env:SHELL = 'pwsh'
+$Env:COLORTERM = 'truecolor'
 
 $Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
@@ -232,6 +254,7 @@ $Env:FZF_DEFAULT_OPTS = '--height=70% --layout=reverse --border ' +
                         '--preview-window=right:70% ' +
                         '--bind "j:down,k:up,h:toggle-preview,l:accept"'
 
+$Env:EZA_CONFIG_DIR = "$Env:USERPROFILE\.config\eza"
 
 # shell_gpt config
 $Env:CHAT_CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\chat_cache"
