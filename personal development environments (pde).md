@@ -75,6 +75,7 @@ scoop install btop-lhm
 scoop install jq
 scoop install revouninstaller
 scoop install spotify
+scoop install spotify-player
 scoop install extras/via
 scoop install extras/qmk-toolbox
 scoop install anaconda3
