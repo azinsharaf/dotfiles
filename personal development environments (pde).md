@@ -33,6 +33,11 @@ scoop bucket add main
 scoop bucket add extras
 scoop bucket add versions
 scoop bucket add nerd-fonts
+scoop bucket add nonportable
+
+scoop install nonportable/files-np
+# enable catppuccin theme in Files
+. { Invoke-WebRequest -UseBasicParsing https://github.com/catppuccin/windows-files/raw/main/install.ps1 } | iex
 
 scoop install git-with-openssh
 scoop install make
