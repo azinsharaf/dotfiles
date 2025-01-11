@@ -1,13 +1,24 @@
 gui:
-  expandFocusedSidePanel: true
-  language: en
-  mouseEvents: false
   nerdFontsVersion: "3"
-git:
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never --syntax-theme="Catppuccin-mocha"
-update:
-  method: never
-notARepository: "quit"
-promptToReturnFromSubprocess: false
+  theme:
+    activeBorderColor:
+      - "#b4befe"
+      - bold
+    inactiveBorderColor:
+      - "#a6adc8"
+    optionsTextColor:
+      - "#89b4fa"
+    selectedLineBgColor:
+      - "#313244"
+    cherryPickedCommitBgColor:
+      - "#45475a"
+    cherryPickedCommitFgColor:
+      - "#b4befe"
+    unstagedChangesColor:
+      - "#f38ba8"
+    defaultFgColor:
+      - "#cdd6f4"
+    searchingActiveBorderColor:
+      - "#f9e2af"
+# to skip without creating a new repo
+notARepository: "skip"
