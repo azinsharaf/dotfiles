@@ -185,7 +185,8 @@ return {
 		{ "<leader>ot", "<cmd>ObsidianToday<cr>", desc = "Obsidian Today" },
 		{ "<leader>of", "<cmd>ObsidianSearch<cr>", desc = "Obsidian Search Word" },
 		{ "<leader>ow", "<cmd>ObsidianWorkspace<cr>", desc = "Obsidian Workspace" },
-		{ "<leader>op", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian Templates" },
-		{ "<leader>os", "<cmd>GitSync<cr>", desc = "Obsidian push with Github" },
+		-- { "<leader>op", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian Templates" },
+		{ "<leader>ou", "<cmd>GitPullObsidian<cr>", desc = "Obsidian pull (get) from Github" },
+		{ "<leader>op", "<cmd>GitPushObsidian<cr>", desc = "Obsidian push to Github" },
 	},
 }
