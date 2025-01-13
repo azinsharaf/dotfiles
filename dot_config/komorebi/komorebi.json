@@ -29,7 +29,7 @@
     }
   },
   "animation": {
-    "enabled": true,
+    "enabled": false,
     "duration": 150,
     "style": "Linear",
     "fps": 200
