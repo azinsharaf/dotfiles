@@ -102,6 +102,8 @@ scoop install zebar
 scoop install uutils-coreutils
 scoop install speedtest-cli
 scoop install dust
+scoop install pandoc
+
 pipx install rich-cli
 pipx install shell-gpt
 
@@ -110,6 +112,10 @@ npm install -g pnpm@latest-10
 
 # install win11 toggle rounded corner
 # https://github.com/oberrich/win11-toggle-rounded-corners
+
+scoop bucket add CrypticButter https://github.com/CrypticButter/ScoopBucket
+scoop install CrypticButter/buttery-taskbar
+
 
 ```
 
