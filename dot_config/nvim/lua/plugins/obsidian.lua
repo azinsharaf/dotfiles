@@ -105,7 +105,7 @@ return {
 
 			daily_notes = {
 				-- Optional, if you keep daily notes in a separate directory.
-				folder = "daily_notes",
+				folder = "2 - Areas/daily_notes",
 				-- Optional, if you want to change the date format for the ID of daily notes.
 				date_format = "%Y-%m-%d-%A",
 				-- Optional, if you want to change the date format of the default alias of daily notes.
@@ -117,7 +117,7 @@ return {
 			},
 			-- Optional, for templates (see below).
 			templates = {
-				folder = "templates",
+				folder = "3 - Resources/obsidian_templates",
 				date_format = "%Y-%m-%d",
 				time_format = "%H:%M",
 				-- A map for custom variables, the key should be the variable and the value a function
