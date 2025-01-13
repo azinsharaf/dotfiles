@@ -206,11 +206,11 @@ function capply
 }
 
 function ks
-{komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --ahk --bar
+{komorebic start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --ahk
 }
 
 function ke
-{komorebic stop --ahk --bar
+{komorebic stop --ahk
 }
 
 function qb
