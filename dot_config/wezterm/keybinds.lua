@@ -15,7 +15,7 @@ local keys = {
 		end),
 	},
 	{
-		key = "-",
+		key = "h",
 		mods = "LEADER",
 		action = wezterm.action.SplitPane({
 			direction = "Down",
@@ -23,7 +23,7 @@ local keys = {
 		}),
 	},
 	{
-		key = "|",
+		key = "v",
 		mods = "LEADER",
 		action = wezterm.action.SplitPane({
 			direction = "Right",
@@ -50,6 +50,8 @@ local keys = {
 		mods = "LEADER",
 		action = wezterm.action.CloseCurrentPane({ confirm = true }),
 	},
+
+  { key = 'X', mods = 'LEADER', action = wezterm.action.ActivateCopyMode },
 	-- {
 	-- 	key = "p",
 	-- 	mods = "ALT",
