@@ -44,13 +44,7 @@
     "right": 0
   },
 
-  "object_name_change_applications": [
-    {
-      "kind": "Exe",
-      "id": "RemoteDesktopManager.exe",
-      "matching_strategy": "Equals"
-    }
-  ],
+  "object_name_change_applications": [],
   "ignore_rules": [
     [
       {
@@ -90,13 +84,7 @@
     }
   ],
 
-  "manage_rules": [
-    {
-      "kind": "Exe",
-      "id": "Survey123",
-      "matching_strategy": "Contains"
-    }
-  ],
+  "manage_rules": [],
 
   "monitors": [
     {
@@ -106,34 +94,12 @@
         {
           "name": "I chat",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "ms-teams.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "olk.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "thunderbird.exe"
-            }
-          ]
+          "initial_workspace_rules": []
         },
         {
           "name": "II seconed brain",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "Morgen.exe"
-            },
-            {
-              "kind": "Exe",
-              "id": "Todoist.exe"
-            }
-          ]
+          "initial_workspace_rules": []
         },
         {
           "name": "III",
