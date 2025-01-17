@@ -3,8 +3,8 @@
   "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
-  "default_workspace_padding": 20,
-  "default_container_padding": 20,
+  "default_workspace_padding": 10,
+  "default_container_padding": 10,
   "mouse_follows_focus": false,
   "border": true,
   "border_implementation": "Komorebi",
@@ -37,12 +37,6 @@
   "transparency": true,
   "transparency_alpha": 253,
   "border_overflow_applications": [],
-  "global_work_area_offset": {
-    "top": 30,
-    "bottom": 15,
-    "left": 0,
-    "right": 0
-  },
 
   "object_name_change_applications": [],
   "ignore_rules": [
