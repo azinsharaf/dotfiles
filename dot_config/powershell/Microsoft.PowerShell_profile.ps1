@@ -285,6 +285,8 @@ $Env:Path += ";$Env:USERPROFILE\scoop\shims"
 $Env:Path += ";$Env:USERPROFILE\.local\bin"
 $Env:Path += ";$Env:USERPROFILE\temp_apps"
 $Env:Path += ";$Env:USERPROFILE\temp_apps\yazi"
+$Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\bin"
+$Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\shims"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
