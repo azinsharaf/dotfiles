@@ -103,7 +103,7 @@ scoop install uutils-coreutils
 scoop install speedtest-cli
 scoop install dust
 scoop install pandoc
-
+scoop install flow-launcher
 pipx install rich-cli
 pipx install shell-gpt
 
