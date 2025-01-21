@@ -80,6 +80,19 @@
 
   "manage_rules": [],
 
+  "tray_and_multi_window_applications": [
+    {
+      "kind": "Exe",
+      "id": "Todoist.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Morgen.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+
   "monitors": [
     {
       "window_based_work_area_offset_limit": 1,
