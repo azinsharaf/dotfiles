@@ -60,10 +60,16 @@ open-arcgispro = [
     { run = '"C:\Program Files\ArcGIS\Pro\bin\ArcGISPro.exe" %*', orphan = true, for = "windows" }
 ]
 
+open-vbs  = [
+    { run = '"path.exe" %*', orphan = true, for = "windows" }
+]
+
 [open]
 rules = [
     # ArcGIS Project File (.aprx)
     { name = "*.aprx", use = [ "open-arcgispro" ] },
+    # visual basic script
+    { name = "*.vbs", use = [ "open-vbs"] },
 	# Folder
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
 	# Text
