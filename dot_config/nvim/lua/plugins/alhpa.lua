@@ -55,6 +55,7 @@ return {
 			dashboard.button("<C-d>", "󱓧  Open daily-notes", ":ObsidianToday<CR>"),
 			dashboard.button("o", "󰄉  Recent files", ":Telescope oldfiles <CR>"),
 			dashboard.button("L", "󱐥  Lazy Plugin Manager", "<cmd>Lazy<CR>"),
+			dashboard.button("M", "󱐥  Mason LSP Installer", "<cmd>Mason<CR>"),
 			dashboard.button("r", "  Repos", ":e $HOME/repos/<CR>"),
 			dashboard.button("d", "󱗼  Dotfiles", ":e $HOME/.local/share/chezmoi/<CR>"),
 			dashboard.button("w", "  Change header image", function()
