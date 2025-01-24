@@ -78,7 +78,13 @@
     }
   ],
 
-  "manage_rules": [],
+  "manage_rules": [
+    {
+      "kind": "Exe",
+      "id": "qutebrowser.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
 
   "tray_and_multi_window_applications": [
     {
