@@ -75,15 +75,28 @@
       "kind": "Title",
       "id": "Autodesk Installer",
       "matching_strategy": "Equals"
+    },
+
+    {
+      "kind": "Class",
+      "id": "WindowPopupSaveBits",
+      "matching_strategy": "Contains"
     }
   ],
 
   "manage_rules": [
-    {
-      "kind": "Exe",
-      "id": "qutebrowser.exe",
-      "matching_strategy": "Equals"
-    }
+    [
+      {
+        "kind": "Exe",
+        "id": "qutebrowser.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Class",
+        "id": "Popup",
+        "matching_strategy": "DoesNotContain"
+      }
+    ]
   ],
 
   "tray_and_multi_window_applications": [
@@ -95,6 +108,11 @@
     {
       "kind": "Exe",
       "id": "Morgen.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Files.exe",
       "matching_strategy": "Equals"
     }
   ],
