@@ -47,8 +47,8 @@ elseif ($env:COMPUTERNAME -eq "WS-Oakland-001")
 
     $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
     $Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
-    $Env:_CE_M = ""
-    $Env:_CE_CONDA = ""
+    # $Env:_CE_M = ""
+    # $Env:_CE_CONDA = ""
     $Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
     $Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
     $CondaModuleArgs = @{ChangePs1 = $True}
