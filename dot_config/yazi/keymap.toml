@@ -124,7 +124,7 @@ keymap = [
 	{ on = [ "g", "D" ],            run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
 	{ on = [ "g", "<Space>" ],      run = "cd --interactive", desc = "Go to a directory interactively" },
     { on = [ "g", "o"],             run = "cd ~/obsidian_azin/",          desc = "Obsidian Azin Vault"},
-	{ on = [ "g", "u" ],            run = "cd C:/Users/azin/iCloudDrive/artificial_inteligence/cmu_graduate_certificate/11605-A2_python_for_data_science_2/", desc = "Go To CMU dir" },
+	{ on = [ "g", "u" ],            run = "cd C:/Users/azin/iCloudDrive/artificial_inteligence/cmu_graduate_certificate/10680-A3_Mathematical_Foundations_for_Machine_Learning/", desc = "Go To CMU dir" },
 	{ on = [ "g", "r" ],            run = "cd ~/Repos",desc = "Go to Repos directory" },
 	{ on = [ "g", "d", "D" ],       run = "cd D:/",        desc = "D drive - TEMP" },
 	{ on = [ "g", "d", "E" ],       run = "cd E:/",        desc = "Employee Drive" },
