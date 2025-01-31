@@ -6,23 +6,25 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 	},
 
-	require("codecompanion").setup({
-		strategies = {
-			chat = {
-				adapter = "openai",
+	config = function()
+		require("codecompanion").setup({
+			strategies = {
+				chat = {
+					adapter = "openai",
+				},
+				inline = {
+					adapter = "openai",
+				},
 			},
-			inline = {
-				adapter = "openai",
+			adapters = {
+				openai = function()
+					return require("codecompanion.adapters").extend("openai", {
+						env = {
+							api_key = os.getenv("OPENAI_API_KEY"),
+						},
+					})
+				end,
 			},
-		},
-		adapters = {
-			openai = function()
-				return require("codecompanion.adapters").extend("openai", {
-					env = {
-						api_key = os.getenv("OPENAI_API_KEY"),
-					},
-				})
-			end,
-		},
-	}),
+		})
+	end,
 }
