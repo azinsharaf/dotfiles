@@ -21,9 +21,22 @@ return {
 				python = { "isort", "black" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
+				lsp_format = "fallback",
+				timeout_ms = 5000,
+			},
+			format_after_save = {
+				lsp_format = "fallback",
+			},
+			log_level = vim.log.levels.ERROR,
+			notify_on_error = true,
+			notify_no_formatters = true,
+			formatters = {
+				isort = {
+					command = "isort",
+					args = {
+						"-",
+					},
+				},
 			},
 		})
 
