@@ -1,55 +1,68 @@
 local Path = require("plenary.path")
 
 -- Get the OS-specific vault path
-local function get_vault_path()
+local function get_vault_paths()
+	-- Explicitly declare local variables
+	local obsidian_vault_personal
+	local obsidian_vault_work
+
 	local os_name = vim.loop.os_uname().sysname
 	if os_name == "Windows_NT" then
-		local obsidian_vault = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute()
-		return obsidian_vault
+		obsidian_vault_personal = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute()
+		obsidian_vault_work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "5 - azin_obsidian_work")
+			:absolute()
 	else
-		local obsidian_vault = Path:new(vim.fn.expand("~"), "azin_notes"):absolute()
-		return obsidian_vault
+		obsidian_vault_personal = Path:new(vim.fn.expand("~"), "azin_notes"):absolute()
+		obsidian_vault_work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work")
+			:absolute()
 	end
+
+	return {
+		personal_notes = obsidian_vault_personal,
+		work_notes = obsidian_vault_work,
+	}
 end
 
 -- Function to perform Git Push to Obsidian repo
 local function git_push_obsidian()
 	local current_time = os.date("%Y-%m-%d %H:%M:%S")
-	local vault_path = get_vault_path()
-	if not vault_path then
-		print("Vault path is invalid!")
-		return
-	end
+	local vault_paths = get_vault_paths()
 
-	local git_command = "cd "
-		.. vault_path
-		.. " && git add . && git commit -m 'vault backup from Neovim: "
-		.. current_time
-		.. "' && git push"
-	vim.fn.system(git_command)
-	print("Obsidian Vault synced with Git!")
+	for name, vault_path in pairs(vault_paths) do
+		-- if not vault_path then
+		-- 	print("Vault path is invalid!")
+		-- 	return
+		-- end
+
+		local git_command = "cd "
+			.. vault_path
+			.. " && git add . && git commit -m '"
+			.. name
+			.. " vault backup from Neovim: "
+			.. current_time
+			.. "' && git push"
+		vim.fn.system(git_command)
+		print("Obsidian Vault synced with Git!")
+	end
 end
 
--- Function to perform Git Pull for Obsidian Vault
+-- Function to perform Git Pull for all Obsidian vaults
 local function git_pull_obsidian()
-	local vault_path = get_vault_path()
-	if not vault_path then
-		print("Vault path is invalid!")
-		return
+	local vault_paths = get_vault_paths()
+
+	for name, vault_path in pairs(vault_paths) do
+		local pull_output = vim.fn.system("cd " .. vault_path .. " && git pull")
+		print("Git Pull Output for " .. name .. ": " .. pull_output)
+
+		-- Reload the current buffer if it's inside any vault
+		local current_file = vim.fn.expand("%:p")
+		if vim.startswith(current_file, vault_path) then
+			vim.cmd("edit!") -- Force reload the buffer
+			print("Buffer reloaded with latest changes for " .. name .. ".")
+		end
 	end
 
-	-- Pull updates from the Git repository
-	local pull_output = vim.fn.system("cd " .. vault_path .. " && git pull")
-	print("Git Pull Output: " .. pull_output)
-
-	-- Reload the current buffer if it is part of the vault
-	local current_file = vim.fn.expand("%:p")
-	if vim.startswith(current_file, vault_path) then
-		vim.cmd("edit!") -- Force reload the buffer
-		print("Buffer reloaded with latest changes.")
-	end
-
-	print("Obsidian Vault successfully pulled from Git!")
+	print("All Obsidian Vaults successfully pulled from Git!")
 end
 
 -- Command to Git pull manually
@@ -93,7 +106,10 @@ return {
 		-- Configure obsidian.nvim with the valid workspace
 		require("obsidian").setup({
 
-			workspaces = { { name = "azin_notes", path = get_vault_path() } },
+			workspaces = {
+				{ name = "personal_notes", path = get_vault_paths().personal_notes },
+				{ name = "work_notes", path = get_vault_paths().work_notes },
+			},
 
 			-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
 			completion = {
@@ -104,25 +120,19 @@ return {
 			},
 
 			daily_notes = {
-				-- Optional, if you keep daily notes in a separate directory.
 				folder = "2 - Areas/daily_notes",
-				-- Optional, if you want to change the date format for the ID of daily notes.
 				date_format = "%Y-%m-%d-%A",
-				-- Optional, if you want to change the date format of the default alias of daily notes.
-				-- alias_format = "%B %-d, %Y",
-				-- Optional, default tags to add to each new daily note created.
 				default_tags = { "daily-notes" },
-				-- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
 				template = "template_daily_note.md",
 			},
-			-- Optional, for templates (see below).
+
 			templates = {
 				folder = "3 - Resources/obsidian_templates",
 				date_format = "%Y-%m-%d",
 				time_format = "%H:%M",
-				-- A map for custom variables, the key should be the variable and the value a function
 				substitutions = {},
 			},
+
 			-- Optional, sort search results by "path", "modified", "accessed", or "created".
 			-- The recommend value is "modified" and `true` for `sort_reversed`, which means, for example,
 			-- that `:ObsidianQuickSwitch` will show the notes sorted by latest modified time
@@ -186,7 +196,7 @@ return {
 		{ "<leader>of", "<cmd>ObsidianSearch<cr>", desc = "Obsidian Search Word" },
 		{ "<leader>ow", "<cmd>ObsidianWorkspace<cr>", desc = "Obsidian Workspace" },
 		-- { "<leader>op", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian Templates" },
-		{ "<leader>ou", "<cmd>GitPullObsidian<cr>", desc = "Obsidian pull (get) from Github" },
-		{ "<leader>op", "<cmd>GitPushObsidian<cr>", desc = "Obsidian push to Github" },
+		{ "<leader>ou", "<cmd>GitPullObsidian<cr>", desc = "Obsidian Git Pull" },
+		{ "<leader>op", "<cmd>GitPushObsidian<cr>", desc = "Obsidian Git Push" },
 	},
 }
