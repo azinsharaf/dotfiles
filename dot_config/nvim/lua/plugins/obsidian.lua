@@ -120,7 +120,7 @@ return {
 			},
 
 			daily_notes = {
-				folder = "2 - Areas/daily_notes",
+				folder = "5 - Daily Notes/" .. os.date("%Y") .. "/" .. os.date("%m-%B"),
 				date_format = "%Y-%m-%d-%A",
 				default_tags = { "daily-notes" },
 				template = "template_daily_note.md",
