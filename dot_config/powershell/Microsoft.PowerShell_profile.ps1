@@ -11,8 +11,8 @@ if ($env:COMPUTERNAME -eq "Desktop-Azin")
     # cmu python env activation
     $Env:CONDA_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
     $Env:CONDA_ENV_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda-env.exe"
-    $Env:_CE_M = ""
-    $Env:_CE_CONDA = ""
+    # $Env:_CE_M = ""
+    # $Env:_CE_CONDA = ""
     $Env:_CONDA_ROOT = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App"
     $Env:_CONDA_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
     $CondaModuleArgs = @{ChangePs1 = $True}
