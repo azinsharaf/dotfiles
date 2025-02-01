@@ -75,6 +75,9 @@ opt.updatetime = 50
 opt.wildignorecase = true
 opt.wildmenu = true
 
+-- Avante plugin: views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
+
 -- Set global conceallevel
 opt.conceallevel = 0
 
