@@ -25,7 +25,7 @@ return {
 
 		dashboard.section.buttons.val = {
 
-			dashboard.button("<C-d>", "󱓧  Open daily-notes", ":ObsidianToday<CR>"),
+			dashboard.button("t", "󱓧  Open Today's Daily Note", ":ObsidianToday<CR>"),
 			dashboard.button("o", "󰄉  Recent files", ":Telescope oldfiles <CR>"),
 			dashboard.button("L", "󱐥  Lazy Plugin Manager", "<cmd>Lazy<CR>"),
 			dashboard.button("M", "󱐥  Mason LSP Installer", "<cmd>Mason<CR>"),
