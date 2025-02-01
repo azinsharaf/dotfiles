@@ -189,6 +189,7 @@ return {
 				mode = { "n", "v" },
 				-- { "<leader><Tab>", group = "tabs" },
 				{ "<leader>?", group = "Buffer Local Keymaps (which-key)" },
+				{ "<leader>a", group = "Avante AI Code assistant" },
 				{ "<leader>b", group = "Buffer" },
 				{ "<leader>e", group = "Explorer" },
 				{ "<leader>f", group = "Find" },
