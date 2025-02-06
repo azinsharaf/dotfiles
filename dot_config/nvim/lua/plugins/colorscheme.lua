@@ -35,8 +35,8 @@ return {
 				end,
 				theme = "dragon", -- Load "wave" theme when 'background' option is not set
 				background = { -- map the value of 'background' option to a theme
-					dark = "dragon", -- try "dragon" !
-					light = "lotus",
+					dark = "dragon", -- try "dragon" or "wave"
+					light = "lotus", -- try "lotus"
 				},
 			})
 
@@ -90,8 +90,8 @@ return {
 		},
 
 		config = function()
-			-- vim.cmd("colorscheme catppuccin-mocha")
-			vim.cmd("colorscheme catppuccin-latte")
+			vim.cmd("colorscheme catppuccin-mocha")
+			-- vim.cmd("colorscheme catppuccin-latte")
 		end,
 	},
 
