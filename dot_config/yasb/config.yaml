@@ -37,16 +37,9 @@ bars:
       bottom: 0
       right: 6
     widgets:
-      left:
-        [
-          "home",
-          "komorebi_workspaces",
-          "komorebi_active_layout",
-          "active_window",
-        ]
-      center: ["clock", "apps"]
-      right:
-        ["media", "taskbar", "weather", "microphone", "volume", "power_menu"]
+      left: ["home", "active_window"]
+      center: ["komorebi_workspaces", "komorebi_active_layout", "taskbar"]
+      right: ["media", "weather", "microphone", "volume", "clock", "power_menu"]
 widgets:
   home:
     type: "yasb.home.HomeWidget"
@@ -68,7 +61,7 @@ widgets:
       max_field_size:
         label: 64
         label_alt: 24
-      show_thumbnail: true
+      show_thumbnail: false
       controls_only: false
       controls_left: true
       hide_empty: true
