@@ -126,6 +126,13 @@
     {
       "window_based_work_area_offset_limit": 1,
 
+      "window_based_work_area_offset": {
+        "left": 750,
+        "top": 0,
+        "right": 1500,
+        "bottom": 0
+      },
+
       "workspaces": [
         {
           "name": "I chat",
