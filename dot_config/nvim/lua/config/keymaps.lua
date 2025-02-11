@@ -5,7 +5,7 @@ local telescope = require("telescope")
 telescope.load_extension("chezmoi")
 
 -- general
--- keymap("i", "jk", "<ESC>", { desc = "exit insert mode with jk" })
+keymap("i", "jk", "<ESC>", { desc = "exit insert mode with jk" })
 -- keymap("n", "<leader>nh", ":noh<CR>", { desc = "No Highlight" })
 -- keymap("n", "<leader>w", ":w<CR>", { desc = "Write" })
 -- keymap("n", "<leader>q", "<cmd>confirm q<cr>", { desc = "Quit" })
@@ -34,7 +34,7 @@ keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts) -- move highlighted rows
 
-keymap("v", "J", ":m '>+1<cr>gv=gv")
-keymap("v", "K", ":m '<-2<cr>gv=gv")
+-- keymap("v", "J", ":m '>+1<cr>gv=gv")
+-- keymap("v", "K", ":m '<-2<cr>gv=gv")
 
 keymap("n", "<RightMouse>", "<cmd>:popup PopUp<CR>")
