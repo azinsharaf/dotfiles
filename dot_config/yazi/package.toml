@@ -1,5 +1,42 @@
-[plugin]
-deps = [{ use = "yazi-rs/plugins:full-border", rev = "a53d544" }, { use = "yazi-rs/plugins:git", rev = "a53d544" }, { use = "Rolv-Apneseth/starship", rev = "247f49d" }, { use = "dedukun/relative-motions", rev = "df97039" }, { use = "imsi32/yatline", rev = "e255f5c" }, { use = "Reledia/glow", rev = "388e847" }, { use = "Reledia/hexyl", rev = "ccc0a4a" }, { use = "yazi-rs/plugins:hide-preview", rev = "a53d544" }, { use = "Lil-Dank/lazygit", rev = "c82794f" }, { use = "yazi-rs/plugins:max-preview", rev = "a53d544" }, { use = "AnirudhG07/rich-preview", rev = "ee465a5" }, { use = "yazi-rs/plugins:smart-filter", rev = "a53d544" }, { use = "orhnk/system-clipboard", rev = "7775a80" }, { use = "pirafrank/what-size", rev = "f08f7f2" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "8945e54"
+hash = "206e2448171dad0bda0a3cdece4ee8f5"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:max-preview"
+rev = "8945e54"
+hash = "647f130f143411966782d25b841c6aa0"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:hide-preview"
+rev = "8945e54"
+hash = "31761a584a0cca96c1a3eb150f430c4f"
+
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "5ce76dc"
+hash = "ef662e271ac6fbb4c60550bae2b2b753"
+
+[[plugin.deps]]
+use = "ahkohd/eza-preview"
+rev = "5ef05bc"
+hash = "8c926bf9d9bbd128c5d7b76965cbdd03"
+
+[[plugin.deps]]
+use = "AnirudhG07/rich-preview"
+rev = "2559e5f"
+hash = "c119b9c8c19fc7ef8f4233a8b8284333"
+
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "0d9c8cf"
+hash = "4a0f5b090f71a25230e2ace958b72168"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "d1cd0a3"
+hash = "2fa41624ede0d1ae695c7c346fc3b6a0"
 
 [flavor]
-deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "c686812" }]
+deps = []
