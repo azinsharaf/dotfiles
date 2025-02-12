@@ -2,7 +2,7 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
-		enabled = false,
+		enabled = true,
 		priority = 1000,
 		config = function()
 			-- Default options:
@@ -48,7 +48,7 @@ return {
 	{
 		"catppuccin/nvim",
 		lazy = false,
-		enabled = true,
+		enabled = false,
 		name = "catppuccin",
 		priority = 1000,
 		opts = {
