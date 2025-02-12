@@ -163,7 +163,10 @@ previewers = [
 	{ name = "*", run = "file" },
 ]
 
+# eza previewer
+
 prepend_previewers = [
+    { name = "*/", run = "eza-preview"},
     { name = "*.csv", run = "rich-preview"}, # for csv files
     { name = "*.md", run = "rich-preview" }, # for markdown (.md) files
     { name = "*.rst", run = "rich-preview"}, # for restructured text (.rst) files
@@ -244,7 +247,3 @@ sort_sensitive = false
 sort_reverse 	 = false
 sort_translit  = false
 
-# eza previewer
-# [[plugin.prepend_previewers]]
-# name = "*/"
-# run = "eza-preview"
