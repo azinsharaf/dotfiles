@@ -6,58 +6,58 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 #python env activation
 
-# if ($env:COMPUTERNAME -eq "Desktop-Azin")
-# {
-#     # cmu python env activation
-#     $Env:CONDA_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
-#     $Env:CONDA_ENV_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda-env.exe"
-#     # $Env:_CE_M = ""
-#     # $Env:_CE_CONDA = ""
-#     $Env:_CONDA_ROOT = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App"
-#     $Env:_CONDA_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
-#     $CondaModuleArgs = @{ChangePs1 = $True}
-#     Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
-#
-#     conda activate cmu-python
-#
-#     Remove-Variable CondaModuleArgs
-# }
-#
-# elseif ($env:COMPUTERNAME -eq "Desktop-Azin2")
-# {
-#     # arcgis pro python env activation
-#
-#     $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-#     $Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
-#     $Env:_CE_M = ""
-#     $Env:_CE_CONDA = ""
-#     $Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
-#     $Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-#     $CondaModuleArgs = @{ChangePs1 = $True}
-#     Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
-#
-#     conda activate arcgispro-py3-clone
-#
-#     Remove-Variable CondaModuleArgs
-# }
-#
-# elseif ($env:COMPUTERNAME -eq "WS-Oakland-001")
-# {
-#     # arcgis pro python env activation
-#
-#     $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-#     $Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
-#     # $Env:_CE_M = ""
-#     # $Env:_CE_CONDA = ""
-#     $Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
-#     $Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-#     $CondaModuleArgs = @{ChangePs1 = $True}
-#     Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
-#
-#     conda activate arcgispro-py3-clone
-#
-#     Remove-Variable CondaModuleArgs
-# }
+if ($env:COMPUTERNAME -eq "Desktop-Azin")
+{
+    # cmu python env activation
+    $Env:CONDA_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
+    $Env:CONDA_ENV_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda-env.exe"
+    # $Env:_CE_M = ""
+    # $Env:_CE_CONDA = ""
+    $Env:_CONDA_ROOT = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App"
+    $Env:_CONDA_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
+    $CondaModuleArgs = @{ChangePs1 = $True}
+    Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
+
+    conda activate cmu-python
+
+    Remove-Variable CondaModuleArgs
+}
+
+elseif ($env:COMPUTERNAME -eq "Desktop-Azin2")
+{
+    # arcgis pro python env activation
+
+    $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+    $Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
+    $Env:_CE_M = ""
+    $Env:_CE_CONDA = ""
+    $Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
+    $Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+    $CondaModuleArgs = @{ChangePs1 = $True}
+    Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
+
+    conda activate arcgispro-py3-clone
+
+    Remove-Variable CondaModuleArgs
+}
+
+elseif ($env:COMPUTERNAME -eq "WS-Oakland-001")
+{
+    # arcgis pro python env activation
+
+    $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+    $Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
+    # $Env:_CE_M = ""
+    # $Env:_CE_CONDA = ""
+    $Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
+    $Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
+    $CondaModuleArgs = @{ChangePs1 = $True}
+    Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
+
+    conda activate arcgispro-py3-clone
+
+    Remove-Variable CondaModuleArgs
+}
 
 # # to open the last dir
 # # Path to store the last directory
