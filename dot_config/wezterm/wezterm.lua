@@ -13,6 +13,8 @@ local function basename(s)
 	return string.gsub(s, "(.*[/\\])(.*)", "%2")
 end
 
+local theme = require("colors/kanagawa_dragon")
+
 local config = {
 	default_prog = is_windows and { "pwsh", "-NoLogo" } or { "zsh" }, -- Set default shell
 	default_workspace = "~",
@@ -57,7 +59,7 @@ local config = {
 
 	status_update_interval = 1000,
 
-	color_scheme = "Kanagawa Dragon (Gogh)",
+	colors = theme,
 
 	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 },
 	keys = require("keybinds"),
