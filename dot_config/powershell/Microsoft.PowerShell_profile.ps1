@@ -241,7 +241,7 @@ $Env:BAT_CONFIG_PATH = "$Env:USERPROFILE\.config\bat\bat.conf"
 if ($Env:COMPUTERNAME -eq "Desktop-Azin")
 {
     $ENV:YAZI_FILE_ONE = "$Env:USERPROFILE\scoop\apps\git\current\usr\bin\file.exe"
-    $Env:NEOVIM_NODE_PATH = "C:\Program Files\nodejs\node.exe"
+    $Env:NEOVIM_NODE_PATH = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current\node.exe"
 } elseif ($Env:COMPUTERNAME -eq "WS-Oakland-001")
 {
     $Env:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
