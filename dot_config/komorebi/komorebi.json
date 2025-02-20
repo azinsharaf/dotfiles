@@ -119,6 +119,11 @@
       "kind": "Exe",
       "id": "Flow.Launcher.exe",
       "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "SignalRgb.exe",
+      "matching_strategy": "Equals"
     }
   ],
 
