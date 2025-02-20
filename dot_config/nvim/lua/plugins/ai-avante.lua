@@ -1,6 +1,6 @@
 return {
 	"yetone/avante.nvim",
-	enabled = false,
+	enabled = true,
 	event = "VeryLazy",
 	lazy = false,
 	version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
@@ -9,7 +9,7 @@ return {
 		---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
 		provider = "copilot", -- Recommend using Claude
 
-		behaviour = {
+		behavaiour = {
 			auto_suggestions = false, -- Experimental stage
 			auto_set_highlight_group = true,
 			auto_set_keymaps = true,
