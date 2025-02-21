@@ -258,6 +258,8 @@ $Env:FZF_DEFAULT_OPTS = '--height=70% --layout=reverse --border ' +
 
 $Env:EZA_CONFIG_DIR = "$Env:USERPROFILE\.config\eza"
 
+$Env:OLLAMA_API_BASE = "https://oolama.azinsharaf.net"
+
 # shell_gpt config
 $Env:CHAT_CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\chat_cache"
 $Env:CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\cache"
