@@ -3,6 +3,11 @@ local act = wezterm.action
 local modal = wezterm.plugin.require("https://github.com/MLFlexer/modal.wezterm")
 
 local keys = {
+
+	{ key = "h", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
+	{ key = "j", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
+	{ key = "k", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
+	{ key = "l", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
 	{
 		key = "g",
 		mods = "LEADER",
@@ -15,7 +20,7 @@ local keys = {
 		end),
 	},
 	{
-		key = "h",
+		key = "\\",
 		mods = "LEADER",
 		action = wezterm.action.SplitPane({
 			direction = "Down",
@@ -51,7 +56,7 @@ local keys = {
 		action = wezterm.action.CloseCurrentPane({ confirm = true }),
 	},
 
-  { key = 'X', mods = 'LEADER', action = wezterm.action.ActivateCopyMode },
+	{ key = "X", mods = "LEADER", action = wezterm.action.ActivateCopyMode },
 	-- {
 	-- 	key = "p",
 	-- 	mods = "ALT",
