@@ -166,7 +166,7 @@ previewers = [
 # eza previewer
 
 prepend_previewers = [
-    { name = "*/", run = "eza-preview"},
+    # { name = "*/", run = "eza-preview"},
     # { name = "*.md", run = "glow" },
     { name = "*.csv", run = "rich-preview"}, # for csv files
     { name = "*.md", run = "rich-preview" }, # for markdown (.md) files
@@ -175,6 +175,15 @@ prepend_previewers = [
     { name = "*.json", run = "rich-preview"}, # for json (.json) files
     { name = "*.py", run = "rich-preview"},
 #    { name = "*.lang_type", run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
+]
+
+
+# append_previewers = [
+#     { name = "*", run = "file-extra-metadata" },
+# ]
+
+append_spotters = [
+    { name = "*", run = "file-extra-metadata" },
 ]
 
 [input]
