@@ -405,6 +405,13 @@ run  = "plugin what-size"
 desc = "Calc size of selection or cwd" 
 
 # copy to system clipboard
-[[manager.prepend_keymnap]]
-on = "<C-y>"
-run = ["plugin system-clipboard"]
+# [[manager.prepend_keymnap]]
+# on = [ "y", "c" ]
+# run = '''shell -- pwsh -Command "$args -replace '^', 'file:///' -join \"`r`n\" | Set-Clipboard" %*'''
+# desc = "Copy hovered file content to clipboard"
+
+
+[[manager.prepend_keymap]]
+on = [ "g", ":"]
+run  = "plugin goto-drives"
+desc = "Go to drives"
