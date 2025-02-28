@@ -408,3 +408,4 @@ desc = "Calc size of selection or cwd"
 [[manager.prepend_keymnap]]
 on = "<C-y>"
 run = ["plugin system-clipboard"]
+
