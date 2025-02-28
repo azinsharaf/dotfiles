@@ -18,7 +18,7 @@
 # Main model:
 
 ## Specify the model to use for the main chat
-model: 4o
+#model: 4o
 
 ## Use claude-3-opus-20240229 model for the main chat
 #opus: false
@@ -33,7 +33,7 @@ model: 4o
 #4: false
 
 ## Use gpt-4o model for the main chat
-4o: true
+#4o: true
 ## Use gpt-4o-mini model for the main chat
 #mini: false
 
