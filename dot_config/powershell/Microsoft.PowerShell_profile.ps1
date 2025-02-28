@@ -107,11 +107,6 @@ function cat
 bat
 }
 
-function du
-{
-dust
-}
-
 function reload
 {
     . $profile
