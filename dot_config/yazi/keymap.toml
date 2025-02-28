@@ -397,3 +397,14 @@ desc = "Maximize or restore preview"
 on   = "H"
 run  = "plugin hide-preview"
 desc = "Hide or show preview"
+
+# calc size of a folder
+[[manager.prepend_keymap]]
+on   = [ ".", "s" ]
+run  = "plugin what-size"
+desc = "Calc size of selection or cwd" 
+
+# copy to system clipboard
+[[manager.prepend_keymnap]]
+on = "<C-y>"
+run = ["plugin system-clipboard"]
