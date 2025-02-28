@@ -144,9 +144,9 @@ widgets:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
       label_offline: "\u23fc Offline"
-      label_workspace_btn: "\udb81\udc3d"
-      label_workspace_active_btn: ""
-      label_workspace_populated_btn: "\udb81\udc3e"
+      label_workspace_btn: "{index}"
+      label_workspace_active_btn: "{index}"
+      label_workspace_populated_btn: "{index}"
       label_default_name: "{index}"
       label_zero_index: false
       hide_empty_workspaces: false
@@ -284,7 +284,7 @@ widgets:
       label: "{data}"
       animation: { "enabled": True, "type": "fadeInOut", "duration": 200 }
       app_list:
-        - { icon: "wezterm", launch: "search" }
+        # - { icon: "{ yasb_icon_wezterm }", launch: "search" }
         - { icon: "outlook", launch: "search" }
         - { icon: "morgen", launch: "search" }
         - { icon: "todoist", launch: "search" }
