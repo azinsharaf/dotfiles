@@ -209,8 +209,7 @@ function ke
 }
 
 function qb
-{qutebrowser --basedir "$Env:USERPROFILE\.config\qutebrowser"
-}
+{& "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.8\env-qutebrowser\Scripts\qutebrowser.exe" --basedir "$Env:USERPROFILE\.config\qutebrowser" }
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
@@ -253,8 +252,8 @@ $Env:FZF_DEFAULT_OPTS = '--height=70% --layout=reverse --border ' +
 
 $Env:EZA_CONFIG_DIR = "$Env:USERPROFILE\.config\eza"
 
-$Env:OLLAMA_HOST = "0.0.0.0:11434"
-$Env:OLLAMA_API_BASE = "http://192.168.1.12:11434"
+# $Env:OLLAMA_HOST = "0.0.0.0:11434"
+# $Env:OLLAMA_API_BASE = "http://192.168.1.12:11434"
 # $Env:OLLAMA_API_BASE = "https://ollama.azinsharaf.net"
 
 # shell_gpt config
