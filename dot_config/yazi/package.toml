@@ -38,5 +38,15 @@ use = "Rolv-Apneseth/starship"
 rev = "d1cd0a3"
 hash = "2fa41624ede0d1ae695c7c346fc3b6a0"
 
+[[plugin.deps]]
+use = "boydaihungst/file-extra-metadata"
+rev = "0946fb5"
+hash = "39b361d3a46177a15b092da74dc4e1ca"
+
+[[plugin.deps]]
+use = "Tyarel8/goto-drives"
+rev = "dc017a2"
+hash = "5afc59544c5bb460df498e6ce8e2bed0"
+
 [flavor]
 deps = []
