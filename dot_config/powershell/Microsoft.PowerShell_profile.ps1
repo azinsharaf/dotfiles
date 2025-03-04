@@ -218,6 +218,8 @@ $Env:MPV_HOME = "$Env:USERPROFILE\.config\mpv"
 $Env:KOMOREBI_CONFIG_HOME = "$Env:USERPROFILE\.config\komorebi"
 $Env:KOMOREBI_AHK_EXE = "$Env:USERPROFILE\AppData\Local\Programs\AutoHotkey\v2\AutoHotkey64.exe"
 
+$Env:GLAZEWM_CONFIG_PATH = "$Env:USERPROFILE\.config\glazewm\config.yaml"
+
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
 $Env:SHELL = 'pwsh'
