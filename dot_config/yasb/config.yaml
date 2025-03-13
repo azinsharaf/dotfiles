@@ -38,8 +38,14 @@ bars:
       right: 6
     widgets:
       left: ["home", "active_window", "apps", "bluetooth", "disk"]
-      center: ["glazewm_workspaces", "glazewm_tiling_direction", "taskbar"]
-      # center: ["komorebi_workspaces", "komorebi_active_layout", "taskbar"]
+      center:
+        [
+          "glazewm_workspaces",
+          "glazewm_tiling_direction",
+          "komorebi_workspaces",
+          "komorebi_active_layout",
+          "taskbar",
+        ]
       right:
         [
           "media",
@@ -410,7 +416,7 @@ widgets:
     options:
       offline_label: "GlazeWM Offline"
       hide_empty_workspaces: false
-      hide_if_offline: false
+      hide_if_offline: true
 
       # By default workspace names are fetched from GlazeWM and "display_name" option takes priority over "name".
       # However, you can customize populated and empty labels here using {name} and {display_name} placeholders if needed.
