@@ -21,5 +21,17 @@ return {
 			end,
 			desc = "Flash Treesitter",
 		},
+		{
+			"<leader>t",
+			mode = "n",
+			"<cmd>Typr<CR>",
+			desc = "Typr",
+		},
+		{
+			"<leader>s",
+			mode = "n",
+			"<cmd>TyprStats<CR>",
+			desc = "Typr Stats",
+		},
 	},
 }
