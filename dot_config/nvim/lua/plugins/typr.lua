@@ -21,4 +21,5 @@ return {
 			end,
 			desc = "Flash Treesitter",
 		},
+	},
 }
