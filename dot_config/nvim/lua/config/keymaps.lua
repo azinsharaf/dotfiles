@@ -38,3 +38,5 @@ keymap("n", "g#", "g#zz", opts) -- move highlighted rows
 -- keymap("v", "K", ":m '<-2<cr>gv=gv")
 
 keymap("n", "<RightMouse>", "<cmd>:popup PopUp<CR>")
+
+keymap("n", "<leader>ts", ":set spell!<CR>", { desc = "Toggle Spell Check" })
