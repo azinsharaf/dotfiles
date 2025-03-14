@@ -33,6 +33,7 @@ return {
 					"tailwindcss",
 					"lua_ls",
 					"pyright",
+					"jsonls",
 				},
 			})
 
