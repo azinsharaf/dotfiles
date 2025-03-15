@@ -197,6 +197,7 @@ return {
 				{ "<leader>o", group = "Obsidian" },
 				{ "<leader>s", group = "Split" },
 				{ "<leader>t", group = "Toggle" },
+				{ "<leader>w", group = "Workspace/Session" },
 				{ "<leader>x", group = "trouble" },
 			},
 		})
