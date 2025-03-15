@@ -322,7 +322,7 @@ aiderignore: .aiderignore
 check-update: true
 
 ## Show release notes on first run of new version (default: None, ask user)
-show-release-notes: true
+show-release-notes: false
 ## Install the latest version from the main branch
 #install-main-branch: false
 
