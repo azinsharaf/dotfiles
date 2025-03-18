@@ -15,9 +15,6 @@ local function get_drive_name(drive)
 
     -- Parse the output to extract the drive name
     local output = output:sub(1, output:find("\r\n") - 1)
-    if output:match(" Volume in drive %w has no label") then
-        return "-", nil
-    end
     local drive_name = output:match(" Volume in drive %w is%s*([^%s].*)$")
 
     -- Return the drive name
@@ -42,7 +39,7 @@ return {
             local drive = l .. ":"
             if directory_exists(drive) then
                 local name, err = get_drive_name(drive)
-                local key = string.format("%s (%s)", name or "<error>", drive)
+                local key = string.format("%s (%s)", name or "<name>", drive)
                 drives[key] = drive
                 -- Insert the keys into an array to preserve the order
                 table.insert(keys, key)
@@ -51,7 +48,7 @@ return {
 
         local permit = ya.hide()
         local child = Command("fzf")
-            :args({ "--prompt", "Choose a drive: ", "--preview", "" })
+            :args({ "--prompt", "Choose a drive: " })
             :stdout(Command.PIPED):stdin(Command.PIPED)
             :spawn()
 
