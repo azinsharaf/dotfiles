@@ -126,7 +126,7 @@ keymap = [
 
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go home" },
-	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Goto ~/.config" },
+	{ on = [ "g", "c" ],       run = "cd ~/.local/share/chezmoi",     desc = "Goto ChezMoi folder" },
 	{ on = [ "g", "D" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 
