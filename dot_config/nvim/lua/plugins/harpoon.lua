@@ -3,7 +3,6 @@ local term_string = vim.fn.exists("$TMUX") == 1 and "tmux" or "term"
 local maps = { n = {} }
 local icon = vim.g.icons_enabled and "󱡀 " or ""
 maps.n[prefix] = { desc = icon .. "Harpoon" }
--- require("astronvim.utils").set_mappings(maps)
 return {
 	{
 		"ThePrimeagen/harpoon",
