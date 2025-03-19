@@ -88,7 +88,7 @@
     [
       {
         "kind": "Exe",
-        "id": "qutebrowser.exe",
+        "id": "pythonw.exe",
         "matching_strategy": "Equals"
       },
       {
