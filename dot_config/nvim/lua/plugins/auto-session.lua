@@ -1,4 +1,4 @@
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+-- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 return {
 	"rmagatti/auto-session",
@@ -18,7 +18,7 @@ return {
 		-- The following are already the default values, no need to provide them if these are already the settings you want.
 		session_lens = {
 			-- If load_on_setup is false, make sure you use `:SessionSearch` to open the picker as it will initialize everything first
-			load_on_setup = true,
+			load_on_setup = false,
 			previewer = true,
 			mappings = {
 				-- Mode can be a string or a table, e.g. {"i", "n"} for both insert and normal mode
