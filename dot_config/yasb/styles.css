@@ -369,3 +369,40 @@ QToolTip {
   color: rgb(255, 255, 255);
   margin-top: -20px;
 }
+
+.disk-widget {
+  padding: 0 6px 0 6px;
+}
+.disk-group {
+  background-color: rgba(17, 17, 27, 0.4);
+}
+.disk-group-row {
+  min-width: 220px;
+  max-width: 220px;
+  max-height: 40px;
+  margin: 0;
+  padding: 0;
+  border-radius: 6px;
+  border: 1px solid rgba(128, 128, 128, 0);
+}
+.disk-group-row:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.disk-group-label-bar {
+  max-height: 8px;
+  border: 0px solid rgba(128, 128, 128, 0);
+  background-color: rgba(137, 180, 250, 0.1);
+  border-radius: 4px;
+}
+.disk-group-label-bar::chunk {
+  background-color: rgba(61, 135, 255, 0.3);
+  border-radius: 4px;
+}
+.disk-group-label {
+  font-size: 10px;
+}
+.disk-group-label-size {
+  font-size: 10px;
+  color: #666879;
+}
