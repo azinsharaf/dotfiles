@@ -37,7 +37,7 @@ general:
   # effect if `hide_method: 'hide'`.
   # - 'true': Show all windows (regardless of workspace).
   # - 'false': Only show windows from the currently shown workspaces.
-  show_all_in_taskbar: false
+  show_all_in_taskbar: true
 
 gaps:
   # Whether to scale the gaps with the DPI of the monitor.
@@ -76,7 +76,7 @@ window_effects:
 
     # Change the transparency of the window.
     transparency:
-      enabled: false
+      enabled: true
       # Can be something like '95%' or '0.95' for slightly transparent windows.
       # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
       opacity: "95%"
@@ -186,14 +186,14 @@ keybindings:
     bindings: ["alt+shift+j", "alt+shift+down"]
 
   # Resize focused window by a percentage or pixel amount.
-  - commands: ["resize --width -2%"]
-    bindings: ["alt+u"]
-  - commands: ["resize --width +2%"]
-    bindings: ["alt+p"]
-  - commands: ["resize --height +2%"]
-    bindings: ["alt+o"]
-  - commands: ["resize --height -2%"]
-    bindings: ["alt+i"]
+  # - commands: ["resize --width -2%"]
+  #   bindings: ["alt+u"]
+  # - commands: ["resize --width +2%"]
+  #   bindings: ["alt+p"]
+  # - commands: ["resize --height +2%"]
+  #   bindings: ["alt+o"]
+  # - commands: ["resize --height -2%"]
+  #   bindings: ["alt+i"]
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
@@ -204,7 +204,7 @@ keybindings:
   # Disables window management and all other keybindings until alt+shift+p
   # is pressed again.
   - commands: ["wm-toggle-pause"]
-    bindings: ["alt+shift+p"]
+    bindings: ["alt+p"]
 
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
@@ -212,8 +212,8 @@ keybindings:
     bindings: ["alt+v"]
 
   # Change focus from tiling windows -> floating -> fullscreen.
-  - commands: ["wm-cycle-focus"]
-    bindings: ["alt+space"]
+  # - commands: ["wm-cycle-focus"]
+  #   bindings: ["alt+space"]
 
   # Change the focused window to be floating.
   - commands: ["toggle-floating --centered"]
@@ -233,7 +233,7 @@ keybindings:
 
   # Close focused window.
   - commands: ["close"]
-    bindings: ["alt+shift+q"]
+    bindings: ["alt+q"]
 
   # Kill GlazeWM process safely.
   - commands: ["wm-exit"]
@@ -250,8 +250,8 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ["shell-exec cmd"]
-    bindings: ["alt+enter"]
+  # - commands: ["shell-exec cmd"]
+  #   bindings: ["alt+enter"]
 
   # Focus the next/previous active workspace defined in `workspaces` config.
   - commands: ["focus --next-active-workspace"]
