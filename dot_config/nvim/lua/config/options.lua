@@ -75,7 +75,7 @@ opt.updatetime = 50
 opt.wildignorecase = true
 opt.wildmenu = true
 
-opt.spell = true
+opt.spell = false
 
 -- Avante plugin: views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3
