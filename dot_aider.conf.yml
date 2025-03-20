@@ -194,7 +194,7 @@ pretty: true
 stream: true
 
 ## Set the color for user input (default: #00cc00)
-user-input-color: "#A6E3A1"  # Example color from Catppuccin
+user-input-color: "#A6E3A1" # Example color from Catppuccin
 
 ## Set the color for tool output (default: None)
 tool-output-color: "#89B4FA"
@@ -221,7 +221,7 @@ completion-menu-current-color: "#F5E0DC"
 completion-menu-current-bg-color: "#302D41"
 
 ## Set the markdown code theme (default: default, other options include monokai, solarized-dark, solarized-light, or a Pygments builtin style, see https://pygments.org/styles for available themes)
-code-theme: default  # Change this if Catppuccin is available as a Pygments style
+code-theme: default # Change this if Catppuccin is available as a Pygments style
 
 ## Show diffs when committing changes (default: False)
 #show-diffs: false
