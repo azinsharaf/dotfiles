@@ -48,7 +48,7 @@ return {
 	{
 		"catppuccin/nvim",
 		lazy = false,
-		enabled = enable,
+		enabled = true,
 		name = "catppuccin",
 		priority = 1000,
 		opts = {
@@ -91,14 +91,13 @@ return {
 
 		config = function()
 			vim.cmd("colorscheme catppuccin-mocha")
-			-- vim.cmd("colorscheme catppuccin-latte")
 		end,
 	},
 
 	{
 		"shaunsingh/nord.nvim",
 		lazy = false,
-		enabled = false,
+		enabled = true,
 		name = "nord",
 		config = function()
 			vim.cmd("colorscheme nord")
