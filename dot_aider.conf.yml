@@ -194,7 +194,7 @@ pretty: true
 stream: true
 
 ## Set the color for user input (default: #00cc00)
-user-input-color: "#A6E3A1" # Example color from Catppuccin
+user-input-color: "#A6E3A1" # Catppuccin green
 
 ## Set the color for tool output (default: None)
 tool-output-color: "#89B4FA"
