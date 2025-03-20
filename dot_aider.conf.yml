@@ -116,7 +116,7 @@
 #reasoning-effort: xxx
 
 ## Verify the SSL cert when connecting to models (default: True)
-#verify-ssl: true
+verify-ssl: true
 
 ## Timeout in seconds for API calls (default: None)
 #timeout: xxx
@@ -242,22 +242,22 @@ aiderignore: .aiderignore
 #subtree-only: false
 
 ## Enable/disable auto commit of LLM changes (default: True)
-#auto-commits: true
+auto-commits: false
 
 ## Enable/disable commits when repo is found dirty (default: True)
 #dirty-commits: true
 
 ## Attribute aider code changes in the git author name (default: True)
-#attribute-author: true
+attribute-author: true
 
 ## Attribute aider commits in the git committer name (default: True)
-#attribute-committer: true
+attribute-committer: true
 
 ## Prefix commit messages with 'aider: ' if aider authored the changes (default: False)
-#attribute-commit-message-author: false
+attribute-commit-message-author: false
 
 ## Prefix all commit messages with 'aider: ' (default: False)
-#attribute-commit-message-committer: false
+attribute-commit-message-committer: false
 
 ## Commit all pending changes with a suitable commit message, then exit
 #commit: false
@@ -289,7 +289,7 @@ aiderignore: .aiderignore
 #  - zzz
 
 ## Enable/disable automatic linting after changes (default: True)
-#auto-lint: true
+auto-lint: false
 
 ## Specify command to run tests
 #test-cmd: xxx
@@ -366,10 +366,10 @@ show-release-notes: false
 # Voice settings:
 
 ## Audio format for voice recording (default: wav). webm and mp3 require ffmpeg
-#voice-format: wav
+voice-format: wav
 
 ## Specify the language for voice using ISO 639-1 code (default: auto)
-#voice-language: en
+voice-language: en
 
 ## Specify the input device name for voice recording
 #voice-input-device: xxx
@@ -400,7 +400,7 @@ vim: true
 #chat-language: xxx
 
 ## Always say yes to every confirmation
-#yes-always: false
+yes-always: false
 
 ## Enable verbose output
 #verbose: false
@@ -421,7 +421,7 @@ vim: true
 #env-file: .env
 
 ## Enable/disable suggesting shell commands (default: True)
-#suggest-shell-commands: true
+suggest-shell-commands: true
 
 ## Enable/disable fancy input with history and completion (default: True)
 #fancy-input: true
