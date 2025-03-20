@@ -37,14 +37,14 @@ bars:
       bottom: 0
       right: 6
     widgets:
-      left: ["home", "active_window", "apps", "bluetooth", "disk"]
+      left: ["home", "active_window", "taskbar"]
       center:
         [
           "glazewm_workspaces",
           "glazewm_tiling_direction",
           "komorebi_workspaces",
           "komorebi_active_layout",
-          "taskbar",
+          "apps",
         ]
       right:
         [
@@ -52,6 +52,8 @@ bars:
           "weather",
           "microphone",
           "volume",
+          "bluetooth",
+          "disk",
           "cpu",
           "memory",
           "clock",
@@ -115,7 +117,7 @@ widgets:
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
     options:
-      label: "{win[title]}"
+      label: "{win[process][name]}"
       label_alt: "[class_name='{win[class_name]}' exe='{win[process][name]}' hwnd={win[hwnd]}]"
       label_no_window: ""
       label_icon: true
@@ -366,24 +368,20 @@ widgets:
   disk:
     type: "yasb.disk.DiskWidget"
     options:
-      label: "{volume_label} {space[used][percent]}"
-      label_alt: "{volume_label} {space[used][gb]} / {space[total][gb]}"
-      volume_label: "C"
-      update_interval: 60
+      label: "<span>\uf473</span>"
+      label_alt: "<span>\uf473</span>"
       group_label:
         volume_labels: ["C", "D", "E", "F"]
         show_label_name: true
-        blur: True
-        round_corners: False
-        round_corners_type: "small"
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
         border_color: "System"
         alignment: "right"
         direction: "down"
         distance: 6
       callbacks:
         on_left: "toggle_group"
-        on_middle: "toggle_label"
-        on_right: "exec explorer C:\\" # Open disk C in file explorer
 
   server_monitor:
     type: "yasb.server_monitor.ServerMonitor"
