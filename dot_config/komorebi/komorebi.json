@@ -84,7 +84,20 @@
     }
   ],
 
-  "manage_rules": [],
+  "manage_rules": [
+    [
+      {
+        "kind": "Exe",
+        "id": "pythonw.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Class",
+        "id": "Qt682QWindowIcon",
+        "matching_strategy": "Equals"
+      }
+    ]
+  ],
 
   "tray_and_multi_window_applications": [
     {
