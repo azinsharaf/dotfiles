@@ -1,3 +1,6 @@
+-- Define the default colorscheme here
+local default_colorscheme = "catppuccin-mocha" -- Change this line to "catppuccin-mocha" or "nord" as needed
+
 return {
 	{
 		"rebelot/kanagawa.nvim",
@@ -39,9 +42,6 @@ return {
 					light = "lotus", -- try "lotus"
 				},
 			})
-
-			-- setup must be called before loading
-			vim.cmd("colorscheme kanagawa")
 		end,
 	},
 
@@ -88,10 +88,6 @@ return {
 				which_key = true,
 			},
 		},
-
-		config = function()
-			vim.cmd("colorscheme catppuccin-mocha")
-		end,
 	},
 
 	{
@@ -100,7 +96,7 @@ return {
 		enabled = true,
 		name = "nord",
 		config = function()
-			vim.cmd("colorscheme nord")
+			vim.cmd("colorscheme " .. default_colorscheme)
 		end,
 	},
 }
