@@ -84,20 +84,7 @@
     }
   ],
 
-  "manage_rules": [
-    [
-      {
-        "kind": "Exe",
-        "id": "pythonw.exe",
-        "matching_strategy": "Equals"
-      },
-      {
-        "kind": "Class",
-        "id": "Popup",
-        "matching_strategy": "DoesNotContain"
-      }
-    ]
-  ],
+  "manage_rules": [],
 
   "tray_and_multi_window_applications": [
     {
