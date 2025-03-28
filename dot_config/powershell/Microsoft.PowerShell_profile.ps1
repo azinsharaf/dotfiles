@@ -217,6 +217,10 @@ function ai-deepseek { aider --model ollama_chat/deepseek-r1:7b --chat-mode ask 
 function ai-gemma { aider --model ollama_chat/gemma3:4b --chat-mode ask }
 function ai-openai { aider --model --chat-mode ask }
 
+function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
+
+
+
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
 $Env:MPV_HOME = "$Env:USERPROFILE\.config\mpv"
