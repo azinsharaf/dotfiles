@@ -211,6 +211,12 @@ function ke
 function qb
 {& "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.8\env-qutebrowser\Scripts\qutebrowser.exe" --basedir "$Env:USERPROFILE\.config\qutebrowser" }
 
+function ai-qwen { aider --model ollama_chat/qwen2.5-coder:7b --chat-mode architect }
+function ai-llama { aider --model ollama_chat/llama3.1:8b --chat-mode ask }
+function ai-deepseek { aider --model ollama_chat/deepseek-r1:7b --chat-mode ask }
+function ai-gemma { aider --model ollama_chat/gemma3:4b --chat-mode ask }
+function ai-openai { aider --model --chat-mode ask }
+
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
 $Env:MPV_HOME = "$Env:USERPROFILE\.config\mpv"
