@@ -2172,3 +2172,6 @@ config.bind("wi", "devtools")
 # config.bind('Y', 'prompt-accept --save yes', mode='yesno')
 # config.bind('n', 'prompt-accept no', mode='yesno')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
+
+# config.bind("<Ctrl-Shift-m>", "spawn mpv {url}")
+config.bind(";v", "hint links spawn mpv {hint-url}")
