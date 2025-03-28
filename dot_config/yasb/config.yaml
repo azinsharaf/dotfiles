@@ -293,7 +293,10 @@ widgets:
       label: "{data}"
       animation: { "enabled": True, "type": "fadeInOut", "duration": 200 }
       app_list:
-        - { icon: "w", launch: "wezterm" }
+        - {
+            icon: "$env:USERPROFILE/.config/icons/wezterm.svg",
+            launch: "wezterm",
+          }
         # - { icon: "outlook", launch: "search" }
         # - { icon: "morgen", launch: "search" }
         # - { icon: "todoist", launch: "search" }
