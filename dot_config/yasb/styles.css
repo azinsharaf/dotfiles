@@ -406,3 +406,34 @@ QToolTip {
   font-size: 10px;
   color: #666879;
 }
+
+.glazewm-workspaces {
+  margin: 0;
+}
+
+.glazewm-workspaces .ws-btn {
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  padding: 0px 4px 0px 4px;
+  margin: 0 2px 0 2px;
+  color: #cdd6f4;
+}
+
+.glazewm-workspaces .ws-btn.active {
+  background-color: #727272;
+}
+
+.glazewm-workspaces .ws-btn.populated {
+  color: #c2daf7;
+}
+
+.glazewm-workspaces .ws-btn.empty {
+  color: #7d8b9d;
+}
+
+.glazewm-workspaces .ws-btn:hover,
+.glazewm-workspaces .ws-btn.populated:hover,
+.glazewm-workspaces .ws-btn.empty:hover {
+  background-color: #727272;
+}

@@ -413,8 +413,8 @@ widgets:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
       offline_label: "GlazeWM Offline"
-      hide_empty_workspaces: false
-      hide_if_offline: true
+      hide_empty_workspaces: true
+      hide_if_offline: false
 
       # By default workspace names are fetched from GlazeWM and "display_name" option takes priority over "name".
       # However, you can customize populated and empty labels here using {name} and {display_name} placeholders if needed.
