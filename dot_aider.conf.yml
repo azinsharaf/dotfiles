@@ -119,7 +119,7 @@
 verify-ssl: true
 
 ## Timeout in seconds for API calls (default: None)
-#timeout: xxx
+timeout: 15
 
 ## Specify what edit format the LLM should use (default depends on model)
 #edit-format: xxx
@@ -239,7 +239,7 @@ gitignore: true
 aiderignore: .aiderignore
 
 ## Only consider files in the current subtree of the git repository
-#subtree-only: false
+subtree-only: false
 
 ## Enable/disable auto commit of LLM changes (default: True)
 auto-commits: false
@@ -272,13 +272,13 @@ attribute-commit-message-committer: false
 #skip-sanity-check-repo: false
 
 ## Enable/disable watching files for ai coding comments (default: False)
-#watch-files: false
+watch-files: true
 
 ########################
 # Fixing and committing:
 
 ## Lint and fix provided files, or dirty files if none provided
-#lint: false
+lint: false
 
 ## Specify lint commands to run for different languages, eg: "python: flake8 --select=..." (can be used multiple times)
 #lint-cmd: xxx
@@ -403,10 +403,10 @@ vim: true
 yes-always: false
 
 ## Enable verbose output
-#verbose: false
+verbose: false
 
 ## Load and execute /commands from a file on launch
-#load: xxx
+# load: xxx
 
 ## Specify the encoding for input and output (default: utf-8)
 #encoding: utf-8
@@ -424,10 +424,10 @@ yes-always: false
 suggest-shell-commands: true
 
 ## Enable/disable fancy input with history and completion (default: True)
-#fancy-input: true
+fancy-input: true
 
 ## Enable/disable multi-line input mode with Meta-Enter to submit (default: False)
-#multiline: false
+multiline: false
 
 ## Enable/disable detection and offering to add URLs to chat (default: True)
 #detect-urls: true
