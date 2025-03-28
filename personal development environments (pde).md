@@ -116,6 +116,7 @@ npm install -g pnpm@latest-10
 scoop bucket add CrypticButter https://github.com/CrypticButter/ScoopBucket
 scoop install CrypticButter/buttery-taskbar
 
+scoop install pandoc
 
 ```
 
