@@ -104,6 +104,9 @@ scoop install speedtest-cli
 scoop install dust
 scoop install pandoc
 scoop install flow-launcher
+scoop install mpv
+scoop install yt-dlp
+
 pipx install rich-cli
 pipx install shell-gpt
 
