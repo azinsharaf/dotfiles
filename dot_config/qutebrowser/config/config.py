@@ -945,31 +945,31 @@ c.fonts.tabs.unselected = "default_size default_family"
 
 ## Font used for tooltips. If set to null, the Qt default is used.
 ## Type: Font
-# c.fonts.tooltip = None
+c.fonts.tooltip = "default_size default_family"
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
-# c.fonts.web.family.cursive = ''
+c.fonts.web.family.cursive = ""
 
 ## Font family for fantasy fonts.
 ## Type: FontFamily
-# c.fonts.web.family.fantasy = ''
+c.fonts.web.family.fantasy = ""
 
 ## Font family for fixed fonts.
 ## Type: FontFamily
-# c.fonts.web.family.fixed = ''
+c.fonts.web.family.fixed = ""
 
 ## Font family for sans-serif fonts.
 ## Type: FontFamily
-# c.fonts.web.family.sans_serif = ''
+c.fonts.web.family.sans_serif = ""
 
 ## Font family for serif fonts.
 ## Type: FontFamily
-# c.fonts.web.family.serif = ''
+c.fonts.web.family.serif = ""
 
 ## Font family for standard fonts.
 ## Type: FontFamily
-# c.fonts.web.family.standard = ''
+c.fonts.web.family.standard = ""
 
 ## Default font size (in pixels) for regular text.
 ## Type: Int
