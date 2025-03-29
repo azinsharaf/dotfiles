@@ -1,7 +1,7 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
 
-def setup(c, flavour, samecolorrows = False):
+def setup(c, flavour, samecolorrows=False):
     palette = {}
 
     # flavours {{{
@@ -153,7 +153,7 @@ def setup(c, flavour, samecolorrows = False):
     ## Foreground color of the selected completion item.
     c.colors.completion.item.selected.match.fg = palette["rosewater"]
     ## Foreground color of the matched text in the completion.
-    c.colors.completion.match.fg = palette["text"]
+    c.colors.completion.match.fg = palette["rosewater"]
 
     ## Color of the scrollbar in completion view
     c.colors.completion.scrollbar.bg = palette["crust"]
