@@ -753,7 +753,14 @@ c.content.tls.certificate_errors = "ask"
 
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
-# c.content.user_stylesheets = []
+
+c.content.user_stylesheets = [
+    "css/monospace.css",
+]
+
+# bind some stylesheets
+config.bind("cm", 'config-list-add content.user_stylesheets "css/monospace.css"')
+config.bind("Cm", 'config-list-remove content.user_stylesheets "css/monospace.css"')
 
 ## Enable WebGL.
 ## Type: Bool
@@ -949,27 +956,32 @@ c.fonts.tooltip = "default_size default_family"
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
-c.fonts.web.family.cursive = ""
+c.fonts.web.family.cursive = "monospace"
+
 
 ## Font family for fantasy fonts.
 ## Type: FontFamily
-c.fonts.web.family.fantasy = ""
+c.fonts.web.family.fantasy = "monospace"
+
 
 ## Font family for fixed fonts.
 ## Type: FontFamily
-c.fonts.web.family.fixed = ""
+c.fonts.web.family.fixed = "monospace"
+
 
 ## Font family for sans-serif fonts.
 ## Type: FontFamily
-c.fonts.web.family.sans_serif = ""
+c.fonts.web.family.sans_serif = "monospace"
+
 
 ## Font family for serif fonts.
 ## Type: FontFamily
-c.fonts.web.family.serif = ""
+c.fonts.web.family.serif = "monospace"
+
 
 ## Font family for standard fonts.
 ## Type: FontFamily
-c.fonts.web.family.standard = ""
+c.fonts.web.family.standard = "monospace"
 
 ## Default font size (in pixels) for regular text.
 ## Type: Int
