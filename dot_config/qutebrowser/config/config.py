@@ -139,7 +139,7 @@ c.colors.webpage.darkmode.enabled = True
 ##   - never: Never apply dark mode filter to any images.
 ##   - smart: Apply dark mode based on image content. Not available with Qt 5.15.0.
 ##   - smart-simple: On QtWebEngine 6.6, use a simpler algorithm for smart mode (based on numbers of colors and transparency), rather than an ML-based model. Same as 'smart' on older QtWebEnigne versions.
-c.colors.webpage.darkmode.policy.images = "smart"
+c.colors.webpage.darkmode.policy.images = "never"
 
 ## Which pages to apply dark mode to. The underlying Chromium setting has
 ## been removed in QtWebEngine 5.15.3, thus this setting is ignored
@@ -2182,3 +2182,6 @@ config.bind("wi", "devtools")
 
 # config.bind("<Ctrl-Shift-m>", "spawn mpv {url}")
 config.bind(";v", "hint links spawn mpv {hint-url}")
+
+
+config.bind("td", 'config-cycle colors.webpage.darkmode.enabled "True" "False" ')
