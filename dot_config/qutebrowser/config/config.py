@@ -759,8 +759,7 @@ c.content.user_stylesheets = [
 ]
 
 # bind some stylesheets
-config.bind("cm", 'config-list-add content.user_stylesheets "css/monospace.css"')
-config.bind("Cm", 'config-list-remove content.user_stylesheets "css/monospace.css"')
+config.bind("cf", 'config-cycle content.user_stylesheets "css/monospace.css" ""')
 
 ## Enable WebGL.
 ## Type: Bool
