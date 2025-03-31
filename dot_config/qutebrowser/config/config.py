@@ -221,7 +221,7 @@ c.completion.open_categories = [
 ## Move on to the next part when there's only one possible completion
 ## left.
 ## Type: Bool
-c.completion.quick = True
+c.completion.quick = False
 
 ## Padding (in pixels) of the scrollbar handle in the completion window.
 ## Type: Int
@@ -280,7 +280,7 @@ c.confirm_quit = ["never"]
 
 ## Automatically start playing `<video>` elements.
 ## Type: Bool
-c.content.autoplay = True
+c.content.autoplay = False
 
 ## List of URLs to ABP-style adblocking rulesets.  Only used when Brave's
 ## ABP-style adblocker is used (see `content.blocking.method`).  You can
@@ -449,7 +449,7 @@ c.content.geolocation = "ask"
 ## qutebrowser asks websites to not track your identity. If set to null,
 ## the DNT header is not sent at all.
 ## Type: Bool
-# c.content.headers.do_not_track = True
+c.content.headers.do_not_track = True
 
 ## When to send the Referer header. The Referer header tells websites
 ## from which website you were coming from when visiting them. Note that
@@ -956,32 +956,32 @@ c.fonts.tooltip = "default_size default_family"
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
-c.fonts.web.family.cursive = "monospace"
+c.fonts.web.family.cursive = ""
 
 
 ## Font family for fantasy fonts.
 ## Type: FontFamily
-c.fonts.web.family.fantasy = "monospace"
+c.fonts.web.family.fantasy = ""
 
 
 ## Font family for fixed fonts.
 ## Type: FontFamily
-c.fonts.web.family.fixed = "monospace"
+c.fonts.web.family.fixed = ""
 
 
 ## Font family for sans-serif fonts.
 ## Type: FontFamily
-c.fonts.web.family.sans_serif = "monospace"
+c.fonts.web.family.sans_serif = ""
 
 
 ## Font family for serif fonts.
 ## Type: FontFamily
-c.fonts.web.family.serif = "monospace"
+c.fonts.web.family.serif = ""
 
 
 ## Font family for standard fonts.
 ## Type: FontFamily
-c.fonts.web.family.standard = "monospace"
+c.fonts.web.family.standard = ""
 
 ## Default font size (in pixels) for regular text.
 ## Type: Int
@@ -1500,7 +1500,7 @@ c.statusbar.position = "bottom"
 ##   - always: Always show the statusbar.
 ##   - never: Always hide the statusbar.
 ##   - in-mode: Show the statusbar when in modes other than normal mode.
-c.statusbar.show = "always"
+c.statusbar.show = "in-mode"
 
 ## List of widgets displayed in the statusbar.
 ## Type: List of StatusbarWidget
@@ -1518,12 +1518,6 @@ c.statusbar.show = "always"
 c.statusbar.widgets = [
     "keypress",
     "search_match",
-    "url",
-    # "scroll",
-    "history",
-    "tabs",
-    "progress",
-    "clock",
 ]
 
 ## Open new tabs (middleclick/ctrl+click) in the background.
@@ -1675,7 +1669,7 @@ c.tabs.position = "top"
 ##   - never: Always hide the tab bar.
 ##   - multiple: Hide the tab bar if only one tab is open.
 ##   - switching: Show the tab bar when switching tabs.
-# c.tabs.show = 'multiple'
+c.tabs.show = "multiple"
 
 ## Duration (in milliseconds) to show the tab bar before hiding it when
 ## tabs.show is set to 'switching'.
@@ -1792,11 +1786,12 @@ c.url.default_page = "https://start.duckduckgo.com/"
 ## the search engine name to the search term, e.g. `:open google
 ## qutebrowser`.
 ## Type: Dict
-c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}"}
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
     "ddg": "https://duckduckgo.com/?q={}",
     "gh": "https://github.com/search?q={}",
+    "yt": "https://youtube.com/search?q={}",
+    "rd": "https://reddit.com/search?q={}",
 }
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
