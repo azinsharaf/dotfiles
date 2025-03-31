@@ -1792,6 +1792,7 @@ c.url.searchengines = {
     "gh": "https://github.com/search?q={}",
     "yt": "https://youtube.com/search?q={}",
     "rd": "https://reddit.com/search?q={}",
+    "am": "https://amazon.com/s?k={}",
 }
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
