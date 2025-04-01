@@ -276,7 +276,7 @@ c.completion.web_history.max_items = -1
 ##   - multiple-tabs: Show a confirmation if multiple tabs are opened.
 ##   - downloads: Show a confirmation if downloads are running
 ##   - never: Never show a confirmation.
-c.confirm_quit = ["never"]
+c.confirm_quit = ["downloads"]
 
 ## Automatically start playing `<video>` elements.
 ## Type: Bool
@@ -785,7 +785,7 @@ c.content.webgl = True
 ## Directory to save downloads to. If unset, a sensible OS-specific
 ## default is used.
 ## Type: Directory
-# c.downloads.location.directory = None
+c.downloads.location.directory = "~/Downloads/"
 
 ## Prompt the user for the download location. If set to false,
 ## `downloads.location.directory` will be used.
