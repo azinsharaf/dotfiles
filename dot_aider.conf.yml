@@ -10,7 +10,7 @@ input-history-file: .aider.input.history
 chat-history-file: .aider.chat.history.md
 
 ## Use colors suitable for a dark terminal background (default: False)
-dark-mode: true
+# dark-mode: true
 ## Use colors suitable for a light terminal background (default: False)
 #light-mode: false
 
