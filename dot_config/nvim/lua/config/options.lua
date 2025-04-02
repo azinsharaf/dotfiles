@@ -32,7 +32,7 @@ opt.softtabstop = 4
 opt.expandtab = true -- expand tab to spaces
 opt.smartindent = true
 opt.autoindent = true -- copy indent from current line when starting new
-opt.wrap = false
+opt.wrap = true
 opt.linebreak = true -- linebreak soft wrap at words
 
 -- Search
