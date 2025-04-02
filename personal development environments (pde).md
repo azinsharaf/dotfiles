@@ -109,6 +109,7 @@ scoop install yt-dlp
 
 pipx install rich-cli
 pipx install shell-gpt
+pipx install aider-chat
 
 npm install -g neovim
 npm install -g pnpm@latest-10
