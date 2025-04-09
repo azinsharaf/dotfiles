@@ -211,14 +211,15 @@ function ke
 function qb
 {& "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.8\env-qutebrowser\Scripts\qutebrowser.exe" --basedir "$Env:USERPROFILE\.config\qutebrowser" }
 
+function ai { aider --no-git --model ollama_chat/llama3.1:8b --chat-mode ask}
+
 function ai-qwen { aider --model ollama_chat/qwen2.5-coder:7b --chat-mode architect }
 function ai-llama { aider --model ollama_chat/llama3.1:8b --chat-mode ask }
 function ai-deepseek { aider --model ollama_chat/deepseek-r1:7b --chat-mode ask }
 function ai-gemma { aider --model ollama_chat/gemma3:4b --chat-mode ask }
-function ai-openai { aider --model --chat-mode ask }
+function ai-openai { aider --chat-mode ask }
 
 function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
-
 
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
