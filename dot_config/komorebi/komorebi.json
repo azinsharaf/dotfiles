@@ -96,6 +96,18 @@
         "id": "Qt682QWindowIcon",
         "matching_strategy": "Equals"
       }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "id": "pythonw.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Class",
+        "id": "Qt690QWindowIcon",
+        "matching_strategy": "Equals"
+      }
     ]
   ],
 
