@@ -106,6 +106,8 @@ scoop install pandoc
 scoop install flow-launcher
 scoop install mpv
 scoop install yt-dlp
+scoop install bitwarden
+scoop install bitwarden-cli
 
 pipx install rich-cli
 pipx install shell-gpt
