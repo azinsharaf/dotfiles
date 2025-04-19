@@ -163,20 +163,25 @@ previewers = [
 	{ name = "*", run = "file" },
 ]
 
-# eza previewer
+[[plugin.prepend_previewers]]
+name = "*.tar*"
+run  = 'piper --format=url -- tar tf "$1"'
 
-prepend_previewers = [
-    # { name = "*/", run = "eza-preview"},
-    # { name = "*.md", run = "glow" },
-    { name = "*.csv", run = "rich-preview"}, # for csv files
-    { name = "*.md", run = "rich-preview" }, # for markdown (.md) files
-    { name = "*.rst", run = "rich-preview"}, # for restructured text (.rst) files
-    { name = "*.ipynb", run = "rich-preview"}, # for jupyter notebooks (.ipynb)
-    { name = "*.json", run = "rich-preview"}, # for json (.json) files
-    { name = "*.py", run = "rich-preview"},
-#    { name = "*.lang_type", run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
-]
+[[plugin.prepend_previewers]]
+name = "*.csv"
+run  = 'piper -- bat -p "$1"'
 
+[[plugin.prepend_previewers]]
+name = "*.md"
+run  = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'
+
+[[plugin.prepend_previewers]]
+name = "*/"
+run  = 'piper -- eza -TL=1 --color always --icons=always --group-directories-first --no-quotes "$1"'
+
+[[plugin.append_previewers]]
+name = "*"
+run  = 'piper -- hexyl --border=none "$1"'
 
 # append_previewers = [
 #     { name = "*", run = "file-extra-metadata" },
