@@ -269,6 +269,7 @@ $Env:EZA_CONFIG_DIR = "$Env:USERPROFILE\.config\eza"
 # $Env:OLLAMA_HOST = "0.0.0.0:11434"
 # $Env:OLLAMA_API_BASE = "http://192.168.1.12:11434"
 # $Env:OLLAMA_API_BASE = "https://ollama.azinsharaf.net"
+$Env:OLLAMA_CONTEXT_LENGTH = 65000
 
 # shell_gpt config
 $Env:CHAT_CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\chat_cache"
