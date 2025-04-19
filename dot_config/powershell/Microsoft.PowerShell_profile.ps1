@@ -213,9 +213,10 @@ function qb
 
 function ai { aider --no-git --model ollama_chat/llama3.1:8b --chat-mode ask}
 
-function ai-qwen { aider --model ollama_chat/qwen2.5-coder:7b --chat-mode architect }
+function ai-qwen { aider --model ollama_chat/qwen2.5-coder:7b --chat-mode architect --watch-files }
 function ai-llama { aider --model ollama_chat/llama3.1:8b --chat-mode ask }
-function ai-deepseek { aider --model ollama_chat/deepseek-r1:7b --chat-mode ask }
+function ai-codellama { aider --model ollama_chat/codellama:13b --chat-mode architect --watch-files }
+function ai-deepseek { aider --model ollama_chat/deepseek-r1:7b --chat-mode architect --watch-files }
 function ai-gemma { aider --model ollama_chat/gemma3:4b --chat-mode ask }
 function ai-openai { aider --chat-mode ask }
 
