@@ -276,7 +276,7 @@ c.completion.web_history.max_items = -1
 ##   - multiple-tabs: Show a confirmation if multiple tabs are opened.
 ##   - downloads: Show a confirmation if downloads are running
 ##   - never: Never show a confirmation.
-c.confirm_quit = ["downloads"]
+c.confirm_quit = ["multiple-tabs"]
 
 ## Automatically start playing `<video>` elements.
 ## Type: Bool
