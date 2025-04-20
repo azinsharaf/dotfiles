@@ -2,7 +2,7 @@
 require("full-border"):setup()
 
 -- [plugin] - starsship
---require("starship"):setup()
+require("starship"):setup()
 
 -- to get the size and modified time for linemode
 function Linemode:size_and_mtime()
