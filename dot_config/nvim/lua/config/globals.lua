@@ -18,3 +18,5 @@ local python_paths = {
 -- Set the Python 3 host program based on the computer name
 
 vim.g.python3_host_prog = python_paths[computer_name] or "/usr/bin/python3" -- Default fallback
+
+vim.deprecate = function() end
