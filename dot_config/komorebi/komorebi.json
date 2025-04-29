@@ -108,7 +108,13 @@
         "id": "Qt690QWindowIcon",
         "matching_strategy": "Equals"
       }
-    ]
+    ],
+
+    {
+      "kind": "Exe",
+      "id": "Bitwarden.exe",
+      "matching_strategy": "Equals"
+    }
   ],
 
   "tray_and_multi_window_applications": [
