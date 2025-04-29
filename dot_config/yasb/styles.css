@@ -437,3 +437,50 @@ QToolTip {
 .glazewm-workspaces .ws-btn.empty:hover {
   background-color: #727272;
 }
+
+.systray {
+  background: transparent;
+  border: None;
+  margin: 0;
+}
+
+.systray .unpinned-container {
+  border-radius: 8px;
+}
+
+.systray .pinned-container {
+  background: transparent;
+}
+
+.systray .pinned-container[forceshow="true"] {
+  background: red;
+}
+
+.systray .button {
+  border-radius: 4px;
+  padding: 2px 2px;
+}
+
+.systray .button:hover {
+  background: #727272;
+}
+
+.systray .button[dragging="true"] {
+  background: orange;
+  border-color: #ff8800;
+}
+
+.systray .unpinned-visibility-btn {
+  border-radius: 4px;
+  height: 20px;
+  width: 16px;
+}
+
+.systray .unpinned-visibility-btn:checked {
+}
+
+.systray .unpinned-visibility-btn:hover {
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  border-color: #aaaaaa;
+}
