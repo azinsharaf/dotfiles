@@ -27,6 +27,8 @@ style = "bold lavender"
 
 [python]
 symbol = " "  # Python 3.x
+pyenv_version_name = true
+
 
 [nodejs]
 symbol = "⬢ "  # Node.js symbol
