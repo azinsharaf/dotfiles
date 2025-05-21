@@ -132,7 +132,8 @@ keymap = [
 
     # go to drives
     { on = [ "g", "o"],             run = "cd ~/azin_notes/",   desc = "Obsidian Azin Vault"},
-	{ on = [ "g", "u" ],            run = "cd ~/iCloudDrive/artificial_inteligence/cmu_graduate_certificate/10680-A3_Mathematical_Foundations_for_Machine_Learning/", desc = "Go To CMU dir" },
+	{ on = [ "g", "u" ],            run = "cd ~/iCloudDrive/artificial_inteligence/cmu_graduate_certificate/", desc = "Go To CMU dir" },
+	{ on = [ "g", "i" ],            run = "cd ~/iCloudDrive/", desc = "Go To iCloud Drive" },
 	{ on = [ "g", "r" ],            run = "cd ~/Repos",         desc = "Go to Repos directory" },
 	{ on = [ "g", "d", "E" ],       run = "cd E:/",             desc = "Employee Drive" },
 	{ on = [ "g", "d", "H" ],       run = "cd H:/",             desc = "H drive - SAC" },
