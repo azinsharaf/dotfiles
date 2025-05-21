@@ -81,6 +81,12 @@
       "kind": "Class",
       "id": "WindowPopupSaveBits",
       "matching_strategy": "Contains"
+    },
+
+    {
+      "kind": "Class",
+      "id": "Shell_TrayWnd",
+      "matching_strategy": "Equals"
     }
   ],
 
