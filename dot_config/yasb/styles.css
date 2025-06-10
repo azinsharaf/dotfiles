@@ -407,6 +407,35 @@ QToolTip {
   color: #666879;
 }
 
+.glazewm-binding-mode {
+  background-color: var(--crust);
+  margin: 4px 0;
+  border-radius: 12px;
+  border: 0;
+}
+
+.glazewm-binding-mode .label {
+  color: var(--text);
+  font-size: 12px;
+}
+
+.glazewm-binding-mode .label-offline {
+  color: var(--subtext0);
+  font-size: 10px;
+}
+
+.glazewm-binding-mode .icon.none {
+  color: var(--blue);
+}
+
+.glazewm-binding-mode .icon.resize {
+  color: var(--yellow);
+}
+
+.glazewm-binding-mode .icon.pause {
+  color: var(--red);
+}
+
 .glazewm-workspaces {
   margin: 0;
 }
@@ -420,7 +449,12 @@ QToolTip {
   color: #cdd6f4;
 }
 
-.glazewm-workspaces .ws-btn.active {
+.glazewm-workspaces .ws-btn.active_populated {
+  color: #c2daf7;
+  background-color: #727272;
+}
+.glazewm-workspaces .ws-btn.active_empty {
+  color: #7d8b9d;
   background-color: #727272;
 }
 
@@ -435,6 +469,24 @@ QToolTip {
 .glazewm-workspaces .ws-btn:hover,
 .glazewm-workspaces .ws-btn.populated:hover,
 .glazewm-workspaces .ws-btn.empty:hover {
+  background-color: #727272;
+}
+
+.glazewm-tiling-direction {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.glazewm-tiling-direction .btn {
+  font-size: 18px;
+  width: 14px;
+  padding: 0 4px 0 4px;
+  color: #cdd6f4;
+  border: none;
+}
+
+.glazewm-tiling-direction .btn:hover {
   background-color: #727272;
 }
 

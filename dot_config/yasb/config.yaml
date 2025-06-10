@@ -40,8 +40,8 @@ bars:
       left: ["home", "active_window", "taskbar"]
       center:
         [
-          "glazewm_workspaces",
           "glazewm_tiling_direction",
+          "glazewm_workspaces",
           "komorebi_workspaces",
           "komorebi_active_layout",
           "apps",
@@ -412,12 +412,49 @@ widgets:
         on_left: "toggle_menu"
         on_right: "toggle_label"
 
+  glazewm_binding_mode:
+    type: "glazewm.binding_mode.GlazewmBindingModeWidget"
+    options:
+      hide_if_no_active: false
+      label_if_no_active: "No binding mode active"
+      default_icon: "\uf071"
+      icons:
+        none: ""
+        resize: "\uf071"
+        pause: "\uf28c"
+      binding_modes_to_cycle_through: [
+          "none", # none handles if no binding mode is active
+          "resize",
+          "pause",
+        ]
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+      callbacks:
+        on_left: "next_binding_mode"
+        on_middle: "toggle_label"
+        on_right: "disable_binding_mode"
+
+    # By default binding mode names are fetched from GlazeWM and "display_name" option takes priority over "name".
+
   glazewm_workspaces:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
       offline_label: "GlazeWM Offline"
-      hide_empty_workspaces: true
+      hide_empty_workspaces: false
       hide_if_offline: false
+      btn_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+      container_padding:
+        top: 0
+        left: 8
+        bottom: 0
+        right: 8
 
       # By default workspace names are fetched from GlazeWM and "display_name" option takes priority over "name".
       # However, you can customize populated and empty labels here using {name} and {display_name} placeholders if needed.
@@ -425,13 +462,18 @@ widgets:
       # {display_name} will be replaced with workspace display_name from GlazeWM.
 
       # populated_label: "{name} {display_name} \uebb4"
-      # empty_label: "{name} {display_name} \uebb5"
+      # empty_label: "{name} {display_name} \uebb5"glazewm_tiling_direction:
 
   glazewm_tiling_direction:
     type: "glazewm.tiling_direction.GlazewmTilingDirectionWidget"
     options:
       horizontal_label: "\udb81\udce1"
       vertical_label: "\udb81\udce2"
+      btn_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [1, 1]
 
   systray:
     type: "yasb.systray.SystrayWidget"
