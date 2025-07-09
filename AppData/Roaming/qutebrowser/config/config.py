@@ -832,7 +832,13 @@ c.downloads.position = "top"
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-c.editor.command = ["nvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
+c.editor.command = [
+    r"nvim.exe",
+    "-f",
+    "{file}",
+    "-c",
+    "normal {line}G{column0}l",
+]
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -1029,7 +1035,7 @@ c.hints.chars = "asdfghjkl"
 ## Valid values:
 ##   - javascript: Better but slower
 ##   - python: Slightly worse but faster
-c.hints.find_implementation = "javascript"
+## c.hints.find_implementation = "python"
 
 ## Hide unmatched hints in rapid mode.
 ## Type: Bool
@@ -1633,7 +1639,7 @@ c.tabs.mousewheel_switching = True
 
 ## Padding (in pixels) around text for tabs.
 ## Type: Padding
-c.tabs.padding = {'top': 5, 'bottom': 5, 'left': 9, 'right': 9}
+c.tabs.padding = {"top": 5, "bottom": 5, "left": 9, "right": 9}
 
 ## Force pinned tabs to stay at fixed URL.
 ## Type: Bool
@@ -1729,7 +1735,7 @@ c.tabs.tooltips = False
 ## Width (in pixels or as percentage of the window) of the tab bar if
 ## it's vertical.
 ## Type: PercOrInt
-c.tabs.width = '7%'
+c.tabs.width = "7%"
 
 ## Wrap when changing tabs.
 ## Type: Bool
