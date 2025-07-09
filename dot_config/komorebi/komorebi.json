@@ -120,7 +120,20 @@
       "kind": "Exe",
       "id": "Bitwarden.exe",
       "matching_strategy": "Equals"
-    }
+    },
+    [
+      {
+        "kind": "Exe",
+        "id": "qutebrowser.exe",
+        "matching_strategy": "Equals"
+      },
+
+      {
+        "kind": "Class",
+        "id": "Popup",
+        "matching_strategy": "DoesNotContain"
+      }
+    ]
   ],
 
   "tray_and_multi_window_applications": [
