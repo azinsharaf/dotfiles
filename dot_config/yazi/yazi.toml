@@ -163,6 +163,12 @@ previewers = [
 	{ name = "*", run = "file" },
 ]
 
+
+# turn off previewer on network folders
+[[plugin.prepend_preloaders]]
+name = "**/Jobs/**"
+run  = "noop"
+
 [[plugin.prepend_previewers]]
 name = "*.tar*"
 run  = 'piper --format=url -- tar tf "$1"'
