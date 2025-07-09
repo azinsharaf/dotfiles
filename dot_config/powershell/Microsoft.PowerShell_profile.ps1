@@ -213,12 +213,18 @@ function qb
 
 function ai { aider --no-git --model ollama_chat/llama3.1:8b --chat-mode ask}
 
-function ai-qwen { aider --model ollama_chat/qwen2.5-coder:7b --chat-mode architect --watch-files }
+
+
+function ai-deepseek { aider --model ollama_chat/deepseek-r1:8b --chat-mode architect ask}
+function ai-gemma { aider --model ollama_chat/gemma3:12b --chat-mode ask }
+function ai-qwen { aider --model ollama_chat/qwen2.5-coder:3b --chat-mode architect ask }
 function ai-llama { aider --model ollama_chat/llama3.1:8b --chat-mode ask }
-function ai-codellama { aider --model ollama_chat/codellama:13b --chat-mode architect --watch-files }
-function ai-deepseek { aider --model ollama_chat/deepseek-r1:7b --chat-mode architect --watch-files }
-function ai-gemma { aider --model ollama_chat/gemma3:4b --chat-mode ask }
+
 function ai-openai { aider --chat-mode ask }
+
+function ai-codegemma { aider --model ollama_chat/codegemma:7b --chat-mode architect --watch-files }
+function ai-codeqwen2.5 { aider --model ollama_chat/qwen2.5-coder:7b --chat-mode architect --watch-files }
+
 
 function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
 
@@ -242,7 +248,7 @@ $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 # Auto-activate venv on PowerShell launch
-$venvPath = "$Env:USERPROFILE\.pyenv\\pyenv-win\versions\3.9.13\env-fcds\Scripts\Activate.ps1"
+$venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.10.11\env-fcds-project-6\Scripts\Activate.ps1"
 
 if (Test-Path $venvPath) {
     & $venvPath
@@ -263,6 +269,12 @@ if ($Env:COMPUTERNAME -eq "Desktop-Azin")
     $Env:NEOVIM_NODE_PATH = "$USERPROFILE\scoop\apps\nodejs\current\node.exe"
 }
 $Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
+
+
+$Env:CUDA_PATH = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8" 
+$Env:CUDA_PATH_V12_8 = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8" 
+
+
 
 # Define fzf options
 
@@ -310,6 +322,10 @@ $Env:Path += ";$Env:USERPROFILE\temp_apps"
 $Env:Path += ";$Env:USERPROFILE\temp_apps\yazi"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\bin"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\shims"
+$Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin"
+$Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\libnvvp"
+$Env:Path += ";C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common"
+$Env:Path += ";C:\Program Files\NVIDIA Corporation\Nsight Compute 2025.1.0"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)

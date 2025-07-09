@@ -19,7 +19,6 @@ import catppuccin
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
 config.load_autoconfig(False)
-
 # set the flavor you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
 # last argument (optional, default is False): enable the plain look for the menu rows
@@ -754,9 +753,9 @@ c.content.tls.certificate_errors = "ask"
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
 
-c.content.user_stylesheets = [
-    "css/monospace.css",
-]
+# c.content.user_stylesheets = [
+#     "css/monospace.css",
+# ]
 
 # bind some stylesheets
 config.bind("cf", 'config-cycle content.user_stylesheets "css/monospace.css" ""')
@@ -833,7 +832,13 @@ c.downloads.position = "top"
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-c.editor.command = ["nvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
+c.editor.command = [
+    r"nvim.exe",
+    "-f",
+    "{file}",
+    "-c",
+    "normal {line}G{column0}l",
+]
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -1030,7 +1035,7 @@ c.hints.chars = "asdfghjkl"
 ## Valid values:
 ##   - javascript: Better but slower
 ##   - python: Slightly worse but faster
-c.hints.find_implementation = "javascript"
+## c.hints.find_implementation = "python"
 
 ## Hide unmatched hints in rapid mode.
 ## Type: Bool
@@ -1634,7 +1639,7 @@ c.tabs.mousewheel_switching = True
 
 ## Padding (in pixels) around text for tabs.
 ## Type: Padding
-# c.tabs.padding = {'top': 0, 'bottom': 0, 'left': 5, 'right': 5}
+c.tabs.padding = {"top": 5, "bottom": 5, "left": 9, "right": 9}
 
 ## Force pinned tabs to stay at fixed URL.
 ## Type: Bool
@@ -1710,7 +1715,7 @@ c.tabs.title.alignment = "center"
 ## web page. * `{protocol}`: Protocol (http/https/...) of the current web
 ## page. * `{audio}`: Indicator for audio/mute status.
 ## Type: FormatString
-c.tabs.title.format = "{audio}{index}: {current_title}"
+c.tabs.title.format = "{audio}{index}: {host}"
 
 ## Format to use for the tab title for pinned tabs. The same placeholders
 ## like for `tabs.title.format` are defined.
@@ -1720,7 +1725,7 @@ c.tabs.title.format = "{audio}{index}: {current_title}"
 ## Show tooltips on tabs. Note this setting only affects windows opened
 ## after it has been set.
 ## Type: Bool
-# c.tabs.tooltips = True
+c.tabs.tooltips = False
 
 ## Number of closed tabs (per window) and closed windows to remember for
 ## :undo (-1 for no maximum).
@@ -1730,7 +1735,7 @@ c.tabs.title.format = "{audio}{index}: {current_title}"
 ## Width (in pixels or as percentage of the window) of the tab bar if
 ## it's vertical.
 ## Type: PercOrInt
-# c.tabs.width = '15%'
+c.tabs.width = "7%"
 
 ## Wrap when changing tabs.
 ## Type: Bool
