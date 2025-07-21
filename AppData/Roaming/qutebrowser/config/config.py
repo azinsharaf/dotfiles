@@ -758,7 +758,7 @@ c.content.tls.certificate_errors = "ask"
 # ]
 
 # bind some stylesheets
-config.bind("cf", 'config-cycle content.user_stylesheets "css/monospace.css" ""')
+config.bind("tf", 'config-cycle content.user_stylesheets "css/monospace.css" ""')
 
 ## Enable WebGL.
 ## Type: Bool
