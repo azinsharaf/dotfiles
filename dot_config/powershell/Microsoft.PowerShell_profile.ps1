@@ -248,7 +248,7 @@ $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 # Auto-activate venv on PowerShell launch
-$venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.10.11\env-fcds-project-6\Scripts\Activate.ps1"
+$venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.10.11\env-fcds-project-7\Scripts\Activate.ps1"
 
 if (Test-Path $venvPath) {
     & $venvPath
