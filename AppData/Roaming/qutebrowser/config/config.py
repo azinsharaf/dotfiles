@@ -1112,7 +1112,7 @@ c.input.insert_mode.auto_enter = True
 
 ## Leave insert mode if a non-editable element is clicked.
 ## Type: Bool
-c.input.insert_mode.auto_leave = True
+c.input.insert_mode.auto_leave = False
 
 ## Automatically enter insert mode if an editable element is focused
 ## after loading the page.
@@ -1123,11 +1123,11 @@ c.input.insert_mode.auto_load = True
 ## unreliable on this setting, and they may match the url you are
 ## navigating to, or the URL you are navigating from.
 ## Type: Bool
-# c.input.insert_mode.leave_on_load = True
+c.input.insert_mode.leave_on_load = False
 
 ## Switch to insert mode when clicking flash and other plugins.
 ## Type: Bool
-# c.input.insert_mode.plugins = False
+c.input.insert_mode.plugins = True
 
 ## Include hyperlinks in the keyboard focus chain when tabbing.
 ## Type: Bool
@@ -1151,7 +1151,7 @@ c.input.insert_mode.auto_load = True
 ##   - normal
 ##   - insert
 ##   - passthrough
-# c.input.mode_override = None
+c.input.mode_override = "insert"
 
 ## Enable back and forward buttons on the mouse.
 ## Type: Bool
