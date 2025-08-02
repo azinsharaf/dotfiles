@@ -208,12 +208,7 @@ function ke
 {komorebic stop --ahk
 }
 
-function qb
-{& "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.8\env-qutebrowser\Scripts\qutebrowser.exe" --basedir "$Env:USERPROFILE\.config\qutebrowser" }
-
 function ai { aider --no-git --model ollama_chat/llama3.1:8b --chat-mode ask}
-
-
 
 function ai-deepseek { aider --model ollama_chat/deepseek-r1:8b --chat-mode architect ask}
 function ai-gemma { aider --model ollama_chat/gemma3:12b --chat-mode ask }
@@ -248,7 +243,7 @@ $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 # Auto-activate venv on PowerShell launch
-$venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.10.11\env-fcds-project-7\Scripts\Activate.ps1"
+$venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.9.13\env-fcds-project-4\Scripts\Activate.ps1"
 
 if (Test-Path $venvPath) {
     & $venvPath
