@@ -1,78 +1,47 @@
-
-
 Set-PSReadlineOption -EditMode vi -viModeIndicator Cursor
 # Enabling Menu Completion 
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
-#python env activation
+# Conda (ArcGIS Pro) activator: ca [envname]
+function ca {
+  param([string]$Name = 'arcgispro-py3-clone')
 
-if ($env:COMPUTERNAME -eq "Desktop-Azin")
-{
-    # # cmu python env activation
-    # $Env:CONDA_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
-    # $Env:CONDA_ENV_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda-env.exe"
-    # # $Env:_CE_M = ""
-    # # $Env:_CE_CONDA = ""
-    # $Env:_CONDA_ROOT = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App"
-    # $Env:_CONDA_EXE = "$Env:USERPROFILE\scoop\apps\anaconda3\current\App\Scripts\conda.exe"
-    # $CondaModuleArgs = @{ChangePs1 = $True}
-    # Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
-    #
-    # conda activate cmu-python
-    #
-    # Remove-Variable CondaModuleArgs
+  $root = 'C:\Program Files\ArcGIS\Pro\bin\Python'
+  $condaExe = Join-Path $root 'Scripts\conda.exe'
+  $psm1     = Join-Path $root 'shell\condabin\Conda.psm1'
+
+  if (-not (Test-Path -LiteralPath $psm1)) {
+    Write-Warning "Conda.psm1 not found at: $psm1"
+    return
+  }
+  if (-not (Test-Path -LiteralPath $condaExe)) {
+    Write-Warning "conda.exe not found at: $condaExe"
+    return
+  }
+
+  try {
+    # prevent conda from altering the prompt
+    $Env:CONDA_CHANGEPS1 = "false"
+
+    $Env:_CONDA_ROOT = $root
+    $Env:_CONDA_EXE  = $condaExe
+    $Env:CONDA_EXE   = $condaExe
+    $Env:CONDA_ENV_EXE = Join-Path $root 'Scripts\conda-env.exe'
+
+    # Import the module directly (NO -ArgumentList)
+    Import-Module $psm1 -ErrorAction Stop
+
+    # After module import, a 'conda' function should exist
+    if (-not (Get-Command conda -ErrorAction SilentlyContinue)) {
+      throw "Conda function was not created by $psm1"
+    }
+
+    conda activate $Name
+  }
+  catch {
+    Write-Warning "Conda init/activate failed: $($_.Exception.Message)"
+  }
 }
-
-elseif ($env:COMPUTERNAME -eq "Desktop-Azin2")
-{
-    # arcgis pro python env activation
-
-    $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-    $Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
-    $Env:_CE_M = ""
-    $Env:_CE_CONDA = ""
-    $Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
-    $Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-    $CondaModuleArgs = @{ChangePs1 = $True}
-    Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
-
-    conda activate arcgispro-py3-clone
-
-    Remove-Variable CondaModuleArgs
-}
-
-elseif ($env:COMPUTERNAME -eq "WS-Oakland-001")
-{
-    # arcgis pro python env activation
-
-    $Env:CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-    $Env:CONDA_ENV_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda-env.exe"
-    # $Env:_CE_M = ""
-    # $Env:_CE_CONDA = ""
-    $Env:_CONDA_ROOT = "C:\Program Files\ArcGIS\Pro\bin\Python"
-    $Env:_CONDA_EXE = "C:\Program Files\ArcGIS\Pro\bin\Python\Scripts\conda.exe"
-    $CondaModuleArgs = @{ChangePs1 = $True}
-    Import-Module "$Env:_CONDA_ROOT\shell\condabin\Conda.psm1" -ArgumentList $CondaModuleArgs
-
-    conda activate arcgispro-py3-clone
-
-    Remove-Variable CondaModuleArgs
-}
-
-# # to open the last dir
-# # Path to store the last directory
-# $lastDirPath = "$HOME\last-dir.txt"
-# # If the file exists, change to the directory stored in it
-# if (Test-Path $lastDirPath) {
-#     Set-Location (Get-Content $lastDirPath)
-# }
-# # Save the last directory on exit
-# function Save-LastLocation {
-#     $PWD.Path | Out-File -Encoding UTF8 -FilePath $lastDirPath
-# }
-# # Register the function to run when PowerShell exits
-# Register-EngineEvent PowerShell.Exiting -Action { Save-LastLocation } | Out-Null
-# #
 
 # Does the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
 function dirs
@@ -208,26 +177,19 @@ function ke
 {komorebic stop --ahk
 }
 
-function qb
-{& "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.8\env-qutebrowser\Scripts\qutebrowser.exe" --basedir "$Env:USERPROFILE\.config\qutebrowser" }
-
 function ai { aider --no-git --model ollama_chat/llama3.1:8b --chat-mode ask}
-
-
 
 function ai-deepseek { aider --model ollama_chat/deepseek-r1:8b --chat-mode architect ask}
 function ai-gemma { aider --model ollama_chat/gemma3:12b --chat-mode ask }
 function ai-qwen { aider --model ollama_chat/qwen2.5-coder:3b --chat-mode architect ask }
 function ai-llama { aider --model ollama_chat/llama3.1:8b --chat-mode ask }
 
-function ai-openai { aider --chat-mode ask }
+function ai-openai { aider --model gpt-4o --chat-mode ask }
 
 function ai-codegemma { aider --model ollama_chat/codegemma:7b --chat-mode architect --watch-files }
 function ai-codeqwen2.5 { aider --model ollama_chat/qwen2.5-coder:7b --chat-mode architect --watch-files }
 
-
 function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
-
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
@@ -318,8 +280,6 @@ $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
 $Env:Path += ";$Env:USERPROFILE\scoop\shims"
 $Env:Path += ";$Env:USERPROFILE\.local\bin"
-$Env:Path += ";$Env:USERPROFILE\temp_apps"
-$Env:Path += ";$Env:USERPROFILE\temp_apps\yazi"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\bin"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\shims"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin"
