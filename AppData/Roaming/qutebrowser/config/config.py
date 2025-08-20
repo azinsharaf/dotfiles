@@ -138,7 +138,7 @@ c.colors.webpage.darkmode.enabled = True
 ##   - never: Never apply dark mode filter to any images.
 ##   - smart: Apply dark mode based on image content. Not available with Qt 5.15.0.
 ##   - smart-simple: On QtWebEngine 6.6, use a simpler algorithm for smart mode (based on numbers of colors and transparency), rather than an ML-based model. Same as 'smart' on older QtWebEnigne versions.
-c.colors.webpage.darkmode.policy.images = "never"
+c.colors.webpage.darkmode.policy.images = "smart"
 
 ## Which pages to apply dark mode to. The underlying Chromium setting has
 ## been removed in QtWebEngine 5.15.3, thus this setting is ignored
@@ -1673,7 +1673,7 @@ c.tabs.position = "top"
 ##   - never: Always hide the tab bar.
 ##   - multiple: Hide the tab bar if only one tab is open.
 ##   - switching: Show the tab bar when switching tabs.
-c.tabs.show = "multiple"
+c.tabs.show = "always"
 
 ## Duration (in milliseconds) to show the tab bar before hiding it when
 ## tabs.show is set to 'switching'.
