@@ -210,27 +210,23 @@ $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 # Auto-activate venv on PowerShell launch
-$venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.9.13\env-fcds-project-4\Scripts\Activate.ps1"
+# $venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.9.13\env-fcds-project-4\Scripts\Activate.ps1"
 
-if (Test-Path $venvPath) {
-    & $venvPath
-    # Write-Host "Activated virtual environment: myenv"
-}
+# if (Test-Path $venvPath) {
+#     & $venvPath
+#     # Write-Host "Activated virtual environment: myenv"
+# }
+
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
 $Env:BAT_CONFIG_DIR = "$Env:USERPROFILE\.config\bat\"
 $Env:BAT_CONFIG_PATH = "$Env:USERPROFILE\.config\bat\bat.conf"
 
-if ($Env:COMPUTERNAME -eq "Desktop-Azin")
-{
-    $ENV:YAZI_FILE_ONE = "$Env:USERPROFILE\scoop\apps\git\current\usr\bin\file.exe"
-    $Env:NEOVIM_NODE_PATH = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current\node.exe"
-} elseif ($Env:COMPUTERNAME -eq "WS-Oakland-001")
-{
-    $Env:YAZI_FILE_ONE = "C:\Program Files\Git\usr\bin\file.exe"
-    $Env:NEOVIM_NODE_PATH = "$USERPROFILE\scoop\apps\nodejs\current\node.exe"
-}
+$ENV:YAZI_FILE_ONE = "$Env:USERPROFILE\scoop\apps\git\current\usr\bin\file.exe"
 $Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
+
+# $Env:NEOVIM_NODE_PATH = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current\node.exe"
+$Env:NEOVIM_NODE_PATH = "$USERPROFILE\scoop\apps\nodejs-nightly\current\node.exe"
 
 
 $Env:CUDA_PATH = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8" 
