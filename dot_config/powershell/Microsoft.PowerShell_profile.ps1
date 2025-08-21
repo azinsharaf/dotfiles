@@ -112,7 +112,7 @@ if (Test-Path Alias:ls)
 }
 
 function ls
-{eza  --long --group-directories-first --icons --color=auto --header
+{eza  --long -a --group-directories-first --icons --color=auto --header
 }
 function ll
 {eza -l
