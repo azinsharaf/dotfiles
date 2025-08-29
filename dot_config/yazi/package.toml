@@ -33,5 +33,10 @@ use = "yazi-rs/plugins:zoom"
 rev = "d7588f6"
 hash = "6a802572270653c14379ab6acf800787"
 
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "a63550b"
+hash = "733c7340b1ca2d3ef274c427a0cf21b"
+
 [flavor]
 deps = []
