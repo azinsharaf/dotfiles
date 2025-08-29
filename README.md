@@ -22,7 +22,7 @@ winget install Microsoft.SQLServer.2022.Developer # SQL Server 2022 Developer Ed
 winget install Microsoft.SQLServerManagementStudio # SQL Server Management Studio
 winget install Nvidia.GeForceExperience # NVIDIA GPU management
 winget install Zen-Team.Zen-Browser # Web browser
-winget install lgug2z.komorebi # Animated wallpaper manager
+winget install lgug2z.komorebi # Tiling Windows Manager
 ```
 
 #### Manual Installations
