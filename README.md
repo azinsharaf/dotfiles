@@ -84,8 +84,8 @@ scoop install luarocks # Package manager for Lua modules
 scoop install make # Utility for directing compilation
 scoop install main/7zip # File archiver with a high compression ratio
 scoop install motrix # Full-featured download manager
-scoop install neovim-nightly # Hyperextensible Vim-based text editor
 scoop install nerd-fonts/FiraCode-NF # FiraCode Nerd Font
+scoop install neovim-nightly # Hyperextensible Vim-based text editor
 scoop install nerd-fonts/Hack-NF # Hack Nerd Font
 scoop install nerd-fonts/JetBrainsMono-NF # JetBrainsMono Nerd Font
 scoop install nodejs-lts # JavaScript runtime built on Chrome's V8
@@ -187,9 +187,6 @@ scoop install zoxide # A smarter cd command
 pipx install rich-cli
 pipx install shell-gpt
 pipx install aider-chat
-
-npm install -g neovim
-npm install -g pnpm@latest-10
 ```
 
 #### Other Installations
