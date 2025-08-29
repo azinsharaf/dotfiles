@@ -114,12 +114,15 @@ if (Test-Path Alias:ls)
 function ls
 {eza  --long -a --group-directories-first --icons --color=auto --header
 }
+
 function ll
 {eza -l
 }
+
 function la
 {eza -a
 }
+
 function lt
 {eza --tree
 }
@@ -127,9 +130,11 @@ function lt
 function e
 {exit
 }
+
 function :q
 {exit
 }
+
 function c
 {clear
 }
@@ -145,6 +150,7 @@ function reboot
 function n
 {nvim
 }
+
 function nvim-remove
 {Remove-Item -Path "$Env:USERPROFILE\AppData\Local\nvim-data" -Recurse -Force
 }
@@ -209,14 +215,6 @@ $Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
-# Auto-activate venv on PowerShell launch
-# $venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.9.13\env-fcds-project-4\Scripts\Activate.ps1"
-
-# if (Test-Path $venvPath) {
-#     & $venvPath
-#     # Write-Host "Activated virtual environment: myenv"
-# }
-
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
 $Env:BAT_CONFIG_DIR = "$Env:USERPROFILE\.config\bat\"
@@ -225,14 +223,10 @@ $Env:BAT_CONFIG_PATH = "$Env:USERPROFILE\.config\bat\bat.conf"
 $ENV:YAZI_FILE_ONE = "$Env:USERPROFILE\scoop\apps\git\current\usr\bin\file.exe"
 $Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
 
-# $Env:NEOVIM_NODE_PATH = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current\node.exe"
 $Env:NEOVIM_NODE_PATH = "$USERPROFILE\scoop\apps\nodejs-nightly\current\node.exe"
-
 
 $Env:CUDA_PATH = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8" 
 $Env:CUDA_PATH_V12_8 = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8" 
-
-
 
 # Define fzf options
 
@@ -271,7 +265,6 @@ $Env:SHELL_INTERACTION = "true"
 $Env:OS_NAME = "auto"
 $Env:SHELL_NAME = "auto"
 
-# $Env:Path = "$Env:USERPROFILE\scoop\apps\nodejs-lts\current;$Env:PATH"
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
 $Env:Path += ";$Env:USERPROFILE\scoop\shims"
