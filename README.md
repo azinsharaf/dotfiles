@@ -187,6 +187,7 @@ scoop install zoxide # A smarter cd command
 pipx install rich-cli
 pipx install shell-gpt
 pipx install aider-chat
+pipx install euporie
 ```
 
 #### Other Installations
