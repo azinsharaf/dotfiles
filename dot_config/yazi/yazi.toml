@@ -183,7 +183,7 @@ run  = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'
 
 [[plugin.prepend_previewers]]
 name = "*/"
-run  = 'piper -- eza -TL=1 --color always --icons=always --group-directories-first --no-quotes "$1"'
+run  = 'piper -- eza -TL=2 --color always --icons=always --group-directories-first --no-quotes "$1"'
 
 [[plugin.append_previewers]]
 name = "*"
