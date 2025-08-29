@@ -38,5 +38,10 @@ use = "Rolv-Apneseth/starship"
 rev = "a63550b"
 hash = "733c7340b1ca2d3ef274c427a0cf21b"
 
+[[plugin.deps]]
+use = "Tyarel8/goto-drives"
+rev = "ea5ad4e"
+hash = "8f81ee91bc039adec835886a63a86671"
+
 [flavor]
 deps = []
