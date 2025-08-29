@@ -189,9 +189,15 @@ run  = 'piper -- eza -TL=1 --color always --icons=always --group-directories-fir
 name = "*"
 run  = 'piper -- hexyl --border=none "$1"'
 
-# append_previewers = [
-#     { name = "*", run = "file-extra-metadata" },
-# ]
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
 
 append_spotters = [
     { name = "*", run = "file-extra-metadata" },
