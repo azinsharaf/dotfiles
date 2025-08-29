@@ -5,6 +5,16 @@ require("full-border"):setup({
 
 require("git"):setup()
 
+require("starship"):setup({
+	-- Hide flags (such as filter, find and search). This is recommended for starship themes which
+	-- are intended to go across the entire width of the terminal.
+	hide_flags = false, -- Default: false
+	-- Whether to place flags after the starship prompt. False means the flags will be placed before the prompt.
+	flags_after_prompt = true, -- Default: true
+	-- Custom starship configuration file to use
+	config_file = "~/.config/starship/starship.toml", -- Default: nil
+})
+
 -- to get the size and modified time for linemode
 function Linemode:size_and_mtime()
 	local time = math.floor(self._file.cha.mtime or 0)
