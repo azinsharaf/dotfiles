@@ -1,4 +1,9 @@
+require("full-border"):setup({
+	-- Available values: ui.Border.PLAIN, ui.Border.ROUNDED
+	type = ui.Border.PLAIN,
+})
 
+require("git"):setup()
 
 -- to get the size and modified time for linemode
 function Linemode:size_and_mtime()
