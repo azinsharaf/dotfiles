@@ -2,7 +2,7 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
-[manager]
+[mgr]
 
 keymap = [
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
@@ -383,36 +383,36 @@ keymap = [
 ]
 
 # dropping to the shell
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "<C-s>"
 run  = 'shell "pwsh.exe" --block'
 desc = "Open PowerShell here"
 
 # max preview
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "M"
 run  = "plugin max-preview"
 desc = "Maximize or restore preview"
 
 # hide preview pane
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "H"
 run  = "plugin hide-preview"
 desc = "Hide or show preview"
 
 # calc size of a folder
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ ".", "s" ]
 run  = "plugin what-size"
 desc = "Calc size of selection or cwd" 
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = [ "g", ":"]
 run  = "plugin goto-drives"
 desc = "Go to drives"
 
 # copy to system clipboard using cb cli app
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on = "y"
 run = ['shell -- cb copy %*', "yank"]
 desc = "Yank selected file (copy) and file content"
