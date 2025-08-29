@@ -11,18 +11,18 @@
 #### Winget Apps
 
 ```shell
-winget install KeeperSecurity.KeeperDesktop
-winget install CLechasseur.PathCopyCopy
-winget install Doist.Todoist
-winget install Microsoft.Office
-winget install Logitech.OptionsPlus
-winget install Microsoft.SQLServerManagementStudio
-winget install Microsoft.SQLServer.2022.Developer
-winget install Devolutions.RemoteDesktopManager
-winget install Adobe.Acrobat.Reader.64-bit
-winget install Zen-Team.Zen-Browser
-winget install Nvidia.GeForceExperience
-winget install lgug2z.komorebi
+winget install Adobe.Acrobat.Reader.64-bit # PDF reader
+winget install CLechasseur.PathCopyCopy # Windows Explorer extension for copying file paths
+winget install Devolutions.RemoteDesktopManager # Remote connection management
+winget install Doist.Todoist # Task management and to-do list
+winget install KeeperSecurity.KeeperDesktop # Password manager
+winget install Logitech.OptionsPlus # Logitech device configuration
+winget install Microsoft.Office # Office suite
+winget install Microsoft.SQLServer.2022.Developer # SQL Server 2022 Developer Edition
+winget install Microsoft.SQLServerManagementStudio # SQL Server Management Studio
+winget install Nvidia.GeForceExperience # NVIDIA GPU management
+winget install Zen-Team.Zen-Browser # Web browser
+winget install lgug2z.komorebi # Animated wallpaper manager
 ```
 
 #### Manual Installations
@@ -42,83 +42,143 @@ scoop bucket add extras
 scoop bucket add versions
 scoop bucket add nerd-fonts
 scoop bucket add nonportable
+scoop bucket add CrypticButter https://github.com/CrypticButter/ScoopBucket
 ```
 
 #### Scoop Apps
 
 ```shell
-scoop install nonportable/files-np
-# Enable catppuccin theme in Files
-. { Invoke-WebRequest -UseBasicParsing https://github.com/catppuccin/windows-files/raw/main/install.ps1 } | iex
-
-scoop install git-with-openssh
-scoop install make
-scoop install gcc
-scoop install nerd-fonts/JetBrainsMono-NF
-scoop install nerd-fonts/FiraCode-NF
-scoop install nerd-fonts/Hack-NF
-scoop install main/7zip
-scoop install obsidian
-scoop install notepadplusplus
-scoop install pwsh
-scoop install brave-nightly
-scoop install keepass
-scoop install nodejs-lts
-scoop install qutebrowser
-scoop install discord
-scoop install ripgrep
-scoop install fd
-scoop install starship
-scoop install lf
-scoop install autohotkey
-scoop install chezmoi
-scoop install broot
-scoop install lazygit
-scoop install lsd
-scoop install fzf
-scoop install wezterm-nghtly
-scoop install greenshot
-scoop install keyviz
-scoop install thunderbird
-scoop install zoxide
-scoop install bat
-scoop install btop-lhm
-scoop install jq
-scoop install revouninstaller
-scoop install spotify
-scoop install spotify-player
-scoop install extras/via
-scoop install extras/qmk-toolbox
-scoop install anaconda3
-scoop install zoom
-scoop install yazi
-scoop install poppler
-scoop install imagemagick
-scoop install neovim-nightly
-scoop install steam
-scoop install clipboard
-scoop install glow
-scoop install hexyl
-scoop install ffmpeg
-scoop install chafa
-scoop install eza
-scoop install treesize-free
-scoop install luarocks
-scoop install motrix
-scoop install pipx
-scoop install tree-sitter
-scoop install bc # basic calculator
-scoop install gh
-scoop install zebar
-scoop install uutils-coreutils
-scoop install speedtest-cli
-scoop install dust
-scoop install pandoc
-scoop install flow-launcher
-scoop install mpv
-scoop install yt-dlp
-scoop install bitwarden
-scoop install bitwarden-cli
+scoop install anaconda3 # Data science platform
+scoop install autohotkey # Scripting language for Windows automation
+scoop install bat # A cat clone with syntax highlighting
+scoop install bitwarden # Password manager
+scoop install bitwarden-cli # Command-line interface for Bitwarden
+scoop install brave-nightly # Privacy-focused web browser
+scoop install broot # A new way to see and navigate directory trees
+scoop install btop-lhm # Resource monitor
+scoop install chafa # Terminal graphics for the 21st century
+scoop install chezmoi # Manage your dotfiles across multiple machines
+scoop install clipboard # Clipboard manager
+scoop install discord # Voice and text chat for gamers
+scoop install dust # More intuitive version of du in rust
+scoop install eza # Modern replacement for ls
+scoop install extras/qmk-toolbox # QMK Firmware flashing tool
+scoop install extras/via # VIA configurator for keyboards
+scoop install fd # Simple, fast, and user-friendly alternative to find
+scoop install ffmpeg # Multimedia framework
+scoop install flow-launcher # Productivity tool to quickly search and launch
+scoop install fzf # Command-line fuzzy finder
+scoop install gh # GitHub’s official command line tool
+scoop install git-with-openssh # Git version control with OpenSSH
+scoop install glow # Render markdown on the CLI
+scoop install greenshot # Screenshot tool
+scoop install hexyl # A command-line hex viewer
+scoop install imagemagick # Image processing tools
+scoop install jq # Command-line JSON processor
+scoop install keepass # Password manager
+scoop install keyviz # Keypress visualizer
+scoop install lazygit # Simple terminal UI for git commands
+scoop install lf # Terminal file manager
+scoop install lsd # The next gen ls command
+scoop install luarocks # Package manager for Lua modules
+scoop install make # Utility for directing compilation
+scoop install main/7zip # File archiver with a high compression ratio
+scoop install motrix # Full-featured download manager
+scoop install neovim-nightly # Hyperextensible Vim-based text editor
+scoop install nerd-fonts/FiraCode-NF # FiraCode Nerd Font
+scoop install nerd-fonts/Hack-NF # Hack Nerd Font
+scoop install nerd-fonts/JetBrainsMono-NF # JetBrainsMono Nerd Font
+scoop install nodejs-lts # JavaScript runtime built on Chrome's V8
+scoop install nonportable/files-np # File manager
+scoop install notepadplusplus # Text editor
+scoop install obsidian # Knowledge base that works on top of a local folder of plain text Markdown files
+scoop install pandoc # Universal document converter
+scoop install pipx # Install and run Python applications in isolated environments
+scoop install poppler # PDF rendering library
+scoop install pwsh # PowerShell Core
+scoop install qutebrowser # A keyboard-driven, vim-like browser
+scoop install revouninstaller # Uninstall software and remove unwanted programs
+scoop install ripgrep # Line-oriented search tool
+scoop install anaconda3 # Data science platform
+scoop install autohotkey # Scripting language for Windows automation
+scoop install bat # A cat clone with syntax highlighting
+scoop install bitwarden # Password manager
+scoop install bitwarden-cli # Command-line interface for Bitwarden
+scoop install brave-nightly # Privacy-focused web browser
+scoop install broot # A new way to see and navigate directory trees
+scoop install btop-lhm # Resource monitor
+scoop install chafa # Terminal graphics for the 21st century
+scoop install chezmoi # Manage your dotfiles across multiple machines
+scoop install clipboard # Clipboard manager
+scoop install CrypticButter/buttery-taskbar # Taskbar customization tool
+scoop install discord # Voice and text chat for gamers
+scoop install dust # More intuitive version of du in rust
+scoop install eza # Modern replacement for ls
+scoop install extras/qmk-toolbox # QMK Firmware flashing tool
+scoop install extras/via # VIA configurator for keyboards
+scoop install fd # Simple, fast, and user-friendly alternative to find
+scoop install ffmpeg # Multimedia framework
+scoop install flow-launcher # Productivity tool to quickly search and launch
+scoop install fzf # Command-line fuzzy finder
+scoop install gh # GitHub’s official command line tool
+scoop install git-with-openssh # Git version control with OpenSSH
+scoop install glow # Render markdown on the CLI
+scoop install greenshot # Screenshot tool
+scoop install hexyl # A command-line hex viewer
+scoop install imagemagick # Image processing tools
+scoop install jq # Command-line JSON processor
+scoop install keepass # Password manager
+scoop install keyviz # Keypress visualizer
+scoop install lazygit # Simple terminal UI for git commands
+scoop install lf # Terminal file manager
+scoop install lsd # The next gen ls command
+scoop install luarocks # Package manager for Lua modules
+scoop install make # Utility for directing compilation
+scoop install main/7zip # File archiver with a high compression ratio
+scoop install motrix # Full-featured download manager
+scoop install neovim-nightly # Hyperextensible Vim-based text editor
+scoop install nerd-fonts/FiraCode-NF # FiraCode Nerd Font
+scoop install nerd-fonts/Hack-NF # Hack Nerd Font
+scoop install nerd-fonts/JetBrainsMono-NF # JetBrainsMono Nerd Font
+scoop install nodejs-lts # JavaScript runtime built on Chrome's V8
+scoop install nonportable/files-np # File manager
+scoop install notepadplusplus # Text editor
+scoop install obsidian # Knowledge base that works on top of a local folder of plain text Markdown files
+scoop install pandoc # Universal document converter
+scoop install pipx # Install and run Python applications in isolated environments
+scoop install poppler # PDF rendering library
+scoop install pwsh # PowerShell Core
+scoop install qutebrowser # A keyboard-driven, vim-like browser
+scoop install revouninstaller # Uninstall software and remove unwanted programs
+scoop install ripgrep # Line-oriented search tool
+scoop install scoop install speedtest-cli # Internet speed testing from the command line
+scoop install spotify # Music streaming service
+scoop install spotify-player # Command-line Spotify client
+scoop install starship # The minimal, blazing-fast, and infinitely customizable prompt for any shell
+scoop install steam # Digital distribution platform for video games
+scoop install thunderbird # Email client
+scoop install treesize-free # Disk space analyzer
+scoop install tree-sitter # Incremental parsing system for programming tools
+scoop install uutils-coreutils # Cross-platform Rust rewrite of the GNU coreutils
+scoop install wezterm-nghtly # GPU-accelerated terminal emulator
+scoop install yazi # Blazing fast terminal file manager
+scoop install yt-dlp # A youtube-dl fork with additional features
+scoop install zebar # Barcode reader
+scoop install zoom # Video conferencing tool
+scoop install zoxide # A smarter cd command
+scoop install spotify-player # Command-line Spotify client
+scoop install starship # The minimal, blazing-fast, and infinitely customizable prompt for any shell
+scoop install steam # Digital distribution platform for video games
+scoop install thunderbird # Email client
+scoop install treesize-free # Disk space analyzer
+scoop install tree-sitter # Incremental parsing system for programming tools
+scoop install uutils-coreutils # Cross-platform Rust rewrite of the GNU coreutils
+scoop install wezterm-nghtly # GPU-accelerated terminal emulator
+scoop install yazi # Blazing fast terminal file manager
+scoop install yt-dlp # A youtube-dl fork with additional features
+scoop install zebar # Barcode reader
+scoop install zoom # Video conferencing tool
+scoop install zoxide # A smarter cd command
 ```
 
 #### Additional Tools
@@ -135,12 +195,6 @@ npm install -g pnpm@latest-10
 #### Other Installations
 
 - Install Win11 Toggle Rounded Corner: [GitHub Link](https://github.com/oberrich/win11-toggle-rounded-corners)
-
-```shell
-scoop bucket add CrypticButter https://github.com/CrypticButter/ScoopBucket
-scoop install CrypticButter/buttery-taskbar
-scoop install pandoc
-```
 
 ## MacOS Setup
 
