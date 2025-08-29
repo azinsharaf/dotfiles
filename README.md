@@ -59,57 +59,6 @@ scoop install btop-lhm # Resource monitor
 scoop install chafa # Terminal graphics for the 21st century
 scoop install chezmoi # Manage your dotfiles across multiple machines
 scoop install clipboard # Clipboard manager
-scoop install discord # Voice and text chat for gamers
-scoop install dust # More intuitive version of du in rust
-scoop install eza # Modern replacement for ls
-scoop install extras/qmk-toolbox # QMK Firmware flashing tool
-scoop install extras/via # VIA configurator for keyboards
-scoop install fd # Simple, fast, and user-friendly alternative to find
-scoop install ffmpeg # Multimedia framework
-scoop install flow-launcher # Productivity tool to quickly search and launch
-scoop install fzf # Command-line fuzzy finder
-scoop install gh # GitHub’s official command line tool
-scoop install git-with-openssh # Git version control with OpenSSH
-scoop install glow # Render markdown on the CLI
-scoop install greenshot # Screenshot tool
-scoop install hexyl # A command-line hex viewer
-scoop install imagemagick # Image processing tools
-scoop install jq # Command-line JSON processor
-scoop install keepass # Password manager
-scoop install keyviz # Keypress visualizer
-scoop install lazygit # Simple terminal UI for git commands
-scoop install lf # Terminal file manager
-scoop install lsd # The next gen ls command
-scoop install luarocks # Package manager for Lua modules
-scoop install make # Utility for directing compilation
-scoop install main/7zip # File archiver with a high compression ratio
-scoop install motrix # Full-featured download manager
-scoop install nerd-fonts/FiraCode-NF # FiraCode Nerd Font
-scoop install neovim-nightly # Hyperextensible Vim-based text editor
-scoop install nerd-fonts/Hack-NF # Hack Nerd Font
-scoop install nerd-fonts/JetBrainsMono-NF # JetBrainsMono Nerd Font
-scoop install nodejs-lts # JavaScript runtime built on Chrome's V8
-scoop install nonportable/files-np # File manager
-scoop install notepadplusplus # Text editor
-scoop install obsidian # Knowledge base that works on top of a local folder of plain text Markdown files
-scoop install pandoc # Universal document converter
-scoop install pipx # Install and run Python applications in isolated environments
-scoop install poppler # PDF rendering library
-scoop install pwsh # PowerShell Core
-scoop install qutebrowser # A keyboard-driven, vim-like browser
-scoop install revouninstaller # Uninstall software and remove unwanted programs
-scoop install ripgrep # Line-oriented search tool
-scoop install anaconda3 # Data science platform
-scoop install autohotkey # Scripting language for Windows automation
-scoop install bat # A cat clone with syntax highlighting
-scoop install bitwarden # Password manager
-scoop install bitwarden-cli # Command-line interface for Bitwarden
-scoop install brave-nightly # Privacy-focused web browser
-scoop install broot # A new way to see and navigate directory trees
-scoop install btop-lhm # Resource monitor
-scoop install chafa # Terminal graphics for the 21st century
-scoop install chezmoi # Manage your dotfiles across multiple machines
-scoop install clipboard # Clipboard manager
 scoop install CrypticButter/buttery-taskbar # Taskbar customization tool
 scoop install discord # Voice and text chat for gamers
 scoop install dust # More intuitive version of du in rust
@@ -136,10 +85,10 @@ scoop install luarocks # Package manager for Lua modules
 scoop install make # Utility for directing compilation
 scoop install main/7zip # File archiver with a high compression ratio
 scoop install motrix # Full-featured download manager
-scoop install neovim-nightly # Hyperextensible Vim-based text editor
 scoop install nerd-fonts/FiraCode-NF # FiraCode Nerd Font
 scoop install nerd-fonts/Hack-NF # Hack Nerd Font
 scoop install nerd-fonts/JetBrainsMono-NF # JetBrainsMono Nerd Font
+scoop install neovim-nightly # Hyperextensible Vim-based text editor
 scoop install nodejs-lts # JavaScript runtime built on Chrome's V8
 scoop install nonportable/files-np # File manager
 scoop install notepadplusplus # Text editor
@@ -153,19 +102,6 @@ scoop install revouninstaller # Uninstall software and remove unwanted programs
 scoop install ripgrep # Line-oriented search tool
 scoop install scoop install speedtest-cli # Internet speed testing from the command line
 scoop install spotify # Music streaming service
-scoop install spotify-player # Command-line Spotify client
-scoop install starship # The minimal, blazing-fast, and infinitely customizable prompt for any shell
-scoop install steam # Digital distribution platform for video games
-scoop install thunderbird # Email client
-scoop install treesize-free # Disk space analyzer
-scoop install tree-sitter # Incremental parsing system for programming tools
-scoop install uutils-coreutils # Cross-platform Rust rewrite of the GNU coreutils
-scoop install wezterm-nghtly # GPU-accelerated terminal emulator
-scoop install yazi # Blazing fast terminal file manager
-scoop install yt-dlp # A youtube-dl fork with additional features
-scoop install zebar # Barcode reader
-scoop install zoom # Video conferencing tool
-scoop install zoxide # A smarter cd command
 scoop install spotify-player # Command-line Spotify client
 scoop install starship # The minimal, blazing-fast, and infinitely customizable prompt for any shell
 scoop install steam # Digital distribution platform for video games
