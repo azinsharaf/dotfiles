@@ -17,5 +17,6 @@ config.color_scheme = "AdventureTime"
 -- Specify the font
 config.font = wezterm.font("JetBrains Mono Nerd Font")
 
--- Finally, return the configuration to wezterm:
+-- Set PowerShell as the default shell
+config.default_prog = { "pwsh" }
 return config
