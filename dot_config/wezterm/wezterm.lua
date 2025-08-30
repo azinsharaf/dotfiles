@@ -10,9 +10,12 @@ local config = wezterm.config_builder()
 config.initial_cols = 120
 config.initial_rows = 28
 
--- or, changing the font size and color scheme.
+-- or, changing the font size, font, and color scheme.
 config.font_size = 10
 config.color_scheme = "AdventureTime"
+
+-- Specify the font
+config.font = wezterm.font("JetBrains Mono Nerd Font")
 
 -- Finally, return the configuration to wezterm:
 return config
