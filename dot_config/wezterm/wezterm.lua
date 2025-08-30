@@ -6,6 +6,6 @@ local theme = require("theme")
 return {
 	leader = keybindings.leader,
 	keys = keybindings.keys,
-	-- Add theme settings if any
-	-- color_scheme = theme.color_scheme,
+	default_prog = { "pwsh" }, -- Set PowerShell as the default shell
+	color_scheme = theme.color_scheme, -- Ensure this line is uncommented
 }
