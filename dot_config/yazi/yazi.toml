@@ -2,7 +2,7 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
+[mgr]
 ratio          = [ 1, 4, 3 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
@@ -49,7 +49,6 @@ reveal = [
 ]
 extract = [
 	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
-	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
 ]
 play = [
 	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
@@ -96,13 +95,10 @@ micro_workers    = 10
 macro_workers    = 10
 bizarre_retry    = 3
 image_alloc      = 536870912  # 512MB
-image_bound      = [ 0, 0 ]
+image_bound      = [ 10000, 10000 ]
 suppress_preload = false
 
 [plugin]
-
-
-
 fetchers = [
 	# Mimetype
 	{ id = "mime", name = "*", run = "mime", prio = "high" },
