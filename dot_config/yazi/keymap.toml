@@ -143,13 +143,25 @@ keymap = [
 	{ on = [ "g", "d", "Z" ],       run = "cd Z:/Jobs/",        desc = "Z drive - RENO" },
 
     # go to projects
-	{ on = [ "g", "p", "A" ],       run = "cd J:/Jobs/8349-Alameda_Database/",                              desc = "Alameda Database 8349" },
-	{ on = [ "g", "p", "D" ],       run = "cd J:/Jobs/8819_DanvilleStormDrainMP/GIS/",                      desc = "Danville DMP 8819" },
-	{ on = [ "g", "p", "V" ],       run = "cd J:/Jobs/8894_AlisoViejo_SDMP/GIS",                            desc = "Aliso Viejo DMP 8894" },
-	{ on = [ "g", "p", "L" ],       run = "cd J:/Jobs/8165_CityofAlbany_DMP/CityofAlbany_DMP/GIS",          desc = "Albany DMP 8165" },
-	{ on = [ "g", "p", "B" ],       run = "cd J:/Jobs/8721_CityofBerkeley_SWMP/Berkeley_SWMP/GIS",          desc = "berkeley DMP 8721" },
-	{ on = [ "g", "p", "O" ],       run = "cd J:/Jobs/8792_CityofOakland_DMP/Oakland_DMP/GIS",              desc = "Oakland DMP 8792" },
-	{ on = [ "g", "p", "K" ],       run = "cd H:/3000-s/3614_MBK_Engineers/3614008_Knights Landing",        desc = "Knights Landing 3614" },
+	{ on = [ "g", "p", "a" ], run = 'cd "J:/Jobs/8349-Alameda_Database"', desc = "Alameda Database 8349" },
+	{ on = [ "g", "p", "b" ], run = 'cd "J:/Jobs/8426_CityAlameda_OnCall/Alameda_SLR/GIS"', desc = "Alameda SLR 8426" },
+	{ on = [ "g", "p", "c" ], run = 'cd "J:/Jobs/8165_CityofAlbany_DMP/CityofAlbany_DMP/GIS"', desc = "Albany DMP 8165" },
+	{ on = [ "g", "p", "d" ], run = 'cd "J:/Jobs/8894_AlisoViejo_SDMP/GIS"', desc = "Aliso Viejo DMP 8894" },
+	{ on = [ "g", "p", "e" ], run = 'cd "J:/Jobs/8721_CityofBerkeley_SWMP/Berkeley_SWMP/GIS"', desc = "Berkeley DMP 8721" },
+	{ on = [ "g", "p", "f" ], run = 'cd "J:/Jobs/8819_DanvilleStormDrainMP/GIS"', desc = "Danville DMP 8819" },
+	{ on = [ "g", "p", "g" ], run = 'cd "J:/Jobs/9016_CityofEmeryville_OnCall/Emeryville_Storm/GIS"', desc = "Emeryville DMP 9016" },
+	{ on = [ "g", "p", "h" ], run = 'cd "J:/Jobs/8912_PCFC/8912001_FEMA_CTP4_Floodplain_Mapping"', desc = "FEMA CTP4 8912" },
+	{ on = [ "g", "p", "i" ], run = 'cd "J:/Jobs/8172_CityofGlendale_DMP/CityofGlendale_DMP/GIS"', desc = "Glendale DMP 8172" },
+	{ on = [ "g", "p", "j" ], run = 'cd "H:/3000-s/3614_MBK_Engineers/3614008_Knights Landing"', desc = "Knights Landing 3614" },
+	{ on = [ "g", "p", "k" ], run = 'cd "J:/Jobs/8639_MarinCounty_Database/OA"', desc = "Marin County Database 8639" },
+	{ on = [ "g", "p", "l" ], run = 'cd "J:/Jobs/8196001_MtShasta_StormwaterDrainage/GIS"', desc = "Mt Shasta DMP 8196" },
+	{ on = [ "g", "p", "m" ], run = 'cd "J:/Jobs/8792_CityofOakland_DMP/Oakland_DMP/GIS"', desc = "Oakland DMP 8792" },
+	{ on = [ "g", "p", "n" ], run = 'cd "J:/Jobs/8619_Port_Database/OA"', desc = "Port Database 8619" },
+	{ on = [ "g", "p", "o" ], run = 'cd "J:/Jobs/9010_SantaClara_Database/OA"', desc = "Santa Clara Database 9010" },
+	{ on = [ "g", "p", "p" ], run = 'cd "K:/Support/Scripts/Python/Wood_Rodgers/WoodRodgers_PythonToolbox"', desc = "WR Python Toolbox" },
+	{ on = [ "g", "p", "q" ], run = 'cd "J:/Jobs/8349_Alameda_OnCall_H&H/8-Zone_2_DMP"', desc = "Zone 2 DMP 8349" },
+	{ on = [ "g", "p", "r" ], run = 'cd "J:/Jobs/8950_Alameda_Zone7"', desc = "Zone 7 DMP 8950" },
+
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
