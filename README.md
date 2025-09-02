@@ -1,4 +1,4 @@
-# Personal Development Environments (PDE)
+# Personal Development Environment (PDE)
 
 ## Windows Setup
 
