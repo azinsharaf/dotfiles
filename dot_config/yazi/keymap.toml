@@ -133,6 +133,7 @@ keymap = [
     # go to drives
     { on = [ "g", "o"],             run = "cd ~/azin_notes/",   desc = "Obsidian Azin Vault"},
 	{ on = [ "g", "i" ],            run = "cd ~/iCloudDrive/", desc = "Go To iCloud Drive" },
+	{ on = [ "g", "w" ],            run = 'cd "~/OneDrive - Wood Rodgers Inc"', desc = "Go WR OneDrive" },
 	{ on = [ "g", "r" ],            run = "cd ~/Repos",         desc = "Go to Repos directory" },
 	{ on = [ "g", "d", "E" ],       run = "cd E:/",             desc = "Employee Drive" },
 	{ on = [ "g", "d", "H" ],       run = "cd H:/",             desc = "H drive - SAC" },
