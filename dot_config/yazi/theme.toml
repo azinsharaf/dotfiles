@@ -83,6 +83,7 @@ rest            = { fg = "#9399b2" }
 desc            = { fg = "#f5c2e7" }
 separator       = "  "
 separator_style = { fg = "#585b70" }
+cols            = 1
 
 [help]
 on      = { fg = "#94e2d5" }
