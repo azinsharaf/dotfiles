@@ -319,7 +319,7 @@ widgets:
         right: 8
       label: "{data}"
       animation: { "enabled": True, "type": "fadeInOut", "duration": 200 }
-      image_icon_size: 25
+      image_icon_size: 20
       app_list:
         - {
             icon: "$env:USERPROFILE/.config/icons/wezterm.svg",
@@ -337,7 +337,10 @@ widgets:
             icon: "$env:USERPROFILE/.config/icons/bitwarden.png",
             launch: "bitwarden",
           }
-        - { icon: "arcgis pro", launch: "search" }
+        - {
+            icon: "$env:USERPROFILE/.config/icons/arcgispro.ico",
+            launch: "arcgispro",
+          }
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
@@ -460,15 +463,11 @@ widgets:
           "resize",
           "pause",
         ]
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
       callbacks:
         on_left: "next_binding_mode"
         on_middle: "toggle_label"
         on_right: "disable_binding_mode"
+        animation: { "enabled": true, "type": "fadeInOut", "duration": 200 }
 
     # By default binding mode names are fetched from GlazeWM and "display_name" option takes priority over "name".
 
@@ -476,18 +475,25 @@ widgets:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
       offline_label: "GlazeWM Offline"
+      populated_label: "{name}"
+      empty_label: "{name}"
       hide_empty_workspaces: false
       hide_if_offline: false
+      enable_scroll_switching: true
       btn_shadow:
         enabled: true
         color: "black"
         radius: 3
         offset: [1, 1]
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
+      app_icons:
+        enabled_populated: false
+        enabled_active: false
+        size: 20
+        max_icons: 0
+        hide_label: false
+        hide_duplicates: false
+        hide_floating: false
+      animation: false
 
       # By default workspace names are fetched from GlazeWM and "display_name" option takes priority over "name".
       # However, you can customize populated and empty labels here using {name} and {display_name} placeholders if needed.
