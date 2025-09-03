@@ -1,8 +1,7 @@
-# This is default and very simple configuration file for Yasb.
-# For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: true
 watch_config: true
 debug: false
+update_check: true
 komorebi:
   start_command: "ks"
   stop_command: "ke"
@@ -37,18 +36,21 @@ bars:
       bottom: 0
       right: 6
     widgets:
-      left: ["home", "active_window", "taskbar"]
+      left:
+        - "home"
       center:
         [
           "glazewm_tiling_direction",
           "glazewm_workspaces",
           "komorebi_workspaces",
           "komorebi_active_layout",
+          "taskbar",
           "apps",
         ]
-      right: [
+      right:
+        [
+          "media",
           "systray",
-          # "media",
           "weather",
           "microphone",
           "volume",
@@ -92,27 +94,52 @@ widgets:
   media:
     type: "yasb.media.MediaWidget"
     options:
-      label: "{title} - {artist}"
-      label_alt: "{title}"
-      hide_empty: true
-      callbacks:
-        on_left: "toggle_label"
-        on_middle: "do_nothing"
-        on_right: "do_nothing"
+      label: "{title}"
+      label_alt: "{artist} - {title}"
       max_field_size:
-        label: 20
-        label_alt: 30
-      show_thumbnail: false
+        label: 50
+        label_alt: 40
+      show_thumbnail: true
       controls_only: false
       controls_left: true
-      thumbnail_alpha: 80
-      thumbnail_padding: 8
-      thumbnail_corner_radius: false
+      controls_hide: false
+      hide_empty: true
+      thumbnail_alpha: 100
+      thumbnail_padding: 16
+      thumbnail_corner_radius: 0
+      thumbnail_edge_fade: true
       icons:
-        prev_track: "\ue892"
-        next_track: "\ue893"
-        play: "\ue768"
-        pause: "\ue769"
+        prev_track: "\udb81\udcae"
+        next_track: "\udb81\udcad"
+        play: "\udb81\udc0a"
+        pause: "\udb80\udfe4"
+      media_menu:
+        blur: false
+        round_corners: false
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        thumbnail_corner_radius: 4
+        thumbnail_size: 100
+        max_title_size: 80
+        max_artist_size: 20
+        show_source: true
+      label_shadow:
+        enabled: true
+        color: "#000000"
+        radius: 2
+        offset: [1, 1]
+      scrolling_label:
+        enabled: false
+        update_interval_ms: 50
+        style: "left" # can be "left", "right", "bounce", "bounce-ease"
+        separator: " | "
+        label_padding: 1
+      callbacks:
+        on_left: "toggle_media_menu"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
 
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
@@ -270,9 +297,9 @@ widgets:
     type: "yasb.power_menu.PowerMenuWidget"
     options:
       label: "\uf011"
-      uptime: True
-      blur: False
-      blur_background: True
+      uptime: true
+      blur: false
+      blur_background: true
       animation_duration: 200
       button_row: 5
       buttons:
@@ -292,23 +319,29 @@ widgets:
         right: 8
       label: "{data}"
       animation: { "enabled": True, "type": "fadeInOut", "duration": 200 }
+      image_icon_size: 25
       app_list:
         - {
             icon: "$env:USERPROFILE/.config/icons/wezterm.svg",
             launch: "wezterm",
           }
-        # - { icon: "outlook", launch: "search" }
-        # - { icon: "morgen", launch: "search" }
-        # - { icon: "todoist", launch: "search" }
-        # - { icon: "zen", launch: "search" }
-        # - { icon: "teams", launch: "search" }
-        # - { icon: "obsidian", launch: "search" }
-        # - { icon: "qutebrowser", launch: "search" }
-        # - { icon: "thunderbird", launch: "search" }
+        - {
+            icon: "$env:USERPROFILE/.config/icons/obsidian.png",
+            launch: "obsidian",
+          }
+        - {
+            icon: "$env:USERPROFILE/.config/icons/qutebrowser.svg",
+            launch: "qutebrowser",
+          }
+        - {
+            icon: "$env:USERPROFILE/.config/icons/bitwarden.png",
+            launch: "bitwarden",
+          }
+        - { icon: "arcgis pro", launch: "search" }
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
-      icon_size: 16
+      icon_size: 25
       animation:
         enabled: true
         duration: 200
