@@ -293,16 +293,22 @@ QToolTip {
   font-size: 12px;
   background-color: rgba(0, 0, 0, 0);
 }
-.taskbar-widget {
-  padding: 0;
-  margin: 0;
-  border: none;
+
+.taskbar-widget .app-container {
+  margin: 4px 2px;
+  border-radius: 4px;
+  padding: 0 4px;
 }
-.taskbar-widget .app-icon {
-  padding: 0 6px;
-  border: none;
-  margin: 0;
+.taskbar-widget .app-container.foreground {
+  background-color: rgba(255, 255, 255, 0.1);
 }
+.taskbar-widget .app-container.flashing {
+  background-color: rgba(255, 106, 106, 0.63);
+}
+.taskbar-widget .app-container .app-title {
+  padding-left: 4px;
+}
+
 .home-widget {
   padding: 0 4px 0 12px;
 }
