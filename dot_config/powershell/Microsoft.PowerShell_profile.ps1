@@ -62,13 +62,7 @@ function clear-recyclebin
 
 # yazi shell wrapper https://yazi-rs.github.io/docs/quick-start
 function y {
-  $tmp = [System.IO.Path]::GetTempFileName()
-  yazi $args --cwd-file="$tmp"
-  $cwd = Get-Content -Path $tmp
-  if (-not [String]::IsNullOrEmpty($cwd) -and $cwd -ne $PWD.Path) {
-    Set-Location -LiteralPath $cwd
-  }
-  Remove-Item -Path $tmp
+  yazi
 }
 
 function cat
@@ -271,6 +265,7 @@ $Env:Path += ";$Env:USERPROFILE\scoop\shims"
 $Env:Path += ";$Env:USERPROFILE\.local\bin"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\bin"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\shims"
+$Env:Path += ";$Env:USERPROFILE\env-gdal\.pixi\envs\default\Library\bin"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\libnvvp"
 $Env:Path += ";C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common"
