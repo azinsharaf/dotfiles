@@ -23,8 +23,6 @@ pretty: true
 ## Enable/disable streaming responses (default: True)
 stream: true
 
-# timeout: 60
-
 user-input-color: "#A6E3A1" # Catppuccin green (Foreground)
 tool-output-color: "#89B4FA" # Catppuccin blue (Accent)
 tool-error-color: "#F38BA8" # Catppuccin rosewater (Muted Text)
@@ -64,6 +62,9 @@ attribute-commit-message-author: false
 
 ## Prefix all commit messages with 'aider: ' (default: False)
 attribute-commit-message-committer: false
+
+## Show diffs when committing changes (default: False)
+show-diffs: true
 
 ## Commit all pending changes with a suitable commit message, then exit
 #commit: false
