@@ -76,7 +76,7 @@ window_effects:
 
     # Change the transparency of the window.
     transparency:
-      enabled: true
+      enabled: false
       # Can be something like '95%' or '0.95' for slightly transparent windows.
       # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
       opacity: "95%"
