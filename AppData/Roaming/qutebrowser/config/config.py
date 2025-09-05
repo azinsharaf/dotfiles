@@ -1112,7 +1112,7 @@ c.input.insert_mode.auto_enter = True
 
 ## Leave insert mode if a non-editable element is clicked.
 ## Type: Bool
-c.input.insert_mode.auto_leave = False
+c.input.insert_mode.auto_leave = True
 
 ## Automatically enter insert mode if an editable element is focused
 ## after loading the page.
@@ -1151,7 +1151,7 @@ c.input.insert_mode.plugins = True
 ##   - normal
 ##   - insert
 ##   - passthrough
-c.input.mode_override = "insert"
+c.input.mode_override = "normal"
 
 ## Enable back and forward buttons on the mouse.
 ## Type: Bool
