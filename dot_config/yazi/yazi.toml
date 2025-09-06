@@ -177,6 +177,15 @@ run  = 'piper -- bat -p "$1"'
 url = "*.md"
 run  = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"'
 
+
+[[plugin.prepend_previewers]]
+url = "*.nc"
+run  = 'piper -- gdal raster info --format=json --input "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.gdb/"
+run  = 'piper -- gdal vector info --format=json --input "$1"'
+
 [[plugin.prepend_previewers]]
 url = "*/"
 run  = 'piper -- eza -TL=2 --color always --icons=always --group-directories-first --no-quotes "$1"'
