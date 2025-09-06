@@ -117,6 +117,7 @@ scoop install zebar # Barcode reader
 scoop install zoom # Video conferencing tool
 scoop install zoxide # A smarter cd command
 scoop install main/pixi # python package management tool
+scoop install dua # disk usage analyzer
 ```
 
 #### Additional Tools
