@@ -21,7 +21,6 @@ winget install Microsoft.Office # Office suite
 winget install Microsoft.SQLServer.2022.Developer # SQL Server 2022 Developer Edition
 winget install Microsoft.SQLServerManagementStudio # SQL Server Management Studio
 winget install Nvidia.GeForceExperience # NVIDIA GPU management
-winget install Zen-Team.Zen-Browser # Web browser
 winget install lgug2z.komorebi # Tiling Windows Manager
 ```
 
@@ -30,6 +29,7 @@ winget install lgug2z.komorebi # Tiling Windows Manager
 - MS Teams
 - Workspot Client
 - ArcGIS Pro
+- Ducker Desktop
 
 ### Install Scoop
 
@@ -98,6 +98,7 @@ scoop install pipx # Install and run Python applications in isolated environment
 scoop install poppler # PDF rendering library
 scoop install pwsh # PowerShell Core
 scoop install qutebrowser # A keyboard-driven, vim-like browser
+scoop install extras/zen-browser # Zen Browser
 scoop install revouninstaller # Uninstall software and remove unwanted programs
 scoop install ripgrep # Line-oriented search tool
 scoop install scoop install speedtest-cli # Internet speed testing from the command line
@@ -115,6 +116,7 @@ scoop install yt-dlp # A youtube-dl fork with additional features
 scoop install zebar # Barcode reader
 scoop install zoom # Video conferencing tool
 scoop install zoxide # A smarter cd command
+scoop install main/pixi # python package management tool
 ```
 
 #### Additional Tools
@@ -129,6 +131,7 @@ pipx install euporie
 #### Other Installations
 
 - Install Win11 Toggle Rounded Corner: [GitHub Link](https://github.com/oberrich/win11-toggle-rounded-corners)
+- GDAL:
 
 ## MacOS Setup
 
