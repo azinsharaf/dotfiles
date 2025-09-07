@@ -198,6 +198,8 @@ $Env:MPV_HOME = "$Env:USERPROFILE\.config\mpv"
 $Env:KOMOREBI_CONFIG_HOME = "$Env:USERPROFILE\.config\komorebi"
 $Env:KOMOREBI_AHK_EXE = "$Env:USERPROFILE\AppData\Local\Programs\AutoHotkey\v2\AutoHotkey64.exe"
 
+$Env:GDAL_DRIVER_PATH = "$Env:USERPROFILE\gdal-env\.pixi\envs\default\Library\lib\gdalplugins"
+
 $Env:GLAZEWM_CONFIG_PATH = "$Env:USERPROFILE\.config\glazewm\config.yaml"
 
 $Env:VISUAL = 'nvim'
