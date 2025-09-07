@@ -15,6 +15,24 @@ require("starship"):setup({
 	config_file = "~/.config/starship/starship.toml", -- Default: nil
 })
 
+require("bookmarks"):setup({
+	last_directory = { enable = false, persist = false, mode = "dir" },
+	persist = "all",
+	desc_format = "full",
+	file_pick_mode = "hover",
+	custom_desc_input = false,
+	show_keys = true,
+	notify = {
+		enable = true,
+		timeout = 1,
+		message = {
+			new = "New bookmark '<key>' -> '<folder>'",
+			delete = "Deleted bookmark in '<key>'",
+			delete_all = "Deleted all bookmarks",
+		},
+	},
+})
+
 -- to get the size and modified time for linemode
 function Linemode:size_and_mtime()
 	local time = math.floor(self._file.cha.mtime or 0)
