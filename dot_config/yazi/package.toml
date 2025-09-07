@@ -43,5 +43,10 @@ use = "Tyarel8/goto-drives"
 rev = "ea5ad4e"
 hash = "8f81ee91bc039adec835886a63a86671"
 
+[[plugin.deps]]
+use = "dedukun/bookmarks"
+rev = "9ef1254"
+hash = "fc77f2bd3aad78199fbe11b727b1954f"
+
 [flavor]
 deps = []
