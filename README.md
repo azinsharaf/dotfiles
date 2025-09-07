@@ -134,6 +134,20 @@ pipx install euporie
 - Install Win11 Toggle Rounded Corner: [GitHub Link](https://github.com/oberrich/win11-toggle-rounded-corners)
 - GDAL:
 
+```pwsh
+pixi init gdal-env
+cd gdal-env
+pixi add gdal libgdal-core
+```
+
+- PDAL:
+
+  ```pwsh
+  pixi init pdal-env
+  cd pdal-env
+  pixi add pdal
+  ```
+
 ## MacOS Setup
 
 ### Install Homebrew
