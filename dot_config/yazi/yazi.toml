@@ -184,7 +184,19 @@ run  = 'piper -- gdal raster info --format=json --input "$1"'
 
 [[plugin.prepend_previewers]]
 url = "*.gdb/"
-run  = 'piper -- gdal vector info --format=json --input "$1"'
+run  = 'piper -- gdal vector info --format text --input "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.shp"
+run  = 'piper -- gdal vector info --format text --input "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.las"
+run  = 'piper -- pdal info --stats "$1"'
+
+[[plugin.prepend_previewers]]
+url = "*.tif"
+run  = 'piper -- gdal raster info --format text "$1"'
 
 [[plugin.prepend_previewers]]
 url = "*/"
