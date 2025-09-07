@@ -87,12 +87,12 @@ keymap = [
 	{ on = "Z",         run = "plugin fzf",                  desc = "Jump to a file/directory via fzf" },
 
 	# Linemode
-	{ on = [ "m", "s" ], run = "linemode size",        desc = "Linemode: size" },
-	{ on = [ "m", "p" ], run = "linemode permissions", desc = "Linemode: permissions" },
-	{ on = [ "m", "b" ], run = "linemode btime",       desc = "Linemode: btime" },
-	{ on = [ "m", "m" ], run = "linemode mtime",       desc = "Linemode: mtime" },
-	{ on = [ "m", "o" ], run = "linemode owner",       desc = "Linemode: owner" },
-	{ on = [ "m", "n" ], run = "linemode none",        desc = "Linemode: none" },
+	# { on = [ "m", "s" ], run = "linemode size",        desc = "Linemode: size" },
+	# { on = [ "m", "p" ], run = "linemode permissions", desc = "Linemode: permissions" },
+	# { on = [ "m", "b" ], run = "linemode btime",       desc = "Linemode: btime" },
+	# { on = [ "m", "m" ], run = "linemode mtime",       desc = "Linemode: mtime" },
+	# { on = [ "m", "o" ], run = "linemode owner",       desc = "Linemode: owner" },
+	# { on = [ "m", "n" ], run = "linemode none",        desc = "Linemode: none" },
 
 	# Copy
 	{ on = [ "c", "c" ], run = "copy path",             desc = "Copy the file path" },
@@ -434,6 +434,28 @@ desc = "Yank selected file (copy) and file content"
 on   = "F"
 run  = "plugin smart-filter"
 desc = "Smart filter"
+
+# If your yazi version is lower than v25.5.28, repleace "mgr" by "manager".
+[[mgr.prepend_keymap]]
+on = [ "b", "a" ]
+run = "plugin bookmarks save"
+desc = "Add/Save current position as a bookmark"
+
+[[mgr.prepend_keymap]]
+on = ["b",  "j" ]
+run = "plugin bookmarks jump"
+desc = "Jump to a bookmark"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "d" ]
+run = "plugin bookmarks delete"
+desc = "Delete a bookmark"
+
+[[mgr.prepend_keymap]]
+on = [ "b", "D" ]
+run = "plugin bookmarks delete_all"
+desc = "Delete all bookmarks"
+
 
 # zoom only works on new version 
 # # zoom in
