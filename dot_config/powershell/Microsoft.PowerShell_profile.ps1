@@ -177,6 +177,18 @@ function ke
 {komorebic stop --ahk
 }
 
+function su
+{scoop update
+}
+
+function ss
+{scoop status
+}
+
+function sua
+{scoop update --all
+}
+
 function ai { aider --no-git --model ollama_chat/llama3.1:8b --chat-mode ask}
 
 function ai-deepseek { aider --model ollama_chat/deepseek-r1:8b --chat-mode architect ask}
