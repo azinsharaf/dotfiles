@@ -135,7 +135,7 @@ keymap = [
 	{ on = [ "g", "i" ],            run = "cd ~/iCloudDrive/", desc = "Go To iCloud Drive" },
 	{ on = [ "g", "w" ],            run = 'cd "~/OneDrive - Wood Rodgers Inc"', desc = "Go WR OneDrive" },
 	{ on = [ "g", "r" ],            run = "cd ~/Repos",         desc = "Go to Repos directory" },
-	{ on = [ "g", "d", "E" ],       run = "cd E:/",             desc = "Employee Drive" },
+	{ on = [ "g", "d", "E" ],       run = "cd E:/asharaf/WRPublic",             desc = "Employee Drive" },
 	{ on = [ "g", "d", "H" ],       run = "cd H:/",             desc = "H drive - SAC" },
 	{ on = [ "g", "d", "J" ],       run = "cd J:/Jobs/",        desc = "J drive - OAK" },
 	{ on = [ "g", "d", "K" ],       run = "cd K:/",             desc = "K drive - GIS" },
