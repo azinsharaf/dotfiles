@@ -21,7 +21,7 @@ dark-mode: true
 pretty: true
 
 ## Enable/disable streaming responses (default: True)
-stream: true
+stream: false
 
 user-input-color: "#A6E3A1" # Catppuccin green (Foreground)
 tool-output-color: "#89B4FA" # Catppuccin blue (Accent)
@@ -37,7 +37,7 @@ completion-menu-current-bg-color: "#302D41" # Catppuccin surface1 (Selection)
 git: true
 
 ## Enable/disable adding .aider* to .gitignore (default: True)
-gitignore: true
+gitignore: false
 
 ## Specify the aider ignore file (default: .aiderignore in git root)
 aiderignore: .aiderignore
@@ -46,19 +46,21 @@ aiderignore: .aiderignore
 subtree-only: false
 
 ## Enable/disable auto commit of LLM changes (default: True)
-auto-commits: false
+auto-commits: true
 
 ## Enable/disable commits when repo is found dirty (default: True)
 #dirty-commits: true
 
 ## Attribute aider code changes in the git author name (default: True)
-attribute-author: true
+attribute-author: false
 
 ## Attribute aider commits in the git committer name (default: True)
-attribute-committer: true
+attribute-committer: false
 
 ## Prefix commit messages with 'aider: ' if aider authored the changes (default: False)
 attribute-commit-message-author: false
+
+attribute-co-authored-by: false
 
 ## Prefix all commit messages with 'aider: ' (default: False)
 attribute-commit-message-committer: false
