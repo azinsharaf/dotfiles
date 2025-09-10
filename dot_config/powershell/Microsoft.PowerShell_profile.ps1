@@ -189,17 +189,10 @@ function sua
 {scoop update --all
 }
 
-function ai { aider --no-git --model ollama_chat/llama3.1:8b --chat-mode ask}
-
-function ai-deepseek { aider --model ollama_chat/deepseek-r1:8b --chat-mode architect ask}
-function ai-gemma { aider --model ollama_chat/gemma3:12b --chat-mode ask }
-function ai-qwen { aider --model ollama_chat/qwen2.5-coder:3b --chat-mode architect ask }
-function ai-llama { aider --model ollama_chat/llama3.1:8b --chat-mode ask }
-
-function ai-openai { aider --model gpt-4o --chat-mode ask }
-
-function ai-codegemma { aider --model ollama_chat/codegemma:7b --chat-mode architect --watch-files }
-function ai-codeqwen2.5 { aider --model ollama_chat/qwen2.5-coder:7b --chat-mode architect --watch-files }
+function ai { aider --model gpt-4o --chat-mode ask --no-git }
+function ai-openai { aider --model gpt-5-nano --chat-mode architect }
+function ai-deepseek-r1 { aider --model ollama_chat/deepseek-r1:latest --chat-mode architect --watch-files}
+function ai-llama3.1 { aider --model ollama_chat/llama3.1:latest --chat-mode architect --watch-files}
 
 function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
 
@@ -222,6 +215,12 @@ $Env:COLORTERM = 'truecolor'
 $Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
+
+# Auto-activate venv if it exists
+$venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.10\env-geopeek\Scripts\Activate.ps1"
+if (Test-Path $venvPath) {
+    & $venvPath
+}
 
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
