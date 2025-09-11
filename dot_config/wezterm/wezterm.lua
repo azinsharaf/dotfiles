@@ -34,32 +34,32 @@ local config = {
 	initial_rows = 30,
 	initial_cols = 100,
 	enable_scroll_bar = true, -- Enable scroll bar
-	front_end = "WebGpu",
-	webgpu_power_preference = "HighPerformance",
-	webgpu_preferred_adapter = (function()
-		if computer_name == "Azin-Desktop" then
-			return {
-				backend = "Vulkan",
-				device_type = "DiscreteGpu",
-				name = "NVIDIA GeForce RTX 4070 SUPER",
-			}
-		elseif computer_name == "Machine2" then
-			return {
-				backend = "Vulkan",
-				device_type = "DiscreteGpu",
-				name = "Another GPU Name",
-			}
-		else
-			return {
-				backend = "Vulkan",
-				device_type = "DiscreteGpu",
-				name = "Default GPU Name",
-			}
-		end
-	end)(),
+	-- front_end = "WebGpu",
+	-- webgpu_power_preference = "HighPerformance",
+	-- webgpu_preferred_adapter = (function()
+	-- 	if computer_name == "Azin-Desktop" then
+	-- 		return {
+	-- 			backend = "Vulkan",
+	-- 			device_type = "DiscreteGpu",
+	-- 			name = "NVIDIA GeForce RTX 4070 SUPER",
+	-- 		}
+	-- 	elseif computer_name == "Machine2" then
+	-- 		return {
+	-- 			backend = "Vulkan",
+	-- 			device_type = "DiscreteGpu",
+	-- 			name = "Another GPU Name",
+	-- 		}
+	-- 	else
+	-- 		return {
+	-- 			backend = "Vulkan",
+	-- 			device_type = "DiscreteGpu",
+	-- 			name = "Default GPU Name",
+	-- 		}
+	-- 	end
+	-- end)(),
 	max_fps = 240,
-	window_background_opacity = 0.7,
-	text_background_opacity = 0.7,
+	window_background_opacity = 0.8,
+	text_background_opacity = 0.8,
 }
 if detect_os() == "windows" then
 	config.default_prog = { "pwsh" }
