@@ -58,6 +58,8 @@ local config = {
 		end
 	end)(),
 	max_fps = 240,
+	window_background_opacity = 0.7,
+	text_background_opacity = 0.7,
 }
 if detect_os() == "windows" then
 	config.default_prog = { "pwsh" }
