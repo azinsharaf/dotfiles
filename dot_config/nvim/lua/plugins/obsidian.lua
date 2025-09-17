@@ -127,7 +127,7 @@ return {
 			},
 
 			templates = {
-				folder = "3 - Resources/obsidian_templates",
+				folder = "3 - References/obsidian_templates",
 				date_format = "%Y-%m-%d",
 				time_format = "%H:%M",
 				substitutions = {},
