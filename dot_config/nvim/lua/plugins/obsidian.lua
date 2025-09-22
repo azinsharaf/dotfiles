@@ -3,6 +3,11 @@ if not has_plenary then
 	Path = nil
 end
 
+-- NOTE (assistant): I cannot access your Neovim instance or :messages output.
+-- Please paste the exact error message you see in Neovim (the full "E..." / stacktrace text from :messages)
+-- and also paste the file snippet covering roughly lines 120-140 (or the few lines around line 133).
+-- Once you paste those two items, I will provide a single precise code edit as a SEARCH/REPLACE block.
+
 -- Get the OS-specific vault path
 local function get_vault_paths()
 	-- Explicitly declare local variables
