@@ -102,13 +102,24 @@ return {
 	},
 
 	config = function()
+		-- determine vaults and hostname to pick default workspace
+		local vaults = get_vault_paths()
+		local hostname = (vim.loop.os_uname().nodename or vim.env.COMPUTERNAME or ""):lower()
+
+		local default_workspace_name = "personal_notes"
+		if hostname:match("pc%-work") or hostname:match("work") then
+		  default_workspace_name = "work_notes"
+		end
+
+		local workspaces_map = {
+		  personal_notes = vaults.personal_notes,
+		  work_notes = vaults.work_notes,
+		}
+
 		-- Configure obsidian.nvim with the valid workspace
 		require("obsidian").setup({
 
-			workspaces = {
-				{ name = "personal_notes", path = get_vault_paths().personal_notes },
-				{ name = "work_notes", path = get_vault_paths().work_notes },
-			},
+			workspaces = workspaces_map,
 
 			-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
 			completion = {
@@ -189,6 +200,35 @@ return {
 				order = { " ", "x", "~", "!", ">" },
 			},
 		})
+
+		-- try to set the default workspace (handle different obsidian.nvim API names)
+		vim.defer_fn(function()
+		  local ok, obs = pcall(require, "obsidian")
+		  if not ok or not obs then
+		    return
+		  end
+
+		  local success, err = pcall(function()
+		    if type(obs.set_vault) == "function" then
+		      obs.set_vault(default_workspace_name)
+		    elseif type(obs.open_vault) == "function" then
+		      obs.open_vault(default_workspace_name)
+		    elseif type(obs.switch) == "function" then
+		      obs.switch(default_workspace_name)
+		    elseif type(obs.open) == "function" and workspaces_map[default_workspace_name] then
+		      obs.open({ dir = workspaces_map[default_workspace_name] })
+		    else
+		      error("no known API to set Obsidian workspace")
+		    end
+		  end)
+
+		  if not success then
+		    vim.schedule(function()
+		      vim.notify("Could not set default Obsidian workspace: " .. tostring(err), vim.log.levels.WARN)
+		    end)
+		  end
+		end, 50)
+
 	end,
 
 	keys = {
