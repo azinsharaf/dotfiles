@@ -1,12 +1,4 @@
-local has_plenary, Path = pcall(require, "plenary.path")
-if not has_plenary then
-	Path = nil
-end
-
--- NOTE (assistant): I cannot access your Neovim instance or :messages output.
--- Please paste the exact error message you see in Neovim (the full "E..." / stacktrace text from :messages)
--- and also paste the file snippet covering roughly lines 120-140 (or the few lines around line 133).
--- Once you paste those two items, I will provide a single precise code edit as a SEARCH/REPLACE block.
+local Path = require("plenary.path")
 
 -- Get the OS-specific vault path
 local function get_vault_paths()
@@ -16,23 +8,13 @@ local function get_vault_paths()
 
 	local os_name = vim.loop.os_uname().sysname
 	if os_name == "Windows_NT" then
-		local home = vim.env.USERPROFILE or ""
-		if Path then
-			obsidian_vault_personal = Path:new(home, "azin_notes"):absolute()
-			obsidian_vault_work = Path:new(home, "OneDrive - Wood Rodgers Inc", "5 - azin_obsidian_work"):absolute()
-		else
-			obsidian_vault_personal = home .. "\\azin_notes"
-			obsidian_vault_work = home .. "\\OneDrive - Wood Rodgers Inc\\5 - azin_obsidian_work"
-		end
+		obsidian_vault_personal = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute()
+		obsidian_vault_work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "5 - azin_obsidian_work")
+			:absolute()
 	else
-		local home = vim.fn.expand("~")
-		if Path then
-			obsidian_vault_personal = Path:new(home, "azin_notes"):absolute()
-			obsidian_vault_work = Path:new(home, "OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work"):absolute()
-		else
-			obsidian_vault_personal = home .. "/azin_notes"
-			obsidian_vault_work = home .. "/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work"
-		end
+		obsidian_vault_personal = Path:new(vim.fn.expand("~"), "azin_notes"):absolute()
+		obsidian_vault_work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work")
+			:absolute()
 	end
 
 	return {
@@ -53,7 +35,7 @@ local function git_push_obsidian()
 		-- end
 
 		local git_command = "cd "
-			.. vim.fn.shellescape(vault_path)
+			.. vault_path
 			.. " && git add . && git commit -m '"
 			.. name
 			.. " vault backup from Neovim: "
@@ -69,12 +51,12 @@ local function git_pull_obsidian()
 	local vault_paths = get_vault_paths()
 
 	for name, vault_path in pairs(vault_paths) do
-		local pull_output = vim.fn.system("cd " .. vim.fn.shellescape(vault_path) .. " && git pull")
+		local pull_output = vim.fn.system("cd " .. vault_path .. " && git pull")
 		print("Git Pull Output for " .. name .. ": " .. pull_output)
 
 		-- Reload the current buffer if it's inside any vault
 		local current_file = vim.fn.expand("%:p")
-		if current_file:sub(1, #vault_path) == vault_path then
+		if vim.startswith(current_file, vault_path) then
 			vim.cmd("edit!") -- Force reload the buffer
 			print("Buffer reloaded with latest changes for " .. name .. ".")
 		end
@@ -120,24 +102,13 @@ return {
 	},
 
 	config = function()
-		-- determine vaults and hostname to pick default workspace
-		local vaults = get_vault_paths()
-		local hostname = (vim.loop.os_uname().nodename or vim.env.COMPUTERNAME or ""):lower()
-
-		local default_workspace_name = "personal_notes"
-		if hostname:match("ws-oak512-007") then
-			default_workspace_name = "work_notes"
-		end
-
-		local workspaces_map = {
-			personal_notes = vaults.personal_notes,
-			work_notes = vaults.work_notes,
-		}
-
 		-- Configure obsidian.nvim with the valid workspace
 		require("obsidian").setup({
 
-			workspaces = workspaces_map,
+			workspaces = {
+				{ name = "personal_notes", path = get_vault_paths().personal_notes },
+				{ name = "work_notes", path = get_vault_paths().work_notes },
+			},
 
 			-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
 			completion = {
@@ -170,7 +141,7 @@ return {
 			-- Optional, configure additional syntax highlighting / extmarks.
 			-- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
 			ui = {
-				enable = true, -- set to false to disable all additional syntax features
+				enable = false, -- set to false to disable all additional syntax features
 				update_debounce = 200, -- update delay after a text change (in milliseconds)
 				max_file_length = 5000, -- disable UI features for files with more than this many lines
 				-- Define how various check-boxes are displayed
@@ -211,35 +182,13 @@ return {
 					ObsidianHighlightText = { bg = "#75662e" },
 				},
 			},
+
+			checkbox = {
+				enabled = true,
+				create_new = true,
+				order = { " ", "x", "~", "!", ">" },
+			},
 		})
-
-		-- try to set the default workspace (handle different obsidian.nvim API names)
-		vim.defer_fn(function()
-			local ok, obs = pcall(require, "obsidian")
-			if not ok or not obs then
-				return
-			end
-
-			local success, err = pcall(function()
-				if type(obs.set_vault) == "function" then
-					obs.set_vault(default_workspace_name)
-				elseif type(obs.open_vault) == "function" then
-					obs.open_vault(default_workspace_name)
-				elseif type(obs.switch) == "function" then
-					obs.switch(default_workspace_name)
-				elseif type(obs.open) == "function" and workspaces_map[default_workspace_name] then
-					obs.open({ dir = workspaces_map[default_workspace_name] })
-				else
-					error("no known API to set Obsidian workspace")
-				end
-			end)
-
-			if not success then
-				vim.schedule(function()
-					vim.notify("Could not set default Obsidian workspace: " .. tostring(err), vim.log.levels.WARN)
-				end)
-			end
-		end, 50)
 	end,
 
 	keys = {
@@ -249,7 +198,7 @@ return {
 		{ "<leader>o#", "<cmd>Obsidian tags<cr>", desc = "Obsidian Tags" },
 		{ "<leader>ot", "<cmd>Obsidian today<cr>", desc = "Obsidian Today" },
 		{ "<leader>oy", "<cmd>Obsidian yesterday<cr>", desc = "Obsidian Yesterday" },
-		{ "<leader>os", "<cmd>Obsidian search<cr>", desc = "Obsidian Search Word" },
+		{ "<leader>ow", "<cmd>Obsidian search<cr>", desc = "Obsidian Search Word" },
 		{ "<leader>ow", "<cmd>Obsidian workspace<cr>", desc = "Obsidian Workspace" },
 		{ "<leader>ou", "<cmd>GitPullObsidian<cr>", desc = "Obsidian Git Pull" },
 		{ "<leader>op", "<cmd>GitPushObsidian<cr>", desc = "Obsidian Git Push" },
