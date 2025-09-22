@@ -1,6 +1,6 @@
 local has_plenary, Path = pcall(require, "plenary.path")
 if not has_plenary then
-  Path = nil
+	Path = nil
 end
 
 -- Get the OS-specific vault path
@@ -47,7 +47,8 @@ local function git_push_obsidian()
 		-- 	return
 		-- end
 
-		local git_command = "cd " .. vim.fn.shellescape(vault_path)
+		local git_command = "cd "
+			.. vim.fn.shellescape(vault_path)
 			.. " && git add . && git commit -m '"
 			.. name
 			.. " vault backup from Neovim: "
