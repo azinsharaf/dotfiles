@@ -35,6 +35,7 @@ local config = {
 	initial_rows = 30,
 	initial_cols = 100,
 	enable_scroll_bar = true, -- Enable scroll bar
+	scrollback_lines = 10000,
 	-- front_end = "WebGpu",
 	-- webgpu_power_preference = "HighPerformance",
 	-- webgpu_preferred_adapter = (function()
