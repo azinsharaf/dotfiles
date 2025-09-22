@@ -24,6 +24,7 @@ local config = {
 	hide_tab_bar_if_only_one_tab = true, -- Hide the tab bar if there's only one tab
 	tab_bar_at_bottom = true, -- Move the tab bar to the bottom
 	use_fancy_tab_bar = true, -- Enable fancy tab bar
+	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE", -- Remove the title bar
 	window_padding = {
 		left = 5,
