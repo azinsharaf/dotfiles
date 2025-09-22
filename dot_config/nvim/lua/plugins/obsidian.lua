@@ -93,7 +93,6 @@ vim.api.nvim_create_user_command("GitPushObsidian", git_push_obsidian, {})
 return {
 	"obsidian-nvim/obsidian.nvim",
 	enabled = true,
-	version = "*", -- recommended, use latest release instead of latest commit
 	lazy = false,
 	ft = "markdown",
 	dependencies = {
@@ -183,19 +182,24 @@ return {
 					ObsidianHighlightText = { bg = "#75662e" },
 				},
 			},
+
+			checkbox = {
+				enabled = true,
+				create_new = true,
+				order = { " ", "x", "~", "!", ">" },
+			},
 		})
 	end,
 
 	keys = {
-		{ "<leader>oa", "<cmd>ObsidianOpen<cr>", desc = "Open in Obsidian App" },
-		{ "<leader>on", "<cmd>ObsidianNew<cr>", desc = "Obsidian New" },
-		{ "<leader>oo", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian Quick Switch" },
-		{ "<leader>ol", "<cmd>ObsidianFollowLink<cr>", desc = "Obsidian Folow Link" },
-		{ "<leader>og", "<cmd>ObsidianTags<cr>", desc = "Obsidian Tags" },
-		{ "<leader>ot", "<cmd>ObsidianToday<cr>", desc = "Obsidian Today" },
-		{ "<leader>of", "<cmd>ObsidianSearch<cr>", desc = "Obsidian Search Word" },
-		{ "<leader>ow", "<cmd>ObsidianWorkspace<cr>", desc = "Obsidian Workspace" },
-		-- { "<leader>op", "<cmd>ObsidianTemplate<cr>", desc = "Obsidian Templates" },
+		{ "<leader>oa", "<cmd>Obsidian open<cr>", desc = "Open in Obsidian App" },
+		{ "<leader>on", "<cmd>Obsidian new<cr>", desc = "Obsidian New" },
+		{ "<leader>oo", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian Quick Switch" },
+		{ "<leader>o#", "<cmd>Obsidian tags<cr>", desc = "Obsidian Tags" },
+		{ "<leader>ot", "<cmd>Obsidian today<cr>", desc = "Obsidian Today" },
+		{ "<leader>oy", "<cmd>Obsidian yesterday<cr>", desc = "Obsidian Yesterday" },
+		{ "<leader>ow", "<cmd>Obsidian search<cr>", desc = "Obsidian Search Word" },
+		{ "<leader>ow", "<cmd>Obsidian workspace<cr>", desc = "Obsidian Workspace" },
 		{ "<leader>ou", "<cmd>GitPullObsidian<cr>", desc = "Obsidian Git Pull" },
 		{ "<leader>op", "<cmd>GitPushObsidian<cr>", desc = "Obsidian Git Push" },
 	},
