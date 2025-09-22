@@ -1,4 +1,7 @@
-local Path = require("plenary.path")
+local has_plenary, Path = pcall(require, "plenary.path")
+if not has_plenary then
+  Path = nil
+end
 
 -- Get the OS-specific vault path
 local function get_vault_paths()
@@ -8,13 +11,23 @@ local function get_vault_paths()
 
 	local os_name = vim.loop.os_uname().sysname
 	if os_name == "Windows_NT" then
-		obsidian_vault_personal = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute()
-		obsidian_vault_work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "5 - azin_obsidian_work")
-			:absolute()
+		local home = vim.env.USERPROFILE or ""
+		if Path then
+			obsidian_vault_personal = Path:new(home, "azin_notes"):absolute()
+			obsidian_vault_work = Path:new(home, "OneDrive - Wood Rodgers Inc", "5 - azin_obsidian_work"):absolute()
+		else
+			obsidian_vault_personal = home .. "\\azin_notes"
+			obsidian_vault_work = home .. "\\OneDrive - Wood Rodgers Inc\\5 - azin_obsidian_work"
+		end
 	else
-		obsidian_vault_personal = Path:new(vim.fn.expand("~"), "azin_notes"):absolute()
-		obsidian_vault_work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work")
-			:absolute()
+		local home = vim.fn.expand("~")
+		if Path then
+			obsidian_vault_personal = Path:new(home, "azin_notes"):absolute()
+			obsidian_vault_work = Path:new(home, "OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work"):absolute()
+		else
+			obsidian_vault_personal = home .. "/azin_notes"
+			obsidian_vault_work = home .. "/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work"
+		end
 	end
 
 	return {
@@ -34,8 +47,7 @@ local function git_push_obsidian()
 		-- 	return
 		-- end
 
-		local git_command = "cd "
-			.. vault_path
+		local git_command = "cd " .. vim.fn.shellescape(vault_path)
 			.. " && git add . && git commit -m '"
 			.. name
 			.. " vault backup from Neovim: "
@@ -51,12 +63,12 @@ local function git_pull_obsidian()
 	local vault_paths = get_vault_paths()
 
 	for name, vault_path in pairs(vault_paths) do
-		local pull_output = vim.fn.system("cd " .. vault_path .. " && git pull")
+		local pull_output = vim.fn.system("cd " .. vim.fn.shellescape(vault_path) .. " && git pull")
 		print("Git Pull Output for " .. name .. ": " .. pull_output)
 
 		-- Reload the current buffer if it's inside any vault
 		local current_file = vim.fn.expand("%:p")
-		if vim.startswith(current_file, vault_path) then
+		if current_file:sub(1, #vault_path) == vault_path then
 			vim.cmd("edit!") -- Force reload the buffer
 			print("Buffer reloaded with latest changes for " .. name .. ".")
 		end
@@ -237,7 +249,7 @@ return {
 		{ "<leader>o#", "<cmd>Obsidian tags<cr>", desc = "Obsidian Tags" },
 		{ "<leader>ot", "<cmd>Obsidian today<cr>", desc = "Obsidian Today" },
 		{ "<leader>oy", "<cmd>Obsidian yesterday<cr>", desc = "Obsidian Yesterday" },
-		{ "<leader>ow", "<cmd>Obsidian search<cr>", desc = "Obsidian Search Word" },
+		{ "<leader>os", "<cmd>Obsidian search<cr>", desc = "Obsidian Search Word" },
 		{ "<leader>ow", "<cmd>Obsidian workspace<cr>", desc = "Obsidian Workspace" },
 		{ "<leader>ou", "<cmd>GitPullObsidian<cr>", desc = "Obsidian Git Pull" },
 		{ "<leader>op", "<cmd>GitPushObsidian<cr>", desc = "Obsidian Git Push" },
