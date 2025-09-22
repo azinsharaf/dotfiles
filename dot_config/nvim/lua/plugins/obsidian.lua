@@ -206,12 +206,6 @@ return {
 					ObsidianHighlightText = { bg = "#75662e" },
 				},
 			},
-
-			checkbox = {
-				enabled = true,
-				create_new = true,
-				order = { " ", "x", "~", "!", ">" },
-			},
 		})
 
 		-- try to set the default workspace (handle different obsidian.nvim API names)
