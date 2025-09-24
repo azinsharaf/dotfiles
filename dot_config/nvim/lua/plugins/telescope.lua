@@ -1,6 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
+	tag = "0.1.8",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		-- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -34,6 +34,10 @@ return {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, --move to prev result
 						["<C-j>"] = actions.move_selection_next, --move to next result
+						-- map actions.which_key to <C-h> (default: <C-/>)
+						-- actions.which_key shows the mappings for your picker,
+						-- e.g. git_{create, delete, ...}_branch for the git_branches picker
+						["<C-h>"] = "which_key",
 					},
 				},
 			},
