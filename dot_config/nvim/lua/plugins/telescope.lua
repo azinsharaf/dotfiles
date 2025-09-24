@@ -1,6 +1,8 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.8",
+	enabled = true,
+	event = "VeryLazy",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		-- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -17,6 +19,8 @@ return {
 		},
 		{
 			"nvim-tree/nvim-web-devicons",
+			enabled = true,
+			event = "VeryLazy",
 		},
 
 		{

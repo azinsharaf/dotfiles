@@ -1,6 +1,7 @@
 return {
 	"fgheng/winbar.nvim",
 	enabled = true,
+	event = "VeryLazy",
 	config = function()
 		require("winbar").setup({
 			show_file_path = false,
