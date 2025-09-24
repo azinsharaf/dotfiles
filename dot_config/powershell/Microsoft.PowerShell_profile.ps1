@@ -189,6 +189,19 @@ function sua
 {scoop update --all
 }
 
+function Get-UncPath {
+    param([string]$Path)
+
+    $resolved = Convert-Path $Path
+    $drive = $resolved.Substring(0,2)
+    $unc   = (Get-WmiObject Win32_LogicalDisk -Filter "DeviceID='$drive'").ProviderName
+    if ($unc) {
+        return $resolved.Replace($drive, $unc)
+    } else {
+        return $resolved
+    }
+}
+
 function ai { aider --model gpt-5 --chat-mode ask --no-git }
 function ai-openai { aider --model gpt-5-mini --chat-mode architect --watch-files }
 function ai-deepseek-r1 { aider --model ollama_chat/deepseek-r1:latest --chat-mode architect --watch-files}
