@@ -189,8 +189,8 @@ function sua
 {scoop update --all
 }
 
-function ai { aider --model gpt-4o --chat-mode ask --no-git }
-function ai-openai { aider --model gpt-5-mini --chat-mode architect }
+function ai { aider --model gpt-5 --chat-mode ask --no-git }
+function ai-openai { aider --model gpt-5-mini --chat-mode architect --watch-files }
 function ai-deepseek-r1 { aider --model ollama_chat/deepseek-r1:latest --chat-mode architect --watch-files}
 function ai-llama3.1 { aider --model ollama_chat/llama3.1:latest --chat-mode architect --watch-files}
 
