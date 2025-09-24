@@ -1,37 +1,37 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "d7588f6"
+rev = "d1c8baa"
 hash = "b16b6e08085a3dfec72335415e4c83ed"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "d7588f6"
+rev = "d1c8baa"
 hash = "e65e6528de15012b5ccdead4ed26b8bd"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "d7588f6"
-hash = "64840ece97735b4a4b5bb4ddd412013d"
+rev = "d1c8baa"
+hash = "2aada555b792eb4d44dd267097957577"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "d7588f6"
-hash = "99010fbcbfa7dd1cc4c2dece198e2f09"
+rev = "d1c8baa"
+hash = "49c87cb75bf9ddf893a2213928d29d68"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "d7588f6"
-hash = "311ae0f43071af72443a93e3f4e4612c"
+rev = "d1c8baa"
+hash = "5f76a476ea416c9f379a1a451bdcd3d2"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "d7588f6"
-hash = "e671ad6617800ea6adae1ede7930c105"
+rev = "d1c8baa"
+hash = "e24c3fe3f4e8eadb66f9cd41da6c9e58"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:zoom"
-rev = "d7588f6"
-hash = "6a802572270653c14379ab6acf800787"
+rev = "d1c8baa"
+hash = "91bf6f0332ee6d72eab0dc2e64382021"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
