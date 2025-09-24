@@ -1,9 +1,3 @@
--- Function to get Codeium status
-local function get_codeium_status()
-	local ok, status = pcall(vim.api.nvim_call_function, "codeium#GetStatusString", {})
-	return ok and status or ""
-end
-
 local config = function()
 	require("lualine").setup({
 		options = {
@@ -45,7 +39,7 @@ local config = function()
 				-- },
 			},
 
-			lualine_x = { get_codeium_status, "fileformat", "filetype" },
+			lualine_x = { "fileformat", "filetype" },
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
 		},
@@ -66,7 +60,8 @@ end
 
 return {
 	"nvim-lualine/lualine.nvim",
+	enabled = true,
+	event = "VeryLazy",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	lazy = false,
 	config = config,
 }
