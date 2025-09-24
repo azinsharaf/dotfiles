@@ -1,5 +1,6 @@
 return {
 	"nvim-tree/nvim-web-devicons",
+	enabled = true,
 	event = "VeryLazy",
 	opts = {
 		-- your configuration comes here
