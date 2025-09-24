@@ -5,6 +5,7 @@
 [mgr]
 
 keymap = [
+
 	{ on = "<Esc>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = "<C-[>", run = "escape",             desc = "Exit visual mode, clear selected, or cancel search" },
 	{ on = "q",     run = "quit",               desc = "Quit the process" },
@@ -99,6 +100,7 @@ keymap = [
 	{ on = [ "c", "d" ], run = "copy dirname",          desc = "Copy the directory path" },
 	{ on = [ "c", "f" ], run = "copy filename",         desc = "Copy the filename" },
 	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
+    { on = ["c", "u"],   run = "shell -- pwsh -NoProfile -Command \"$path = Convert-Path '%0'; $drive = $path.Substring(0,2); $unc = (Get-WmiObject Win32_LogicalDisk -Filter \\\"DeviceID='$drive'\\\").ProviderName; Set-Clipboard -Value ($path.Replace($drive, $unc))\"",                              desc = "Copy UNC path to clipboard"},
 
 	# Filter
 	{ on = "f", run = "filter --smart", desc = "Filter files" },
@@ -356,7 +358,7 @@ keymap = [
 	{ on = "<F1>", run = "help", desc = "Open help" },
 ]
 
-[completion]
+[cmp]
 
 keymap = [
 	{ on = "<C-c>",   run = "close",                                      desc = "Cancel completion" },
