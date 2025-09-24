@@ -187,7 +187,7 @@ return {
 		{ "<leader>ow", "<cmd>Obsidian search<cr>", desc = "Obsidian Search Word" },
 		{ "<leader>ow", "<cmd>Obsidian workspace<cr>", desc = "Obsidian Workspace" },
 		{ "<leader>oc", "<cmd>Obsidian toggle_checkbox<cr>", desc = "Toggle Checkbox" },
-		{ "<leader>ou", "<cmd>GitPullObsidian<cr>", desc = "Obsidian Git Pull" },
-		{ "<leader>op", "<cmd>GitPushObsidian<cr>", desc = "Obsidian Git Push" },
+		{ "<leader>op", "<cmd>GitPullObsidian<cr>", desc = "Obsidian Git Pull" },
+		{ "<leader>oP", "<cmd>GitPushObsidian<cr>", desc = "Obsidian Git Push" },
 	},
 }
