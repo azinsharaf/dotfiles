@@ -93,7 +93,7 @@ vim.api.nvim_create_user_command("GitPushObsidian", git_push_obsidian, {})
 return {
 	"obsidian-nvim/obsidian.nvim",
 	enabled = true,
-	lazy = false,
+	event = "VeryLazy",
 	ft = "markdown",
 	dependencies = {
 		-- Required.
