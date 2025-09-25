@@ -6,7 +6,7 @@
 ratio          = [ 1, 4, 3 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
-sort_reverse 	 = false
+sort_reverse   = false
 sort_dir_first = true
 sort_translit  = false
 linemode       = "size_and_mtime"
@@ -23,7 +23,7 @@ max_width       = 1000
 max_height      = 1000
 cache_dir       = ""
 image_delay     = 30
-image_filter    = "triangle"
+image_filter    = "catmull-rom"
 image_quality   = 75
 sixel_fraction  = 15
 ueberzug_scale  = 1
@@ -46,6 +46,7 @@ reveal = [
 	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
 	{ run = 'termux-open "$(dirname "$1")"',        desc = "Reveal", for = "android" },
 	{ run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+    { run = '''pwsh -NoProfile -Command "exiftool -common '%1'; Write-Host 'Press Enter...'; [void][System.Console]::ReadLine()"''', block = true, desc = "Show EXIF", for = "windows" },
 ]
 extract = [
 	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
@@ -221,7 +222,7 @@ append_spotters = [
 ]
 
 [input]
-cursor_blink = false
+cursor_blink = true
 
 # cd
 cd_title  = "Change directory:"
