@@ -57,8 +57,8 @@ keymap = [
 	{ on = "J", run = "seek 5",  desc = "Seek down 5 units in the preview" },
 
 	# Spotting
-	# { on = "<Tab>", run = "spot", desc = "Spot hovered file" },
-	{ on = "<Tab>", run = "file-extra-metadata", desc = "file-extra-metadata" },
+	{ on = "<Tab>", run = "spot", desc = "Spot hovered file" },
+	# { on = "<Tab>", run = "file-extra-metadata", desc = "file-extra-metadata" },
 
 	# Operation
 	{ on = "o",         run = "open",                        desc = "Open selected files" },
