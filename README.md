@@ -120,6 +120,7 @@ scoop install main/pixi # python package management tool
 scoop install dua # disk usage analyzer
 scoop install exiftool # get the metadata of pictures
 scoop install mediainfo # get the metadata of videos
+scoop install less
 ```
 
 #### Additional Tools
