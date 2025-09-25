@@ -203,6 +203,11 @@ run  = 'piper -- gdal raster info --format text "$1"'
 url = "*/"
 run  = 'piper -- eza -TL=2 --color always --icons=always --group-directories-first --no-quotes "$1"'
 
+
+[[plugin.append_previewers]]
+url = "*.docx"
+run  = 'piper -- pandoc -t markdown "$1" | glow'
+
 [[plugin.append_previewers]]
 url = "*"
 run  = 'piper -- hexyl --border=none "$1"'
