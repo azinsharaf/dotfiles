@@ -206,7 +206,7 @@ run  = 'piper -- eza -TL=2 --color always --icons=always --group-directories-fir
 
 [[plugin.append_previewers]]
 url = "*.docx"
-run  = 'piper -- pandoc -t markdown "$1" | glow'
+run  = 'piper -- pandoc -t markdown "$1" | CLICOLOR_FORCE=1 glow -w=$w -s=dark -'
 
 [[plugin.append_previewers]]
 url = "*"
