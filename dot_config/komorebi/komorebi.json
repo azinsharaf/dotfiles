@@ -34,7 +34,7 @@
     "style": "Linear",
     "fps": 200
   },
-  "transparency": true,
+  "transparency": false,
   "transparency_alpha": 253,
   "border_overflow_applications": [],
 
