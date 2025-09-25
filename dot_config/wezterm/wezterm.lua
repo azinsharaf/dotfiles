@@ -10,10 +10,6 @@ local function detect_os()
 	end
 end
 
-if detect_os() == "macos" then
-	config.default_prog = { "/bin/zsh" }
-end
-
 local computer_name = os.getenv("COMPUTERNAME") or os.getenv("HOSTNAME")
 
 local config = {
@@ -61,13 +57,14 @@ local config = {
 	-- 	end
 	-- end)(),
 	max_fps = 240,
-	window_background_opacity = 0.9,
-	text_background_opacity = 0.9,
+	window_background_opacity = 0.8,
+	text_background_opacity = 0.8,
 	default_workspace = "~",
 	status_update_interval = 1000,
 }
 if detect_os() == "windows" then
 	config.default_prog = { "pwsh" }
+elseif detect_os() == "macos" then
+	config.default_prog = { "/bin/zsh" }
 end
-
 return config
