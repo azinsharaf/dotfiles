@@ -180,6 +180,11 @@ config.keys = {
 -- this is called by the mux server when it starts up.
 -- It makes a window split top/bottom
 wezterm.on("mux-startup", function()
+	local mux = wezterm.mux
+	if mux == nil then
+		-- If mux is not available for some reason, do nothing.
+		return
+	end
 	local tab, pane, window = mux.spawn_window({})
 	pane:split({ direction = "Top" })
 end)
