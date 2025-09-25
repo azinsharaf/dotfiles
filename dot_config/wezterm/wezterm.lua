@@ -2,6 +2,45 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local mux = wezterm.mux
 
+-- helper to create / switch to a "python" workspace with a left nvim pane,
+-- right-top "ai-openai" and right-bottom "yazi"
+local function ensure_python_workspace(gui_window)
+  local ws_name = "python"
+
+  -- If workspace already has a window, just switch to it
+  for _, w in ipairs(mux.get_windows()) do
+    if w:active_workspace() == ws_name then
+      -- switch the GUI window to the workspace
+      gui_window:perform_action(act.SwitchToWorkspace({ name = ws_name }), gui_window)
+      return
+    end
+  end
+
+  -- Spawn a new window belonging to the workspace, with nvim on the left.
+  -- Use "bash -lc" so shell aliases/funcs are available; on Windows replace with pwsh -NoLogo -Command if needed.
+  local tab, left_pane, new_window = mux.spawn_window({
+    workspace = ws_name,
+    args = { "bash", "-lc", "nvim" },
+  })
+
+  -- Split the left pane to the right (create the right column) and run ai-openai in the top-right pane
+  local right_top = left_pane:split({
+    direction = "Right",
+    size = 0.5,
+    args = { "bash", "-lc", "ai-openai" },
+  })
+
+  -- Split the right_top pane down to create the bottom-right pane, run yazi there
+  right_top:split({
+    direction = "Down",
+    size = 0.5,
+    args = { "bash", "-lc", "yazi" },
+  })
+
+  -- Finally switch the GUI to the newly-created workspace
+  gui_window:perform_action(act.SwitchToWorkspace({ name = ws_name }), gui_window)
+end
+
 local function detect_os()
 	local target = wezterm.target_triple
 	if target:find("windows") then
@@ -116,6 +155,14 @@ config.keys = {
 		}),
 	},
 	{ key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ShowLauncher },
+	-- Create/switch to the python workspace (left: nvim; right-top: ai-openai; right-bottom: yazi)
+	{
+		key = "p",
+		mods = "CTRL|SHIFT",
+		action = act.Callback(function(win, pane)
+			ensure_python_workspace(win)
+		end),
+	},
 }
 
 -- gui startup
