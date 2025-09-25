@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local act = wezterm.action
 local mux = wezterm.mux
 
 local function detect_os()
@@ -67,4 +68,75 @@ if detect_os() == "windows" then
 elseif detect_os() == "macos" then
 	config.default_prog = { "/bin/zsh" }
 end
+
+-- switch to workspace
+wezterm.on("update-right-status", function(window, pane)
+	window:set_right_status(window:active_workspace())
+end)
+
+config.keys = {
+	-- Switch to the default workspace
+	{
+		key = "y",
+		mods = "CTRL|SHIFT",
+		action = act.SwitchToWorkspace({
+			name = "default",
+		}),
+	},
+	-- Switch to a monitoring workspace, which will have `top` launched into it
+	{
+		key = "b",
+		mods = "CTRL|SHIFT",
+		action = act.SwitchToWorkspace({
+			name = "monitoring",
+			spawn = {
+				args = { "btop" },
+			},
+		}),
+	},
+	{
+		key = "n",
+		mods = "CTRL|SHIFT",
+		action = act.SwitchToWorkspace({
+			name = "neovim",
+			spawn = {
+				args = { "nvim" },
+			},
+		}),
+	},
+	-- Create a new workspace with a random name and switch to it
+	{ key = "i", mods = "CTRL|SHIFT", action = act.SwitchToWorkspace },
+	-- Show the launcher in fuzzy selection mode and have it list all workspaces
+	-- and allow activating one.
+	{
+		key = "9",
+		mods = "CTRL",
+		action = act.ShowLauncherArgs({
+			flags = "FUZZY|WORKSPACES|TABS",
+		}),
+	},
+	{ key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ShowLauncher },
+}
+
+-- gui startup
+-- wezterm.on("gui-startup", function(cmd)
+-- 	local tab, pane, window = mux.spawn_window(cmd or {})
+-- 	-- Create a split occupying the right 1/3 of the screen
+-- 	pane:split({ size = 0.3 })
+-- 	-- Create another split in the right of the remaining 2/3
+-- 	-- of the space; the resultant split is in the middle
+-- 	-- 1/3 of the display and has the focus.
+-- 	pane:split({ size = 0.5 })
+-- end)
+--
+
+-- mux startup
+
+-- this is called by the mux server when it starts up.
+-- It makes a window split top/bottom
+wezterm.on("mux-startup", function()
+	local tab, pane, window = mux.spawn_window({})
+	pane:split({ direction = "Top" })
+end)
+
 return config
