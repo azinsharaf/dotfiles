@@ -1,11 +1,19 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local mux = wezterm.mux
 
 -- helper to create / switch to a "python" workspace with a left nvim pane,
 -- right-top "ai-openai" and right-bottom "yazi"
 local function ensure_python_workspace(gui_window)
 	local ws_name = "python"
+
+	local mux = wezterm.mux
+	if mux == nil then
+		-- mux is not available (we're running in the GUI process at this moment).
+		-- Fall back to switching to the workspace; if it doesn't exist, SwitchToWorkspace
+		-- with only a name will create/activate it (but will not create the custom pane layout).
+		gui_window:perform_action(act.SwitchToWorkspace({ name = ws_name }), gui_window)
+		return
+	end
 
 	-- If workspace already has a window, just switch to it
 	for _, w in ipairs(mux.get_windows()) do
