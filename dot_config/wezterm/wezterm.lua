@@ -57,66 +57,66 @@ end
 
 -- workspace helpers ---------------------------------------------------------
 local function get_workspace_list()
-  local mux = wezterm.mux
-  local seen = {}
-  local list = {}
-  for _, w in ipairs(mux.get_windows()) do
-    local ws = w:active_workspace()
-    if ws and ws ~= "" and not seen[ws] then
-      seen[ws] = true
-      table.insert(list, ws)
-    end
-  end
-  table.sort(list)
-  return list
+	local mux = wezterm.mux
+	local seen = {}
+	local list = {}
+	for _, w in ipairs(mux.get_windows()) do
+		local ws = w:active_workspace()
+		if ws and ws ~= "" and not seen[ws] then
+			seen[ws] = true
+			table.insert(list, ws)
+		end
+	end
+	table.sort(list)
+	return list
 end
 
 local function switch_to_workspace_by_index(window, delta)
-  local list = get_workspace_list()
-  if #list == 0 then
-    return
-  end
-  local current = window:active_workspace() or ""
-  local idx = 1
-  for i, name in ipairs(list) do
-    if name == current then
-      idx = i
-      break
-    end
-  end
-  local next_idx = ((idx - 1 + delta) % #list) + 1
-  local target = list[next_idx]
-  window:perform_action(act.SwitchToWorkspace({ name = target }), window)
+	local list = get_workspace_list()
+	if #list == 0 then
+		return
+	end
+	local current = window:active_workspace() or ""
+	local idx = 1
+	for i, name in ipairs(list) do
+		if name == current then
+			idx = i
+			break
+		end
+	end
+	local next_idx = ((idx - 1 + delta) % #list) + 1
+	local target = list[next_idx]
+	window:perform_action(act.SwitchToWorkspace({ name = target }), window)
 end
 
 local function create_timestamped_workspace(window)
-  local name = "ws-" .. os.date("%Y%m%d%H%M%S")
-  -- spawn a shell in the new workspace
-  window:perform_action(
-    act.SwitchToWorkspace({
-      name = name,
-      spawn = { args = shell_for_os() },
-    }),
-    window
-  )
+	local name = "ws-" .. os.date("%Y%m%d%H%M%S")
+	-- spawn a shell in the new workspace
+	window:perform_action(
+		act.SwitchToWorkspace({
+			name = name,
+			spawn = { args = shell_for_os() },
+		}),
+		window
+	)
 end
 
 local function close_current_workspace(window)
-  -- Best-effort: close every window that reports the same active workspace.
-  -- Closing is performed by instructing each window to close its active tab.
-  -- Note: this will close all windows/tabs in this workspace; confirm dialogs suppressed.
-  local mux = wezterm.mux
-  local ws = window:active_workspace()
-  if not ws or ws == "" or ws == "default" then
-    -- Don't close default workspace (safety)
-    return
-  end
-  for _, w in ipairs(mux.get_windows()) do
-    if w:active_workspace() == ws then
-      -- perform close without confirm
-      w:perform_action(act.CloseCurrentTab({ confirm = false }), w)
-    end
-  end
+	-- Best-effort: close every window that reports the same active workspace.
+	-- Closing is performed by instructing each window to close its active tab.
+	-- Note: this will close all windows/tabs in this workspace; confirm dialogs suppressed.
+	local mux = wezterm.mux
+	local ws = window:active_workspace()
+	if not ws or ws == "" or ws == "default" then
+		-- Don't close default workspace (safety)
+		return
+	end
+	for _, w in ipairs(mux.get_windows()) do
+		if w:active_workspace() == ws then
+			-- perform close without confirm
+			w:perform_action(act.CloseCurrentTab({ confirm = false }), w)
+		end
+	end
 end
 -- end workspace helpers -----------------------------------------------------
 
@@ -241,7 +241,8 @@ local computer_name = os.getenv("COMPUTERNAME") or os.getenv("HOSTNAME")
 
 local config = {
 	-- Import configurations from other files
-	keys = require("keybindings"),
+	-- keys = require("keybindings"),
+	disable_default_key_bindings = true,
 	font = require("fonts"),
 	color_scheme = require("colors"),
 	-- Appearance settings
@@ -341,82 +342,82 @@ config.keys = {
 
 	-- Cycle to next workspace
 	{
-	  key = "Right",
-	  mods = "CTRL|SHIFT",
-	  action = wezterm.action_callback(function(win, pane)
-	    switch_to_workspace_by_index(win, 1)
-	  end),
+		key = "Right",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action_callback(function(win, pane)
+			switch_to_workspace_by_index(win, 1)
+		end),
 	},
 
 	-- Cycle to previous workspace
 	{
-	  key = "Left",
-	  mods = "CTRL|SHIFT",
-	  action = wezterm.action_callback(function(win, pane)
-	    switch_to_workspace_by_index(win, -1)
-	  end),
+		key = "Left",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action_callback(function(win, pane)
+			switch_to_workspace_by_index(win, -1)
+		end),
 	},
 
 	-- Create a new timestamped workspace (spawns a shell)
 	{
-	  key = "N",
-	  mods = "CTRL|SHIFT",
-	  action = wezterm.action_callback(function(win, pane)
-	    create_timestamped_workspace(win)
-	  end),
+		key = "N",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action_callback(function(win, pane)
+			create_timestamped_workspace(win)
+		end),
 	},
 
 	-- Close the current workspace (best-effort)
 	{
-	  key = "W",
-	  mods = "CTRL|SHIFT",
-	  action = wezterm.action_callback(function(win, pane)
-	    close_current_workspace(win)
-	  end),
+		key = "W",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action_callback(function(win, pane)
+			close_current_workspace(win)
+		end),
 	},
 
 	-- Move focus between panes with Ctrl+Shift + H/J/K/L (use uppercase to override builtins)
 	{
-	  key = "H",
-	  mods = "CTRL|SHIFT",
-	  action = act.ActivatePaneDirection("Left"),
+		key = "H",
+		mods = "CTRL|SHIFT",
+		action = act.ActivatePaneDirection("Left"),
 	},
 	{
-	  key = "J",
-	  mods = "CTRL|SHIFT",
-	  action = act.ActivatePaneDirection("Down"),
+		key = "J",
+		mods = "CTRL|SHIFT",
+		action = act.ActivatePaneDirection("Down"),
 	},
 	{
-	  key = "K",
-	  mods = "CTRL|SHIFT",
-	  action = act.ActivatePaneDirection("Up"),
+		key = "K",
+		mods = "CTRL|SHIFT",
+		action = act.ActivatePaneDirection("Up"),
 	},
 	{
-	  key = "L",
-	  mods = "CTRL|SHIFT",
-	  action = act.ActivatePaneDirection("Right"),
+		key = "L",
+		mods = "CTRL|SHIFT",
+		action = act.ActivatePaneDirection("Right"),
 	},
 
 	-- Resize panes with Ctrl+Alt+Shift + H/J/K/L (use uppercase to override builtins)
 	{
-	  key = "H",
-	  mods = "CTRL|ALT|SHIFT",
-	  action = act.AdjustPaneSize({ "Left", 1 }),
+		key = "H",
+		mods = "CTRL|ALT|SHIFT",
+		action = act.AdjustPaneSize({ "Left", 1 }),
 	},
 	{
-	  key = "J",
-	  mods = "CTRL|ALT|SHIFT",
-	  action = act.AdjustPaneSize({ "Down", 1 }),
+		key = "J",
+		mods = "CTRL|ALT|SHIFT",
+		action = act.AdjustPaneSize({ "Down", 1 }),
 	},
 	{
-	  key = "K",
-	  mods = "CTRL|ALT|SHIFT",
-	  action = act.AdjustPaneSize({ "Up", 1 }),
+		key = "K",
+		mods = "CTRL|ALT|SHIFT",
+		action = act.AdjustPaneSize({ "Up", 1 }),
 	},
 	{
-	  key = "L",
-	  mods = "CTRL|ALT|SHIFT",
-	  action = act.AdjustPaneSize({ "Right", 1 }),
+		key = "L",
+		mods = "CTRL|ALT|SHIFT",
+		action = act.AdjustPaneSize({ "Right", 1 }),
 	},
 }
 
