@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local detect_os
 
+print(detect_os)
 local function shell_escape(path)
 	-- simple quoting for bash/PowerShell
 	if detect_os() == "windows" then
@@ -162,14 +163,14 @@ local function ensure_python_workspace(gui_window)
 end
 
 detect_os = function()
-  local target = wezterm.target_triple or ""
-  if target:find("windows") then
-    return "windows"
-  elseif target:find("darwin") then
-    return "macos"
-  else
-    return "linux"
-  end
+	local target = wezterm.target_triple or ""
+	if target:find("windows") then
+		return "windows"
+	elseif target:find("darwin") then
+		return "macos"
+	else
+		return "linux"
+	end
 end
 
 local computer_name = os.getenv("COMPUTERNAME") or os.getenv("HOSTNAME")
@@ -180,9 +181,9 @@ local config = {
 	font = require("fonts"),
 	color_scheme = require("colors"),
 	-- Appearance settings
-	hide_tab_bar_if_only_one_tab = true, -- Hide the tab bar if there's only one tab
+	hide_tab_bar_if_only_one_tab = false, -- Hide the tab bar if there's only one tab
 	tab_bar_at_bottom = true, -- Move the tab bar to the bottom
-	use_fancy_tab_bar = true, -- Enable fancy tab bar
+	use_fancy_tab_bar = false, -- Enable fancy tab bar
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE", -- Remove the title bar
 	window_padding = {
@@ -254,12 +255,11 @@ config.keys = {
 			},
 		}),
 	},
-	-- Create a new workspace with a random name and switch to it
-	-- { key = "i", mods = "CTRL|SHIFT", action = act.SwitchToWorkspace },
+
 	-- Show the launcher in fuzzy selection mode and have it list all workspaces
 	-- and allow activating one.
 	{
-		key = "9",
+		key = "0",
 		mods = "CTRL",
 		action = act.ShowLauncherArgs({
 			flags = "FUZZY|WORKSPACES|TABS",
@@ -275,31 +275,5 @@ config.keys = {
 		end),
 	},
 }
-
--- gui startup
--- wezterm.on("gui-startup", function(cmd)
--- 	local tab, pane, window = mux.spawn_window(cmd or {})
--- 	-- Create a split occupying the right 1/3 of the screen
--- 	pane:split({ size = 0.3 })
--- 	-- Create another split in the right of the remaining 2/3
--- 	-- of the space; the resultant split is in the middle
--- 	-- 1/3 of the display and has the focus.
--- 	pane:split({ size = 0.5 })
--- end)
---
-
--- mux startup
-
--- this is called by the mux server when it starts up.
--- It makes a window split top/bottom
-wezterm.on("mux-startup", function()
-	local mux = wezterm.mux
-	if mux == nil then
-		-- If mux is not available for some reason, do nothing.
-		return
-	end
-	local tab, pane, window = mux.spawn_window({})
-	pane:split({ direction = "Top" })
-end)
 
 return config
