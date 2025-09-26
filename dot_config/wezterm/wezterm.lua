@@ -375,46 +375,46 @@ config.keys = {
 	  end),
 	},
 
-	-- Move focus between panes with Ctrl+Shift + h/j/k/l
+	-- Move focus between panes with Ctrl+Shift + H/J/K/L (use uppercase to override builtins)
 	{
-	  key = "h",
+	  key = "H",
 	  mods = "CTRL|SHIFT",
 	  action = act.ActivatePaneDirection("Left"),
 	},
 	{
-	  key = "j",
+	  key = "J",
 	  mods = "CTRL|SHIFT",
 	  action = act.ActivatePaneDirection("Down"),
 	},
 	{
-	  key = "k",
+	  key = "K",
 	  mods = "CTRL|SHIFT",
 	  action = act.ActivatePaneDirection("Up"),
 	},
 	{
-	  key = "l",
+	  key = "L",
 	  mods = "CTRL|SHIFT",
 	  action = act.ActivatePaneDirection("Right"),
 	},
 
-	-- Resize panes with Ctrl+Alt+Shift + h/j/k/l
+	-- Resize panes with Ctrl+Alt+Shift + H/J/K/L (use uppercase to override builtins)
 	{
-	  key = "h",
+	  key = "H",
 	  mods = "CTRL|ALT|SHIFT",
 	  action = act.AdjustPaneSize({ "Left", 1 }),
 	},
 	{
-	  key = "j",
+	  key = "J",
 	  mods = "CTRL|ALT|SHIFT",
 	  action = act.AdjustPaneSize({ "Down", 1 }),
 	},
 	{
-	  key = "k",
+	  key = "K",
 	  mods = "CTRL|ALT|SHIFT",
 	  action = act.AdjustPaneSize({ "Up", 1 }),
 	},
 	{
-	  key = "l",
+	  key = "L",
 	  mods = "CTRL|ALT|SHIFT",
 	  action = act.AdjustPaneSize({ "Right", 1 }),
 	},
