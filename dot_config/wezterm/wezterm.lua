@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
+local detect_os
 
 local function shell_escape(path)
 	-- simple quoting for bash/PowerShell
@@ -160,13 +161,15 @@ local function ensure_python_workspace(gui_window)
 	gui_window:perform_action(act.SwitchToWorkspace({ name = ws_name }), gui_window)
 end
 
-local function detect_os()
-	local target = wezterm.target_triple
-	if target:find("windows") then
-		return "windows"
-	elseif target:find("darwin") then
-		return "macos"
-	end
+detect_os = function()
+  local target = wezterm.target_triple or ""
+  if target:find("windows") then
+    return "windows"
+  elseif target:find("darwin") then
+    return "macos"
+  else
+    return "linux"
+  end
 end
 
 local computer_name = os.getenv("COMPUTERNAME") or os.getenv("HOSTNAME")
