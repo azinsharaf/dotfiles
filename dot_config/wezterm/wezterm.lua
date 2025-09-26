@@ -374,6 +374,50 @@ config.keys = {
 	    close_current_workspace(win)
 	  end),
 	},
+
+	-- Move focus between panes with Ctrl+Shift + h/j/k/l
+	{
+	  key = "h",
+	  mods = "CTRL|SHIFT",
+	  action = act.ActivatePaneDirection("Left"),
+	},
+	{
+	  key = "j",
+	  mods = "CTRL|SHIFT",
+	  action = act.ActivatePaneDirection("Down"),
+	},
+	{
+	  key = "k",
+	  mods = "CTRL|SHIFT",
+	  action = act.ActivatePaneDirection("Up"),
+	},
+	{
+	  key = "l",
+	  mods = "CTRL|SHIFT",
+	  action = act.ActivatePaneDirection("Right"),
+	},
+
+	-- Resize panes with Ctrl+Alt+Shift + h/j/k/l
+	{
+	  key = "h",
+	  mods = "CTRL|ALT|SHIFT",
+	  action = act.AdjustPaneSize({ "Left", 1 }),
+	},
+	{
+	  key = "j",
+	  mods = "CTRL|ALT|SHIFT",
+	  action = act.AdjustPaneSize({ "Down", 1 }),
+	},
+	{
+	  key = "k",
+	  mods = "CTRL|ALT|SHIFT",
+	  action = act.AdjustPaneSize({ "Up", 1 }),
+	},
+	{
+	  key = "l",
+	  mods = "CTRL|ALT|SHIFT",
+	  action = act.AdjustPaneSize({ "Right", 1 }),
+	},
 }
 
 return config
