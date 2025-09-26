@@ -68,11 +68,15 @@ local function get_workspace_list()
 		end
 	end
 	table.sort(list)
+	local info = #list > 0 and table.concat(list, ", ") or "<none>"
+	wezterm.log_info("get_workspace_list: count=" .. tostring(#list) .. " -> " .. info)
 	return list
 end
 
 local function switch_to_workspace_by_index(window, delta)
 	local list = get_workspace_list()
+	wezterm.log_info("switch_to_workspace_by_index called with delta=" .. tostring(delta))
+	wezterm.log_info("workspace list: " .. (#list > 0 and table.concat(list, ", ") or "<none>"))
 	if #list == 0 then
 		return
 	end
@@ -84,8 +88,10 @@ local function switch_to_workspace_by_index(window, delta)
 			break
 		end
 	end
+	wezterm.log_info(string.format("current workspace='%s', idx=%d", tostring(current), idx))
 	local next_idx = ((idx - 1 + delta) % #list) + 1
 	local target = list[next_idx]
+	wezterm.log_info(string.format("switching to workspace index=%d name='%s'", next_idx, tostring(target)))
 	window:perform_action(act.SwitchToWorkspace({ name = target }), window)
 end
 
