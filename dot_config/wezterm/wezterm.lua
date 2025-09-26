@@ -2,7 +2,6 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local detect_os
 
-print(detect_os)
 local function shell_escape(path)
 	-- simple quoting for bash/PowerShell
 	if detect_os() == "windows" then
@@ -55,6 +54,71 @@ local function repo_name_from_root(root)
 	-- fallback
 	return "python"
 end
+
+-- workspace helpers ---------------------------------------------------------
+local function get_workspace_list()
+  local mux = wezterm.mux
+  local seen = {}
+  local list = {}
+  for _, w in ipairs(mux.get_windows()) do
+    local ws = w:active_workspace()
+    if ws and ws ~= "" and not seen[ws] then
+      seen[ws] = true
+      table.insert(list, ws)
+    end
+  end
+  table.sort(list)
+  return list
+end
+
+local function switch_to_workspace_by_index(window, delta)
+  local list = get_workspace_list()
+  if #list == 0 then
+    return
+  end
+  local current = window:active_workspace() or ""
+  local idx = 1
+  for i, name in ipairs(list) do
+    if name == current then
+      idx = i
+      break
+    end
+  end
+  local next_idx = ((idx - 1 + delta) % #list) + 1
+  local target = list[next_idx]
+  window:perform_action(act.SwitchToWorkspace({ name = target }), window)
+end
+
+local function create_timestamped_workspace(window)
+  local name = "ws-" .. os.date("%Y%m%d%H%M%S")
+  -- spawn a shell in the new workspace
+  window:perform_action(
+    act.SwitchToWorkspace({
+      name = name,
+      spawn = { args = shell_for_os() },
+    }),
+    window
+  )
+end
+
+local function close_current_workspace(window)
+  -- Best-effort: close every window that reports the same active workspace.
+  -- Closing is performed by instructing each window to close its active tab.
+  -- Note: this will close all windows/tabs in this workspace; confirm dialogs suppressed.
+  local mux = wezterm.mux
+  local ws = window:active_workspace()
+  if not ws or ws == "" or ws == "default" then
+    -- Don't close default workspace (safety)
+    return
+  end
+  for _, w in ipairs(mux.get_windows()) do
+    if w:active_workspace() == ws then
+      -- perform close without confirm
+      w:perform_action(act.CloseCurrentTab({ confirm = false }), w)
+    end
+  end
+end
+-- end workspace helpers -----------------------------------------------------
 
 local function shell_for_os()
 	if detect_os() == "windows" then
@@ -273,6 +337,42 @@ config.keys = {
 		action = wezterm.action_callback(function(win, pane)
 			ensure_python_workspace(win)
 		end),
+	},
+
+	-- Cycle to next workspace
+	{
+	  key = "Right",
+	  mods = "CTRL|SHIFT",
+	  action = wezterm.action_callback(function(win, pane)
+	    switch_to_workspace_by_index(win, 1)
+	  end),
+	},
+
+	-- Cycle to previous workspace
+	{
+	  key = "Left",
+	  mods = "CTRL|SHIFT",
+	  action = wezterm.action_callback(function(win, pane)
+	    switch_to_workspace_by_index(win, -1)
+	  end),
+	},
+
+	-- Create a new timestamped workspace (spawns a shell)
+	{
+	  key = "N",
+	  mods = "CTRL|SHIFT",
+	  action = wezterm.action_callback(function(win, pane)
+	    create_timestamped_workspace(win)
+	  end),
+	},
+
+	-- Close the current workspace (best-effort)
+	{
+	  key = "W",
+	  mods = "CTRL|SHIFT",
+	  action = wezterm.action_callback(function(win, pane)
+	    close_current_workspace(win)
+	  end),
 	},
 }
 
