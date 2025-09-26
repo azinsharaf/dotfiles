@@ -106,7 +106,7 @@ local config = {
 	max_fps = 240,
 	window_background_opacity = 0.8,
 	text_background_opacity = 0.8,
-	default_workspace = "~",
+	default_workspace = "default",
 	status_update_interval = 1000,
 }
 if detect_os() == "windows" then
@@ -151,7 +151,7 @@ config.keys = {
 			flags = "FUZZY|WORKSPACES|TABS",
 		}),
 	},
-	{ key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ShowLauncher },
+	{ key = "m", mods = "CTRL|SHIFT", action = wezterm.action.ShowLauncher },
 	-- Create/switch to the python workspace (left: nvim; right-top: ai-openai; right-bottom: yazi)
 	{
 		key = "i",
