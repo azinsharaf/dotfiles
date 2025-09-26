@@ -7,7 +7,7 @@ local function shell_escape(path)
 		return '"' .. (path or "") .. '"'
 	else
 		-- escape single quotes for POSIX shells
-		return "'" .. ((path or "") :gsub("'", "'\\''")) .. "'"
+		return "'" .. ((path or ""):gsub("'", "'\\''")) .. "'"
 	end
 end
 
@@ -121,9 +121,13 @@ local function ensure_python_workspace(gui_window)
 	-- Right-top: interactive REPL (prefer poetry-managed env if present)
 	local repl_cmd
 	if detect_os() == "windows" then
-		repl_cmd = "Set-Location -LiteralPath " .. shell_escape(cwd) .. " ; (poetry run ptpython -q 2>$null -or poetry run ipython -q 2>$null -or ptpython -q 2>$null -or ipython -q)"
+		repl_cmd = "Set-Location -LiteralPath "
+			.. shell_escape(cwd)
+			.. " ; (poetry run ptpython -q 2>$null -or poetry run ipython -q 2>$null -or ptpython -q 2>$null -or ipython -q)"
 	else
-		repl_cmd = "cd " .. shell_escape(cwd) .. " && (poetry run ptpython || poetry run ipython || ptpython || ipython)"
+		repl_cmd = "cd "
+			.. shell_escape(cwd)
+			.. " && (poetry run ptpython || poetry run ipython || ptpython || ipython)"
 	end
 
 	local right_top = left_pane:split({
@@ -136,13 +140,11 @@ local function ensure_python_workspace(gui_window)
 	-- Right-bottom: run tests or dev server (try pytest, then uvicorn, otherwise leave a shell)
 	local test_cmd
 	if detect_os() == "windows" then
-		test_cmd =
-			"Set-Location -LiteralPath "
+		test_cmd = "Set-Location -LiteralPath "
 			.. shell_escape(cwd)
 			.. " ; (poetry run pytest -q --maxfail=1 2>$null -or pytest -q 2>$null -or poetry run uvicorn app:app --reload 2>$null -or Write-Host 'No test or server detected'; Start-Sleep -Seconds 1)"
 	else
-		test_cmd =
-			"cd "
+		test_cmd = "cd "
 			.. shell_escape(cwd)
 			.. " && (poetry run pytest -q --maxfail=1 || pytest -q || poetry run uvicorn app:app --reload || echo 'No test or server detected')"
 	end
