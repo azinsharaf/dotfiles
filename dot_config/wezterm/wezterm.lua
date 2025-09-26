@@ -242,13 +242,13 @@ local computer_name = os.getenv("COMPUTERNAME") or os.getenv("HOSTNAME")
 local config = {
 	-- Import configurations from other files
 	-- keys = require("keybindings"),
-	disable_default_key_bindings = true,
+	disable_default_key_bindings = false,
 	font = require("fonts"),
 	color_scheme = require("colors"),
 	-- Appearance settings
 	hide_tab_bar_if_only_one_tab = false, -- Hide the tab bar if there's only one tab
 	tab_bar_at_bottom = true, -- Move the tab bar to the bottom
-	use_fancy_tab_bar = false, -- Enable fancy tab bar
+	use_fancy_tab_bar = true, -- Enable fancy tab bar
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE", -- Remove the title bar
 	window_padding = {
