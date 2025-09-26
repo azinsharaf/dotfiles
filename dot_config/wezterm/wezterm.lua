@@ -64,7 +64,7 @@ local function get_workspace_list()
 	end
 	local seen = {}
 	local list = {}
-	for _, w in ipairs(mux.get_window()) do
+	for _, w in ipairs(mux.get_windows()) do
 		local ws = w:active_workspace()
 		if ws and ws ~= "" and not seen[ws] then
 			seen[ws] = true
