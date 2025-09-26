@@ -58,29 +58,13 @@ end
 -- workspace helpers ---------------------------------------------------------
 local function get_workspace_list()
 	local mux = wezterm.mux
-	if not mux then
-		wezterm.log_info("get_workspace_list: wezterm.mux is nil; returning empty list")
+	if not mux or type(mux.get_window) ~= "function" then
+		wezterm.log_info("get_workspace_list: mux or mux.get_windows unavailable; returning empty list")
 		return {}
 	end
-	if type(mux.get_windows) ~= "function" then
-		wezterm.log_info("get_workspace_list: mux.get_windows is not a function; type=" .. type(mux.get_windows))
-		return {}
-	end
-
-	-- Call mux.get_windows in a protected call to catch errors in contexts where it may fail.
-	local ok, windows = pcall(mux.get_windows)
-	if not ok then
-		wezterm.log_info("get_workspace_list: mux.get_windows() raised an error: " .. tostring(windows))
-		return {}
-	end
-	if not windows or type(windows) ~= "table" then
-		wezterm.log_info("get_workspace_list: mux.get_windows() returned nil or non-table; type=" .. type(windows))
-		return {}
-	end
-
 	local seen = {}
 	local list = {}
-	for _, w in ipairs(windows) do
+	for _, w in ipairs(mux.get_window()) do
 		local ws = w:active_workspace()
 		if ws and ws ~= "" and not seen[ws] then
 			seen[ws] = true
@@ -88,10 +72,8 @@ local function get_workspace_list()
 		end
 	end
 	table.sort(list)
-
-	-- Make precedence explicit with parentheses
-	local info = ((#list > 0) and table.concat(list, ", ")) or "<none>"
-	wezterm.log_info("get_workspace_list: windows_count=" .. tostring(#windows) .. " workspaces_count=" .. tostring(#list) .. " -> " .. info)
+	local info = #list > 0 and table.concat(list, ", ") or "<none>"
+	wezterm.log_info("get_workspace_list: count=" .. tostring(#list) .. " -> " .. info)
 	return list
 end
 
