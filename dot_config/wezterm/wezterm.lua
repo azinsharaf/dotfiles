@@ -342,7 +342,7 @@ config.keys = {
 
 	-- Cycle to next workspace
 	{
-		key = "Right",
+		key = "RightArrow",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action_callback(function(win, pane)
 			switch_to_workspace_by_index(win, 1)
@@ -351,7 +351,7 @@ config.keys = {
 
 	-- Cycle to previous workspace
 	{
-		key = "Left",
+		key = "LeftArrow",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action_callback(function(win, pane)
 			switch_to_workspace_by_index(win, -1)
