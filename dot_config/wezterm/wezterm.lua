@@ -58,6 +58,10 @@ end
 -- workspace helpers ---------------------------------------------------------
 local function get_workspace_list()
 	local mux = wezterm.mux
+	if not mux or type(mux.get_windows) ~= "function" then
+		wezterm.log_info("get_workspace_list: mux or mux.get_windows unavailable; returning empty list")
+		return {}
+	end
 	local seen = {}
 	local list = {}
 	for _, w in ipairs(mux.get_windows()) do
@@ -96,6 +100,16 @@ local function switch_to_workspace_by_index(window, delta)
 end
 
 local function create_timestamped_workspace(window)
+	local mux = wezterm.mux
+	-- If the mux API isn't available, fall back to a simple workspace switch.
+	if not mux or type(mux.spawn_window) ~= "function" then
+		local name = "ws-" .. os.date("%Y%m%d%H%M%S")
+		wezterm.log_info("create_timestamped_workspace: mux.spawn_window unavailable; switching to " .. name)
+		window:perform_action(act.SwitchToWorkspace({ name = name }), window)
+		return
+	end
+
+	-- original code continues:
 	local name = "ws-" .. os.date("%Y%m%d%H%M%S")
 	-- spawn a shell in the new workspace
 	window:perform_action(
@@ -112,6 +126,10 @@ local function close_current_workspace(window)
 	-- Closing is performed by instructing each window to close its active tab.
 	-- Note: this will close all windows/tabs in this workspace; confirm dialogs suppressed.
 	local mux = wezterm.mux
+	if not mux or type(mux.get_windows) ~= "function" then
+		wezterm.log_info("close_current_workspace: mux or mux.get_windows unavailable; aborting")
+		return
+	end
 	local ws = window:active_workspace()
 	if not ws or ws == "" or ws == "default" then
 		-- Don't close default workspace (safety)
