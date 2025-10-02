@@ -25,7 +25,7 @@ general:
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
     # - 'window_focus': Jump when focus changes between windows.
-    trigger: "monitor_focus"
+    trigger: "window_focus"
 
   # How windows should be hidden when switching workspaces.
   # - 'cloak': Recommended. Hides windows with no animation.
@@ -48,7 +48,7 @@ gaps:
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: "60px"
+    top: "20px"
     right: "20px"
     bottom: "20px"
     left: "20px"
@@ -76,7 +76,7 @@ window_effects:
 
     # Change the transparency of the window.
     transparency:
-      enabled: false
+      enabled: true
       # Can be something like '95%' or '0.95' for slightly transparent windows.
       # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
       opacity: "95%"
@@ -89,7 +89,7 @@ window_effects:
     hide_title_bar:
       enabled: false
     corner_style:
-      enabled: false
+      enabled: true
       style: "square"
     transparency:
       enabled: false
@@ -121,19 +121,19 @@ window_behavior:
 
 workspaces:
   - name: "1"
-    display_name: "1"
+    display_name: "1-outlook"
   - name: "2"
-    display_name: "2"
+    display_name: "2-teams"
   - name: "3"
-    display_name: "3"
+    display_name: "3-calendar"
   - name: "4"
-    display_name: "4"
+    display_name: "4-obsidian"
   - name: "5"
-    display_name: "5"
+    display_name: "5-arcgis"
   - name: "6"
-    display_name: "6"
+    display_name: "6-browser"
   - name: "7"
-    display_name: "7"
+    display_name: "7-music"
   - name: "8"
     display_name: "8"
   - name: "9"
@@ -142,9 +142,6 @@ workspaces:
 window_rules:
   - commands: ["ignore"]
     match:
-      # Ignores any Zebar windows.
-      - window_process: { equals: "zebar" }
-
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
@@ -176,33 +173,23 @@ binding_modes:
 keybindings:
   # Shift focus in a given direction.
   - commands: ["focus --direction left"]
-    bindings: ["alt+h", "alt+left"]
+    bindings: ["alt+h"]
   - commands: ["focus --direction right"]
-    bindings: ["alt+l", "alt+right"]
+    bindings: ["alt+l"]
   - commands: ["focus --direction up"]
-    bindings: ["alt+k", "alt+up"]
+    bindings: ["alt+k"]
   - commands: ["focus --direction down"]
-    bindings: ["alt+j", "alt+down"]
+    bindings: ["alt+j"]
 
   # Move focused window in a given direction.
   - commands: ["move --direction left"]
-    bindings: ["alt+shift+h", "alt+shift+left"]
+    bindings: ["alt+shift+h"]
   - commands: ["move --direction right"]
-    bindings: ["alt+shift+l", "alt+shift+right"]
+    bindings: ["alt+shift+l"]
   - commands: ["move --direction up"]
-    bindings: ["alt+shift+k", "alt+shift+up"]
+    bindings: ["alt+shift+k"]
   - commands: ["move --direction down"]
-    bindings: ["alt+shift+j", "alt+shift+down"]
-
-  # Resize focused window by a percentage or pixel amount.
-  # - commands: ["resize --width -2%"]
-  #   bindings: ["alt+u"]
-  # - commands: ["resize --width +2%"]
-  #   bindings: ["alt+p"]
-  # - commands: ["resize --height +2%"]
-  #   bindings: ["alt+o"]
-  # - commands: ["resize --height -2%"]
-  #   bindings: ["alt+i"]
+    bindings: ["alt+shift+j"]
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
@@ -259,8 +246,8 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  # - commands: ["shell-exec cmd"]
-  #   bindings: ["alt+enter"]
+  - commands: ["shell-exec C:\\Users\\asharaf\\scoop\\apps\\wezterm-nightly\\current\\wezterm-gui.exe"]
+    bindings: ["alt+enter"]
 
   # Focus the next/previous active workspace defined in `workspaces` config.
   - commands: ["focus --next-active-workspace"]
