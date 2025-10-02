@@ -82,7 +82,6 @@ local config = {
 	enable_scroll_bar = true, -- Enable scroll bar
 	scrollback_lines = 5000,
 	front_end = "WebGpu",
-	webgpu_power_preference = "HighPerformance",
 	-- webgpu_preferred_adapter = (function()
 	-- 	if computer_name == "Azin-Desktop" then
 	-- 		return {
