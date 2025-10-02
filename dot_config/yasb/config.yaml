@@ -37,11 +37,13 @@ bars:
       right: 6
     widgets:
       left:
-        - "home"
+        ["home",
+          "glazewm_workspaces",
+        ]
       center:
         [
+          "glazewm_binding_mode",
           "glazewm_tiling_direction",
-          "glazewm_workspaces",
           "komorebi_workspaces",
           "komorebi_active_layout",
           "taskbar",
@@ -452,7 +454,7 @@ widgets:
     type: "glazewm.binding_mode.GlazewmBindingModeWidget"
     options:
       hide_if_no_active: false
-      label_if_no_active: "No binding mode active"
+      label_if_no_active: "no binding"
       default_icon: "\uf071"
       icons:
         none: ""
@@ -467,7 +469,6 @@ widgets:
         on_left: "next_binding_mode"
         on_middle: "toggle_label"
         on_right: "disable_binding_mode"
-        animation: { "enabled": true, "type": "fadeInOut", "duration": 200 }
 
     # By default binding mode names are fetched from GlazeWM and "display_name" option takes priority over "name".
 
@@ -475,8 +476,6 @@ widgets:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
       offline_label: "GlazeWM Offline"
-      populated_label: "{name}"
-      empty_label: "{name}"
       hide_empty_workspaces: false
       hide_if_offline: false
       enable_scroll_switching: true
@@ -493,7 +492,7 @@ widgets:
         hide_label: false
         hide_duplicates: false
         hide_floating: false
-      animation: false
+      animation: true
 
       # By default workspace names are fetched from GlazeWM and "display_name" option takes priority over "name".
       # However, you can customize populated and empty labels here using {name} and {display_name} placeholders if needed.
