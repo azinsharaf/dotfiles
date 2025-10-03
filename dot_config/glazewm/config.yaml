@@ -20,7 +20,7 @@ general:
 
   cursor_jump:
     # Whether to automatically move the cursor on the specified trigger.
-    enabled: true
+    enabled: false
 
     # Trigger for cursor jump:
     # - 'monitor_focus': Jump when focus changes between monitors.
@@ -162,6 +162,34 @@ window_rules:
         window_title: { regex: ".*? - Peek" }
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper" }
+
+  - commands: ['move --workspace 1']
+    match:
+      - window_process: { regex: 'olk' }
+
+  - commands: ['move --workspace 2']
+    match:
+      - window_process: { regex: 'ms-teams' }
+
+  - commands: ['move --workspace 3']
+    match:
+      - window_process: { regex: 'Morgen' }
+
+  - commands: ['move --workspace 4']
+    match:
+      - window_process: { regex: 'Obsidian' }
+
+  - commands: ['move --workspace 5']
+    match:
+      - window_process: { regex: 'ArcGISPro|ArcMap|ArcCatalog' }
+
+  - commands: ['move --workspace 6']
+    match:
+      - window_process: { regex: 'zen|qutebrowser|firefox|chrome' }
+
+  - commands: ['move --workspace 7']
+    match:
+      - window_process: { regex: 'Spotify'}
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
