@@ -122,30 +122,39 @@ window_behavior:
 workspaces:
   - name: "1"
     display_name: "1-outlook"
+    bind_to_monitor: 0
     keep_alive: true
   - name: "2"
     display_name: "2-teams"
+    bind_to_monitor: 0
     keep_alive: true
   - name: "3"
     display_name: "3-calendar"
+    bind_to_monitor: 0
     keep_alive: true
   - name: "4"
     display_name: "4-obsidian"
+    bind_to_monitor: 0
     keep_alive: true
   - name: "5"
     display_name: "5-arcgis"
+    bind_to_monitor: 0
     keep_alive: true
   - name: "6"
     display_name: "6-browser"
+    bind_to_monitor: 0
     keep_alive: true
   - name: "7"
     display_name: "7-music"
+    bind_to_monitor: 0
     keep_alive: true
   - name: "8"
     display_name: "8"
+    bind_to_monitor: 0
     keep_alive: true
   - name: "9"
     display_name: "9"
+    bind_to_monitor: 0
     keep_alive: true
 
 window_rules:
@@ -290,9 +299,9 @@ keybindings:
   # Launch CMD terminal. Alternatively, use `shell-exec wt` or
   # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
   # Terminal and Git Bash respectively.
-  - commands: ["shell-exec C:\\Users\\asharaf\\scoop\\apps\\wezterm-nightly\\current\\wezterm-gui.exe"]
-    bindings: ["alt+enter"]
-
+  # - commands: ["shell-exec C:\\Users\\asharaf\\scoop\\apps\\wezterm-nightly\\current\\wezterm-gui.exe"]
+  #   bindings: ["alt+enter"]
+  #
   # Focus the next/previous active workspace defined in `workspaces` config.
   - commands: ["focus --next-active-workspace"]
     bindings: ["alt+d"]
@@ -353,3 +362,4 @@ keybindings:
     bindings: ["alt+shift+8"]
   - commands: ["move --workspace 9", "focus --workspace 9"]
     bindings: ["alt+shift+9"]
+
