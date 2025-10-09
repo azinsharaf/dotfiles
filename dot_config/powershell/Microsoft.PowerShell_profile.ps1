@@ -206,8 +206,9 @@ function ai { aider --model gpt-5 --chat-mode ask --no-git }
 function ai-openai { aider --model gpt-5-mini --chat-mode architect --watch-files }
 function ai-deepseek-r1 { aider --model ollama_chat/deepseek-r1:latest --chat-mode architect --watch-files}
 function ai-llama3.1 { aider --model ollama_chat/llama3.1:latest --chat-mode architect --watch-files}
+function ai-gptoss { aider --model ollama_chat/gpt-oss:latest --chat-mode architect --watch-files}
 
-function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
+# function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
