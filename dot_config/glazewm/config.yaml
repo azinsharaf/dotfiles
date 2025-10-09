@@ -137,19 +137,19 @@ workspaces:
     bind_to_monitor: 0
     keep_alive: true
   - name: "5"
-    display_name: "5-arcgis"
+    display_name: "5-terminal"
     bind_to_monitor: 0
     keep_alive: true
   - name: "6"
-    display_name: "6-browser"
+    display_name: "6-arcgis"
     bind_to_monitor: 0
     keep_alive: true
   - name: "7"
-    display_name: "7-music"
+    display_name: "7-browser"
     bind_to_monitor: 0
     keep_alive: true
   - name: "8"
-    display_name: "8"
+    display_name: "8-music"
     bind_to_monitor: 0
     keep_alive: true
   - name: "9"
@@ -190,13 +190,17 @@ window_rules:
 
   - commands: ['move --workspace 5']
     match:
-      - window_process: { regex: 'ArcGISPro|ArcMap|ArcCatalog' }
+      - window_process: { regex: 'wezterm-gui' }
 
   - commands: ['move --workspace 6']
     match:
-      - window_process: { regex: 'zen|qutebrowser|firefox|chrome' }
+      - window_process: { regex: 'ArcGISPro|ArcMap|ArcCatalog' }
 
   - commands: ['move --workspace 7']
+    match:
+      - window_process: { regex: 'zen|qutebrowser|firefox|chrome' }
+
+  - commands: ['move --workspace 8']
     match:
       - window_process: { regex: 'Spotify'}
 
