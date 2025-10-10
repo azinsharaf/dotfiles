@@ -163,6 +163,9 @@ window_rules:
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
+      # ignores autodesk popup
+      - window_title: { equals: "AutoHotkeyUX.exe" }
+        window_class: { regex: "Chrome_WidgetWin_1" }
 
       # Ignore rules for various 3rd-party apps.
       - window_process: { equals: "PowerToys" }
