@@ -130,6 +130,7 @@ pipx install rich-cli
 pipx install shell-gpt
 pipx install aider-chat
 pipx install euporie
+pipx install viewtif # https://github.com/nkeikon/tifviewer
 ```
 
 #### Other Installations
