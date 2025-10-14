@@ -165,7 +165,7 @@ window_rules:
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
         
       # ignores autodesk popup
-      - window_process: { equals: "AdskAccessUIHost.exe" }
+      - window_process: { equals: "AdskAccessUIHost" }
         window_class: { regex: "Chrome_WidgetWin_1" }
 
       # Ignore rules for various 3rd-party apps.
