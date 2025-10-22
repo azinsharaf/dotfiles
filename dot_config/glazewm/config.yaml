@@ -229,7 +229,7 @@ binding_modes:
     display_name: "Paused mode"
     keybindings:
       - commands: ["wm-toggle-pause"]
-        bindings: ["p"]
+        bindings: ["alt+p"]
 
 keybindings:
   # Shift focus in a given direction.
