@@ -1,448 +1,167 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local detect_os
-
-local function shell_escape(path)
-	-- simple quoting for bash/PowerShell
-	if detect_os() == "windows" then
-		return '"' .. (path or "") .. '"'
-	else
-		-- escape single quotes for POSIX shells
-		return "'" .. ((path or ""):gsub("'", "'\\''")) .. "'"
-	end
-end
-
-local function run_capture(cmd)
-	-- run a shell command and return trimmed stdout (nil on failure/empty)
-	local f = io.popen(cmd)
-	if not f then
-		return nil
-	end
-	local s = f:read("*a")
-	f:close()
-	if not s or s == "" then
-		return nil
-	end
-	-- trim trailing whitespace/newlines
-	return (s:gsub("%s+$", ""))
-end
-
-local function detect_project_root()
-	-- Try git top-level
-	local git_root = run_capture("git rev-parse --show-toplevel 2>/dev/null")
-	if git_root and git_root ~= "" then
-		return git_root
-	end
-	-- Fall back to environment-specified project path
-	local env_proj = os.getenv("WEZTERM_PROJECT")
-	if env_proj and env_proj ~= "" then
-		return env_proj
-	end
-	-- final fallback to HOME or current directory
-	return os.getenv("HOME") or "."
-end
-
-local function repo_name_from_root(root)
-	if not root or root == "" then
-		return "python"
-	end
-	-- Use basename; prefer POSIX basename; handles typical cases.
-	local name = run_capture("basename " .. shell_escape(root) .. " 2>/dev/null")
-	if name and name ~= "" then
-		return name
-	end
-	-- fallback
-	return "python"
-end
-
--- workspace helpers ---------------------------------------------------------
-local function get_workspace_list()
-	local mux = wezterm.mux
-	if not mux or type(mux.get_window) ~= "function" then
-		wezterm.log_info("get_workspace_list: mux or mux.get_windows unavailable; returning empty list")
-		return {}
-	end
-	local seen = {}
-	local list = {}
-	for _, w in ipairs(mux.get_window()) do
-		local ws = w:active_workspace()
-		if ws and ws ~= "" and not seen[ws] then
-			seen[ws] = true
-			table.insert(list, ws)
-		end
-	end
-	table.sort(list)
-	local info = #list > 0 and table.concat(list, ", ") or "<none>"
-	wezterm.log_info("get_workspace_list: count=" .. tostring(#list) .. " -> " .. info)
-	return list
-end
-
-local function switch_to_workspace_by_index(window, delta)
-	local list = get_workspace_list()
-	wezterm.log_info("switch_to_workspace_by_index called with delta=" .. tostring(delta))
-	wezterm.log_info("workspace list: " .. (#list > 0 and table.concat(list, ", ") or "<none>"))
-	if #list == 0 then
-		return
-	end
-	local current = window:active_workspace() or ""
-	local idx = 1
-	for i, name in ipairs(list) do
-		if name == current then
-			idx = i
-			break
-		end
-	end
-	wezterm.log_info(string.format("current workspace='%s', idx=%d", tostring(current), idx))
-	local next_idx = ((idx - 1 + delta) % #list) + 1
-	local target = list[next_idx]
-	wezterm.log_info(string.format("switching to workspace index=%d name='%s'", next_idx, tostring(target)))
-	window:perform_action(act.SwitchToWorkspace({ name = target }), window)
-end
-
-local function create_timestamped_workspace(window)
-	local mux = wezterm.mux
-	-- If the mux API isn't available, fall back to a simple workspace switch.
-	if not mux or type(mux.spawn_window) ~= "function" then
-		local name = "ws-" .. os.date("%Y%m%d%H%M%S")
-		wezterm.log_info("create_timestamped_workspace: mux.spawn_window unavailable; switching to " .. name)
-		window:perform_action(act.SwitchToWorkspace({ name = name }), window)
-		return
-	end
-
-	-- original code continues:
-	local name = "ws-" .. os.date("%Y%m%d%H%M%S")
-	-- spawn a shell in the new workspace
-	window:perform_action(
-		act.SwitchToWorkspace({
-			name = name,
-			spawn = { args = shell_for_os() },
-		}),
-		window
-	)
-end
-
-local function close_current_workspace(window)
-	-- Best-effort: close every window that reports the same active workspace.
-	-- Closing is performed by instructing each window to close its active tab.
-	-- Note: this will close all windows/tabs in this workspace; confirm dialogs suppressed.
-	local mux = wezterm.mux
-	if not mux or type(mux.get_windows) ~= "function" then
-		wezterm.log_info("close_current_workspace: mux or mux.get_windows unavailable; aborting")
-		return
-	end
-	local ws = window:active_workspace()
-	if not ws or ws == "" or ws == "default" then
-		-- Don't close default workspace (safety)
-		return
-	end
-	for _, w in ipairs(mux.get_windows()) do
-		if w:active_workspace() == ws then
-			-- perform close without confirm
-			w:perform_action(act.CloseCurrentTab({ confirm = false }), w)
-		end
-	end
-end
--- end workspace helpers -----------------------------------------------------
-
-local function shell_for_os()
-	if detect_os() == "windows" then
-		-- PowerShell; -NoLogo to avoid startup noise
-		return { "pwsh", "-NoLogo", "-Command" }
-	else
-		-- POSIX shell
-		return { "bash", "-lc" }
-	end
-end
-
-local function build_args_with_shell(base_cmd)
-	-- returns an args table suitable for spawn_window() where the last element is the command string
-	local shell = shell_for_os()
-	local t = {}
-	for i = 1, #shell do
-		t[#t + 1] = shell[i]
-	end
-	t[#t + 1] = base_cmd
-	return t
-end
-
-local function ensure_python_workspace(gui_window)
-	-- Create a project-aware python workspace:
-	-- left: nvim in project root
-	-- right-top: interactive REPL (ptpython/ipython via poetry if available)
-	-- right-bottom: tests/dev-server (pytest or uvicorn), best-effort
-	local mux = wezterm.mux
-	if mux == nil then
-		-- GUI process / mux not available: just switch to a generic workspace
-		gui_window:perform_action(act.SwitchToWorkspace({ name = "python" }), gui_window)
-		return
-	end
-
-	-- detect project root and repo name
-	local project_root = detect_project_root()
-	local repo = repo_name_from_root(project_root)
-	local ws_name = "python:" .. repo
-
-	-- If workspace already has a window, switch to it
-	for _, w in ipairs(mux.get_windows()) do
-		if w:active_workspace() == ws_name then
-			gui_window:perform_action(act.SwitchToWorkspace({ name = ws_name }), gui_window)
-			return
-		end
-	end
-
-	-- Ensure we have a sane cwd
-	local cwd = project_root or "."
-
-	-- Left pane: nvim in project root
-	local nvim_cmd
-	if detect_os() == "windows" then
-		-- PowerShell: cd and run nvim
-		nvim_cmd = "Set-Location -LiteralPath " .. shell_escape(cwd) .. " ; nvim"
-	else
-		nvim_cmd = "cd " .. shell_escape(cwd) .. " && nvim"
-	end
-
-	local tab, left_pane, new_window = mux.spawn_window({
-		workspace = ws_name,
-		cwd = cwd,
-		args = build_args_with_shell(nvim_cmd),
-	})
-
-	-- Right-top: interactive REPL (prefer poetry-managed env if present)
-	local repl_cmd
-	if detect_os() == "windows" then
-		repl_cmd = "Set-Location -LiteralPath "
-			.. shell_escape(cwd)
-			.. " ; (poetry run ptpython -q 2>$null -or poetry run ipython -q 2>$null -or ptpython -q 2>$null -or ipython -q)"
-	else
-		repl_cmd = "cd "
-			.. shell_escape(cwd)
-			.. " && (poetry run ptpython || poetry run ipython || ptpython || ipython)"
-	end
-
-	local right_top = left_pane:split({
-		direction = "Right",
-		size = 0.5,
-		cwd = cwd,
-		args = build_args_with_shell(repl_cmd),
-	})
-
-	-- Right-bottom: run tests or dev server (try pytest, then uvicorn, otherwise leave a shell)
-	local test_cmd
-	if detect_os() == "windows" then
-		test_cmd = "Set-Location -LiteralPath "
-			.. shell_escape(cwd)
-			.. " ; (poetry run pytest -q --maxfail=1 2>$null -or pytest -q 2>$null -or poetry run uvicorn app:app --reload 2>$null -or Write-Host 'No test or server detected'; Start-Sleep -Seconds 1)"
-	else
-		test_cmd = "cd "
-			.. shell_escape(cwd)
-			.. " && (poetry run pytest -q --maxfail=1 || pytest -q || poetry run uvicorn app:app --reload || echo 'No test or server detected')"
-	end
-
-	right_top:split({
-		direction = "Down",
-		size = 0.5,
-		cwd = cwd,
-		args = build_args_with_shell(test_cmd),
-	})
-
-	-- Finally switch the GUI to the newly-created workspace
-	gui_window:perform_action(act.SwitchToWorkspace({ name = ws_name }), gui_window)
-end
-
-detect_os = function()
-	local target = wezterm.target_triple or ""
-	if target:find("windows") then
-		return "windows"
-	elseif target:find("darwin") then
-		return "macos"
-	else
-		return "linux"
-	end
-end
-
-local computer_name = os.getenv("COMPUTERNAME") or os.getenv("HOSTNAME")
 
 local config = {
-	-- Import configurations from other files
-	-- keys = require("keybindings"),
-	disable_default_key_bindings = false,
-	font = require("fonts"),
-	color_scheme = require("colors"),
-	-- Appearance settings
-	hide_tab_bar_if_only_one_tab = false, -- Hide the tab bar if there's only one tab
-	tab_bar_at_bottom = true, -- Move the tab bar to the bottom
-	use_fancy_tab_bar = true, -- Enable fancy tab bar
-	window_close_confirmation = "NeverPrompt",
-	window_decorations = "RESIZE", -- Remove the title bar
-	window_padding = {
-		left = 5,
-		right = 5,
-		top = 5,
-		bottom = 5,
-	},
-	initial_rows = 30,
-	initial_cols = 100,
-	enable_scroll_bar = true, -- Enable scroll bar
-	scrollback_lines = 5000,
-	front_end = "WebGpu",
-	-- webgpu_preferred_adapter = (function()
-	-- 	if computer_name == "Azin-Desktop" then
-	-- 		return {
-	-- 			backend = "Vulkan",
-	-- 			device_type = "DiscreteGpu",
-	-- 			name = "NVIDIA GeForce RTX 4070 SUPER",
-	-- 		}
-	-- 	elseif computer_name == "Machine2" then
-	-- 		return {
-	-- 			backend = "Vulkan",
-	-- 			device_type = "DiscreteGpu",
-	-- 			name = "Another GPU Name",
-	-- 		}
-	-- 	else
-	-- 		return {
-	-- 			backend = "Vulkan",
-	-- 			device_type = "DiscreteGpu",
-	-- 			name = "Default GPU Name",
-	-- 		}
-	-- 	end
-	-- end)(),
-	max_fps = 240,
-	window_background_opacity = 0.8,
-	text_background_opacity = 0.8,
-	default_workspace = "default",
-	status_update_interval = 1000,
-}
-if detect_os() == "windows" then
-	config.default_prog = { "pwsh" }
-elseif detect_os() == "macos" then
-	config.default_prog = { "/bin/zsh" }
-end
 
--- switch to workspace
-wezterm.on("update-right-status", function(window, pane)
-	window:set_right_status(window:active_workspace())
-end)
+    default_prog = { 'pwsh.exe', '-NoLogo' },
+    -- Import configurations from other files
+    -- keys = require("keybindings"),
+    disable_default_key_bindings = false,
+    font = require("fonts"),
+    color_scheme = require("colors"),
+    -- Appearance settings
+    hide_tab_bar_if_only_one_tab = false, -- Hide the tab bar if there's only one tab
+    tab_bar_at_bottom = true,             -- Move the tab bar to the bottom
+    use_fancy_tab_bar = true,             -- Enable fancy tab bar
+    window_close_confirmation = "NeverPrompt",
+    window_decorations = "RESIZE",        -- Remove the title bar
+    window_padding = {
+        left = 5,
+        right = 5,
+        top = 5,
+        bottom = 5,
+    },
+    initial_rows = 30,
+    initial_cols = 100,
+    enable_scroll_bar = true, -- Enable scroll bar
+    scrollback_lines = 5000,
+    front_end = "WebGpu",
+    -- webgpu_preferred_adapter = (function()
+    -- 	if computer_name == "Azin-Desktop" then
+    -- 		return {
+    -- 			backend = "Vulkan",
+    -- 			device_type = "DiscreteGpu",
+    -- 			name = "NVIDIA GeForce RTX 4070 SUPER",
+    -- 		}
+    -- 	elseif computer_name == "Machine2" then
+    -- 		return {
+    -- 			backend = "Vulkan",
+    -- 			device_type = "DiscreteGpu",
+    -- 			name = "Another GPU Name",
+    -- 		}
+    -- 	else
+    -- 		return {
+    -- 			backend = "Vulkan",
+    -- 			device_type = "DiscreteGpu",
+    -- 			name = "Default GPU Name",
+    -- 		}
+    -- 	end
+    -- end)(),
+    max_fps = 240,
+    window_background_opacity = 0.8,
+    text_background_opacity = 0.8,
+    default_workspace = "default",
+    status_update_interval = 1000,
+}
 
 config.keys = {
-	-- Switch to the default workspace
-	{
-		key = "y",
-		mods = "CTRL|SHIFT",
-		action = act.SwitchToWorkspace({
-			name = "default",
-		}),
-	},
-	-- Switch to a monitoring workspace, which will have `top` launched into it
-	{
-		key = "b",
-		mods = "CTRL|SHIFT",
-		action = act.SwitchToWorkspace({
-			name = "monitoring",
-			spawn = {
-				args = { "btop" },
-			},
-		}),
-	},
 
-	-- Show the launcher in fuzzy selection mode and have it list all workspaces
-	-- and allow activating one.
-	{
-		key = "0",
-		mods = "CTRL",
-		action = act.ShowLauncherArgs({
-			flags = "FUZZY|WORKSPACES|TABS",
-		}),
-	},
-	{ key = "m", mods = "CTRL|SHIFT", action = wezterm.action.ShowLauncher },
-	-- Create/switch to the python workspace (left: nvim; right-top: ai-openai; right-bottom: yazi)
-	{
-		key = "i",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action_callback(function(win, pane)
-			ensure_python_workspace(win)
-		end),
-	},
 
-	-- Cycle to next workspace
-	{
-		key = "RightArrow",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action_callback(function(win, pane)
-			switch_to_workspace_by_index(win, 1)
-		end),
-	},
+    -- Move focus between panes with Ctrl+Shift + H/J/K/L (use uppercase to override builtins)
+    {
+        key = "H",
+        mods = "CTRL|SHIFT",
+        action = act.ActivatePaneDirection("Left"),
+    },
+    {
+        key = "J",
+        mods = "CTRL|SHIFT",
+        action = act.ActivatePaneDirection("Down"),
+    },
+    {
+        key = "K",
+        mods = "CTRL|SHIFT",
+        action = act.ActivatePaneDirection("Up"),
+    },
+    {
+        key = "L",
+        mods = "CTRL|SHIFT",
+        action = act.ActivatePaneDirection("Right"),
+    },
 
-	-- Cycle to previous workspace
-	{
-		key = "LeftArrow",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action_callback(function(win, pane)
-			switch_to_workspace_by_index(win, -1)
-		end),
-	},
-
-	-- Create a new timestamped workspace (spawns a shell)
-	{
-		key = "N",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action_callback(function(win, pane)
-			create_timestamped_workspace(win)
-		end),
-	},
-
-	-- Close the current workspace (best-effort)
-	{
-		key = "W",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action_callback(function(win, pane)
-			close_current_workspace(win)
-		end),
-	},
-
-	-- Move focus between panes with Ctrl+Shift + H/J/K/L (use uppercase to override builtins)
-	{
-		key = "H",
-		mods = "CTRL|SHIFT",
-		action = act.ActivatePaneDirection("Left"),
-	},
-	{
-		key = "J",
-		mods = "CTRL|SHIFT",
-		action = act.ActivatePaneDirection("Down"),
-	},
-	{
-		key = "K",
-		mods = "CTRL|SHIFT",
-		action = act.ActivatePaneDirection("Up"),
-	},
-	{
-		key = "L",
-		mods = "CTRL|SHIFT",
-		action = act.ActivatePaneDirection("Right"),
-	},
-
-	-- Resize panes with Ctrl+Alt+Shift + H/J/K/L (use uppercase to override builtins)
-	{
-		key = "H",
-		mods = "CTRL|ALT|SHIFT",
-		action = act.AdjustPaneSize({ "Left", 1 }),
-	},
-	{
-		key = "J",
-		mods = "CTRL|ALT|SHIFT",
-		action = act.AdjustPaneSize({ "Down", 1 }),
-	},
-	{
-		key = "K",
-		mods = "CTRL|ALT|SHIFT",
-		action = act.AdjustPaneSize({ "Up", 1 }),
-	},
-	{
-		key = "L",
-		mods = "CTRL|ALT|SHIFT",
-		action = act.AdjustPaneSize({ "Right", 1 }),
-	},
+    -- Resize panes with Ctrl+Alt+Shift + H/J/K/L (use uppercase to override builtins)
+    {
+        key = "H",
+        mods = "CTRL|ALT|SHIFT",
+        action = act.AdjustPaneSize({ "Left", 1 }),
+    },
+    {
+        key = "J",
+        mods = "CTRL|ALT|SHIFT",
+        action = act.AdjustPaneSize({ "Down", 1 }),
+    },
+    {
+        key = "K",
+        mods = "CTRL|ALT|SHIFT",
+        action = act.AdjustPaneSize({ "Up", 1 }),
+    },
+    {
+        key = "L",
+        mods = "CTRL|ALT|SHIFT",
+        action = act.AdjustPaneSize({ "Right", 1 }),
+    },
 }
+
+local workspace_switcher = wezterm.plugin.require("https://github.com/bugii/workspace-picker-plugin")
+
+-- Configure workspaces
+workspace_switcher.setup({
+        {
+            path = "~/repos/geopeek",
+            type = "directory",
+            tabs = {
+                {
+                    name = "tab-1",
+                    direction = "Right",
+                    panes = {
+                        {
+                            name = "pane-1",
+                            command = "nvim",
+                            direction = "Right",
+                        },
+                        {
+                            name = "pane-2",
+                            command = "ca && clear",
+                            direction = "Right",
+                        },
+                    },
+                },
+                { name = "ai",   command = "ai-openai" },
+                { name = "yazi", command = "yazi" },
+                { name = "btop", command = "btop" },
+            },
+        },
+    },
+    {
+        icons = {
+            directory = "📁",
+            worktree = "🌳",
+            zoxide = "⚡",
+            workspace = "🖥️",
+        }
+    })
+
+-- Apply to config with custom keybinding
+workspace_switcher.apply_to_config(config, "f", "CTRL")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 return config
