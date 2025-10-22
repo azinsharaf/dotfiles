@@ -102,4 +102,66 @@ config.keys = {
     },
 }
 
+local workspace_switcher = wezterm.plugin.require("https://github.com/bugii/workspace-picker-plugin")
+
+-- Configure workspaces
+workspace_switcher.setup({
+        {
+            path = "~/repos/geopeek",
+            type = "directory",
+            tabs = {
+                {
+                    name = "tab-1",
+                    direction = "Right",
+                    panes = {
+                        {
+                            name = "pane-1",
+                            command = "nvim",
+                            direction = "Right",
+                        },
+                        {
+                            name = "pane-2",
+                            command = "ca && clear",
+                            direction = "Right",
+                        },
+                    },
+                },
+                { name = "ai",   command = "ai-openai" },
+                { name = "yazi", command = "yazi" },
+                { name = "btop", command = "btop" },
+            },
+        },
+    },
+    {
+        icons = {
+            directory = "📁",
+            worktree = "🌳",
+            zoxide = "⚡",
+            workspace = "🖥️",
+        }
+    })
+
+-- Apply to config with custom keybinding
+workspace_switcher.apply_to_config(config, "f", "CTRL")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 return config
