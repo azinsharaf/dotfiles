@@ -117,7 +117,7 @@ workspace_switcher.setup({
                         name = "pane-1",
                         command = "nvim",
                         direction = "Right",
-                        size = 3
+                        size = 2
                     },
                     {
                         name = "pane-2",
