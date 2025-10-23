@@ -207,7 +207,7 @@ function wezterm-update-plugins {
          [Parameter(ValueFromRemainingArguments=$true)]
          $Args
      )
-     $script = '$env:USERPROFILE\.config\wezterm\wezterm-update-plugins.ps1'
+     $script = "$env:USERPROFILE\.config\wezterm\wezterm-update-plugins.ps1"
      if (-not (Test-Path $script)) { Write-Error "Script not found: $script"; return }
      & $script @Args
  }
