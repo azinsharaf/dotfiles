@@ -203,6 +203,34 @@ workspace_switcher.setup({
 			{ name = "yazi", command = "cd '~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work' && yazi" },
 		},
 	},
+
+	{
+		path = "~/repos/wri_sdmp_gis_tools/",
+		type = "directory",
+		tabs = {
+			{
+				name = "tab-1",
+				direction = "Right",
+				panes = {
+					{
+						name = "pane-1",
+						command = "cd ~/repos/wri_sdmp_gis_tools/ && ca && nvim",
+						direction = "Right",
+						size = 2,
+					},
+					{
+						name = "pane-2",
+						command = "ca && clear",
+						direction = "Right",
+						size = 1,
+					},
+				},
+			},
+			{ name = "ai", command = "cd ~/repos/wri_sdmp_gis_tools/ && opencode" },
+			{ name = "yazi", command = "cd ~/repos/wri_sdmp_gis_tools/ && yazi" },
+			{ name = "btop", command = "cd ~/repos/wri_sdmp_gis_tools/ && btop" },
+		},
+	},
 }, {
 	icons = {
 		directory = "📁",
