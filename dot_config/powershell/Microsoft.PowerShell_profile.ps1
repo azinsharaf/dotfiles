@@ -202,6 +202,16 @@ function Get-UncPath {
     }
 }
 
+function wezterm-update-plugins {
+     param(
+         [Parameter(ValueFromRemainingArguments=$true)]
+         $Args
+     )
+     $script = '$env:USERPROFILE\.config\wezterm\wezterm-update-plugins.ps1'
+     if (-not (Test-Path $script)) { Write-Error "Script not found: $script"; return }
+     & $script @Args
+ }
+
 function ai { aider --model gpt-5 --chat-mode ask --no-git }
 function ai-openai { aider --model gpt-5-mini --chat-mode architect --watch-files }
 function ai-deepseek-r1 { aider --model ollama_chat/deepseek-r1:latest --chat-mode architect --watch-files}
