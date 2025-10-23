@@ -183,6 +183,26 @@ workspace_switcher.setup({
 			{ name = "btop", command = "btop" },
 		},
 	},
+
+	{
+		path = "~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work",
+		type = "directory",
+		tabs = {
+			{
+				name = "tab-1",
+				direction = "Right",
+				panes = {
+					{
+						name = "pane-1",
+						command = "cd '~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work' && nvim",
+						direction = "Right",
+						size = 1,
+					},
+				},
+			},
+			{ name = "yazi", command = "cd '~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work' && yazi" },
+		},
+	},
 }, {
 	icons = {
 		directory = "📁",
