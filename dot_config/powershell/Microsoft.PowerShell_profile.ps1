@@ -3,44 +3,49 @@ Set-PSReadlineOption -EditMode vi -viModeIndicator Cursor
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 # Conda (ArcGIS Pro) activator: ca [envname]
-function ca {
-  param([string]$Name = 'arcgispro-py3-clone')
+function ca
+{
+    param([string]$Name = 'arcgispro-py3-clone')
 
-  $root = 'C:\Program Files\ArcGIS\Pro\bin\Python'
-  $condaExe = Join-Path $root 'Scripts\conda.exe'
-  $psm1     = Join-Path $root 'shell\condabin\Conda.psm1'
+    $root = 'C:\Program Files\ArcGIS\Pro\bin\Python'
+    $condaExe = Join-Path $root 'Scripts\conda.exe'
+    $psm1     = Join-Path $root 'shell\condabin\Conda.psm1'
 
-  if (-not (Test-Path -LiteralPath $psm1)) {
-    Write-Warning "Conda.psm1 not found at: $psm1"
-    return
-  }
-  if (-not (Test-Path -LiteralPath $condaExe)) {
-    Write-Warning "conda.exe not found at: $condaExe"
-    return
-  }
-
-  try {
-    # prevent conda from altering the prompt
-    $Env:CONDA_CHANGEPS1 = "false"
-
-    $Env:_CONDA_ROOT = $root
-    $Env:_CONDA_EXE  = $condaExe
-    $Env:CONDA_EXE   = $condaExe
-    $Env:CONDA_ENV_EXE = Join-Path $root 'Scripts\conda-env.exe'
-
-    # Import the module directly (NO -ArgumentList)
-    Import-Module $psm1 -ErrorAction Stop
-
-    # After module import, a 'conda' function should exist
-    if (-not (Get-Command conda -ErrorAction SilentlyContinue)) {
-      throw "Conda function was not created by $psm1"
+    if (-not (Test-Path -LiteralPath $psm1))
+    {
+        Write-Warning "Conda.psm1 not found at: $psm1"
+        return
+    }
+    if (-not (Test-Path -LiteralPath $condaExe))
+    {
+        Write-Warning "conda.exe not found at: $condaExe"
+        return
     }
 
-    conda activate $Name
-  }
-  catch {
-    Write-Warning "Conda init/activate failed: $($_.Exception.Message)"
-  }
+    try
+    {
+        # prevent conda from altering the prompt
+        $Env:CONDA_CHANGEPS1 = "false"
+
+        $Env:_CONDA_ROOT = $root
+        $Env:_CONDA_EXE  = $condaExe
+        $Env:CONDA_EXE   = $condaExe
+        $Env:CONDA_ENV_EXE = Join-Path $root 'Scripts\conda-env.exe'
+
+        # Import the module directly (NO -ArgumentList)
+        Import-Module $psm1 -ErrorAction Stop
+
+        # After module import, a 'conda' function should exist
+        if (-not (Get-Command conda -ErrorAction SilentlyContinue))
+        {
+            throw "Conda function was not created by $psm1"
+        }
+
+        conda activate $Name
+    } catch
+    {
+        Write-Warning "Conda init/activate failed: $($_.Exception.Message)"
+    }
 }
 
 # Does the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
@@ -61,13 +66,14 @@ function clear-recyclebin
 }
 
 # yazi shell wrapper https://yazi-rs.github.io/docs/quick-start
-function y {
-  yazi
+function y
+{
+    yazi
 }
 
 function cat
 {
-bat
+    bat
 }
 
 function reload
@@ -189,34 +195,52 @@ function sua
 {scoop update --all
 }
 
-function Get-UncPath {
+function Get-UncPath
+{
     param([string]$Path)
 
     $resolved = Convert-Path $Path
     $drive = $resolved.Substring(0,2)
     $unc   = (Get-WmiObject Win32_LogicalDisk -Filter "DeviceID='$drive'").ProviderName
-    if ($unc) {
+    if ($unc)
+    {
         return $resolved.Replace($drive, $unc)
-    } else {
+    } else
+    {
         return $resolved
     }
 }
 
-function wezterm-update-plugins {
-     param(
-         [Parameter(ValueFromRemainingArguments=$true)]
-         $Args
-     )
-     $script = "$env:USERPROFILE\.config\wezterm\wezterm-update-plugins.ps1"
-     if (-not (Test-Path $script)) { Write-Error "Script not found: $script"; return }
-     & $script @Args
- }
+function wezterm-update-plugins
+{
+    param(
+        [Parameter(ValueFromRemainingArguments=$true)]
+        $Args
+    )
+    $script = "$env:USERPROFILE\.config\wezterm\wezterm-update-plugins.ps1"
+    if (-not (Test-Path $script))
+    { Write-Error "Script not found: $script"; return 
+    }
+    & $script @Args
+}
 
-function ai { aider --model gpt-5 --chat-mode ask --no-git }
-function ai-openai { aider --model gpt-5-mini --chat-mode architect --watch-files }
-function ai-deepseek-r1 { aider --model ollama_chat/deepseek-r1:latest --chat-mode architect --watch-files}
-function ai-llama3.1 { aider --model ollama_chat/llama3.1:latest --chat-mode architect --watch-files}
-function ai-gptoss { aider --model ollama_chat/gpt-oss:latest --chat-mode architect --watch-files}
+# function ai { aider --model gpt-5 --chat-mode ask --no-git }
+# function ai-openai { aider --model gpt-5-mini --chat-mode architect --watch-files }
+# function ai-deepseek-r1 { aider --model ollama_chat/deepseek-r1:latest --chat-mode architect --watch-files}
+# function ai-llama3.1 { aider --model ollama_chat/llama3.1:latest --chat-mode architect --watch-files}
+# function ai-gptoss { aider --model ollama_chat/gpt-oss:latest --chat-mode architect --watch-files}
+
+function ai
+{
+    param([Parameter(ValueFromRemainingArguments=$true)][string[]]$Message)
+    $text = $Message -join ' '
+    opencode --model openai/gpt-5 run $text
+}
+
+function ai-gpt-5-mini
+{ 
+    opencode --model openai/gpt-5-mini
+}
 
 # function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
 
@@ -242,7 +266,8 @@ $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 # Auto-activate venv if it exists
 $venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.10\env-geopeek\Scripts\Activate.ps1"
-if (Test-Path $venvPath) {
+if (Test-Path $venvPath)
+{
     & $venvPath
 }
 
@@ -262,9 +287,9 @@ $Env:CUDA_PATH_V12_8 = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8
 # Define fzf options
 
 $Env:FZF_DEFAULT_OPTS = '--height=70% --layout=reverse --border ' +
-                        '--preview "if (Test-Path {}) { bat --style=numbers --color=always --line-range=:500 {} } else { Get-Item {} | Format-List * }" ' +
-                        '--preview-window=right:70% ' +
-                        '--bind "j:down,k:up,h:toggle-preview,l:accept"'
+'--preview "if (Test-Path {}) { bat --style=numbers --color=always --line-range=:500 {} } else { Get-Item {} | Format-List * }" ' +
+'--preview-window=right:70% ' +
+'--bind "j:down,k:up,h:toggle-preview,l:accept"'
 
 $Env:EZA_CONFIG_DIR = "$Env:USERPROFILE\.config\eza"
 
