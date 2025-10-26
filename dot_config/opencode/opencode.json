@@ -4,6 +4,8 @@
     "scroll_speed": 3
   },
 
+  "theme": "catppuccin",
+
   "tools": {
     "read": true,
     "edit":true,
@@ -16,6 +18,17 @@
     "patch": true
   },
 
+  "share": "disabled",
+
   "provider": {
-  }
+  },
+
+
+  "command": {
+    "commit-git": {
+      "template": "commit the changes in git.",
+      "description": "git commit",
+      "agent": "build",
+    },
+    },
 }
