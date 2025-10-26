@@ -16,10 +16,10 @@ local config = {
     window_close_confirmation = "NeverPrompt",
     window_decorations = "RESIZE",        -- Remove the title bar
     window_padding = {
-        left = 5,
-        right = 5,
-        top = 5,
-        bottom = 5,
+        left = 10,
+        right = 10,
+        top = 10,
+        bottom = 10,
     },
     initial_rows = 30,
     initial_cols = 100,
@@ -127,9 +127,9 @@ workspace_switcher.setup({
                     },
                 },
             },
-            { name = "ai",   command = "cd ~/repos/wri_sdmp_gis_tools/ && opencode" },
-            { name = "yazi", command = "cd ~/repos/wri_sdmp_gis_tools/ && yazi" },
-            { name = "btop", command = "cd ~/repos/wri_sdmp_gis_tools/ && btop" },
+            { name = "ai",   command = "cd ~/repos/geopeek/ && opencode" },
+            { name = "yazi", command = "cd ~/repos/geopeek/ && yazi" },
+            { name = "btop", command = "cd ~/repos/geopeek/ && btop" },
         },
     },
 
@@ -242,5 +242,50 @@ workspace_switcher.setup({
 
 -- Apply to config with custom keybinding
 workspace_switcher.apply_to_config(config, "f", "CTRL")
+
+-- tab bar plugin
+-- local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+-- bar.apply_to_config(config)
+
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup({
+    options = {
+        icons_enabled = true,
+        theme = 'Catppuccin Mocha',
+        tabs_enabled = true,
+        theme_overrides = {},
+        section_separators = {
+            left = wezterm.nerdfonts.pl_left_hard_divider,
+            right = wezterm.nerdfonts.pl_right_hard_divider,
+        },
+        component_separators = {
+            left = wezterm.nerdfonts.pl_left_soft_divider,
+            right = wezterm.nerdfonts.pl_right_soft_divider,
+        },
+        tab_separators = {
+            left = wezterm.nerdfonts.pl_left_hard_divider,
+            right = wezterm.nerdfonts.pl_right_hard_divider,
+        },
+    },
+    sections = {
+        tabline_a = { 'mode' },
+        tabline_b = { 'workspace' },
+        tabline_c = { ' ' },
+        tab_active = {
+            'index',
+            { 'parent', padding = 0 },
+            '/',
+            { 'cwd',    padding = { left = 0, right = 1 } },
+            { 'zoomed', padding = 0 },
+        },
+        tab_inactive = { 'index', { 'process', padding = { left = 0, right = 1 } } },
+        tabline_x = { 'ram', 'cpu' },
+        tabline_y = { 'datetime', 'battery' },
+        tabline_z = { 'domain' },
+    },
+    extensions = {},
+})
+
+tabline.apply_to_config(config)
 
 return config
