@@ -121,6 +121,7 @@ scoop install dua # disk usage analyzer
 scoop install exiftool # get the metadata of pictures
 scoop install mediainfo # get the metadata of videos
 scoop install less
+scoop install extras/opencode # ai coding agent
 ```
 
 #### Additional Tools
