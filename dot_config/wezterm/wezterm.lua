@@ -107,4 +107,13 @@ workspace_switcher.apply(config)
 local tabline_plugin = require("tabline")
 tabline_plugin.apply(config)
 
+wezterm.on("format-tab-title", function(tab, tabs, panes, cfg)
+	local title = tab.tab_title
+		or (tab.active_pane and tab.active_pane.user_vars and tab.active_pane.user_vars.name)
+		or (tab.active_pane and tab.active_pane.title)
+		or (tab.active_pane and tab.active_pane.foreground_process_name)
+	return " " .. (title or "shell") .. " "
+end)
+
 return config
+
