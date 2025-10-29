@@ -101,7 +101,7 @@ config.keys = {
 	},
 }
 
-local workspace_switcher = wezterm.plugin.require("https://github.com/bugii/workspace-picker-plugin")
+local workspace_picker = wezterm.plugin.require("https://github.com/bugii/workspace-picker-plugin")
 
 local home = os.getenv("HOME") or os.getenv("USERPROFILE") or ""
 
@@ -126,25 +126,41 @@ end
 -- Put your list of repo/folder paths here (can be full paths or "~/"-prefixed)
 local repos = {
 	"~/repos/geopeek",
-	"~/repos/wri_sdmp_gis_tools",
+	"~/repos/alameda_gis_azure_maintenance",
+	"~/repos/belmont_dmp_gis_maintenance",
+	"~/repos/danville_dmp_gis_maintenance",
+	"~/repos/dmp_inspection_report_generator",
+	"~/repos/glendale_dmp_gis_maintenance",
+	"~/repos/jn3614008_knights_landing",
+	"~/repos/la_county_dmp_gis_maintenance",
+	"~/repos/port_of_oakland_gis_maintenance",
+	"~/repos/Processing_NOAA_AORC_NEXRAD",
+	"~/repos/sde_creation",
+	"~/repos/sdmp_condassess_rehabplan_script",
+	"~/repos/wr_gis_icm",
+	"~/repos/wri_gis_oakland_misc_tools",
+	"~/repos/wri_gis_pythontoolbox",
+	"~/repos/wri_gis_sdmppostprocessing",
+	"~/repos/wri_gis_watersheds",
 	"~/repos/wri_gis_weightedaverage",
+	"~/repos/wri_sdmp_gis_tools",
 	"~/.local/share/chezmoi",
 }
 
 -- Shared tab/pane template
 local tabs_template = {
 	{
-		name = "tab-1",
+		name = "editor",
 		direction = "Right",
 		panes = {
 			{
-				name = "pane-1",
+				name = "nvim",
 				command = "ca && nvim",
 				direction = "Right",
 				size = 2,
 			},
 			{
-				name = "pane-2",
+				name = "run",
 				command = "ca && clear",
 				direction = "Right",
 				size = 1,
@@ -156,7 +172,7 @@ local tabs_template = {
 	{ name = "yazi", command = "yazi" },
 	{
 		name = "notes",
-		command = "nvim",
+		command = "cd '~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work/' && nvim",
 	},
 	{ name = "btop", command = " btop" },
 }
@@ -190,7 +206,7 @@ for _, raw in ipairs(repos) do
 	})
 end
 
-workspace_switcher.setup({}, {
+workspace_picker.setup(workspaces, {
 	icons = {
 		directory = "📁",
 		worktree = "🌳",
@@ -200,7 +216,7 @@ workspace_switcher.setup({}, {
 })
 
 -- Apply to config with custom keybinding
-workspace_switcher.apply_to_config(config, "f", "CTRL")
+workspace_picker.apply_to_config(config, "f", "CTRL")
 
 -- tab bar plugin
 -- local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
