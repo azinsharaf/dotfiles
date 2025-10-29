@@ -106,10 +106,10 @@ end
 
 workspace_picker.setup(workspaces, {
 	icons = {
-		directory = "ðŸ“",
-		worktree = "ðŸŒ³",
-		zoxide = "âš¡",
-		workspace = "ðŸ–¥ï¸",
+		directory = "📁",
+		worktree = "🌳",
+		zoxide = "⚡",
+		workspace = "🖥️",
 	},
 })
 
