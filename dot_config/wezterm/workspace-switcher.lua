@@ -116,6 +116,6 @@ workspace_picker.setup(workspaces, {
 -- Apply to config with custom keybinding
 local M = {}
 function M.apply(config)
-    workspace_picker.apply_to_config(config, "f", "CTRL")
+	workspace_picker.apply_to_config(config, "f", "CTRL")
 end
 return M
