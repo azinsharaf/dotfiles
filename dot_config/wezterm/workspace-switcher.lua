@@ -75,6 +75,13 @@ local tabs_template = {
 	{ name = "btop", command = " btop" },
 }
 
+-- Ensure tabs inherit a human-readable title from the template `name`
+for _, t in ipairs(tabs_template) do
+	if not t.tab_title and t.name then
+		t.tab_title = t.name
+	end
+end
+
 -- Build workspaces from repos list
 local workspaces = {}
 for _, raw in ipairs(repos) do
@@ -115,7 +122,27 @@ workspace_picker.setup(workspaces, {
 
 -- Apply to config with custom keybinding
 local M = {}
+
+-- load local tabline helper so tab formatting is consistent
+local tabline = dofile(wezterm.config_dir .. "/tabline.lua")
+
 function M.apply(config)
+	-- Ensure each tab uses its template `name` as `tab_title` before plugin creates tabs
+	for _, ws in ipairs(workspaces) do
+		if ws.tabs then
+			for _, t in ipairs(ws.tabs) do
+				if t.name then
+					t.tab_title = t.name
+				end
+			end
+		end
+	end
+
 	workspace_picker.apply_to_config(config, "f", "CTRL")
+	-- apply tabline plugin formatting
+	if tabline and tabline.apply then
+		tabline.apply(config)
+	end
 end
+
 return M
