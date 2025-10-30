@@ -6,29 +6,48 @@
 
   "theme": "catppuccin",
 
+  "permission": {
+    "edit": "deny"
+  },
+
   "tools": {
     "read": true,
-    "edit":true,
+    "edit": true,
     "write": false,
     "bash": true,
     "webfetch": true,
     "grep": true,
-    "glob":true,
+    "glob": true,
     "list": true,
     "patch": true
   },
 
   "share": "disabled",
 
-  "provider": {
-  },
+  "provider": {},
 
+  "agent": {
+    "plan": {
+      "tools": {
+        "write": false,
+
+        "bash": false
+      }
+    },
+
+    "build": {
+      "permission": {
+        "edit": "ask",
+        "bash": { "git push": "ask" }
+      }
+    }
+  },
 
   "command": {
     "commit-git": {
       "template": "commit the changes in git.",
       "description": "git commit",
-      "agent": "build",
-    },
-    },
+      "agent": "build"
+    }
+  }
 }
