@@ -101,22 +101,14 @@ config.keys = {
     },
 }
 
--- local workspace_picker = require("workspace-picker")
--- if not workspace_picker or type(workspace_picker) ~= "table" then
---   print("Failed to load workspace-picker module")
--- else
---   workspace_picker.apply(config)
--- end
--- if type(workspace_picker) ~= "table" then
---   print("Failed to load workspace-picker module")
--- else
---   workspace_picker.apply(config)
--- end
--- workspace_picker.apply(config)
---
---
--- local tabline_plugin = require("tabline")
--- tabline_plugin.apply(config)
+local workspace_picker = require("workspace_picker")
+workspace_picker.apply(config)
 
+local tabline_plugin = require("tabline")
+tabline_plugin.apply(config)
+
+local rename_tabs = require("rename_tabs")
+
+table.insert(config.keys, rename_tabs.get_keybinding())
 
 return config
