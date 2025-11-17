@@ -7,7 +7,8 @@ if is_windows then
 	-- PowerShell options for Windows
 	local powershell_options = {
 		shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell",
-		shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+		shellcmdflag =
+		"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
 		shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
 		shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
 		shellquote = "",
@@ -26,19 +27,19 @@ else
 end
 
 -- Tab / Indentation
-opt.tabstop = 4 -- 4 spaces for tabs
-opt.shiftwidth = 4 --4 spaces for indent width
+opt.tabstop = 4       -- 4 spaces for tabs
+opt.shiftwidth = 4    --4 spaces for indent width
 opt.softtabstop = 4
-opt.expandtab = true -- expand tab to spaces
+opt.expandtab = true  -- expand tab to spaces
 opt.smartindent = true
 opt.autoindent = true -- copy indent from current line when starting new
 opt.wrap = true
-opt.linebreak = true -- linebreak soft wrap at words
+opt.linebreak = true  -- linebreak soft wrap at words
 
 -- Search
 opt.incsearch = true
 opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.smartcase = true  -- if you include mixed case in your search, assumes you want case-sensitive
 opt.hlsearch = false
 
 -- Appearance
@@ -47,7 +48,7 @@ opt.relativenumber = true
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.colorcolumn = "79"
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.signcolumn = "yes"  -- show sign column so that text doesn't shift
 opt.cmdheight = 1
 opt.scrolloff = 10
 opt.completeopt = "menuone,noinsert,noselect"
@@ -98,3 +99,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.conceallevel = 1
 	end,
 })
+
+-- auto-session plugin
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
