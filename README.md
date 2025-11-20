@@ -84,6 +84,8 @@ scoop install lsd # The next gen ls command
 scoop install luarocks # Package manager for Lua modules
 scoop install make # Utility for directing compilation
 scoop install main/7zip # File archiver with a high compression ratio
+scoop install main/unzip # Unzip compression utility
+scoop install main/gzip # Popular data compression utility
 scoop install motrix # Full-featured download manager
 scoop install nerd-fonts/FiraCode-NF # FiraCode Nerd Font
 scoop install nerd-fonts/Hack-NF # Hack Nerd Font
@@ -122,6 +124,7 @@ scoop install exiftool # get the metadata of pictures
 scoop install mediainfo # get the metadata of videos
 scoop install less
 scoop install extras/opencode # ai coding agent
+scoop install main/uutils-coreutils # Rust implementation of GNU coreutils (binaries compiled with MSVC)
 ```
 
 #### Additional Tools
