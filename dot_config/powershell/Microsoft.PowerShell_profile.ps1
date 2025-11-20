@@ -271,6 +271,8 @@ if (Test-Path $venvPath)
     & $venvPath
 }
 
+$Env:PIPX_DEFAULT_PYTHON = "$Env:USERPROFILE\pipx\shared\Scripts\python.exe"
+
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
 $Env:BAT_CONFIG_DIR = "$Env:USERPROFILE\.config\bat\"
