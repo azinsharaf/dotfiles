@@ -753,9 +753,9 @@ c.content.tls.certificate_errors = "ask"
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
 
-# c.content.user_stylesheets = [
-#     "css/monospace.css",
-# ]
+c.content.user_stylesheets = [
+    "css/monospace.css",
+]
 
 # bind some stylesheets
 config.bind("tf", 'config-cycle content.user_stylesheets "css/monospace.css" ""')
@@ -1673,7 +1673,7 @@ c.tabs.position = "top"
 ##   - never: Always hide the tab bar.
 ##   - multiple: Hide the tab bar if only one tab is open.
 ##   - switching: Show the tab bar when switching tabs.
-c.tabs.show = "always"
+c.tabs.show = "multiple"
 
 ## Duration (in milliseconds) to show the tab bar before hiding it when
 ## tabs.show is set to 'switching'.
