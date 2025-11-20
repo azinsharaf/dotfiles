@@ -41,7 +41,6 @@ return {
 				"html",
 				"json",
 				"jsonc",
-				-- "latex",
 				"sql",
 				"vim",
 				"yaml",
@@ -49,6 +48,8 @@ return {
 				"csv",
 				"powershell",
 				"ini",
+				"regex",
+				"vimdoc",
 			},
 			-- Automatically install missing parsers when entering buffer
 			-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
