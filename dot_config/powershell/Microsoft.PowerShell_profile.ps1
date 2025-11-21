@@ -288,10 +288,67 @@ $Env:CUDA_PATH_V12_8 = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8
 
 # Define fzf options
 
-$Env:FZF_DEFAULT_OPTS = '--height=70% --layout=reverse --border ' +
-'--preview "if (Test-Path {}) { bat --style=numbers --color=always --line-range=:500 {} } else { Get-Item {} | Format-List * }" ' +
-'--preview-window=right:70% ' +
-'--bind "j:down,k:up,h:toggle-preview,l:accept"'
+function f() {
+    $file = fd | fzf
+    if ($file) { Get-Item $file }
+}
+
+# $Env:FZF_DEFAULT_OPTS = '--height=70% --layout=reverse --border ' +
+# '--preview "if (Test-Path {}) { bat --style=numbers --color=always --line-range=:500 {} } else { Get-Item {} | Format-List * }" ' +
+# '--preview-window=right:70% ' +
+# '--bind "j:down,k:up,h:toggle-preview,l:accept"'
+
+## FZF, PSFZF, and PSREADLINE tools
+
+# --- Ensure modules are loaded ---
+Import-Module PSReadLine -ErrorAction SilentlyContinue
+Import-Module PSFzf -ErrorAction SilentlyContinue
+
+# --- PSReadLine settings (makes pwsh MUCH better) ---
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -EditMode Windows
+
+# Improve syntax highlighting
+# Set-PSReadLineOption -Colors @{
+#     "Command"        = "#B4DFFE"
+#     "Parameter"      = "#F0A0FF"
+#     "String"         = "#A8FF60"
+#     "Operator"       = "#FFD500"
+#     "Variable"       = "#FFB05E"
+#     "Number"         = "#FF8C69"
+# }
+
+# --- PSFzf keybindings ---
+# Match fzf defaults from Unix (Ctrl-T, Ctrl-R, Alt-C)
+
+Set-PsFzfOption `
+    -PSReadlineChordProvider 'Ctrl+t' `
+    -HistorySearchProvider 'Ctrl+r' `
+    -FileSystemNavigation 'Alt+c' `
+    -MatchFuzzySetProvider 'Ctrl+f'
+
+# --- FZF default settings for better UX ---
+$env:FZF_DEFAULT_OPTS = @(
+  "--preview 'bat --style=numbers --color=always {}'"
+  "--preview-window=right:60%"
+  "--height=60%"
+  "--layout=reverse"
+  "--border"
+  "--info=inline"
+  "--prompt='❯ '"
+
+  # Catppuccin Macchiato Colors
+  "--color=bg+:#1e2030,bg:#181926,spinner:#f4dbd6,hl:#ed8796"
+  "--color=fg:#cad3f5,header:#f5bde6,info:#8bd5ca,pointer:#f4dbd6"
+  "--color=marker:#ed8796,fg+:#cad3f5,prompt:#89b4fa,hl+:#f38ba8"
+
+  # Preview settings
+  "--preview 'pwsh -NoProfile -File $HOME/.config/fzf/fzf_preview.ps1 {}'"
+  "--preview-window=right,60%,border-left"
+) -join ' '
+
+
 
 $Env:EZA_CONFIG_DIR = "$Env:USERPROFILE\.config\eza"
 
