@@ -1797,6 +1797,7 @@ c.url.searchengines = {
     "yt": "https://youtube.com/search?q={}",
     "rd": "https://reddit.com/search?q={}",
     "am": "https://amazon.com/s?k={}",
+    "gpt": "https://chatgpt.com/?q={}",
 }
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
@@ -1857,9 +1858,6 @@ c.zoom.mouse_divider = 512
 ## Apply the zoom factor on a frame only to the text or to all content.
 ## Type: Bool
 # c.zoom.text_only = False
-
-# various shortcuts
-config.bind("ec", "config-edit")
 
 # quick marks
 qsites = {
@@ -1965,7 +1963,7 @@ config.bind("K", "tab-prev")
 # config.bind('ad', 'download-cancel')
 # config.bind('b', 'cmd-set-text -s :quickmark-load')
 # config.bind('cd', 'download-clear')
-# config.bind('co', 'tab-only')
+config.bind("co", "tab-only")  # close other tabs
 config.bind("d", "tab-close")
 # config.bind('f', 'hint')
 # config.bind('g$', 'tab-focus -1')
@@ -2187,6 +2185,9 @@ config.bind("wi", "devtools")
 
 # config.bind("<Ctrl-Shift-m>", "spawn mpv {url}")
 config.bind(";v", "hint links spawn --detach mpv {hint-url}")
-
+config.bind(
+    ";a",
+    "hint links spawn --detach mpv --no-video --force-window --osc {hint-url}",
+)
 
 config.bind("td", 'config-cycle colors.webpage.darkmode.enabled "True" "False" ')
