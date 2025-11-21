@@ -90,6 +90,7 @@ scoop install motrix # Full-featured download manager
 scoop install nerd-fonts/FiraCode-NF # FiraCode Nerd Font
 scoop install nerd-fonts/Hack-NF # Hack Nerd Font
 scoop install nerd-fonts/JetBrainsMono-NF # JetBrainsMono Nerd Font
+scoop install nerd-fonts/CascadiaCode-NF-Mono # CascadiaCode Nerd Font
 scoop install neovim-nightly # Hyperextensible Vim-based text editor
 scoop install nodejs-lts # JavaScript runtime built on Chrome's V8
 scoop install nonportable/files-np # File manager
@@ -125,6 +126,8 @@ scoop install mediainfo # get the metadata of videos
 scoop install less
 scoop install extras/opencode # ai coding agent
 scoop install main/uutils-coreutils # Rust implementation of GNU coreutils (binaries compiled with MSVC)
+scoop install extras/psfzf # Powershell wrapper around the fuzzy finder fzf
+scoop install extras/psreadline # A bash inspired readline implementation for PowerShell
 ```
 
 #### Additional Tools
