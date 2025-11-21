@@ -1,36 +1,36 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "8f1d971"
+rev = "2301ff8"
 hash = "b16b6e08085a3dfec72335415e4c83ed"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "8f1d971"
-hash = "c06e347ab3226b2f478cbd331adfa393"
+rev = "2301ff8"
+hash = "8042bdcf33a3d87b9430bb65e4511461"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "8f1d971"
+rev = "2301ff8"
 hash = "2aada555b792eb4d44dd267097957577"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "8f1d971"
+rev = "2301ff8"
 hash = "29c3b04bad99946223dc83da1d13153a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "8f1d971"
+rev = "2301ff8"
 hash = "5f76a476ea416c9f379a1a451bdcd3d2"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "8f1d971"
+rev = "2301ff8"
 hash = "e24c3fe3f4e8eadb66f9cd41da6c9e58"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:zoom"
-rev = "8f1d971"
+rev = "2301ff8"
 hash = "91bf6f0332ee6d72eab0dc2e64382021"
 
 [[plugin.deps]]
