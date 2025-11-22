@@ -104,6 +104,7 @@ scoop install qutebrowser # A keyboard-driven, vim-like browser
 scoop install extras/zen-browser # Zen Browser
 scoop install revouninstaller # Uninstall software and remove unwanted programs
 scoop install ripgrep # Line-oriented search tool
+scoop install grep # Line-oriented search tool
 scoop install scoop install speedtest-cli # Internet speed testing from the command line
 scoop install spotify # Music streaming service
 scoop install spotify-player # Command-line Spotify client
