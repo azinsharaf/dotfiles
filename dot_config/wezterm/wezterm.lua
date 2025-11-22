@@ -56,6 +56,13 @@ local config = {
 
 config.keys = {
 
+	-- Activate the previously active tab
+	{
+		key = "o",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivateLastTab,
+	},
+
 	-- Move focus between panes with Ctrl+Shift + H/J/K/L (use uppercase to override builtins)
 	{
 		key = "H",
