@@ -1,6 +1,6 @@
-Set-PSReadlineOption -EditMode vi -viModeIndicator Cursor
+# Set-PSReadlineOption -EditMode vi -viModeIndicator Cursor
 # Enabling Menu Completion 
-Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+# Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 # Conda (ArcGIS Pro) activator: ca [envname]
 function ca
@@ -293,21 +293,19 @@ function f() {
     if ($file) { Get-Item $file }
 }
 
-# $Env:FZF_DEFAULT_OPTS = '--height=70% --layout=reverse --border ' +
-# '--preview "if (Test-Path {}) { bat --style=numbers --color=always --line-range=:500 {} } else { Get-Item {} | Format-List * }" ' +
-# '--preview-window=right:70% ' +
-# '--bind "j:down,k:up,h:toggle-preview,l:accept"'
-
 ## FZF, PSFZF, and PSREADLINE tools
 
-# --- Ensure modules are loaded ---
-Import-Module PSReadLine -ErrorAction SilentlyContinue
-Import-Module PSFzf -ErrorAction SilentlyContinue
+# Ensure modules are loaded
+Import-Module PSReadLine
+Import-Module PSFzf
 
-# --- PSReadLine settings (makes pwsh MUCH better) ---
+# PSReadLine settings
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
-Set-PSReadLineOption -EditMode Windows
+# Set-PSReadLineOption -EditMode Vi
+# Set-PSReadLineOption -ViModeIndicator Prompt
+# Set-PSReadLineKeyHandler -Key Ctrl+h -ScriptBlock { Invoke-FzfHistory }
+Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 
 # Improve syntax highlighting
 # Set-PSReadLineOption -Colors @{
@@ -319,7 +317,7 @@ Set-PSReadLineOption -EditMode Windows
 #     "Number"         = "#FF8C69"
 # }
 
-# --- PSFzf keybindings ---
+# PSFzf keybindings
 # Match fzf defaults from Unix (Ctrl-T, Ctrl-R, Alt-C)
 
 Set-PsFzfOption `
