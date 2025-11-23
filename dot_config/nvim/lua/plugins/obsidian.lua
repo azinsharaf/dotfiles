@@ -180,13 +180,6 @@ return {
 				ignore_conceal_warn = false,
 				update_debounce = 200, -- update delay after a text change (in milliseconds)
 				max_file_length = 5000, -- disable UI features for files with more than this many lines
-				checkboxes = {
-					[" "] = { char = "󰄱", hl_group = "obsidiantodo" },
-					["~"] = { char = "󰰱", hl_group = "obsidiantilde" },
-					["!"] = { char = "", hl_group = "obsidianimportant" },
-					[">"] = { char = "", hl_group = "obsidianrightarrow" },
-					["x"] = { char = "", hl_group = "obsidiandone" },
-				},
 
 				-- Use bullet marks for non-checkbox lists.
 				bullets = { char = "•", hl_group = "ObsidianBullet" },
