@@ -1,0 +1,20 @@
+{
+  "records": {
+    "we": [
+      {
+        "Title": "Execute query: we",
+        "SubTitle": "Last execution time: 9/25/2025 9:00:23 PM",
+        "PluginID": null,
+        "RecordKey": null
+      }
+    ],
+    "": [
+      {
+        "Title": "kill",
+        "SubTitle": "Activate Process Killer plugin action keyword",
+        "PluginID": "6A122269676E40EB86EB543B945932B9",
+        "RecordKey": null
+      }
+    ]
+  }
+}
