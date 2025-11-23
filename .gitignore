@@ -1,3 +1,6 @@
 .DS_Store
 dot_config/yasb/yasb.log
 .aider*
+*.bak
+*.log
+
