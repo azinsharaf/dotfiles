@@ -164,6 +164,7 @@ keymap = [
 	{ on = [ "g", "p", "q" ], run = 'cd "K:/Support/Scripts/Python/Wood_Rodgers/WoodRodgers_PythonToolbox"', desc = "WR Python Toolbox" },
 	{ on = [ "g", "p", "r" ], run = 'cd "J:/Jobs/8349_Alameda_OnCall_H&H/8-Zone_2_DMP"', desc = "Zone 2 DMP 8349" },
 	{ on = [ "g", "p", "s" ], run = 'cd "J:/Jobs/8950_Alameda_Zone7"', desc = "Zone 7 DMP 8950" },
+	{ on = [ "g", "p", "t" ], run = 'cd "J:/Jobs/8836_CityofSebastopol_OnCall/TO2_FRMP"', desc = "Sebastopol on-Call 8836" },
 
 
 	# Tabs
