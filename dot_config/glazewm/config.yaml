@@ -44,7 +44,7 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: "20px"
+  inner_gap: "30px"
 
   # Gap between windows and the screen edge.
   outer_gap:
@@ -92,8 +92,8 @@ window_effects:
       enabled: true
       style: "square"
     transparency:
-      enabled: false
-      opacity: "0%"
+      enabled: true
+      opacity: "95%"
 
 window_behavior:
   # New windows are created in this state whenever possible.
