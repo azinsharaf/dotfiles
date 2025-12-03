@@ -159,13 +159,13 @@ keymap = [
 	{ on = [ "g", "p", "l" ], run = 'cd "J:/Jobs/8196001_MtShasta_StormwaterDrainage/GIS"', desc = "Mt Shasta DMP 8196" },
 	{ on = [ "g", "p", "m" ], run = 'cd "J:/Jobs/8792_CityofOakland_DMP/Oakland_DMP/GIS"', desc = "Oakland DMP 8792" },
 	{ on = [ "g", "p", "n" ], run = 'cd "J:/Jobs/8619_Port_Database/OA"', desc = "Port Database 8619" },
-	{ on = [ "g", "p", "o" ], run = 'cd "J:/Jobs/9010_SantaClara_Database/OA"', desc = "Santa Clara Database 9010" },
-	{ on = [ "g", "p", "p" ], run = 'cd "Z:/Jobs/8183_Silver Springs ADMP/Silver Springs ADMP_OA/GIS"', desc = "Silver Spring ADMP 8183" },
-	{ on = [ "g", "p", "q" ], run = 'cd "K:/Support/Scripts/Python/Wood_Rodgers/WoodRodgers_PythonToolbox"', desc = "WR Python Toolbox" },
-	{ on = [ "g", "p", "r" ], run = 'cd "J:/Jobs/8349_Alameda_OnCall_H&H/8-Zone_2_DMP"', desc = "Zone 2 DMP 8349" },
-	{ on = [ "g", "p", "s" ], run = 'cd "J:/Jobs/8950_Alameda_Zone7"', desc = "Zone 7 DMP 8950" },
-	{ on = [ "g", "p", "t" ], run = 'cd "J:/Jobs/8836_CityofSebastopol_OnCall/TO2_FRMP"', desc = "Sebastopol on-Call 8836" },
-
+	{ on = [ "g", "p", "o" ], run = 'cd "J:/Jobs/8180_CityofPVE_DMP/CityofPVE_DMP/GIS"', desc = "PVE SDMP 8180" },
+	{ on = [ "g", "p", "p" ], run = 'cd "J:/Jobs/9010_SantaClara_Database/OA"', desc = "Santa Clara Database 9010" },
+	{ on = [ "g", "p", "q" ], run = 'cd "Z:/Jobs/8183_Silver Springs ADMP/Silver Springs ADMP_OA/GIS"', desc = "Silver Spring ADMP 8183" },
+	{ on = [ "g", "p", "r" ], run = 'cd "K:/Support/Scripts/Python/Wood_Rodgers/WoodRodgers_PythonToolbox"', desc = "WR Python Toolbox" },
+	{ on = [ "g", "p", "s" ], run = 'cd "J:/Jobs/8349_Alameda_OnCall_H&H/8-Zone_2_DMP"', desc = "Zone 2 DMP 8349" },
+	{ on = [ "g", "p", "t" ], run = 'cd "J:/Jobs/8950_Alameda_Zone7"', desc = "Zone 7 DMP 8950" },
+	{ on = [ "g", "p", "u" ], run = 'cd "J:/Jobs/8836_CityofSebastopol_OnCall/TO2_FRMP"', desc = "Sebastopol on-Call 8836" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
