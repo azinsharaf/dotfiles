@@ -5,7 +5,7 @@
 # Conda (ArcGIS Pro) activator: ca [envname]
 function ca
 {
-    param([string]$Name = 'arcgispro-py3-clone')
+    param([string]$Name = 'arcgispro-py3')
 
     $root = 'C:\Program Files\ArcGIS\Pro\bin\Python'
     $condaExe = Join-Path $root 'Scripts\conda.exe'
