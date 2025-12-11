@@ -23,6 +23,7 @@ end
 
 -- Put your list of repo/folder paths here (can be full paths or "~/"-prefixed)
 local repos = {
+	"~",
 	"~/repos/geopeek",
 	"~/repos/alameda_gis_azure_maintenance",
 	"~/repos/belmont_dmp_gis_maintenance",
@@ -52,13 +53,19 @@ local tabs_template = {
 		direction = "Right",
 		panes = {
 			{
-				name = "nvim",
+				name = "pane1",
+				command = "ca && clear",
+				direction = "Right",
+				size = 1,
+			},
+			{
+				name = "pane2",
 				command = "ca && nvim",
 				direction = "Right",
 				size = 2,
 			},
 			{
-				name = "run",
+				name = "pane3",
 				command = "ca && clear",
 				direction = "Right",
 				size = 1,
@@ -68,11 +75,10 @@ local tabs_template = {
 	{ name = "ai", command = "opencode" },
 	{ name = "git", command = "lazygit" },
 	{ name = "yazi", command = "yazi" },
-	{
-		name = "notes",
-		command = "cd '~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work/' && nvim",
-	},
-	{ name = "btop", command = " btop" },
+	{ name = "notes", command = "cd '~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work/' && nvim" },
+	{ name = "shell", command = "cd ~" },
+	{ name = "btop", command = "btop" },
+	{ name = "music", command = "spotify_player" },
 }
 
 -- Ensure tabs inherit a human-readable title from the template `name`
