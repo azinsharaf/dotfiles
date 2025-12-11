@@ -121,15 +121,15 @@ window_behavior:
 
 workspaces:
   - name: "1"
-    display_name: "1-outlook"
+    display_name: "1-chat"
     bind_to_monitor: 0
     keep_alive: true
   - name: "2"
-    display_name: "2-teams"
+    display_name: "2-email"
     bind_to_monitor: 0
     keep_alive: true
   - name: "3"
-    display_name: "3-calendar"
+    display_name: "3-tasks"
     bind_to_monitor: 0
     keep_alive: true
   - name: "4"
@@ -163,7 +163,7 @@ window_rules:
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
-        
+
       # ignores autodesk popup
       - window_process: { equals: "AdskAccessUIHost" }
         window_class: { regex: "Chrome_WidgetWin_1" }
@@ -176,37 +176,37 @@ window_rules:
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper" }
 
-  - commands: ['move --workspace 1']
+  - commands: ["move --workspace 1"]
     match:
-      - window_process: { regex: 'olk' }
+      - window_process: { regex: "ms-teams" }
 
-  - commands: ['move --workspace 2']
+  - commands: ["move --workspace 2"]
     match:
-      - window_process: { regex: 'ms-teams' }
+      - window_process: { regex: "olk" }
 
-  - commands: ['move --workspace 3']
+  - commands: ["move --workspace 3"]
     match:
-      - window_process: { regex: 'Morgen' }
+      - window_process: { regex: "Morgen|chrome" }
 
-  - commands: ['move --workspace 4']
+  - commands: ["move --workspace 4"]
     match:
-      - window_process: { regex: 'Obsidian' }
+      - window_process: { regex: "Obsidian" }
 
-  - commands: ['move --workspace 5']
+  - commands: ["move --workspace 5"]
     match:
-      - window_process: { regex: 'wezterm-gui' }
+      - window_process: { regex: "wezterm-gui" }
 
-  - commands: ['move --workspace 6']
+  - commands: ["move --workspace 6"]
     match:
-      - window_process: { regex: 'ArcGISPro|ArcMap|ArcCatalog' }
+      - window_process: { regex: "ArcGISPro|ArcMap|ArcCatalog" }
 
-  - commands: ['move --workspace 7']
+  - commands: ["move --workspace 7"]
     match:
-      - window_process: { regex: 'zen|qutebrowser|firefox|chrome' }
+      - window_process: { regex: "zen|qutebrowser|firefox" }
 
-  - commands: ['move --workspace 8']
+  - commands: ["move --workspace 8"]
     match:
-      - window_process: { regex: 'Spotify'}
+      - window_process: { regex: "Spotify" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
@@ -261,7 +261,7 @@ keybindings:
   # Disables window management and all other keybindings until alt+shift+p
   # is pressed again.
   # - commands: ["wm-toggle-pause"]
-    # bindings: ["alt+p"]
+  # bindings: ["alt+p"]
 
   # Change tiling direction. This determines where new tiling windows will
   # be inserted.
@@ -370,4 +370,3 @@ keybindings:
     bindings: ["alt+shift+8"]
   - commands: ["move --workspace 9", "focus --workspace 9"]
     bindings: ["alt+shift+9"]
-
