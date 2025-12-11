@@ -4,7 +4,7 @@ local wezterm = require("wezterm")
 local M = {}
 
 -- List of tab names (left-to-right order)
-local tab_names = { "editor", "ai", "git", "yazi", "notes", "btop" }
+local tab_names = { "editor", "ai", "git", "yazi", "notes", "shell", "btop", "music" }
 
 -- Function to rename all tabs
 local function rename_tabs(window, pane)
@@ -20,12 +20,14 @@ local function rename_tabs(window, pane)
 	end
 
 	local tabs = mux_window:tabs()
-	wezterm.log_info(string.format(
-		"rename_tabs_from_list triggered (window=%s pane=%s tabs=%d)",
-		window:window_id() or "?",
-		pane and pane:pane_id() or "?",
-		#tabs
-	))
+	wezterm.log_info(
+		string.format(
+			"rename_tabs_from_list triggered (window=%s pane=%s tabs=%d)",
+			window:window_id() or "?",
+			pane and pane:pane_id() or "?",
+			#tabs
+		)
+	)
 
 	if #tabs == 0 then
 		wezterm.log_info("rename_tabs_from_list: no tabs to rename")
