@@ -302,8 +302,8 @@ Import-Module PSFzf
 # PSReadLine settings
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
-# Set-PSReadLineOption -EditMode Vi
-# Set-PSReadLineOption -ViModeIndicator Prompt
+Set-PSReadLineOption -EditMode Vi
+Set-PSReadLineOption -ViModeIndicator Prompt
 # Set-PSReadLineKeyHandler -Key Ctrl+h -ScriptBlock { Invoke-FzfHistory }
 Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 
