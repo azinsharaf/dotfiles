@@ -1,8 +1,3 @@
-local prefix = "<leader><leader>"
-local term_string = vim.fn.exists("$TMUX") == 1 and "tmux" or "term"
-local maps = { n = {} }
-local icon = vim.g.icons_enabled and "󱡀 " or ""
-maps.n[prefix] = { desc = icon .. "Harpoon" }
 return {
 	{
 		"ThePrimeagen/harpoon",
@@ -11,70 +6,84 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
+		opts = {
+			settings = {
+				save_on_toggle = true,
+				sync_on_ui_close = true,
+			},
+		},
+		config = function(_, opts)
+			local harpoon = require("harpoon")
+			harpoon:setup(opts)
+		end,
 		keys = {
 			{
-				prefix .. "a",
+				"<leader>ha",
 				function()
-					require("harpoon"):list():append()
+					local harpoon = require("harpoon")
+					harpoon:list():add()
 				end,
-				desc = "Add file",
+				desc = "Harpoon add file",
+				mode = "n",
 			},
 			{
-				prefix .. "e",
+				"<leader>he",
 				function()
-					require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+					local harpoon = require("harpoon")
+					harpoon.ui:toggle_quick_menu(harpoon:list())
 				end,
-				desc = "Toggle quick menu",
+				desc = "Harpoon menu",
+				mode = "n",
 			},
 			{
-				"<TAB>",
+				"<leader>h1",
 				function()
-					require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+					require("harpoon"):list():select(1)
 				end,
-				desc = "Toggle quick menu",
+				desc = "Harpoon to 1",
+				mode = "n",
 			},
 			{
-				"<C-x>",
+				"<leader>h2",
 				function()
-					vim.ui.input({ prompt = "Harpoon mark index: " }, function(input)
-						local num = tonumber(input)
-						if num then
-							require("harpoon"):list():select(num)
-						end
-					end)
+					require("harpoon"):list():select(2)
 				end,
-				desc = "Goto index of mark",
+				desc = "Harpoon to 2",
+				mode = "n",
 			},
 			{
-				"<C-p>",
+				"<leader>h3",
 				function()
-					require("harpoon"):list():prev()
+					require("harpoon"):list():select(3)
 				end,
-				desc = "Goto previous mark",
+				desc = "Harpoon to 3",
+				mode = "n",
 			},
 			{
-				"<C-n>",
+				"<leader>h4",
+				function()
+					require("harpoon"):list():select(4)
+				end,
+				desc = "Harpoon to 4",
+				mode = "n",
+			},
+			{
+				"<leader>hn",
 				function()
 					require("harpoon"):list():next()
 				end,
-				desc = "Goto next mark",
+				desc = "Harpoon next",
+				mode = "n",
 			},
-			{ prefix .. "m", "<cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" },
-			{ "<leader>" .. "f" .. "h", "<cmd>Telescope harpoon marks<CR>", desc = "harpoon marks in Telescope" },
 			{
-				prefix .. "t",
+				"<leader>hp",
 				function()
-					vim.ui.input({ prompt = term_string .. " window number: " }, function(input)
-						local num = tonumber(input)
-						if num then
-							require("harpoon").term.gotoTerminal(num)
-						end
-					end)
+					require("harpoon"):list():prev()
 				end,
-				desc = "Go to " .. term_string .. " window",
+				desc = "Harpoon prev",
+				mode = "n",
 			},
 		},
-		opts = {},
 	},
 	{
 		"catppuccin/nvim",
