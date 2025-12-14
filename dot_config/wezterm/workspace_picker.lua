@@ -25,6 +25,7 @@ end
 local repos = {
 	"~",
 	"~/repos/geopeek",
+	"~/repos/resume",
 	"~/repos/alameda_gis_azure_maintenance",
 	"~/repos/belmont_dmp_gis_maintenance",
 	"~/repos/danville_dmp_gis_maintenance",
