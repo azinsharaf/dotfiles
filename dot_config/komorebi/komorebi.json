@@ -30,9 +30,9 @@
   },
   "animation": {
     "enabled": false,
-    "duration": 150,
+    "duration": 250,
     "style": "Linear",
-    "fps": 200
+    "fps": 60
   },
   "transparency": false,
   "transparency_alpha": 253,
@@ -178,7 +178,7 @@
       "workspaces": [
         {
           "name": "I chat",
-          "layout": "UltrawideVerticalStack",
+          "layout": "Columns",
           "initial_workspace_rules": []
         },
         {
