@@ -60,7 +60,7 @@ config.keys = {
 	{
 		key = "o",
 		mods = "CTRL|SHIFT",
-		action = wezterm.action.ActivateLastTab,
+		action = act.ShowTabNavigator,
 	},
 
 	-- Move focus between panes with Ctrl+Shift + H/J/K/L (use uppercase to override builtins)
@@ -117,5 +117,10 @@ tabline_plugin.apply(config)
 local rename_tabs = require("rename_tabs")
 
 table.insert(config.keys, rename_tabs.get_keybinding())
+
+table.insert(config.keys, { key = "Tab", mods = "CTRL", action = act.ActivateLastTab })
+table.insert(config.keys, { key = "Tab", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) })
+table.insert(config.keys, { key = "PageDown", mods = "CTRL", action = act.ActivateTabRelative(1) })
+table.insert(config.keys, { key = "PageUp", mods = "CTRL", action = act.ActivateTabRelative(-1) })
 
 return config
