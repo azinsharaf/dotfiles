@@ -48,8 +48,8 @@ local config = {
 	-- 	end
 	-- end)(),
 	max_fps = 240,
-	window_background_opacity = 0.8,
-	text_background_opacity = 0.8,
+	window_background_opacity = 0.9,
+	text_background_opacity = 0.9,
 	default_workspace = "default",
 	status_update_interval = 1000,
 }
