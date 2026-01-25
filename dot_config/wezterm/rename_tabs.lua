@@ -4,7 +4,7 @@ local wezterm = require("wezterm")
 local M = {}
 
 -- List of tab names (left-to-right order)
-local tab_names = { "editor", "ai", "git", "yazi", "notes", "shell", "btop", "music" }
+local tab_names = { "editor", "ai", "git", "yazi", "notes", "shell", "btop", "music", "rss" }
 
 -- Function to rename all tabs
 local function rename_tabs(window, pane)
