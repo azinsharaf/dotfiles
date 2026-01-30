@@ -27,6 +27,7 @@ local repos = {
 	"~/repos/geopeek",
 	"~/repos/resume",
 	"~/repos/alameda_gis_azure_maintenance",
+	"~/repos/acpwa_gis_icm_import",
 	"~/repos/belmont_dmp_gis_maintenance",
 	"~/repos/danville_dmp_gis_maintenance",
 	"~/repos/dmp_inspection_report_generator",
@@ -79,7 +80,7 @@ local tabs_template = {
 	{ name = "notes", command = "cd '~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work/' && nvim" },
 	{ name = "shell", command = "cd ~" },
 	{ name = "btop", command = "btop" },
-	{ name = "music", command = "spotify_player" },
+	{ name = "music", command = "spotatui" },
 }
 
 -- Ensure tabs inherit a human-readable title from the template `name`
