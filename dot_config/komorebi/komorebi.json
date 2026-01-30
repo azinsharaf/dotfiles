@@ -178,7 +178,7 @@
       "workspaces": [
         {
           "name": "I chat",
-          "layout": "Columns",
+          "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": []
         },
         {
