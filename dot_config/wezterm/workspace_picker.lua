@@ -24,6 +24,7 @@ end
 -- Put your list of repo/folder paths here (can be full paths or "~/"-prefixed)
 local repos = {
 	"~",
+	"~/repos/geospatial-object-detection/",
 	"~/repos/geopeek",
 	"~/repos/resume",
 	"~/repos/alameda_gis_azure_maintenance",
@@ -77,10 +78,11 @@ local tabs_template = {
 	{ name = "ai", command = "opencode" },
 	{ name = "git", command = "lazygit" },
 	{ name = "yazi", command = "yazi" },
-	{ name = "notes", command = "cd '~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work/' && nvim" },
+	{ name = "notes", command = "nvim" },
 	{ name = "shell", command = "cd ~" },
 	{ name = "btop", command = "btop" },
 	{ name = "music", command = "spotatui" },
+	{ name = "rss", command = "ssh macbook-pro-azin && eilmeldung" },
 }
 
 -- Ensure tabs inherit a human-readable title from the template `name`
@@ -101,12 +103,18 @@ local function build_workspaces()
 		for _, tab in ipairs(tabs) do
 			if tab.panes then
 				for _, pane in ipairs(tab.panes) do
-					if pane.command and not pane.command:match("^%s*cd%s+") then
+					-- Do not prefix with `cd` if the command already contains a cd or ssh command
+					if
+						pane.command
+						and not pane.command:match("^%s*cd%s+")
+						and not pane.command:lower():match("%ssh")
+					then
 						pane.command = string.format("cd %q && %s", path, pane.command)
 					end
 				end
 			else
-				if tab.command and not tab.command:match("^%s*cd%s+") then
+				-- Do not prefix with `cd` if the command already contains a cd or ssh command
+				if tab.command and not tab.command:match("^%s*cd%s+") and not tab.command:lower():match("%ssh") then
 					tab.command = string.format("cd %q && %s", path, tab.command)
 				end
 			end
