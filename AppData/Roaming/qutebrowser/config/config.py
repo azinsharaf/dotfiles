@@ -753,9 +753,9 @@ c.content.tls.certificate_errors = "ask"
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
 
-c.content.user_stylesheets = [
-    "css/monospace.css",
-]
+# c.content.user_stylesheets = [
+#     "css/monospace.css",
+# ]
 
 # bind some stylesheets
 config.bind("tf", 'config-cycle content.user_stylesheets "css/monospace.css" ""')
