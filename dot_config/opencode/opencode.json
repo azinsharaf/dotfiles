@@ -5,6 +5,11 @@
   },
 
   "theme": "catppuccin",
+  "formatter": {
+    "prettier": {
+      "disabled": true
+    }
+  },
 
   "permission": {
     "edit": "deny"
@@ -24,13 +29,10 @@
 
   "share": "disabled",
 
-  "provider": {},
-
   "agent": {
     "plan": {
       "tools": {
         "write": false,
-
         "bash": false
       }
     },
@@ -40,14 +42,6 @@
         "edit": "ask",
         "bash": { "git push": "ask" }
       }
-    }
-  },
-
-  "command": {
-    "commit-git": {
-      "template": "commit the changes in git.",
-      "description": "git commit",
-      "agent": "build"
     }
   }
 }
