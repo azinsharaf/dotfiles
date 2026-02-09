@@ -188,13 +188,15 @@ QToolTip {
   color: var(--blue);
   margin: 1px 2px 0 0;
 }
-/* .weather-widget, */
+
 .volume-widget {
   padding: 0 6px;
 }
 
 .weather-widget {
 }
+.weather-widget.your_class {
+} /* If you are using class_name option */
 .weather-widget .widget-container {
 }
 .weather-widget .label {
@@ -202,6 +204,12 @@ QToolTip {
 .weather-widget .label.alt {
 }
 .weather-widget .icon {
+}
+
+/* Individual weather icons */
+.weather-widget .icon.sunnyDay {
+}
+.weather-widget .icon.clearNight {
 }
 .weather-widget .icon.cloudyDay {
 }
@@ -211,11 +219,21 @@ QToolTip {
 }
 .weather-widget .icon.rainyNight {
 }
-.weather-widget .icon.snowyIcyDay {
+.weather-widget .icon.snowyDay {
 }
-.weather-widget .icon.snowyIcyNight {
+.weather-widget .icon.snowyNight {
 }
-.weather-widget .icon.blizzard {
+.weather-widget .icon.blizzardDay {
+}
+.weather-widget .icon.blizzardNight {
+}
+.weather-widget .icon.foggyDay {
+}
+.weather-widget .icon.foggyNight {
+}
+.weather-widget .icon.thunderstormDay {
+}
+.weather-widget .icon.thunderstormNight {
 }
 .weather-widget .icon.default {
 }
@@ -236,7 +254,7 @@ QToolTip {
   font-size: 24px;
   font-weight: 700;
 }
-.weather-card-today .label.arert {
+.weather-card-today .label.alert {
   font-size: 12px;
   font-weight: 700;
   background-color: rgba(247, 199, 42, 0.05);
@@ -250,15 +268,76 @@ QToolTip {
   border-radius: 8px;
   background-color: rgba(17, 17, 27, 0.2);
 }
+
+.weather-card-day.active {
+  background-color: rgba(40, 40, 60, 0.6);
+  border: 1px solid rgba(50, 50, 75, 1);
+}
+
+.weather-card-day:hover {
+  background-color: rgba(40, 40, 60, 0.6);
+}
+
 .weather-card-day .label {
   font-size: 12px;
 }
 
-/* .weather-widget .icon { */
-/*   font-size: 18px; */
-/*   margin: 0 2px 1px 0; */
-/*   color: var(--yellow); */
-/* } */
+.weather-card .hourly-container {
+  border: 1px solid #282936;
+  background-color: #3c5fa0;
+  border-radius: 8px;
+  min-height: 150px;
+}
+
+.weather-card .hourly-data {
+  /* font-family: 'Segoe UI';*/
+  /* color: cyan;*/ /* <- Font color */
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.weather-card .hourly-data.temperature {
+  background-color: #fae93f; /* Temperature curve & line color */
+}
+
+.weather-card .hourly-data.rain {
+  background-color: #4a90e2; /* Rain curve & line color */
+}
+
+.weather-card .hourly-data.snow {
+  background-color: #a0c4ff; /* Snow curve & line color */
+}
+
+.weather-card .hourly-data .hourly-rain-animation {
+  color: rgba(150, 200, 255, 40); /* Rain color */
+  background-color: rgba(0, 0, 0, 0.1); /* Rain background color */
+}
+
+.weather-card .hourly-data .hourly-snow-animation {
+  color: rgba(255, 255, 255, 150); /* Snow color */
+  background-color: rgba(0, 0, 0, 0.1); /* Snow background color */
+}
+
+/* Hourly forecast toggle buttons */
+.weather-card .hourly-data-buttons {
+  margin: 0px;
+}
+.weather-card .hourly-data-button {
+  border-radius: 4px;
+  min-height: 24px;
+  min-width: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid transparent;
+}
+.weather-card .hourly-data-button.active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .media-menu {
   min-width: 440px;
   max-width: 440px;
