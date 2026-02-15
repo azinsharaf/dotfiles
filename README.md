@@ -130,7 +130,12 @@ scoop install main/uutils-coreutils # Rust implementation of GNU coreutils (bina
 scoop install extras/psfzf # Powershell wrapper around the fuzzy finder fzf
 scoop install extras/psreadline # A bash inspired readline implementation for PowerShell
 scoop install rustup
+scoop install go # go programming language
 ```
+
+#### go applications
+
+`go install github.com/Gaurav-Gosain/tuios/cmd/tuios@latest # tuios`
 
 #### Additional Tools
 
