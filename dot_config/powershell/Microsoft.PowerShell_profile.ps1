@@ -5,7 +5,7 @@
 # Conda (ArcGIS Pro) activator: ca [envname]
 function ca
 {
-    param([string]$Name = 'arcgispro-py3')
+    param([string]$Name = 'arcgispro-py3-clone')
 
     $root = 'C:\Program Files\ArcGIS\Pro\bin\Python'
     $condaExe = Join-Path $root 'Scripts\conda.exe'
@@ -271,7 +271,12 @@ if (Test-Path $venvPath)
     & $venvPath
 }
 
-$Env:PIPX_DEFAULT_PYTHON = "$Env:USERPROFILE\pipx\shared\Scripts\python.exe"
+function python3 {
+  & "$Env:USERPROFILE\scoop\apps\python\current\python.exe" @args
+}
+
+
+$Env:PIPX_DEFAULT_PYTHON = "$Env:USERPROFILE\scoop\apps\python\current\python.exe"
 
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
