@@ -109,7 +109,8 @@ return {
 			---
 			---@field format? string
 			---@field enabled? boolean
-			statusline = {
+			legacy_commands = false,
+			footer = {
 				format = "{{backlinks}} backlinks  {{properties}} properties  {{words}} words  {{chars}} chars",
 				enabled = true,
 			},
@@ -169,14 +170,16 @@ return {
 			-- Optional, sort search results by "path", "modified", "accessed", or "created".
 			-- The recommend value is "modified" and `true` for `sort_reversed`, which means, for example,
 			-- that `:ObsidianQuickSwitch` will show the notes sorted by latest modified time
-			sort_by = "modified",
-			sort_reversed = true,
+			search = {
+				sort_by = "modified",
+				sort_reversed = true,
+			},
 			max_lines = 1000,
 
 			-- Optional, configure additional syntax highlighting / extmarks.
 			-- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
 			ui = {
-				enable = true, -- set to false to disable all additional syntax features
+				enable = false, -- set to false to disable all additional syntax features
 				ignore_conceal_warn = false,
 				update_debounce = 200, -- update delay after a text change (in milliseconds)
 				max_file_length = 5000, -- disable UI features for files with more than this many lines
@@ -220,7 +223,7 @@ return {
 			---Whether to confirm the paste or not. Defaults to true.
 			---@field confirm_img_paste? boolean
 			attachments = {
-				img_folder = "3 - References/attachments",
+				folder = "3 - References/attachments",
 				img_text_func = require("obsidian.builtin").img_text_func,
 				img_name_func = function()
 					return string.format("Pasted image %s", os.date("%Y%m%d%H%M%S"))
