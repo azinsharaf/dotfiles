@@ -46,6 +46,7 @@ local repos = {
 	"~/repos/wri_gis_watersheds",
 	"~/repos/wri_gis_weightedaverage",
 	"~/repos/wri_sdmp_gis_tools",
+	"~/repos/mid_gis_db_migration",
 	"~/.local/share/chezmoi",
 }
 
