@@ -15,7 +15,7 @@ return {
 
 		-- Define keybindings for the plugin
 		vim.keymap.set("n", "<leader>go", ":GitBlameOpenFileURL<CR>", { desc = "Open file in browser" })
-		vim.keymap.set("n", "<leader>tb", ":GitBlameToggle<CR>", { desc = "Toggle Git blame" })
+		vim.keymap.set("n", "<leader>gt", ":GitBlameToggle<CR>", { desc = "Toggle Git blame" })
 
 		-- Adjust shell settings based on the OS
 		if vim.loop.os_uname().sysname == "Windows_NT" then

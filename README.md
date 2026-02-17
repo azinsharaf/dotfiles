@@ -130,7 +130,12 @@ scoop install main/uutils-coreutils # Rust implementation of GNU coreutils (bina
 scoop install extras/psfzf # Powershell wrapper around the fuzzy finder fzf
 scoop install extras/psreadline # A bash inspired readline implementation for PowerShell
 scoop install rustup
+scoop install go # go programming language
 ```
+
+#### go applications
+
+`go install github.com/Gaurav-Gosain/tuios/cmd/tuios@latest # tuios`
 
 #### Additional Tools
 
@@ -238,11 +243,26 @@ pip install catppuccin-jupyterlab
 
 ## WSL Setup (WIP)
 
-### WSL Installation
+### Debian Installation
 
 ```powershell
 wsl --install Debain
 wsl --update
+wsl -l # list of installed distro
+wsl --set-default Debian
+wsl.exe
+```
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+### setup `zsh`
+
+```bash
+sudo apt install zsh
+chsh -s $(which zsh) # make zsh your default shell
+
 ```
 
 ### Linux Packages Installation
@@ -251,32 +271,41 @@ wsl --update
 sudo apt update && sudo apt upgrade -y
 sudo apt install curl
 sudo apt install build-essential -y
-
-# Install Rust and Cargo
-curl https://sh.rustup.rs -sSf | sh -s -- -y
-cargo install macchina
-sudo apt install zsh -y
 sudo apt install git -y
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" # oh-my-zsh
-curl -sS https://starship.rs/install.sh | sh # starship prompt
-sudo apt install neofetch -y # neofetch
-
-# Additional Tools
-sudo apt install exa -y
-sudo apt install ripgrep -y
+sudo apt install neovim
 sudo apt install fortune-mod -y
+sudo apt install ripgrep -y
+sudo apt install neofetch -y # neofetch
 sudo apt install bat -y
-cargo install du-dust
-cargo install --locked zellij
-
 sudo apt install btop -y
-sudo apt install lf -y
 sudo apt install mpv -y
 sudo apt-get install ninja-build gettext cmake unzip curl -y
+sudo apt install -y pkg-config libssl-dev
 
-# Alacritty Terminal
-sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-sudo apt install alacritty -y
+curl https://sh.rustup.rs -sSf | sh
+
+# apps with rust
+cargo install du-dust
+
+cargo install youtube-tui --all-features
+
+
+# Autosuggestions
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+
+
+# Syntax highlighting
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+echo "source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
+
+
+# Then reload Zsh:
+
+source ~/.zshrc
+
 
 # Pyenv Pre-requisites
 sudo apt update && sudo apt install build-essential libssl-dev zlib1g-dev \
