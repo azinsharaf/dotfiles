@@ -265,7 +265,7 @@ $Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 $Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
 
 # Auto-activate venv if it exists
-$venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.10\env-geopeek\Scripts\Activate.ps1"
+$venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.10\env-geospatial-object-detection\Scripts\Activate.ps1"
 if (Test-Path $venvPath)
 {
     & $venvPath
