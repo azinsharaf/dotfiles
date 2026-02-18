@@ -1,47 +1,59 @@
 {
   "$schema": "https://opencode.ai/config.json",
+
   "tui": {
-    "scroll_speed": 3
+    "scroll_speed": 3,
+    "scroll_acceleration": { "enabled": true },
+    "diff_style": "auto"
   },
 
   "theme": "catppuccin",
+
+  "autoupdate": true,
+
+  "tools": {
+    "write": false,
+    "bash": false
+  },
+
+  "share": "disabled",
+
   "formatter": {
     "prettier": {
       "disabled": true
     }
   },
 
+  "default_agent": "plan",
+
   "permission": {
-    "edit": "deny"
+    "edit": "ask",
+    "bash": "ask"
   },
 
-  "tools": {
-    "read": true,
-    "edit": true,
-    "write": false,
-    "bash": true,
-    "webfetch": true,
-    "grep": true,
-    "glob": true,
-    "list": true,
-    "patch": true
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 10000
   },
 
-  "share": "disabled",
+  "watcher": {
+    "ignore": [".git/**"]
+  },
 
   "agent": {
-    "plan": {
+    "code-reviewer": {
+      "description": "Reviews code for best practices and potential issues",
+      "model": "anthropic/claude-sonnet-4-5",
+      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
       "tools": {
+        // Disable file modification tools for review-only agent
         "write": false,
-        "bash": false
-      }
-    },
-
-    "build": {
-      "permission": {
-        "edit": "ask",
-        "bash": { "git push": "ask" }
+        "edit": false
       }
     }
-  }
+  },
+  "command": {},
+  "keybinds": {},
+  "mcp": {}
 }
