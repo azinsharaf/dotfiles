@@ -106,6 +106,22 @@ config.keys = {
 		mods = "CTRL|ALT|SHIFT",
 		action = act.AdjustPaneSize({ "Right", 1 }),
 	},
+
+	{
+		key = "L",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action({
+			SpawnCommandInNewTab = {
+				args = {
+					"pwsh.exe",
+					"-NoLogo",
+					"-NoProfile",
+					"-File",
+					"C:\\Users\\azin\\.config\\tuios\\bootstrap-tuios.ps1",
+				},
+			},
+		}),
+	},
 }
 
 local workspace_picker = require("workspace_picker")
