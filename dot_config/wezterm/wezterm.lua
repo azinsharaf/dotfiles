@@ -3,7 +3,6 @@ local act = wezterm.action
 
 local config = {
 
-	default_prog = { "pwsh.exe", "-NoLogo" },
 	-- Import configurations from other files
 	-- keys = require("keybindings"),
 	disable_default_key_bindings = false,
@@ -53,6 +52,13 @@ local config = {
 	default_workspace = "default",
 	status_update_interval = 1000,
 }
+
+-- Pick default shell by OS
+if wezterm.target_triple:find("windows") then
+	config.default_prog = { "pwsh.exe", "-NoLogo" }
+else
+	config.default_prog = { "/bin/zsh", "-l" }
+end
 
 config.keys = {
 
