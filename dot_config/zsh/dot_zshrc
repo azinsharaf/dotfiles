@@ -29,10 +29,6 @@ export PATH="$PATH:/bin"
 export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:/sbin"
 
-# Add specific virtualenv paths
-export PATH="$PATH:$PYENV_ROOT/versions/env-shellgpt/bin"
-
-
 export EDITOR="nvim"       # Set default editor to Neovim
 export PAGER="less"        # Use 'less' for paging
 export GLOW_CONFIG_DIR="$HOME/.config/glow"
@@ -54,8 +50,6 @@ alias lg="lazygit"
 alias ccd="chezmoi cd"
 alias capply="chezmoi apply"
 alias cstatus="chezmoi status"
-
-alias sc='sgpt --chat computer'
 
 # --- Functions ---
 f() {
@@ -98,46 +92,6 @@ if [ -n "$TMUX" ]; then
 else
   export TERM="xterm-256color"
 fi
-
-# shell_gpt config
-export CHAT_CACHE_PATH="$HOME/Library/Caches/chat_cache"
-export CACHE_PATH="$HOME/Library/Caches/cache"
-export CHAT_CACHE_LENGTH="100"
-export CACHE_LENGTH="100"
-export REQUEST_TIMEOUT="60"
-export DEFAULT_MODEL="gpt-4o"
-export DEFAULT_COLOR="magenta"
-export ROLE_STORAGE_PATH="$HOME/.config/shell_gpt/roles"
-export DEFAULT_EXECUTE_SHELL_CMD="false"
-export DISABLE_STREAMING="false"
-export CODE_THEME="one-dark"
-export OPENAI_FUNCTIONS_PATH="$HOME/.config/shell_gpt/functions"
-export OPENAI_USE_FUNCTIONS="true"
-export SHOW_FUNCTIONS_OUTPUT="false"
-export API_BASE_URL="default"
-export PRETTIFY_MARKDOWN="true"
-export USE_LITELLM="false"
-export SHELL_INTERACTION="true"
-export OS_NAME="auto"
-export SHELL_NAME="auto"
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-conda activate python-cmu
 
 # --- Starship Prompt ---
 # Ensure Starship is installed via Homebrew: `brew install starship`
