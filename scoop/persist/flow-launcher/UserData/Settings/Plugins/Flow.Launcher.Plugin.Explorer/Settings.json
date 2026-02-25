@@ -1,0 +1,61 @@
+{
+  "MaxResult": 100,
+  "QuickAccessLinks": [
+    {
+      "Path": "J:\\Jobs\\9010_SantaClara_Database\\OA",
+      "Type": 1,
+      "Name": "santa clara oa"
+    },
+    {
+      "Path": "J:\\Jobs\\8349-Alameda_Database",
+      "Type": 1,
+      "Name": "8349-Alameda_Database"
+    },
+    {
+      "Path": "J:\\Jobs\\8349-Z12_DMP\\Z12_DMP",
+      "Type": 1,
+      "Name": "Z12_DMP"
+    }
+  ],
+  "IndexSearchExcludedSubdirectoryPaths": [],
+  "EditorPath": "",
+  "FolderEditorPath": "",
+  "ShellPath": "cmd",
+  "ExcludedFileTypes": "",
+  "UseLocationAsWorkingDir": false,
+  "ShowInlinedWindowsContextMenu": false,
+  "WindowsContextMenuIncludedItems": "",
+  "WindowsContextMenuExcludedItems": "",
+  "DefaultOpenFolderInFileManager": false,
+  "DisplayMoreInformationInToolTip": false,
+  "SearchActionKeyword": "*",
+  "SearchActionKeywordEnabled": true,
+  "FileContentSearchActionKeyword": "doc:",
+  "FileContentSearchKeywordEnabled": true,
+  "PathSearchActionKeyword": "*",
+  "PathSearchKeywordEnabled": false,
+  "IndexSearchActionKeyword": "*",
+  "IndexSearchKeywordEnabled": false,
+  "QuickAccessActionKeyword": "q",
+  "QuickAccessKeywordEnabled": true,
+  "FolderSearchActionKeyword": "*",
+  "FolderSearchKeywordEnabled": false,
+  "FileSearchActionKeyword": "*",
+  "FileSearchKeywordEnabled": false,
+  "WarnWindowsSearchServiceOff": true,
+  "ShowFileSizeInPreviewPanel": true,
+  "ShowCreatedDateInPreviewPanel": true,
+  "ShowModifiedDateInPreviewPanel": true,
+  "ShowFileAgeInPreviewPanel": false,
+  "PreviewPanelDateFormat": "yyyy-MM-dd",
+  "PreviewPanelTimeFormat": "HH:mm",
+  "IndexSearchEngine": 0,
+  "PathEnumerationEngine": 0,
+  "ContentSearchEngine": 0,
+  "EverythingInstalledPath": null,
+  "SortOption": 1,
+  "EnableEverythingContentSearch": false,
+  "EverythingEnabled": false,
+  "EverythingSearchFullPath": false,
+  "EverythingEnableRunCount": true
+}
