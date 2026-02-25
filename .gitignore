@@ -8,3 +8,9 @@ dot_config/yasb/yasb.log
 /dot_config/spotatui/dot_spotify_token_cache.json
 /dot_config/spotatui/streaming_cache/credentials.json
 /dot_config/spotatui/client.yml
+
+AppData/Roaming/FlowLauncher/Cache/**
+AppData/Roaming/FlowLauncher/Logs/**
+AppData/Roaming/FlowLauncher/Plugins/**
+AppData/Roaming/FlowLauncher/Settings/**/*.bak
+AppData/Roaming/FlowLauncher/Settings/History.json
