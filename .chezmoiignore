@@ -1,1 +1,11 @@
 dot_config/yazi/plugins
+
+dot_config/spotatui/streaming_cache/credentials.json
+dot_config/spotatui/client.yml
+dot_config/spotatui/dot_spotify_token_cache.json
+
+scoop/persist/flow-launcher/UserData/Cache/**
+scoop/persist/flow-launcher/UserData/Logs/**
+scoop/persist/flow-launcher/UserData/Plugins/**
+scoop/persist/flow-launcher/UserData/Settings/**/*.bak
+scoop/persist/flow-launcher/UserData/Settings/History.json
