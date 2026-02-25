@@ -175,6 +175,8 @@ window_rules:
         window_title: { regex: ".*? - Peek" }
       - window_process: { equals: "Lively" }
         window_class: { regex: "HwndWrapper" }
+      - window_process: { equals: "KeePass" }
+      - window_process: { equals: "Bitwarden" }
 
   - commands: ["move --workspace 1"]
     match:
