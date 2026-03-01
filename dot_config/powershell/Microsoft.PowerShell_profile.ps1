@@ -276,6 +276,10 @@ function python3 {
 }
 
 function tls {
+tuios ls
+}
+
+function ta {
     $out = tuios ls
     if (-not $out) { Write-Host "No sessions found."; return }
 
