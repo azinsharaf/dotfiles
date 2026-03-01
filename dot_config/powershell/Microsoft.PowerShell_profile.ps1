@@ -275,6 +275,27 @@ function python3 {
   & "$Env:USERPROFILE\scoop\apps\python\current\python.exe" @args
 }
 
+function tls {
+    $out = tuios ls
+    if (-not $out) { Write-Host "No sessions found."; return }
+
+    $lines = ($out | Out-String) -split "`r?`n"
+    $sessions = @()
+    foreach ($line in $lines) {
+        $clean = $line -replace "`e\[[0-9;]*m", ""
+        $clean = $clean -replace '[^\x20-\x7E]', ' '
+        if ($clean -match '^\s*(?<name>[A-Za-z0-9._-]+)\s+\d+\s+(attached|detached)\b') {
+            $name = $Matches['name'].Trim()
+            if ($name -and $name -ne "NAME") { $sessions += $name }
+        }
+    }
+
+    if ($sessions.Count -eq 0) { Write-Host "No sessions found."; return }
+
+    $pick = $sessions | Sort-Object -Unique | fzf --prompt="tuios session> " --height=40% --layout=reverse --no-preview
+    if ($pick) { tuios attach $pick }
+}
+
 
 $Env:PIPX_DEFAULT_PYTHON = "$Env:USERPROFILE\scoop\apps\python\current\python.exe"
 
