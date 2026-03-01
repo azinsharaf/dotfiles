@@ -34,7 +34,7 @@ dockbar_position = 'bottom'
 preferred_shell = 'pwsh'
 whichkey_position = ''
 window_title_position = ''
-hide_clock = false
+hide_clock = true
 
 [keybindings]
 leader_key = 'ctrl+a'
