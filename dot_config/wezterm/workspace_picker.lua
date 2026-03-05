@@ -24,7 +24,7 @@ end
 -- Put your list of repo/folder paths here (can be full paths or "~/"-prefixed)
 local repos = {
 	"~",
-	"~/repos/geospatial-object-detection/",
+	"~/repos/geospatial-feature-extraction/",
 	"~/repos/geopeek",
 	"~/repos/resume",
 	"~/repos/alameda_gis_azure_maintenance",
