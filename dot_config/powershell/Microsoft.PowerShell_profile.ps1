@@ -311,21 +311,22 @@ function bw-unlock {
 function bw-pick {
   param([string]$query = "")
 
-  if (-not $env:BW_SESSION) {
-    throw "No BW_SESSION. Run: bw-unlock"
-  }
+  if (-not $env:BW_SESSION) { throw "No BW_SESSION. Run: bw-unlock" }
 
   $items = bw list items --search $query | ConvertFrom-Json
   if (-not $items) { throw "No items found." }
 
-  $pick = $items |
-    ForEach-Object { "{0}`t{1}" -f $_.name, $_.id } |
-    fzf --prompt "Bitwarden> " --with-nth=1
+  $selected = $items | ForEach-Object {
+    $label = $_.name
+    if ($_.login -and $_.login.username) { $label += "  [" + $_.login.username + "]" }
+    "{0}`t{1}" -f $_.id, $label
+  } | fzf --prompt "Bitwarden> " --delimiter "`t" --with-nth 2 `
+        --preview 'powershell -NoProfile -Command "bw get item ''{1}'' | ConvertFrom-Json | ConvertTo-Json -Depth 50" | bat --language=json --style=plain --paging=never -' `
+        --preview-window right:60%
 
-  if (-not $pick) { return $null }
-  ($pick -split "`t")[-1]
+  if (-not $selected) { return $null }
+  ($selected -split "`t", 2)[0]
 }
-
 function bw-user {
   param([string]$query = "")
   $id = bw-pick $query
