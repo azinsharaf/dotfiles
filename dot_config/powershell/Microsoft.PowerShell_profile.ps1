@@ -301,6 +301,62 @@ function ta {
 }
 
 
+
+
+function bw-unlock {
+  $env:BW_SESSION = bw unlock --raw
+  "Unlocked. BW_SESSION set for this terminal."
+}
+
+function bw-pick {
+  param([string]$query = "")
+
+  if (-not $env:BW_SESSION) {
+    throw "No BW_SESSION. Run: bw-unlock"
+  }
+
+  $items = bw list items --search $query | ConvertFrom-Json
+  if (-not $items) { throw "No items found." }
+
+  $pick = $items |
+    ForEach-Object { "{0}`t{1}" -f $_.name, $_.id } |
+    fzf --prompt "Bitwarden> " --with-nth=1
+
+  if (-not $pick) { return $null }
+  ($pick -split "`t")[-1]
+}
+
+function bw-user {
+  param([string]$query = "")
+  $id = bw-pick $query
+  if ($id) { bw get username $id }
+}
+
+function bw-pass {
+  param([string]$query = "")
+  $id = bw-pick $query
+  if ($id) { bw get password $id }
+}
+
+function bw-passcopy {
+  param([string]$query = "")
+  $id = bw-pick $query
+  if ($id) { bw get password $id | Set-Clipboard; "Password copied to clipboard." }
+}
+
+function bw-totp {
+  param([string]$query = "")
+  $id = bw-pick $query
+  if ($id) { bw get totp $id }
+}
+
+function bw-totpcopy {
+  param([string]$query = "")
+  $id = bw-pick $query
+  if ($id) { bw get totp $id | Set-Clipboard; "TOTP copied to clipboard." }
+}
+
+
 $Env:PIPX_DEFAULT_PYTHON = "$Env:USERPROFILE\scoop\apps\python\current\python.exe"
 
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
@@ -420,6 +476,7 @@ $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\libnvvp"
 $Env:Path += ";C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common"
 $Env:Path += ";C:\Program Files\NVIDIA Corporation\Nsight Compute 2025.1.0"
+$Env:Path += ";C:\Program Files\ImageMagick-7.1.2-Q16-HDRI"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
