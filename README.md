@@ -131,6 +131,7 @@ scoop install extras/psfzf # Powershell wrapper around the fuzzy finder fzf
 scoop install extras/psreadline # A bash inspired readline implementation for PowerShell
 scoop install rustup
 scoop install go # go programming language
+scoop install main/witr # why is this running?
 ```
 
 #### go applications
