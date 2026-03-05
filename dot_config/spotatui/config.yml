@@ -1,16 +1,16 @@
 keybindings:
   back: ctrl-q
-  next_page: null
-  previous_page: null
-  jump_to_start: null
-  jump_to_end: null
+  next_page: ctrl-d
+  previous_page: ctrl-u
+  jump_to_start: ctrl-a
+  jump_to_end: ctrl-e
   jump_to_album: a
   jump_to_artist_album: A
   jump_to_context: o
   manage_devices: d
   decrease_volume: '-'
   increase_volume: +
-  toggle_playback: ' '
+  toggle_playback: space
   seek_backwards: <
   seek_forwards: '>'
   next_track: n
@@ -19,12 +19,14 @@ keybindings:
   shuffle: ctrl-s
   repeat: r
   search: /
-  submit: null
+  submit: enter
   copy_song_url: c
   copy_album_url: C
   audio_analysis: v
-  basic_view: null
+  basic_view: B
   add_item_to_queue: z
+  open_settings: alt-,
+  save_settings: alt-s
 behavior:
   seek_milliseconds: 5000
   volume_increment: 10
@@ -34,6 +36,8 @@ behavior:
   show_loading_indicator: true
   enforce_wide_search_bar: false
   enable_global_song_count: true
+  enable_discord_rpc: true
+  discord_rpc_client_id: null
   shuffle_enabled: false
   liked_icon: ♥
   shuffle_icon: 🔀

@@ -275,6 +275,88 @@ function python3 {
   & "$Env:USERPROFILE\scoop\apps\python\current\python.exe" @args
 }
 
+function tls {
+tuios ls
+}
+
+function ta {
+    $out = tuios ls
+    if (-not $out) { Write-Host "No sessions found."; return }
+
+    $lines = ($out | Out-String) -split "`r?`n"
+    $sessions = @()
+    foreach ($line in $lines) {
+        $clean = $line -replace "`e\[[0-9;]*m", ""
+        $clean = $clean -replace '[^\x20-\x7E]', ' '
+        if ($clean -match '^\s*(?<name>[A-Za-z0-9._-]+)\s+\d+\s+(attached|detached)\b') {
+            $name = $Matches['name'].Trim()
+            if ($name -and $name -ne "NAME") { $sessions += $name }
+        }
+    }
+
+    if ($sessions.Count -eq 0) { Write-Host "No sessions found."; return }
+
+    $pick = $sessions | Sort-Object -Unique | fzf --prompt="tuios session> " --height=40% --layout=reverse --no-preview
+    if ($pick) { tuios attach $pick }
+}
+
+
+
+
+function bw-unlock {
+  $env:BW_SESSION = bw unlock --raw
+  "Unlocked. BW_SESSION set for this terminal."
+}
+
+function bw-pick {
+  param([string]$query = "")
+
+  if (-not $env:BW_SESSION) { throw "No BW_SESSION. Run: bw-unlock" }
+
+  $items = bw list items --search $query | ConvertFrom-Json
+  if (-not $items) { throw "No items found." }
+
+  $selected = $items | ForEach-Object {
+    $label = $_.name
+    if ($_.login -and $_.login.username) { $label += "  [" + $_.login.username + "]" }
+    "{0}`t{1}" -f $_.id, $label
+  } | fzf --prompt "Bitwarden> " --delimiter "`t" --with-nth 2 `
+        --preview 'powershell -NoProfile -Command "bw get item ''{1}'' | ConvertFrom-Json | ConvertTo-Json -Depth 50" | bat --language=json --style=plain --paging=never -' `
+        --preview-window right:60%
+
+  if (-not $selected) { return $null }
+  ($selected -split "`t", 2)[0]
+}
+function bw-user {
+  param([string]$query = "")
+  $id = bw-pick $query
+  if ($id) { bw get username $id }
+}
+
+function bw-pass {
+  param([string]$query = "")
+  $id = bw-pick $query
+  if ($id) { bw get password $id }
+}
+
+function bw-passcopy {
+  param([string]$query = "")
+  $id = bw-pick $query
+  if ($id) { bw get password $id | Set-Clipboard; "Password copied to clipboard." }
+}
+
+function bw-totp {
+  param([string]$query = "")
+  $id = bw-pick $query
+  if ($id) { bw get totp $id }
+}
+
+function bw-totpcopy {
+  param([string]$query = "")
+  $id = bw-pick $query
+  if ($id) { bw get totp $id | Set-Clipboard; "TOTP copied to clipboard." }
+}
+
 
 $Env:PIPX_DEFAULT_PYTHON = "$Env:USERPROFILE\scoop\apps\python\current\python.exe"
 
@@ -395,6 +477,7 @@ $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\libnvvp"
 $Env:Path += ";C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common"
 $Env:Path += ";C:\Program Files\NVIDIA Corporation\Nsight Compute 2025.1.0"
+$Env:Path += ";C:\Program Files\ImageMagick-7.1.2-Q16-HDRI"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
