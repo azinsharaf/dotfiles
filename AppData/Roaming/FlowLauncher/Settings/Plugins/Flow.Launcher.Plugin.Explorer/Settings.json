@@ -200,6 +200,16 @@
       "Path": "C:\\Users\\asharaf\\.pyenv\\pyenv-win\\versions\\3.12.8",
       "Type": 1,
       "Name": "PYENV"
+    },
+    {
+      "Path": "J:\\Jobs\\8349_Alameda_Z5_DMP_Support\\Z5_DMP_Support\\GIS",
+      "Type": 1,
+      "Name": "Zone 5 DMP"
+    },
+    {
+      "Path": "J:\\Jobs\\8619_PortOak_SLR_GWI\\PortOak_SLR_GWI\\GIS",
+      "Type": 1,
+      "Name": "Port Oakl SLR GWI"
     }
   ],
   "IndexSearchExcludedSubdirectoryPaths": [],
