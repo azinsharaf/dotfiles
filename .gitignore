@@ -14,3 +14,12 @@ AppData/Roaming/FlowLauncher/Logs/**
 AppData/Roaming/FlowLauncher/Plugins/**
 AppData/Roaming/FlowLauncher/Settings/**/*.bak
 AppData/Roaming/FlowLauncher/Settings/History.json
+
+scoop/persist/flow-launcher/UserData/Cache/**
+scoop/persist/flow-launcher/UserData/Logs/**
+scoop/persist/flow-launcher/UserData/Plugins/**
+scoop/persist/flow-launcher/UserData/Settings/**/*.bak
+scoop/persist/flow-launcher/UserData/Settings/History.json
+
+
+
