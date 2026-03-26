@@ -9,9 +9,10 @@ local config = {
 	font = require("fonts"),
 	color_scheme = require("colors"),
 	-- Appearance settings
-	hide_tab_bar_if_only_one_tab = false, -- Hide the tab bar if there's only one tab
-	tab_bar_at_bottom = true, -- Move the tab bar to the bottom
-	use_fancy_tab_bar = true, -- Enable fancy tab bar
+	-- hide_tab_bar_if_only_one_tab = false, -- Disabled: using Zellij tabs/status
+	-- tab_bar_at_bottom = true, -- Disabled: using Zellij tabs/status
+	-- use_fancy_tab_bar = true, -- Disabled: using Zellij tabs/status
+	enable_tab_bar = false, -- Disable WezTerm tabs entirely (Zellij handles tabs)
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE", -- Remove the title bar
 	window_padding = {
@@ -50,12 +51,15 @@ local config = {
 	window_background_opacity = 0.9,
 	text_background_opacity = 0.9,
 	default_workspace = "default",
-	status_update_interval = 1000,
+	-- status_update_interval = 1000, -- Disabled: using Zellij status
 }
 
 -- Pick default shell by OS
 if wezterm.target_triple:find("windows") then
-	config.default_prog = { "pwsh.exe", "-NoLogo" }
+	config.default_prog = {
+		"pwsh.exe",
+		"-NoLogo",
+	}
 else
 	config.default_prog = { "/bin/zsh", "-l" }
 end
@@ -130,19 +134,19 @@ config.keys = {
 	-- },
 }
 
-local workspace_picker = require("workspace_picker")
-workspace_picker.apply(config, "F", "CTRL")
+-- local workspace_picker = require("workspace_picker")
+-- workspace_picker.apply(config, "F", "CTRL")
 
-local tabline_plugin = require("tabline")
-tabline_plugin.apply(config)
+-- local tabline_plugin = require("tabline")
+-- tabline_plugin.apply(config)
 
-local rename_tabs = require("rename_tabs")
+-- local rename_tabs = require("rename_tabs")
 
-table.insert(config.keys, rename_tabs.get_keybinding())
+-- table.insert(config.keys, rename_tabs.get_keybinding())
 
-table.insert(config.keys, { key = "Tab", mods = "CTRL", action = act.ActivateLastTab })
-table.insert(config.keys, { key = "Tab", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) })
-table.insert(config.keys, { key = "PageDown", mods = "CTRL", action = act.ActivateTabRelative(1) })
-table.insert(config.keys, { key = "PageUp", mods = "CTRL", action = act.ActivateTabRelative(-1) })
+-- table.insert(config.keys, { key = "Tab", mods = "CTRL", action = act.ActivateLastTab })
+-- table.insert(config.keys, { key = "Tab", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) })
+-- table.insert(config.keys, { key = "PageDown", mods = "CTRL", action = act.ActivateTabRelative(1) })
+-- table.insert(config.keys, { key = "PageUp", mods = "CTRL", action = act.ActivateTabRelative(-1) })
 
 return config
