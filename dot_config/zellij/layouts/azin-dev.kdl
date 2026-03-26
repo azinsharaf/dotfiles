@@ -1,0 +1,39 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zjstatus"
+        }
+        pane size=1 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    tab name="NEOVIM" {
+        pane name="editor" command="nvim"
+    }
+
+    tab name="AI" {
+        pane name="ai" command="opencode"
+    }
+
+    tab name="GIT" {
+        pane name="git" command="lazygit"
+    }
+
+    tab name="YAZI" {
+        pane name="files" command="yazi"
+    }
+
+    tab name="SHELL" {
+        pane name="shell"
+    }
+
+    tab name="BTOP" {
+        pane name="system" command="btop"
+    }
+
+    tab name="MUSIC" {
+        pane name="music"
+    }
+}
