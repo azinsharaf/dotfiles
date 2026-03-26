@@ -1,0 +1,246 @@
+{
+  "MaxResult": 100,
+  "QuickAccessLinks": [
+    {
+      "Path": "K:\\Administration",
+      "Type": 1,
+      "Name": "GIS Administration"
+    },
+    {
+      "Path": "J:\\Jobs\\8349-Alameda_Database",
+      "Type": 1,
+      "Name": "Alameda Database 8349"
+    },
+    {
+      "Path": "J:\\Jobs\\8426_CityAlameda_OnCall\\Alameda_SLR\\GIS",
+      "Type": 1,
+      "Name": "Alameda SLR 8426"
+    },
+    {
+      "Path": "J:\\Jobs\\8165_CityofAlbany_DMP\\CityofAlbany_DMP\\GIS",
+      "Type": 1,
+      "Name": "Albany DMP 8165"
+    },
+    {
+      "Path": "J:\\Jobs\\8894_AlisoViejo_SDMP\\GIS",
+      "Type": 1,
+      "Name": "Aliso Viejo DMP 8894"
+    },
+    {
+      "Path": "J:\\Jobs\\8721_CityofBerkeley_SWMP\\Berkeley_SWMP\\GIS",
+      "Type": 1,
+      "Name": "Berkeley DMP 8721"
+    },
+    {
+      "Path": "J:\\Jobs\\8819_DanvilleStormDrainMP\\GIS",
+      "Type": 1,
+      "Name": "Danville DMP 8819"
+    },
+    {
+      "Path": "J:\\Jobs\\9016_CityofEmeryville_OnCall\\Emeryville_Storm\\GIS",
+      "Type": 1,
+      "Name": "Emeryville DMP 9016"
+    },
+    {
+      "Path": "\\\\woodrodgers.loc\\ReferenceData\\Employees\\asharaf",
+      "Type": 1,
+      "Name": "Employee Folder"
+    },
+    {
+      "Path": "J:\\Jobs\\8912_PCFC\\8912001_FEMA_CTP4_Floodplain_Mapping",
+      "Type": 1,
+      "Name": "FEMA CTP4 8912"
+    },
+    {
+      "Path": "J:\\Jobs\\8172_CityofGlendale_DMP\\CityofGlendale_DMP\\GIS",
+      "Type": 1,
+      "Name": "Glendale DMP 8172"
+    },
+    {
+      "Path": "H:\\3000-s\\3614_MBK_Engineers\\3614008_Knights Landing",
+      "Type": 1,
+      "Name": "Knights Landing 3614"
+    },
+    {
+      "Path": "H:\\3000-s\\3614_MBK_Engineers\\3614008_Knights Landing",
+      "Type": 1,
+      "Name": "Knights Landing"
+    },
+    {
+      "Path": "J:\\Jobs\\8100_LA_County",
+      "Type": 1,
+      "Name": "LA County"
+    },
+    {
+      "Path": "J:\\Jobs\\8639_MarinCounty_Database\\OA",
+      "Type": 1,
+      "Name": "Marin County Database 8639"
+    },
+    {
+      "Path": "J:\\Jobs\\8196001_MtShasta_StormwaterDrainage\\GIS",
+      "Type": 1,
+      "Name": "Mt Shasta DMP 8196"
+    },
+    {
+      "Path": "J:\\Jobs\\8792_CityofOakland_DMP\\Oakland_DMP\\GIS",
+      "Type": 1,
+      "Name": "Oakland DMP 8792"
+    },
+    {
+      "Path": "K:\\Support\\Scripts\\Python\\Wood_Rodgers\\OneSourceTemplate",
+      "Type": 1,
+      "Name": "OneSourceTemplate"
+    },
+    {
+      "Path": "J:\\Jobs\\8847018_CityofPleasanton_SWMP\\GIS",
+      "Type": 1,
+      "Name": "Pleasanton DMP 8847"
+    },
+    {
+      "Path": "J:\\Jobs\\8619_Port_Database\\OA",
+      "Type": 1,
+      "Name": "Port Database 8619"
+    },
+    {
+      "Path": "J:\\Jobs\\8180_CityofPVE_DMP\\CityofPVE_DMP\\GIS",
+      "Type": 1,
+      "Name": "PVE SDMP 8180"
+    },
+    {
+      "Path": "C:\\Users\\asharaf\\repos",
+      "Type": 1,
+      "Name": "WR Repos"
+    },
+    {
+      "Path": "C:\\Users\\azin\\repos",
+      "Type": 1,
+      "Name": "Personal Repos"
+    },
+    {
+      "Path": "J:\\Jobs\\9010_SantaClara_Database\\OA",
+      "Type": 1,
+      "Name": "Santa Clara Database 9010"
+    },
+    {
+      "Path": "J:\\Jobs\\8669_SanJose_MasterPlanStormSys\\SanJose_MasterPlanStormSys",
+      "Type": 1,
+      "Name": "San Jose Master Plan"
+    },
+    {
+      "Path": "J:\\Jobs\\8836_CityofSebastopol_OnCall\\TO2_FRMP",
+      "Type": 1,
+      "Name": "Sebastopol on-Call 8836"
+    },
+    {
+      "Path": "Z:\\Jobs\\8183_Silver Springs ADMP\\Silver Springs ADMP_OA\\GIS",
+      "Type": 1,
+      "Name": "Silver Spring ADMP 8183"
+    },
+    {
+      "Path": "R:\\GIS\\Storm_Drain_Inspection_Survey123",
+      "Type": 1,
+      "Name": "Storm_Drain_Inspection_Survey123"
+    },
+    {
+      "Path": "K:\\Support\\Scripts\\Python\\Wood_Rodgers\\WoodRodgers_PythonToolbox",
+      "Type": 1,
+      "Name": "WR Python Toolbox"
+    },
+    {
+      "Path": "K:\\Support\\Scripts\\Python\\Wood_Rodgers\\wri_logging",
+      "Type": 1,
+      "Name": "WRI Logging"
+    },
+    {
+      "Path": "J:\\Jobs\\8349_Alameda_OnCall_H\u0026H\\8-Zone_2_DMP",
+      "Type": 1,
+      "Name": "Zone 2 DMP 8349"
+    },
+    {
+      "Path": "J:\\Jobs\\8950_Alameda_Zone7",
+      "Type": 1,
+      "Name": "Zone 7 DMP 8950"
+    },
+    {
+      "Path": "J:\\Jobs\\8349-Z12_DMP\\Z12_DMP",
+      "Type": 1,
+      "Name": "Zone 12 DMP"
+    },
+    {
+      "Path": "\\\\woodrodgers.loc\\ProductionData\\Jobs\\Jobs\\8912_PCFC\\8912001_FEMA_CTP4_Floodplain_Mapping",
+      "Type": 1,
+      "Name": "FEMA CTP4"
+    },
+    {
+      "Path": "C:\\Users\\asharaf\\Desktop",
+      "Type": 1,
+      "Name": "Desktop"
+    },
+    {
+      "Path": "C:\\Users\\asharaf\\Downloads",
+      "Type": 1,
+      "Name": "Downloads"
+    },
+    {
+      "Path": "C:\\Users\\asharaf\\.config",
+      "Type": 1,
+      "Name": "Config Home"
+    },
+    {
+      "Path": "C:\\Users\\asharaf\\.local\\share\\chezmoi",
+      "Type": 1,
+      "Name": "Config Chezmoi"
+    },
+    {
+      "Path": "C:\\Users\\asharaf\\pipx",
+      "Type": 1,
+      "Name": "PIPX"
+    },
+    {
+      "Path": "C:\\Users\\asharaf\\.pyenv\\pyenv-win\\versions\\3.12.8",
+      "Type": 1,
+      "Name": "PYENV"
+    }
+  ],
+  "IndexSearchExcludedSubdirectoryPaths": [],
+  "EditorPath": "",
+  "FolderEditorPath": "",
+  "ShellPath": "cmd",
+  "ExcludedFileTypes": "",
+  "UseLocationAsWorkingDir": false,
+  "ShowInlinedWindowsContextMenu": false,
+  "WindowsContextMenuIncludedItems": "",
+  "WindowsContextMenuExcludedItems": "",
+  "DefaultOpenFolderInFileManager": false,
+  "DisplayMoreInformationInToolTip": false,
+  "SearchActionKeyword": "*",
+  "SearchActionKeywordEnabled": true,
+  "FileContentSearchActionKeyword": "doc:",
+  "FileContentSearchKeywordEnabled": true,
+  "PathSearchActionKeyword": "*",
+  "PathSearchKeywordEnabled": true,
+  "IndexSearchActionKeyword": "*",
+  "IndexSearchKeywordEnabled": false,
+  "QuickAccessActionKeyword": "q",
+  "QuickAccessKeywordEnabled": true,
+  "FolderSearchActionKeyword": "*",
+  "FolderSearchKeywordEnabled": false,
+  "FileSearchActionKeyword": "*",
+  "FileSearchKeywordEnabled": false,
+  "WarnWindowsSearchServiceOff": true,
+  "ShowFileSizeInPreviewPanel": true,
+  "ShowCreatedDateInPreviewPanel": true,
+  "ShowModifiedDateInPreviewPanel": true,
+  "ShowFileAgeInPreviewPanel": false,
+  "PreviewPanelDateFormat": "yyyy-MM-dd",
+  "PreviewPanelTimeFormat": "HH:mm",
+  "IndexSearchEngine": 0,
+  "PathEnumerationEngine": 0,
+  "ContentSearchEngine": 0,
+  "EverythingInstalledPath": "\u0022C:\\Users\\azin\\scoop\\apps\\everything\\current\\everything.exe\u0022",
+  "SortOption": 1,
+  "EnableEverythingContentSearch": false,
+  "EverythingEnabled": false,
+  "EverythingSearchFullPath": true,
+  "EverythingEnableRunCount": true
+}
