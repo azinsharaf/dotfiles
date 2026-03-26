@@ -395,7 +395,7 @@ default_layout "azin-dev"
 // The folder in which Zellij will look for layouts
 // (Requires restart)
 // 
-// layout_dir "~/.config/zellij/layouts"
+layout_dir "C:/Users/asharaf/.config/zellij/layouts"
 
 
  
