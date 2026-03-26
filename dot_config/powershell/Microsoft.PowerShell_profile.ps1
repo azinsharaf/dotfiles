@@ -358,21 +358,6 @@ function bw-totpcopy {
 }
 
 
-$Env:PIPX_DEFAULT_PYTHON = "$Env:USERPROFILE\scoop\apps\python\current\python.exe"
-
-$ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
-
-$Env:BAT_CONFIG_DIR = "$Env:USERPROFILE\.config\bat\"
-$Env:BAT_CONFIG_PATH = "$Env:USERPROFILE\.config\bat\bat.conf"
-
-$ENV:YAZI_FILE_ONE = "$Env:USERPROFILE\scoop\apps\git\current\usr\bin\file.exe"
-$Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
-
-$Env:NEOVIM_NODE_PATH = "$USERPROFILE\scoop\apps\nodejs-nightly\current\node.exe"
-
-$Env:CUDA_PATH = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8" 
-$Env:CUDA_PATH_V12_8 = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8" 
-
 # Define fzf options
 
 function f() {
@@ -435,7 +420,26 @@ $env:FZF_DEFAULT_OPTS = @(
 
 
 
+# env variables
+
+$Env:PIPX_DEFAULT_PYTHON = "$Env:USERPROFILE\scoop\apps\python\current\python.exe"
+
+$ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
+
+$Env:BAT_CONFIG_DIR = "$Env:USERPROFILE\.config\bat\"
+$Env:BAT_CONFIG_PATH = "$Env:USERPROFILE\.config\bat\bat.conf"
+
+$ENV:YAZI_FILE_ONE = "$Env:USERPROFILE\scoop\apps\git\current\usr\bin\file.exe"
+$Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
+
+$Env:NEOVIM_NODE_PATH = "$USERPROFILE\scoop\apps\nodejs-nightly\current\node.exe"
+
+$Env:CUDA_PATH = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8" 
+$Env:CUDA_PATH_V12_8 = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8" 
+
 $Env:EZA_CONFIG_DIR = "$Env:USERPROFILE\.config\eza"
+
+$Env:ZELLIJ_CONFIG_DIR = "$Env:USERPROFILE\.config\zellij" 
 
 $Env:OLLAMA_HOST = "0.0.0.0:11434"
 $Env:OLLAMA_API_BASE = "https://ollama.azinsharaf.net"
@@ -443,27 +447,6 @@ $Env:OLLAMA_BASE_URL = "https://ollama.azinsharaf.net"
 $Env:OLLAMA_CONTEXT_LENGTH = 65000
 $Env:OLLAMA_NUM_THREADS = 8
 
-# shell_gpt config
-$Env:CHAT_CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\chat_cache"
-$Env:CACHE_PATH = "$Env:USERPROFILE\AppData\Local\Temp\cache"
-$Env:CHAT_CACHE_LENGTH = "100"
-$Env:CACHE_LENGTH = "100"
-$Env:REQUEST_TIMEOUT = "60"
-$Env:DEFAULT_MODEL = "gpt-4o"
-$Env:DEFAULT_COLOR = "magenta"
-$Env:ROLE_STORAGE_PATH = "$Env:USERPROFILE\.config\shell_gpt\roles"
-$Env:DEFAULT_EXECUTE_SHELL_CMD = "false"
-$Env:DISABLE_STREAMING = "false"
-$Env:CODE_THEME = "one-dark"
-$Env:OPENAI_FUNCTIONS_PATH = "$Env:USERPROFILE\.config\shell_gpt\functions"
-$Env:OPENAI_USE_FUNCTIONS = "true"
-$Env:SHOW_FUNCTIONS_OUTPUT = "false"
-$Env:API_BASE_URL = "default"
-$Env:PRETTIFY_MARKDOWN = "true"
-$Env:USE_LITELLM = "false"
-$Env:SHELL_INTERACTION = "true"
-$Env:OS_NAME = "auto"
-$Env:SHELL_NAME = "auto"
 
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
@@ -482,6 +465,25 @@ $Env:Path += ";C:\Program Files\ImageMagick-7.1.2-Q16-HDRI"
 # using starship prompt
 Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+# Auto-start Zellij only in interactive WezTerm shells.
+# This keeps WezTerm open when detaching (returns to pwsh) and avoids nested Zellij sessions.
+if (
+    $env:TERM_PROGRAM -eq "WezTerm" -and
+    -not $env:ZELLIJ -and
+    -not $env:NO_ZELLIJ -and
+    $Host.Name -eq "ConsoleHost"
+) {
+    try {
+        & zellij attach azin-dev
+        if ($LASTEXITCODE -ne 0) {
+            & zellij --session azin-dev
+        }
+    }
+    catch {
+        Write-Warning "Failed to start zellij: $($_.Exception.Message)"
+    }
+}
 
 
 
