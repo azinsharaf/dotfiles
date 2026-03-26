@@ -119,12 +119,14 @@ return {
 				{ name = "personal_notes", path = get_vault_paths().personal_notes },
 				{ name = "work_notes", path = get_vault_paths().work_notes },
 			},
+			link = {
+				style = "wiki",
+			},
 
 			log_level = vim.log.levels.INFO,
 			note_id_func = require("obsidian.builtin").zettel_id,
 			wiki_link_func = require("obsidian.builtin").wiki_link_id_prefix,
 			markdown_link_func = require("obsidian.builtin").markdown_link,
-			preferred_link_style = "wiki",
 			open_notes_in = "current",
 
 			---@class obsidian.config.FrontmatterOpts
