@@ -11,6 +11,6 @@
     }
   ],
   "EnableSuggestion": true,
-  "MaxSuggestions": 5,
+  "MaxSuggestions": 1,
   "Suggestion": "DuckDuckGo"
 }
