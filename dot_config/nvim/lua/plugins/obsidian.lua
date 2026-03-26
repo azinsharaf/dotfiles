@@ -104,16 +104,16 @@ return {
 	config = function()
 		-- Configure obsidian.nvim with the valid workspace
 		require("obsidian").setup({
+			legacy_commands = false,
 
 			---@class obsidian.config.StatuslineOpts
 			---
 			---@field format? string
 			---@field enabled? boolean
-			legacy_commands = false,
-			footer = {
-				format = "{{backlinks}} backlinks  {{properties}} properties  {{words}} words  {{chars}} chars",
-				enabled = true,
-			},
+			-- footer = {
+			-- 	format = "{{backlinks}} backlinks  {{properties}} properties  {{words}} words  {{chars}} chars",
+			-- 	enabled = true,
+			-- },
 
 			workspaces = {
 				{ name = "personal_notes", path = get_vault_paths().personal_notes },
@@ -121,12 +121,13 @@ return {
 			},
 			link = {
 				style = "wiki",
+				format = "shortest",
 			},
 
 			log_level = vim.log.levels.INFO,
 			note_id_func = require("obsidian.builtin").zettel_id,
-			wiki_link_func = require("obsidian.builtin").wiki_link_id_prefix,
-			markdown_link_func = require("obsidian.builtin").markdown_link,
+			-- wiki_link_func = require("obsidian.builtin").wiki_link_id_prefix,
+			-- markdown_link_func = require("obsidian.builtin").markdown_link,
 			open_notes_in = "current",
 
 			---@class obsidian.config.FrontmatterOpts
