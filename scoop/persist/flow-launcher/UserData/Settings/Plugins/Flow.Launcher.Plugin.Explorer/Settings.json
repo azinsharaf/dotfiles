@@ -200,16 +200,6 @@
       "Path": "C:\\Users\\asharaf\\.pyenv\\pyenv-win\\versions\\3.12.8",
       "Type": 1,
       "Name": "PYENV"
-    },
-    {
-      "Path": "J:\\Jobs\\8349_Alameda_Z5_DMP_Support\\Z5_DMP_Support\\GIS",
-      "Type": 1,
-      "Name": "Zone 5 DMP"
-    },
-    {
-      "Path": "J:\\Jobs\\8619_PortOak_SLR_GWI\\PortOak_SLR_GWI\\GIS",
-      "Type": 1,
-      "Name": "Port Oakl SLR GWI"
     }
   ],
   "IndexSearchExcludedSubdirectoryPaths": [],
@@ -228,13 +218,13 @@
   "FileContentSearchActionKeyword": "doc:",
   "FileContentSearchKeywordEnabled": true,
   "PathSearchActionKeyword": "*",
-  "PathSearchKeywordEnabled": false,
+  "PathSearchKeywordEnabled": true,
   "IndexSearchActionKeyword": "*",
   "IndexSearchKeywordEnabled": false,
   "QuickAccessActionKeyword": "q",
   "QuickAccessKeywordEnabled": true,
-  "FolderSearchActionKeyword": "f",
-  "FolderSearchKeywordEnabled": true,
+  "FolderSearchActionKeyword": "*",
+  "FolderSearchKeywordEnabled": false,
   "FileSearchActionKeyword": "*",
   "FileSearchKeywordEnabled": false,
   "WarnWindowsSearchServiceOff": true,
@@ -247,10 +237,10 @@
   "IndexSearchEngine": 0,
   "PathEnumerationEngine": 0,
   "ContentSearchEngine": 0,
-  "EverythingInstalledPath": null,
+  "EverythingInstalledPath": "\u0022C:\\Users\\azin\\scoop\\apps\\everything\\current\\everything.exe\u0022",
   "SortOption": 1,
   "EnableEverythingContentSearch": false,
   "EverythingEnabled": false,
-  "EverythingSearchFullPath": false,
+  "EverythingSearchFullPath": true,
   "EverythingEnableRunCount": true
 }
