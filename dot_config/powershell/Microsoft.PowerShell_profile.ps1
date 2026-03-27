@@ -242,6 +242,9 @@ function ai-gpt-5-mini
     opencode --model openai/gpt-5-mini
 }
 
+# to fix Opencode issue
+$Env:TMPDIR = "$Env:USERPROFILE\.tmp"
+
 # function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
