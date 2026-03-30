@@ -48,6 +48,8 @@ function ca
     }
 }
 
+try { ca } catch {}
+
 # Does the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
 function dirs
 {
@@ -469,25 +471,3 @@ $Env:Path += ";$Env:USERPROFILE\AppData\Local\pnpm"
 # using starship prompt
 Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
-
-# Auto-start Zellij only in interactive WezTerm shells.
-# This keeps WezTerm open when detaching (returns to pwsh) and avoids nested Zellij sessions.
-# if (
-#     $env:TERM_PROGRAM -eq "WezTerm" -and
-#     -not $env:ZELLIJ -and
-#     -not $env:NO_ZELLIJ -and
-#     $Host.Name -eq "ConsoleHost"
-# ) {
-#     try {
-#         & zellij attach azin-dev
-#         if ($LASTEXITCODE -ne 0) {
-#             & zellij --session azin-dev
-#         }
-#     }
-#     catch {
-#         Write-Warning "Failed to start zellij: $($_.Exception.Message)"
-#     }
-# }
-
-
-
