@@ -10,5 +10,5 @@ tools:
   bash: false
   grep: true
   glob: true
-  list:true
+  list: true
 ---
