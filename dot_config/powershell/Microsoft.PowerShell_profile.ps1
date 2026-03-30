@@ -48,7 +48,10 @@ function ca
     }
 }
 
-try { ca } catch {}
+if (-not $env:SKIP_AUTO_CONDA)
+{
+    ca
+}
 
 # Does the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
 function dirs
@@ -161,9 +164,12 @@ function lg
 {lazygit
 }
 
-function ccd
-{chezmoi cd
+function ccd {
+    $env:SKIP_AUTO_CONDA = "1"
+    chezmoi cd
+    Remove-Item Env:SKIP_AUTO_CONDA -ErrorAction SilentlyContinue
 }
+
 function cedit
 {chezmoi edit
 }
@@ -262,7 +268,7 @@ $Env:GLAZEWM_CONFIG_PATH = "$Env:USERPROFILE\.config\glazewm\config.yaml"
 
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
-$Env:SHELL = 'pwsh'
+$Env:SHELL = 'pwsh -NoLogo'
 $Env:COLORTERM = 'truecolor'
 
 $Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
