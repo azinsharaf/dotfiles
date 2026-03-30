@@ -208,8 +208,8 @@ format = '\[[$symbol$stack]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [python]
-disabled = false
-symbol = "  "
+disabled = true
+symbol = " "
 format = '[$symbol]($style) $version '
 
 [quarto]
