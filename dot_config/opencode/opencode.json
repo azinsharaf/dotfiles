@@ -3,8 +3,6 @@
 
   "autoupdate": true,
 
-  "theme": "catppuccin-mocha",
-
   "provider": {
     "anthropic": {
       "models": {
