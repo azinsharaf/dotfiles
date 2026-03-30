@@ -464,6 +464,7 @@ $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\libnvvp"
 $Env:Path += ";C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common"
 $Env:Path += ";C:\Program Files\NVIDIA Corporation\Nsight Compute 2025.1.0"
 $Env:Path += ";C:\Program Files\ImageMagick-7.1.2-Q16-HDRI"
+$Env:Path += ";$Env:USERPROFILE\AppData\Local\pnpm"
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
