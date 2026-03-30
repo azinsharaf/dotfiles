@@ -1,0 +1,30 @@
+layout {
+    default_tab_template {
+        children
+
+        pane size=1 borderless=true {
+            plugin location="zjstatus" {
+            }
+        }
+
+        pane size=1 borderless=true {
+            plugin location="zjstatus-hints"
+        }
+    }
+
+    tab name="NVIM" focus=true {
+        pane name="NVIM"
+    }
+    tab name="AI" {
+        pane name="AI"
+    }
+    tab name="GIT" {
+        pane name="GIT"
+    }
+    tab name="YAZI" {
+        pane name="YAZI"
+    }
+    tab name="SHELL" {
+        pane name="SHELL"
+    }
+}
