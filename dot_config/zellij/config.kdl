@@ -141,9 +141,6 @@ keybinds clear-defaults=true {
             SwitchToMode "normal"
         }
     }
-    shared_except "locked" "tmux" {
-        bind "Ctrl a" { SwitchToMode "tmux"; }
-    }
     shared_except "locked" {
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
@@ -242,7 +239,6 @@ keybinds clear-defaults=true {
         bind "%" { NewPane "right"; SwitchToMode "normal"; }
         bind "," { SwitchToMode "renametab"; }
         bind "[" { SwitchToMode "scroll"; }
-        bind "Ctrl a" { Write 2; SwitchToMode "normal"; }
         bind "Ctrl b" { Write 2; SwitchToMode "normal"; }
         bind "c" { NewTab; SwitchToMode "normal"; }
         bind "h" { MoveFocus "left"; SwitchToMode "normal"; }
@@ -252,6 +248,7 @@ keybinds clear-defaults=true {
         bind "n" { GoToNextTab; SwitchToMode "normal"; }
         bind "o" { FocusNextPane; }
         bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
+        bind "t" { SwitchToMode "tab"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
     }
 }
@@ -259,11 +256,6 @@ keybinds clear-defaults=true {
 // Plugin aliases - can be used to change the implementation of Zellij
 // changing these requires a restart to take effect
 plugins {
-    // Good practise: use aliases for plugins instead of direct reference in layout
-
-
-    // built-in plugins
-
     about location="zellij:about"
     compact-bar location="zellij:compact-bar"
     configuration location="zellij:configuration"
@@ -276,62 +268,65 @@ plugins {
     strider location="zellij:strider"
     tab-bar location="zellij:tab-bar"
     welcome-screen location="zellij:session-manager" {
-        welcome_screen false
+        welcome_screen true
     }
-
-    // extra plugins
 
     zjstatus location="file:~/.config/zellij/plugins/zjstatus.wasm" {
 
-        format_left  "{mode}#[fg=#89B4FA,bg=#181825,bold] {session}#[bg=#181825] "
+        format_left   "{mode} #[fg=#CDD6F4,bg=#181825,bold] {session} "
         format_center "{tabs}"
-        format_right "{datetime}"
+        format_right  "{datetime}"
         format_space "#[bg=#181825]"
 
-        mode_normal          "#[bg=#89B4FA,fg=#11111B,bold] NORMAL "
-        mode_locked          "#[bg=#F38BA8,fg=#11111B,bold] LOCKED "
-        mode_resize          "#[bg=#F9E2AF,fg=#11111B,bold] RESIZE "
-        mode_pane            "#[bg=#A6E3A1,fg=#11111B,bold] PANE "
-        mode_tab             "#[bg=#94E2D5,fg=#11111B,bold] TAB "
-        mode_scroll          "#[bg=#FAB387,fg=#11111B,bold] SCROLL "
-        mode_session         "#[bg=#B4BEFE,fg=#11111B,bold] SESSION "
-        mode_move            "#[bg=#F5C2E7,fg=#11111B,bold] MOVE "
-        mode_tmux            "#[bg=#ffc387,fg=#11111B,bold] TMUX "
-        mode_default_to_mode "normal"
 
-        tab_normal               "#[fg=#6C7086,bg=#11111B] {index} {name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
-        tab_active               "#[fg=#CDD6F4,bg=#313244,bold] {index} {name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
+        mode_normal          "#[fg=#1E1E2E,bg=#89B4FA,bold] NORMAL #[bg=#181825]"
+        mode_locked          "#[fg=#1E1E2E,bg=#F38BA8,bold] LOCKED #[bg=#181825]"
+        mode_resize          "#[fg=#1E1E2E,bg=#FAB387,bold] RESIZE #[bg=#181825]"
+        mode_pane            "#[fg=#1E1E2E,bg=#A6E3A1,bold] PANE #[bg=#181825]"
+        mode_move            "#[fg=#1E1E2E,bg=#94E2D5,bold] MOVE #[bg=#181825]"
+        mode_tab             "#[fg=#1E1E2E,bg=#74C7EC,bold] TAB #[bg=#181825]"
+        mode_scroll          "#[fg=#1E1E2E,bg=#89DCEB,bold] SCROLL #[bg=#181825]"
+        mode_search          "#[fg=#1E1E2E,bg=#B4BEFE,bold] SEARCH #[bg=#181825]"
+        mode_enter_search    "#[fg=#1E1E2E,bg=#CBA6F7,bold] ENTERSEARCH #[bg=#181825]"
+        mode_rename_tab      "#[fg=#1E1E2E,bg=#F9E2AF,bold] RENAMETAB #[bg=#181825]"
+        mode_rename_pane     "#[fg=#1E1E2E,bg=#F2CDCD,bold] RENAMEPANE #[bg=#181825]"
+        mode_session         "#[fg=#1E1E2E,bg=#CDD6F4,bold] SESSION #[bg=#181825]"
+        mode_tmux            "#[fg=#1E1E2E,bg=#ffc387,bold] TMUX #[bg=#181825]"
+        // mode_default_to_mode "normal"
+
+        tab_normal               "#[fg=#6C7086,bg=#181825] {index}:{name}"
+        tab_active               "#[fg=#1E1E2E,bg=#89B4FA,bold] {index}:{name} #[fg=#89B4FA,bg=#181825,bold]"
+        tab_separator            "#[fg=#6C7086,bg=#181825] | "
         tab_fullscreen_indicator "□ "
         tab_sync_indicator       "  "
         tab_floating_indicator   "󰉈 "
 
         datetime          "#[fg=#9399B2,bg=#181825] {format} "
-        datetime_format   "%A, %d %b %Y %H:%M"
+        datetime_format   "%a %b %d %I:%M %p"
         datetime_timezone "US/Pacific"
 
+        // Note: this is necessary or else zjstatus won't render the pipe:
+        pipe_zjstatus_hints_format "{output}"
     }
 
-    // zjstatus-hints DISABLED - using builtin keybinds instead
-    // zjstatus-hints location="file:~/.config/zellij/plugins/zjstatus-hints.wasm" {
-    //     // Maximum number of characters to display
-    //     max_length 0 // 0 = unlimited
-    //     // String to append when truncated
-    //     overflow_str "..." // default
-    //     // Name of the pipe for zjstatus integration
-    //     pipe_name "zjstatus_hints" // default
-    //     // Hide hints in base mode (a.k.a. default mode)
-    //     // E.g. if you have set default_mode to "locked", then
-    //     // you can hide hints in the locked mode by setting this to true
-    //     hide_in_base_mode false // default
-    // }
+    zjstatus-hints location="file:~/.config/zellij/plugins/zjstatus-hints.wasm" {
+        // Maximum number of characters to display
+        max_length 0 // 0 = unlimited
+        // String to append when truncated
+        overflow_str "..." // default
+        // Name of the pipe for zjstatus integration
+        pipe_name "zjstatus_hints" // default
+        // Hide hints in base mode (a.k.a. default mode)
+        // E.g. if you have set default_mode to "locked", then
+        // you can hide hints in the locked mode by setting this to true
+        hide_in_base_mode false // default
+    }
 }
-
 
 // Plugins to load in the background when a new session starts
 load_plugins {
-    zellij:status-bar
     zjstatus
-    // zjstatus-hints
+    zjstatus-hints
 }
 
 web_client {
@@ -390,12 +385,12 @@ theme "catppuccin-mocha"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-default_layout "azin-dev"
+default_layout "dev"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)
 // 
-layout_dir "C:/Users/asharaf/.config/zellij/layouts"
+layout_dir "C:/Users/azin/.config/zellij/layouts"
 
 
  
@@ -418,7 +413,7 @@ layout_dir "C:/Users/asharaf/.config/zellij/layouts"
 //   - true (default, enabled)
 //   - false
 // 
-// pane_frames false
+pane_frames true
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
