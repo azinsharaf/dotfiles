@@ -31,7 +31,7 @@ format = '\[[⏱ $duration]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [conda]
-symbol = "  "
+symbol = ""
 format = '\[[$symbol $environment]($style)\]'
 
 [container]
@@ -88,17 +88,13 @@ format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
 
-[git_commit]
-format = '\[[\($hash$tag\)]($style)\]'
-
-[git_metrics]
-format = '\[[+$added]($added_style)\]\[[-$deleted]($deleted_style)\]'
-
-[git_state]
-format = '\[[$state ($progress_current/$progress_total)]($style)\]'
-
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
+untracked = 'UT ' 
+modified = 'M'
+staged = 'S'
+renamed = 'R'
+deleted = 'D'
+format = '([\[$untracked$modified$staged$renamed$deleted\]]($style))'
 
 [gleam]
 format = '\[[$symbol($version)]($style)\]'
