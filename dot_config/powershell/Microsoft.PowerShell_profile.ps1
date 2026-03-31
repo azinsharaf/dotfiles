@@ -48,10 +48,10 @@ function ca
     }
 }
 
-if (-not $env:SKIP_AUTO_CONDA)
-{
-    ca
-}
+# if (-not $env:SKIP_AUTO_CONDA)
+# {
+#     ca
+# }
 
 # Does the rough equivalent of dir /s /b. For example, dirs *.png is dir /s /b *.png
 function dirs
@@ -268,7 +268,7 @@ $Env:GLAZEWM_CONFIG_PATH = "$Env:USERPROFILE\.config\glazewm\config.yaml"
 
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
-$Env:SHELL = 'pwsh -NoLogo'
+$Env:SHELL = 'pwsh'
 $Env:COLORTERM = 'truecolor'
 
 $Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
