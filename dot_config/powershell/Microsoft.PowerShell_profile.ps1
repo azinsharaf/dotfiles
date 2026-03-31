@@ -268,7 +268,7 @@ $Env:GLAZEWM_CONFIG_PATH = "$Env:USERPROFILE\.config\glazewm\config.yaml"
 
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
-$Env:SHELL = 'pwsh -NoLogo'
+$Env:SHELL = 'pwsh'
 $Env:COLORTERM = 'truecolor'
 
 $Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
