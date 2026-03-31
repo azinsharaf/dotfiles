@@ -116,37 +116,6 @@ config.keys = {
 		mods = "CTRL|ALT|SHIFT",
 		action = act.AdjustPaneSize({ "Right", 1 }),
 	},
-
-	-- {
-	-- 	key = "L",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = wezterm.action({
-	-- 		SpawnCommandInNewTab = {
-	-- 			args = {
-	-- 				"pwsh.exe",
-	-- 				"-NoLogo",
-	-- 				"-NoProfile",
-	-- 				"-File",
-	-- 				"C:\\Users\\azin\\.config\\tuios\\bootstrap-tuios.ps1",
-	-- 			},
-	-- 		},
-	-- 	}),
-	-- },
 }
-
--- local workspace_picker = require("workspace_picker")
--- workspace_picker.apply(config, "F", "CTRL")
-
--- local tabline_plugin = require("tabline")
--- tabline_plugin.apply(config)
-
--- local rename_tabs = require("rename_tabs")
-
--- table.insert(config.keys, rename_tabs.get_keybinding())
-
--- table.insert(config.keys, { key = "Tab", mods = "CTRL", action = act.ActivateLastTab })
--- table.insert(config.keys, { key = "Tab", mods = "CTRL|SHIFT", action = act.ActivateTabRelative(-1) })
--- table.insert(config.keys, { key = "PageDown", mods = "CTRL", action = act.ActivateTabRelative(1) })
--- table.insert(config.keys, { key = "PageUp", mods = "CTRL", action = act.ActivateTabRelative(-1) })
 
 return config
