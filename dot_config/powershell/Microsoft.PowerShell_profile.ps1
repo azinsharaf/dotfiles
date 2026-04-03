@@ -460,6 +460,9 @@ $Env:OLLAMA_BASE_URL = "https://ollama.azinsharaf.net"
 $Env:OLLAMA_CONTEXT_LENGTH = 65000
 $Env:OLLAMA_NUM_THREADS = 8
 
+$Env:CARGO_HOME = "$Env:USERPROFILE\.cargo"
+$Env:RUSTUP_HOME = "$Env:USERPROFILE\.rustup"
+
 # Prepend (high priority)
 $Env:Path = "$Env:USERPROFILE\scoop\shims;" + $Env:Path
 
@@ -472,6 +475,7 @@ $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\bin"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\shims"
 $Env:Path += ";$Env:USERPROFILE\gdal-env\.pixi\envs\default\Library\bin"
 $Env:Path += ";$Env:USERPROFILE\pdal-env\.pixi\envs\default\Library\bin"
+$Env:Path += ";$Env:USERPROFILE\scoop\apps\perl\bin"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\libnvvp"
 $Env:Path += ";C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common"
