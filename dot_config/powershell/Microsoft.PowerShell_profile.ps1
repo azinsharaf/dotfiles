@@ -380,6 +380,7 @@ function f() {
 ## FZF, PSFZF, and PSREADLINE tools
 
 # Ensure modules are loaded
+$Env:PSModulePath += ";$Env:USERPROFILE\scoop\modules"
 Import-Module PSReadLine
 Import-Module PSFzf
 
@@ -463,6 +464,7 @@ $Env:OLLAMA_NUM_THREADS = 8
 $Env:Path = "$Env:USERPROFILE\scoop\shims;" + $Env:Path
 
 # Append the rest
+
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
 $Env:Path += ";$Env:USERPROFILE\.local\bin"
