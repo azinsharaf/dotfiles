@@ -252,6 +252,7 @@ function ai-gpt-5-mini
 
 # to fix Opencode issue
 $Env:TMPDIR = "$Env:USERPROFILE\.tmp"
+$Env:TMP = "$Env:USERPROFILE\.tmp"
 
 # function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
 
@@ -458,10 +459,12 @@ $Env:OLLAMA_BASE_URL = "https://ollama.azinsharaf.net"
 $Env:OLLAMA_CONTEXT_LENGTH = 65000
 $Env:OLLAMA_NUM_THREADS = 8
 
+# Prepend (high priority)
+$Env:Path = "$Env:USERPROFILE\scoop\shims;" + $Env:Path
 
+# Append the rest
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
-$Env:Path += ";$Env:USERPROFILE\scoop\shims"
 $Env:Path += ";$Env:USERPROFILE\.local\bin"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\bin"
 $Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\shims"
