@@ -134,6 +134,13 @@ scoop install go # go programming language
 scoop install main/witr # why is this running?
 ```
 
+#### uv applications
+
+```shell
+cargo install --locked uv
+uv tool install sqlit-tui # A user friendly TUI for SQL databases.
+```
+
 #### go applications
 
 `go install github.com/Gaurav-Gosain/tuios/cmd/tuios@latest # tuios`
