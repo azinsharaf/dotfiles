@@ -23,7 +23,7 @@ local config = {
 	},
 	initial_rows = 30,
 	initial_cols = 100,
-	enable_scroll_bar = true, -- Enable scroll bar
+	enable_scroll_bar = false,
 	scrollback_lines = 5000,
 	front_end = "WebGpu",
 	-- webgpu_preferred_adapter = (function()
