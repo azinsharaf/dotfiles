@@ -1,8 +1,13 @@
 
 keybinds clear-defaults=true {
+    normal {
+        bind "Ctrl tab" { ToggleTab; }
+    }
+
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
     }
+
     pane {
         bind "left" { MoveFocus "left"; }
         bind "down" { MoveFocus "down"; }
