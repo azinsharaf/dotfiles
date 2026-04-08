@@ -66,6 +66,13 @@ end
 
 config.keys = {
 
+	-- Disable default Ctrl+Tab tab switching
+	{
+		key = "Tab",
+		mods = "CTRL",
+		action = act.DisableDefaultAssignment,
+	},
+
 	-- Activate the previously active tab
 	{
 		key = "o",
