@@ -26,15 +26,15 @@ return {
 				desc = "Harpoon add file",
 				mode = "n",
 			},
-			-- {
-			-- 	"<TAB>",
-			-- 	function()
-			-- 		local harpoon = require("harpoon")
-			-- 		harpoon.ui:toggle_quick_menu(harpoon:list())
-			-- 	end,
-			-- 	desc = "Harpoon menu",
-			-- 	mode = "n",
-			-- },
+			{
+				"<C-Tab>",
+				function()
+					local harpoon = require("harpoon")
+					harpoon.ui:toggle_quick_menu(harpoon:list())
+				end,
+				desc = "Harpoon menu",
+				mode = "n",
+			},
 			{
 				"<leader>h1",
 				function()
