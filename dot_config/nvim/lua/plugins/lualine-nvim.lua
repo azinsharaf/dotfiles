@@ -40,7 +40,7 @@ local config = function()
 			},
 
 			lualine_x = { "fileformat", "filetype" },
-			lualine_y = { "progress" },
+			lualine_y = { { require("opencode").statusline } },
 			lualine_z = { "location" },
 		},
 		inactive_sections = {
