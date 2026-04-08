@@ -1,6 +1,6 @@
 return {
 	"joshuavial/aider.nvim",
-	enabled = true,
+	enabled = false,
 	event = "VeryLazy",
 	config = function()
 		require("aider").setup({
