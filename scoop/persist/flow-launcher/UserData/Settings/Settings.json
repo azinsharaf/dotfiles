@@ -3,7 +3,7 @@
   "OpenResultModifiers": "Alt",
   "ColorScheme": "System",
   "ShowOpenResultHotkey": true,
-  "WindowSize": 1174,
+  "WindowSize": 854,
   "PreviewHotkey": "F1",
   "AutoCompleteHotkey": "Ctrl \u002B Tab",
   "AutoCompleteHotkey2": "",
@@ -53,10 +53,10 @@
   "TimeFormat": "hh:mm tt",
   "DateFormat": "MM\u0027/\u0027dd ddd",
   "FirstLaunch": false,
-  "SettingWindowWidth": 2524,
-  "SettingWindowHeight": 1310,
-  "SettingWindowTop": 59,
-  "SettingWindowLeft": 1298,
+  "SettingWindowWidth": 1685,
+  "SettingWindowHeight": 1324,
+  "SettingWindowTop": 56,
+  "SettingWindowLeft": 1735,
   "SettingWindowState": 0,
   "ShowPlaceholder": true,
   "PlaceholderText": "",
@@ -146,8 +146,8 @@
   "AlwaysStartEn": false,
   "QuerySearchPrecision": "Regular",
   "AutoUpdates": false,
-  "WindowLeft": 1973,
-  "WindowTop": 364,
+  "WindowLeft": 1293,
+  "WindowTop": 366,
   "PreviousScreenWidth": 0,
   "PreviousScreenHeight": 0,
   "PreviousDpiX": 0,
@@ -156,7 +156,7 @@
   "CustomWindowTop": 0,
   "KeepMaxResults": false,
   "MaxResultsToShow": 10,
-  "ActivateTimes": 179,
+  "ActivateTimes": 426,
   "CustomPluginHotkeys": [],
   "CustomShortcuts": [],
   "DontPromptUpdateMsg": false,
@@ -206,14 +206,12 @@
         "Name": "Explorer",
         "Version": "2.0.3",
         "ActionKeywords": [
-          "doc:",
-          "*",
-          "*",
-          "*",
           "q",
-          "*",
           "f",
-          "*"
+          "*",
+          "*",
+          "*",
+          "w"
         ],
         "Priority": 0,
         "SearchDelayTime": null,
@@ -328,24 +326,24 @@
         "Disabled": false,
         "HomeDisabled": false
       },
-      "CEA0FDFC6D3B4085823D60DC76F28855": {
-        "ID": "CEA0FDFC6D3B4085823D60DC76F28855",
-        "Name": "Calculator",
-        "Version": "2.1.0",
-        "ActionKeywords": [
-          "*"
-        ],
-        "Priority": 0,
-        "SearchDelayTime": null,
-        "Disabled": true,
-        "HomeDisabled": false
-      },
       "028C97F910684231AB09B5DD5997D424": {
         "ID": "028C97F910684231AB09B5DD5997D424",
         "Name": "Obsidian",
         "Version": "1.1.1",
         "ActionKeywords": [
           "ob"
+        ],
+        "Priority": 0,
+        "SearchDelayTime": null,
+        "Disabled": false,
+        "HomeDisabled": false
+      },
+      "B7CDDEA47E354243BEE0434DDBAE438A": {
+        "ID": "B7CDDEA47E354243BEE0434DDBAE438A",
+        "Name": "RDP",
+        "Version": "1.0.17",
+        "ActionKeywords": [
+          "rdp"
         ],
         "Priority": 0,
         "SearchDelayTime": null,
