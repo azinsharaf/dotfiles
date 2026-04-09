@@ -8,6 +8,7 @@
   "ShowOnlyMostUsedCMDs": true,
   "ShowOnlyMostUsedCMDsNumber": 5,
   "CommandHistory": {
-    "ls": 2
+    "ls": 2,
+    "nvim": 1
   }
 }
