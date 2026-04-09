@@ -1,7 +1,7 @@
 
 keybinds clear-defaults=true {
     normal {
-        bind "Ctrl tab" { ToggleTab; }
+        bind "Ctrl Tab" { ToggleTab; }
     }
 
     locked {
