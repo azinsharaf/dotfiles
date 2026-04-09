@@ -72,6 +72,10 @@ opt.encoding = "UTF-8"
 opt.showmode = true
 opt.updatetime = 50
 
+-- Terminal escape sequence timeout (helps with kitty keyboard protocol via Zellij)
+opt.ttimeout = true
+opt.ttimeoutlen = 5
+
 opt.wildignorecase = true
 opt.wildmenu = true
 

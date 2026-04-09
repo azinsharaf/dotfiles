@@ -25,6 +25,8 @@ local config = {
 	initial_cols = 100,
 	enable_scroll_bar = false,
 	scrollback_lines = 5000,
+	enable_kitty_keyboard = false,
+	enable_csi_u_key_encoding = false,
 	front_end = "WebGpu",
 	-- webgpu_preferred_adapter = (function()
 	-- 	if computer_name == "Azin-Desktop" then
@@ -66,11 +68,12 @@ end
 
 config.keys = {
 
-	-- Disable default Ctrl+Tab tab switching
+	-- Send Ctrl+Tab as kitty-encoded CSI sequence to Zellij
+	-- CSI 9;5u = Tab(9) with Ctrl modifier(5) in kitty keyboard protocol
 	{
 		key = "Tab",
 		mods = "CTRL",
-		action = act.DisableDefaultAssignment,
+		action = act.SendString("\x1b[9;5u"),
 	},
 
 	-- Activate the previously active tab
