@@ -4,10 +4,6 @@ local opts = { noremap = true, silent = true }
 local telescope = require("telescope")
 telescope.load_extension("chezmoi")
 
--- general
-keymap("i", "jk", "<ESC>", { desc = "exit insert mode with jk" })
-
-
 -- window management
 keymap("n", "<leader>sv", "<C-w>v", { desc = "split window vertically" }) -- split window vertically
 keymap("n", "<leader>sh", "<C-w>s", { desc = "split window horizontally" }) -- split window horizontally
