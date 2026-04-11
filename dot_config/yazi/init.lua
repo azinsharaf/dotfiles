@@ -5,6 +5,8 @@ require("full-border"):setup({
 
 require("git"):setup()
 
+require("no-status"):setup()
+
 require("starship"):setup({
 	-- Hide flags (such as filter, find and search). This is recommended for starship themes which
 	-- are intended to go across the entire width of the terminal.
