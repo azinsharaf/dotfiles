@@ -53,6 +53,11 @@ use = "yazi-rs/plugins:mime-ext"
 rev = "babfd0f"
 hash = "7aa5cddbc6dc2fd8ef9b8abd944d06f8"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:no-status"
+rev = "babfd0f"
+hash = "b6467b3358393ba82b38dd9f20915227"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "0670801"
