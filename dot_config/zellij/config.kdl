@@ -171,12 +171,25 @@ keybinds clear-defaults=true {
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Ctrl a" { SwitchToMode "tmux"; }
         bind "Ctrl q" { Quit; }
+
         // harpoon plugin
-        bind "Ctrl y" {
-        LaunchOrFocusPlugin "file:~/.config/zellij/plugins/harpoon.wasm" {
-            floating true; move_to_focused_tab true;
+        // bind "Ctrl y" {
+        // LaunchOrFocusPlugin "file:~/.config/zellij/plugins/harpoon.wasm" {
+        //     floating true; move_to_focused_tab true;
+        // }
+        // }
+
+        // zoxide plugin
+        bind "Ctrl y" { 
+            // Note: you must use the absolulte path to the plugin file
+            LaunchOrFocusPlugin "file:C:/Users/azin/.config/zellij/plugins/zsm.wasm" {
+                floating true
+                move_to_focused_tab true
+                session_separator "_"
+                base_paths "C:/Users/azin/repos"
+            }
         }
-    }
+
     }
 
     shared_except "normal" "locked" "entersearch" {
