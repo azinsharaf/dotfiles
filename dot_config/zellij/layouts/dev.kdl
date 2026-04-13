@@ -2,13 +2,62 @@ layout {
     default_tab_template {
         children
 
+        // Main status bar: mode badge, session name, tabs, datetime
         pane size=1 borderless=true {
             plugin location="zjstatus" {
             }
         }
 
+        // Hints bar: shows keybinding hints for current mode
+        // Colors: key=#MODE_COLOR(bold), label=#9399B2, separator=#6C7086, bg=#181825
+        //
+        // Mode colors (Catppuccin Mocha):
+        //   normal=#6C7086  locked=#F38BA8  pane=#A6E3A1  tab=#74C7EC
+        //   resize=#FAB387  move=#94E2D5    scroll=#89DCEB search=#B4BEFE
+        //   session=#EBA0AC cmd=#ffc387     enter_search=#CBA6F7
+        //   rename_tab=#F9E2AF  rename_pane=#F2CDCD
         pane size=1 borderless=true {
-            plugin location="zjstatus-hints"
+            plugin location="zjstatus" {
+                format_left   "{mode}"
+                format_center ""
+                format_right  ""
+                format_space  "#[bg=#181825]"
+
+                // Normal: just show the leader key hint
+                mode_normal       "#[bg=#181825]#[fg=#6C7086] Ctrl+a #[fg=#585B70]Leader"
+
+                // Locked
+                mode_locked       "#[bg=#181825]#[fg=#F38BA8,bold] Ctrl+g #[fg=#9399B2,nobold]Unlock"
+
+                // CMD (leader key menu)
+                mode_tmux         "#[bg=#181825]#[fg=#ffc387,bold] h j k l #[fg=#9399B2,nobold]Focus  #[fg=#6C7086]|  #[fg=#ffc387,bold]p #[fg=#9399B2,nobold]Pane  #[fg=#ffc387,bold]t #[fg=#9399B2,nobold]Tab  #[fg=#ffc387,bold]r #[fg=#9399B2,nobold]Resize  #[fg=#ffc387,bold]m #[fg=#9399B2,nobold]Move  #[fg=#ffc387,bold]o #[fg=#9399B2,nobold]Session  #[fg=#ffc387,bold]s #[fg=#9399B2,nobold]Scroll  #[fg=#6C7086]|  #[fg=#ffc387,bold]c #[fg=#9399B2,nobold]New Tab  #[fg=#ffc387,bold]n #[fg=#9399B2,nobold]New Pane  #[fg=#ffc387,bold]x #[fg=#9399B2,nobold]Close  #[fg=#ffc387,bold]f #[fg=#9399B2,nobold]Float  #[fg=#ffc387,bold]d #[fg=#9399B2,nobold]Detach"
+
+                // Pane
+                mode_pane         "#[bg=#181825]#[fg=#A6E3A1,bold] n #[fg=#9399B2,nobold]New  #[fg=#A6E3A1,bold]d #[fg=#9399B2,nobold]Down  #[fg=#A6E3A1,bold]r #[fg=#9399B2,nobold]Right  #[fg=#A6E3A1,bold]s #[fg=#9399B2,nobold]Stacked  #[fg=#A6E3A1,bold]x #[fg=#9399B2,nobold]Close  #[fg=#A6E3A1,bold]f #[fg=#9399B2,nobold]Fullscreen  #[fg=#A6E3A1,bold]w #[fg=#9399B2,nobold]Float  #[fg=#A6E3A1,bold]e #[fg=#9399B2,nobold]Embed  #[fg=#A6E3A1,bold]c #[fg=#9399B2,nobold]Rename  #[fg=#6C7086]|  #[fg=#A6E3A1,bold]h j k l #[fg=#9399B2,nobold]Focus  #[fg=#A6E3A1,bold]p #[fg=#9399B2,nobold]Switch"
+
+                // Tab
+                mode_tab          "#[bg=#181825]#[fg=#74C7EC,bold] n #[fg=#9399B2,nobold]New  #[fg=#74C7EC,bold]x #[fg=#9399B2,nobold]Close  #[fg=#74C7EC,bold]r #[fg=#9399B2,nobold]Rename  #[fg=#74C7EC,bold]s #[fg=#9399B2,nobold]Sync  #[fg=#74C7EC,bold]b #[fg=#9399B2,nobold]Break  #[fg=#6C7086]|  #[fg=#74C7EC,bold]h l #[fg=#9399B2,nobold]Navigate  #[fg=#74C7EC,bold]1-9 #[fg=#9399B2,nobold]Go To"
+
+                // Resize
+                mode_resize       "#[bg=#181825]#[fg=#FAB387,bold] h j k l #[fg=#9399B2,nobold]Increase  #[fg=#FAB387,bold]H J K L #[fg=#9399B2,nobold]Decrease  #[fg=#FAB387,bold]+ #[fg=#9399B2,nobold]Increase  #[fg=#FAB387,bold]- #[fg=#9399B2,nobold]Decrease"
+
+                // Move
+                mode_move         "#[bg=#181825]#[fg=#94E2D5,bold] h j k l #[fg=#9399B2,nobold]Move  #[fg=#94E2D5,bold]n #[fg=#9399B2,nobold]Next  #[fg=#94E2D5,bold]p #[fg=#9399B2,nobold]Previous"
+
+                // Scroll
+                mode_scroll       "#[bg=#181825]#[fg=#89DCEB,bold] j k #[fg=#9399B2,nobold]Scroll  #[fg=#89DCEB,bold]d u #[fg=#9399B2,nobold]Half Page  #[fg=#89DCEB,bold]h l #[fg=#9399B2,nobold]Page  #[fg=#6C7086]|  #[fg=#89DCEB,bold]s #[fg=#9399B2,nobold]Search  #[fg=#89DCEB,bold]e #[fg=#9399B2,nobold]Edit"
+
+                // Search
+                mode_search       "#[bg=#181825]#[fg=#B4BEFE,bold] n #[fg=#9399B2,nobold]Next  #[fg=#B4BEFE,bold]p #[fg=#9399B2,nobold]Prev  #[fg=#B4BEFE,bold]c #[fg=#9399B2,nobold]Case  #[fg=#B4BEFE,bold]w #[fg=#9399B2,nobold]Wrap  #[fg=#B4BEFE,bold]o #[fg=#9399B2,nobold]Whole Word"
+
+                // Session
+                mode_session      "#[bg=#181825]#[fg=#EBA0AC,bold] w #[fg=#9399B2,nobold]Manager  #[fg=#EBA0AC,bold]c #[fg=#9399B2,nobold]Config  #[fg=#EBA0AC,bold]p #[fg=#9399B2,nobold]Plugins  #[fg=#EBA0AC,bold]l #[fg=#9399B2,nobold]Layout  #[fg=#EBA0AC,bold]d #[fg=#9399B2,nobold]Detach  #[fg=#EBA0AC,bold]a #[fg=#9399B2,nobold]About"
+
+                // Input prompts
+                mode_enter_search "#[bg=#181825]#[fg=#CBA6F7] Type to search ..."
+                mode_rename_tab   "#[bg=#181825]#[fg=#F9E2AF] Type new tab name ..."
+                mode_rename_pane  "#[bg=#181825]#[fg=#F2CDCD] Type new pane name ..."
+            }
         }
     }
 
@@ -24,7 +73,13 @@ layout {
     tab name="YAZI" {
         pane name="YAZI"
     }
+    tab name="NOTES" {
+        pane name="NOTES"
+    }
     tab name="SHELL" {
         pane name="SHELL"
+    }
+    tab name="BTOP" {
+        pane name="BTOP"
     }
 }
