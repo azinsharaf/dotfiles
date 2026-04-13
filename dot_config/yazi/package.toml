@@ -1,47 +1,47 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "2301ff8"
-hash = "b16b6e08085a3dfec72335415e4c83ed"
+rev = "babfd0f"
+hash = "1e13c39c1ba52ad020e6e26a2dd39ae5"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "2301ff8"
-hash = "8042bdcf33a3d87b9430bb65e4511461"
+rev = "babfd0f"
+hash = "33241d0d2c0f65d80d03e3388ba9e0e3"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "2301ff8"
-hash = "2aada555b792eb4d44dd267097957577"
+rev = "babfd0f"
+hash = "6e67c36d6c25fc84cb0976aac8a3ff5"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "2301ff8"
-hash = "29c3b04bad99946223dc83da1d13153a"
+rev = "babfd0f"
+hash = "bef05511fab6c6414990eb48003582b9"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "2301ff8"
-hash = "5f76a476ea416c9f379a1a451bdcd3d2"
+rev = "babfd0f"
+hash = "c8695b60cdf205d9ee71efcba4fd40af"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "2301ff8"
-hash = "e24c3fe3f4e8eadb66f9cd41da6c9e58"
+rev = "babfd0f"
+hash = "abb7633bc6e643c91a925122e79031d6"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:zoom"
-rev = "2301ff8"
-hash = "91bf6f0332ee6d72eab0dc2e64382021"
+rev = "babfd0f"
+hash = "95b6348b374ab93067073759987d84ce"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "a63550b"
-hash = "733c7340b1ca2d3ef274c427a0cf21b"
+rev = "a837101"
+hash = "d396365cef932fce588b80df69438f2e"
 
 [[plugin.deps]]
 use = "Tyarel8/goto-drives"
-rev = "ea5ad4e"
-hash = "8f81ee91bc039adec835886a63a86671"
+rev = "ea8de5c"
+hash = "391dceaaa173b6e429ce9be4630959ae"
 
 [[plugin.deps]]
 use = "dedukun/bookmarks"
