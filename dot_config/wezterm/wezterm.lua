@@ -50,8 +50,8 @@ local config = {
 	-- 	end
 	-- end)(),
 	max_fps = 240,
-	window_background_opacity = 0.9,
-	text_background_opacity = 0.9,
+	window_background_opacity = 0.97, -- WezTerm handles transparency (uniform across terminal content)
+	text_background_opacity = 1.0, -- Text backgrounds opaque relative to window
 	default_workspace = "default",
 	-- status_update_interval = 1000, -- Disabled: using Zellij status
 }
