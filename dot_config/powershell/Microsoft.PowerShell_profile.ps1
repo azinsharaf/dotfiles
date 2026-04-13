@@ -463,6 +463,8 @@ $Env:OLLAMA_NUM_THREADS = 8
 $Env:CARGO_HOME = "$Env:USERPROFILE\.cargo"
 $Env:RUSTUP_HOME = "$Env:USERPROFILE\.rustup"
 
+$Env:GNUPGHOME = "$Env:USERPROFILE\.config\gnupg"
+
 # Prepend (high priority)
 $Env:Path = "$Env:USERPROFILE\scoop\shims;" + $Env:Path
 
