@@ -24,10 +24,11 @@ keybinds clear-defaults=true {
         bind "l" { MoveFocus "right"; }
         bind "n" { NewPane; SwitchToMode "normal"; }
         bind "p" { SwitchFocus; }
-        bind "Ctrl p" { SwitchToMode "normal"; }
+        bind "Ctrl a" { SwitchToMode "normal"; }
         bind "r" { NewPane "right"; SwitchToMode "normal"; }
         bind "s" { NewPane "stacked"; SwitchToMode "normal"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "normal"; }
+        bind "x" { CloseFocus; SwitchToMode "normal"; }
         bind "z" { TogglePaneFrames; SwitchToMode "normal"; }
     }
     tab {
@@ -54,7 +55,7 @@ keybinds clear-defaults=true {
         bind "n" { NewTab; SwitchToMode "normal"; }
         bind "r" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "normal"; }
-        bind "Ctrl t" { SwitchToMode "normal"; }
+        bind "Ctrl a" { SwitchToMode "normal"; }
         bind "x" { CloseTab; SwitchToMode "normal"; }
         bind "tab" { ToggleTab; }
     }
@@ -74,7 +75,7 @@ keybinds clear-defaults=true {
         bind "j" { Resize "Increase down"; }
         bind "k" { Resize "Increase up"; }
         bind "l" { Resize "Increase right"; }
-        bind "Ctrl n" { SwitchToMode "normal"; }
+        bind "Ctrl a" { SwitchToMode "normal"; }
     }
     move {
         bind "left" { MovePane "left"; }
@@ -82,7 +83,7 @@ keybinds clear-defaults=true {
         bind "up" { MovePane "up"; }
         bind "right" { MovePane "right"; }
         bind "h" { MovePane "left"; }
-        bind "Ctrl h" { SwitchToMode "normal"; }
+        bind "Ctrl a" { SwitchToMode "normal"; }
         bind "j" { MovePane "down"; }
         bind "k" { MovePane "up"; }
         bind "l" { MovePane "right"; }
@@ -123,7 +124,8 @@ keybinds clear-defaults=true {
             }
             SwitchToMode "normal"
         }
-        bind "Ctrl o" { SwitchToMode "normal"; }
+        bind "Ctrl a" { SwitchToMode "normal"; }
+        bind "d" { Detach; }
         bind "p" {
             LaunchOrFocusPlugin "plugin-manager" {
                 floating true
@@ -167,6 +169,7 @@ keybinds clear-defaults=true {
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
+        bind "Ctrl a" { SwitchToMode "tmux"; }
         bind "Ctrl q" { Quit; }
         // harpoon plugin
         bind "Ctrl y" {
@@ -175,35 +178,12 @@ keybinds clear-defaults=true {
         }
     }
     }
-    shared_except "locked" "move" {
-        bind "Ctrl h" { SwitchToMode "move"; }
-    }
-    shared_except "locked" "session" {
-        bind "Ctrl o" { SwitchToMode "session"; }
-    }
-    shared_except "locked" "scroll" "search" "tmux" {
-        bind "Ctrl b" { SwitchToMode "tmux"; }
-    }
-    shared_except "locked" "scroll" "search" {
-        bind "Ctrl s" { SwitchToMode "scroll"; }
-    }
-    shared_except "locked" "tab" {
-        bind "Ctrl t" { SwitchToMode "tab"; }
-    }
-    shared_except "locked" "pane" {
-        bind "Ctrl p" { SwitchToMode "pane"; }
-    }
-    shared_except "locked" "resize" {
-        bind "Ctrl n" { SwitchToMode "resize"; }
-    }
+
     shared_except "normal" "locked" "entersearch" {
         bind "enter" { SwitchToMode "normal"; }
     }
     shared_except "normal" "locked" "entersearch" "renametab" "renamepane" {
         bind "esc" { SwitchToMode "normal"; }
-    }
-    shared_among "pane" "tmux" {
-        bind "x" { CloseFocus; SwitchToMode "normal"; }
     }
     shared_among "scroll" "search" {
         bind "PageDown" { PageScrollDown; }
@@ -220,7 +200,7 @@ keybinds clear-defaults=true {
         bind "j" { ScrollDown; }
         bind "k" { ScrollUp; }
         bind "l" { PageScrollDown; }
-        bind "Ctrl s" { SwitchToMode "normal"; }
+        bind "Ctrl a" { SwitchToMode "normal"; }
         bind "u" { HalfPageScrollUp; }
     }
     entersearch {
@@ -237,30 +217,40 @@ keybinds clear-defaults=true {
     renamepane {
         bind "esc" { UndoRenamePane; SwitchToMode "pane"; }
     }
-    shared_among "session" "tmux" {
-        bind "d" { Detach; }
-    }
+
     tmux {
-        bind "left" { MoveFocus "left"; SwitchToMode "normal"; }
-        bind "down" { MoveFocus "down"; SwitchToMode "normal"; }
-        bind "up" { MoveFocus "up"; SwitchToMode "normal"; }
-        bind "right" { MoveFocus "right"; SwitchToMode "normal"; }
-        bind "space" { NextSwapLayout; }
+        // Sub-mode access
+        bind "p" { SwitchToMode "pane"; }
+        bind "t" { SwitchToMode "tab"; }
+        bind "r" { SwitchToMode "resize"; }
+        bind "m" { SwitchToMode "move"; }
+        bind "o" { SwitchToMode "session"; }
+        bind "s" { SwitchToMode "scroll"; }
+        bind "g" { SwitchToMode "locked"; }
+
+        // Quick actions
+        bind "n" { NewPane; SwitchToMode "normal"; }
+        bind "c" { NewTab; SwitchToMode "normal"; }
+        bind "x" { CloseFocus; SwitchToMode "normal"; }
+        bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+        bind "f" { ToggleFloatingPanes; SwitchToMode "normal"; }
+        bind "d" { Detach; }
         bind "\"" { NewPane "down"; SwitchToMode "normal"; }
         bind "%" { NewPane "right"; SwitchToMode "normal"; }
-        bind "," { SwitchToMode "renametab"; }
         bind "[" { SwitchToMode "scroll"; }
-        bind "Ctrl b" { Write 2; SwitchToMode "normal"; }
-        bind "c" { NewTab; SwitchToMode "normal"; }
+        bind "," { SwitchToMode "renametab"; }
+
+        // Passthrough Ctrl+A to shell
+        bind "a" { Write 1; SwitchToMode "normal"; }
+
+        // Navigation
         bind "h" { MoveFocus "left"; SwitchToMode "normal"; }
         bind "j" { MoveFocus "down"; SwitchToMode "normal"; }
         bind "k" { MoveFocus "up"; SwitchToMode "normal"; }
         bind "l" { MoveFocus "right"; SwitchToMode "normal"; }
-        bind "n" { GoToNextTab; SwitchToMode "normal"; }
-        bind "o" { FocusNextPane; }
-        bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
-        bind "t" { SwitchToMode "tab"; }
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
+
+        // Cancel
+        bind "Ctrl a" { SwitchToMode "normal"; }
     }
 }
 
@@ -301,8 +291,8 @@ plugins {
         mode_enter_search    "#[fg=#1E1E2E,bg=#CBA6F7,bold] ENTERSEARCH #[bg=#181825]"
         mode_rename_tab      "#[fg=#1E1E2E,bg=#F9E2AF,bold] RENAMETAB #[bg=#181825]"
         mode_rename_pane     "#[fg=#1E1E2E,bg=#F2CDCD,bold] RENAMEPANE #[bg=#181825]"
-        mode_session         "#[fg=#1E1E2E,bg=#CDD6F4,bold] SESSION #[bg=#181825]"
-        mode_tmux            "#[fg=#1E1E2E,bg=#ffc387,bold] TMUX #[bg=#181825]"
+        mode_session         "#[fg=#1E1E2E,bg=#EBA0AC,bold] SESSION #[bg=#181825]"
+        mode_tmux            "#[fg=#1E1E2E,bg=#ffc387,bold] CMD #[bg=#181825]"
         // mode_default_to_mode "normal"
 
         tab_normal               "#[fg=#6C7086,bg=#181825] {index}:{name}"
@@ -358,21 +348,45 @@ web_client {
 // 
 // osc8_hyperlinks true
 
-// themes {
-//     catppuccin-mocha {
-//         fg 198 206 232
-//         bg 30 30 46
-//         red 243 139 168
-//         green 166 227 161
-//         yellow 249 226 175
-//         blue 137 180 250
-//         magenta 203 166 247
-//         orange 250 179 135
-//         cyan 137 220 235
-//         black 17 17 27
-//         white 224 227 240
-//     }
-// }
+themes {
+    catppuccin-mocha {
+        fg 88 91 112
+        bg 30 30 46
+        red 243 139 168
+        green 166 227 161
+        yellow 249 226 175
+        blue 137 180 250
+        magenta 203 166 247
+        orange 250 179 135
+        cyan 137 220 235
+        black 17 17 27
+        white 224 227 240
+        frame_unselected {
+            base 49 50 68
+            background 0
+            emphasis_0 49 50 68
+            emphasis_1 49 50 68
+            emphasis_2 49 50 68
+            emphasis_3 0
+        }
+        frame_selected {
+            base 166 227 161
+            background 0
+            emphasis_0 0
+            emphasis_1 0
+            emphasis_2 0
+            emphasis_3 0
+        }
+        frame_highlight {
+            base 250 179 135
+            background 0
+            emphasis_0 250 179 135
+            emphasis_1 250 179 135
+            emphasis_2 0
+            emphasis_3 0
+        }
+    }
+}
 
 // Choose the theme that is specified in the themes section.
 // Default: default
@@ -610,11 +624,11 @@ show_release_notes false
  
 // Whether to enable mouse hover effects and pane grouping functionality
 // default is true
-// advanced_mouse_actions false
+advanced_mouse_actions false
  
 // Whether to enable mouse hover visual effects (frame highlight and help text)
 // default is true
-// mouse_hover_effects false
+mouse_hover_effects false
  
 // Whether to show visual bell indicators (pane/tab frame flash and [!] suffix)
 // default is true
