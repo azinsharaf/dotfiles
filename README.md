@@ -129,7 +129,7 @@ scoop install extras/opencode # ai coding agent
 scoop install main/uutils-coreutils # Rust implementation of GNU coreutils (binaries compiled with MSVC)
 scoop install extras/psfzf # Powershell wrapper around the fuzzy finder fzf
 scoop install extras/psreadline # A bash inspired readline implementation for PowerShell
-scoop install rustup
+scoop install rust
 scoop install go # go programming language
 scoop install main/witr # why is this running?
 ```
@@ -140,6 +140,10 @@ scoop install main/witr # why is this running?
 cargo install --locked uv
 uv tool install sqlit-tui # A user friendly TUI for SQL databases.
 ```
+
+#### rust (cargo) applications
+
+`cargo install --git https://github.com/8LWXpg/dwag` # drag drop in terminal (windows version)
 
 #### go applications
 
