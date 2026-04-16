@@ -182,11 +182,11 @@ keybinds clear-defaults=true {
         // zoxide plugin
         bind "Ctrl y" { 
             // Note: you must use the absolulte path to the plugin file
-            LaunchOrFocusPlugin "file:C:/Users/azin/.config/zellij/plugins/zsm.wasm" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zsm.wasm" {
                 floating true
                 move_to_focused_tab true
                 session_separator "_"
-                base_paths "C:/Users/azin/repos"
+                base_paths "~/repos"
             }
         }
 
