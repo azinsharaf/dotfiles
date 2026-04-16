@@ -1,6 +1,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- disable netrw early (before nvim-tree loads)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- vim.g.lsp_handlers_enabled = false
 vim.g.matchup_matchparen_deferred = 1
 vim.g.highlightedyank_highlight_duration = 200
