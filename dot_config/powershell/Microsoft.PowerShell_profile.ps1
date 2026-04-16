@@ -452,7 +452,9 @@ $Env:CUDA_PATH_V12_8 = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8
 
 $Env:EZA_CONFIG_DIR = "$Env:USERPROFILE\.config\eza"
 
-$Env:ZELLIJ_CONFIG_DIR = "$Env:USERPROFILE\.config\zellij" 
+$Env:ZELLIJ_CONFIG_DIR = "$Env:USERPROFILE\.config\zellij"
+$Env:ZELLIJ_SOCKET_DIR = "$Env:USERPROFILE\.config\zellij"
+$Env:ZELLIJ_TMP_DIR = "$Env:USERPROFILE\.config\zellij"
 
 $Env:OLLAMA_HOST = "0.0.0.0:11434"
 $Env:OLLAMA_API_BASE = "https://ollama.azinsharaf.net"
