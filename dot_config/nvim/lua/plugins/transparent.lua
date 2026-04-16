@@ -45,5 +45,8 @@ return {
 			-- Also the user event "TransparentClear" will be triggered
 			on_clear = function() end,
 		})
+
+		-- Enable transparency by default
+		require("transparent").clear()
 	end,
 }
