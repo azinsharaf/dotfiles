@@ -160,11 +160,7 @@ keybinds clear-defaults=true {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Ctrl g" { SwitchToMode "locked"; }
-        bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
-        bind "Alt j" { MoveFocus "down"; }
-        bind "Alt k" { MoveFocus "up"; }
-        bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
@@ -256,11 +252,24 @@ keybinds clear-defaults=true {
         // Passthrough Ctrl+A to shell
         bind "a" { Write 1; SwitchToMode "normal"; }
 
-        // Navigation
-        bind "h" { MoveFocus "left"; SwitchToMode "normal"; }
-        bind "j" { MoveFocus "down"; SwitchToMode "normal"; }
-        bind "k" { MoveFocus "up"; SwitchToMode "normal"; }
-        bind "l" { MoveFocus "right"; SwitchToMode "normal"; }
+        // Tab navigation: leader + h/l (stay in tmux mode for repeated presses)
+        bind "h" { GoToPreviousTab; }
+        bind "l" { GoToNextTab; }
+
+        // Pane navigation: leader + j/k (left/right for side-by-side layout)
+        bind "j" { MoveFocus "left"; SwitchToMode "normal"; }
+        bind "k" { MoveFocus "right"; SwitchToMode "normal"; }
+
+        // Direct tab jump: leader + number
+        bind "1" { GoToTab 1; SwitchToMode "normal"; }
+        bind "2" { GoToTab 2; SwitchToMode "normal"; }
+        bind "3" { GoToTab 3; SwitchToMode "normal"; }
+        bind "4" { GoToTab 4; SwitchToMode "normal"; }
+        bind "5" { GoToTab 5; SwitchToMode "normal"; }
+        bind "6" { GoToTab 6; SwitchToMode "normal"; }
+        bind "7" { GoToTab 7; SwitchToMode "normal"; }
+        bind "8" { GoToTab 8; SwitchToMode "normal"; }
+        bind "9" { GoToTab 9; SwitchToMode "normal"; }
 
         // Cancel
         bind "Ctrl a" { SwitchToMode "normal"; }
