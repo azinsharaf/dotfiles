@@ -21,7 +21,9 @@ return {
 			duration_multiplier = 1.0, -- Global duration multiplier
 			easing = "linear", -- Default easing function
 			pre_hook = nil, -- Function to run before the scrolling animation starts
-			post_hook = nil, -- Function to run after the scrolling animation ends
+			post_hook = function()
+				vim.cmd("normal! zz")
+			end, -- Center cursor after scrolling animation ends
 			performance_mode = false, -- Disable "Performance Mode" on all buffers.
 			ignored_events = { -- Events ignored while scrolling
 				"WinScrolled",
