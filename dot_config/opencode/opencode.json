@@ -6,7 +6,7 @@
   "provider": {
     "anthropic": {
       "models": {
-        "anthropic/claude-opus-4-6": {
+        "anthropic/claude-opus-4-7": {
           "variants": {
             "thinking": {
               "reasoningEffort": "low",
@@ -18,6 +18,17 @@
           }
         },
         "anthropic/claude-sonnet-4-6": {
+          "variants": {
+            "thinking": {
+              "reasoningEffort": "low",
+              "textVerbosity": "low"
+            },
+            "fast": {
+              "disabled": true
+            }
+          }
+        },
+        "anthropic/claude-haiku-4-5": {
           "variants": {
             "thinking": {
               "reasoningEffort": "low",
