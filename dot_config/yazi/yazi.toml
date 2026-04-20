@@ -19,13 +19,12 @@ title_format   = "Yazi: {cwd}"
 [preview]
 wrap            = "no"
 tab_size        = 2
-max_width       = 1000
-max_height      = 1000
+max_width       = 600
+max_height      = 900
 cache_dir       = ""
 image_delay     = 30
-image_filter    = "catmull-rom"
-image_quality   = 75
-sixel_fraction  = 15
+image_filter    = "lanczos3"
+image_quality   = 90
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
@@ -70,8 +69,6 @@ open-vbs  = [
 rules = [
     # ArcGIS Project File (.aprx)
     { url = "*.aprx", use = [ "open-arcgispro" ] },
-    # visual basic script
-    { url = "*.vbs", use = [ "open-vbs"] },
 	# Folder
 	{ url = "*/", use = [ "edit", "open", "reveal" ] },
 	# Text
@@ -101,9 +98,10 @@ suppress_preload = false
 
 [plugin]
 fetchers = [
-	# Mimetype
-   { id = "mime", url = "*", run = "mime.local", prio = "high" },
-   { id = "mime", url = "*/", run = "mime.dir", prio = "high" },
+    # Mimetype
+	{ id = "mime", url = "*/",         run = "mime.dir", prio = "high" },
+	{ id = "mime", url = "local://*",  run = "mime.local", prio = "high" },
+	{ id = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
 ]
 spotters = [
 	{ url = "*/", run = "folder" },
@@ -111,7 +109,8 @@ spotters = [
 	{ mime = "text/*", run = "code" },
 	{ mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
 	# Image
-	{ mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+    { mime = "image/{avif,hei?,jxl}", run = "magick" },
+	{ mime = "image/svg+xml", run = "svg" },
 	{ mime = "image/*", run = "image" },
 	# Video
 	{ mime = "video/*", run = "video" },
@@ -120,7 +119,8 @@ spotters = [
 ]
 preloaders = [
 	# Image
-	{ mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+    { mime = "image/{avif,hei?,jxl}", run = "magick" },
+	{ mime = "image/svg+xml", run = "svg" },
 	{ mime = "image/*", run = "image" },
 	# Video
 	{ mime = "video/*", run = "video" },
@@ -131,14 +131,15 @@ preloaders = [
 	{ mime = "application/ms-opentype", run = "font" },
 ]
 previewers = [
-	{ url = "*/", run = "folder", sync = true },
+	{ url = "*/", run = "folder" },
 	# Code
 	{ mime = "text/*", run = "code" },
 	{ mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
 	# JSON
 	{ mime = "application/{json,ndjson}", run = "json" },
 	# Image
-	{ mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+	{ mime = "image/{avif,hei?,jxl}", run = "magick" },
+	{ mime = "image/svg+xml", run = "svg" },
 	{ mime = "image/*", run = "image" },
 	# Video
 	{ mime = "video/*", run = "video" },
@@ -157,6 +158,12 @@ previewers = [
 	{ mime = "application/ms-opentype", run = "font" },
 	# Empty file
 	{ mime = "inode/empty", run = "empty" },
+	# Virtual file system
+	{ mime = "vfs/*", run = "vfs" },
+	# Error
+	{ mime = "null/*", run = "null" },
+	# other files
+	{ mime = "application/octet-stream", run = "code" },
 	# Fallback
 	{ url = "*", run = "file" },
 ]
