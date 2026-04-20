@@ -1,6 +1,6 @@
 ---
 mode: primary
-model: anthropic/claude-opus-4-6
+model: anthropic/claude-sonnet-4-6
 tools:
   write: true
   edit: true
