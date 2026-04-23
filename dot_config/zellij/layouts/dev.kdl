@@ -62,24 +62,25 @@ layout {
     }
 
     tab name="NVIM" focus=true {
-        pane name="NVIM"
+        pane name="NVIM" {}
     }
+
     tab name="AI" {
-        pane name="AI"
+        pane name="AI" {}
     }
     tab name="GIT" {
-        pane name="GIT"
+        pane name="GIT" {}
     }
     tab name="YAZI" {
-        pane name="YAZI"
+        pane name="YAZI" {}
     }
     tab name="NOTES" {
-        pane name="NOTES"
+        pane name="NOTES" {}
     }
     tab name="SHELL" {
-        pane name="SHELL"
+        pane name="SHELL" {}
     }
     tab name="BTOP" {
-        pane name="BTOP"
+        pane name="BTOP" {}
     }
 }
