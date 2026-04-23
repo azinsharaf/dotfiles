@@ -177,6 +177,11 @@ window_rules:
         window_class: { regex: "HwndWrapper" }
       - window_process: { equals: "KeePass" }
       - window_process: { equals: "Bitwarden" }
+      - window_process: { equals: "mpv" }
+
+  - commands: ["set-floating"]
+    match:
+      - window_process: { equals: "mpv" }
 
   - commands: ["move --workspace 1"]
     match:
