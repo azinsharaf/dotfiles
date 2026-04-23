@@ -1,9 +1,10 @@
 
 # cookies (for yt-dlp / streaming)
 cookies=yes
-ytdl-raw-options=cookies-from-browser=chrome
+ytdl-raw-options=cookies-from-browser=firefox:{{ .chezmoi.homeDir }}\scoop\persist\zen-browser\profile
 
-
+#Profile which sets some quality settings (Recommended)
+profile=high-quality
 ### Audio and Subtitles ###
 
 slang=en,eng,English
@@ -27,7 +28,9 @@ sub-outline-color='#266a678c'
 sub-ass-override=yes
 blend-subtitles=yes
 
-volume-max=150
+#Default volume of the player
+volume=50
+volume-max=100
 audio-file-auto=fuzzy
 audio-normalize-downmix=yes
 
@@ -37,10 +40,15 @@ audio-normalize-downmix=yes
 keep-open=yes
 save-position-on-quit=yes
 ontop=yes
-
+#Start mpv with a % smaller resolution of your screen
+autofit=30%
 
 ### uosc ###
 
 osc=no
 osd-bar=no
 border=no
+
+#Video output driver
+#See: https://github.com/mpv-player/mpv/wiki/GPU-Next-vs-GPU
+vo=gpu-next
