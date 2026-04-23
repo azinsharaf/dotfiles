@@ -22,3 +22,5 @@ gui:
       - "#f9e2af"
 # to skip without creating a new repo
 notARepository: "skip"
+os:
+  openLink: "{{link}}"
