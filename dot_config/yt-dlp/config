@@ -1,0 +1,8 @@
+# JavaScript signature solver
+# Enable Node.js runtime (not enabled by default, only Deno is)
+--js-runtimes=node
+# Allow yt-dlp to fetch EJS challenge solver scripts from GitHub
+--remote-components=ejs:github
+
+# Cookies from Zen browser
+--cookies-from-browser=firefox:C:/Users/asharaf/scoop/persist/zen-browser/profile
