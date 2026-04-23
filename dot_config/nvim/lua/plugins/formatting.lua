@@ -19,6 +19,7 @@ return {
 				liquid = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				kdl = { "kdlfmt" },
 			},
 			format_on_save = {
 				lsp_format = "fallback",

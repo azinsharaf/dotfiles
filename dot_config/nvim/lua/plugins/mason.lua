@@ -43,6 +43,7 @@ return {
 				"prettier",
 				"isort",
 				"stylua",
+				"kdlfmt",
 			},
 		})
 	end,
