@@ -163,7 +163,7 @@ previewers = [
 	# Error
 	{ mime = "null/*", run = "null" },
 	# other files
-	{ mime = "application/octet-stream", run = "code" },
+	{ mime = "application/{octet-stream,sql}", run = "code" },
 	# Fallback
 	{ url = "*", run = "file" },
 ]
