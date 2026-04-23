@@ -90,6 +90,14 @@
     }
   ],
 
+  "float_rules": [
+    {
+      "kind": "Exe",
+      "id": "mpv.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+
   "manage_rules": [
     [
       {
@@ -121,6 +129,7 @@
       "id": "Bitwarden.exe",
       "matching_strategy": "Equals"
     },
+
     [
       {
         "kind": "Exe",
