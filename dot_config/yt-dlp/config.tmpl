@@ -5,4 +5,4 @@
 --remote-components=ejs:github
 
 # Cookies from Zen browser
---cookies-from-browser=firefox:C:/Users/asharaf/scoop/persist/zen-browser/profile
+--cookies-from-browser=firefox:{{ .chezmoi.homeDir | replace "\\" "/" }}/scoop/persist/zen-browser/profile
