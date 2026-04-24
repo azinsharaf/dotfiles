@@ -757,6 +757,10 @@ themes {
 // Default: default
 //
 theme "catppuccin-mocha"
+// The name of the default layout to load on startup
+// Default: "default"
+//
+default_layout "dev"
 // Choose the base input mode of zellij.
 // Default: normal
 //
@@ -771,11 +775,10 @@ theme "catppuccin-mocha"
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "dev"
 // The folder in which Zellij will look for layouts
 // (Requires restart)
 //
-// layout_dir "~/.config/zellij/layouts"
+layout_dir "{{ .chezmoi.homeDir }}/.config/zellij/layouts"
 // The folder in which Zellij will look for themes
 // (Requires restart)
 //
