@@ -39,7 +39,7 @@ return {
 				},
 			},
 			filters = {
-				custom = { ".DS_Store", "ignore" },
+				custom = { ".DS_Store" },
 			},
 			git = {
 				ignore = false,
