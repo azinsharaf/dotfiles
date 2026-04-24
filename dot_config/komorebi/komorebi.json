@@ -87,10 +87,8 @@
       "kind": "Class",
       "id": "Shell_TrayWnd",
       "matching_strategy": "Equals"
-    }
-  ],
+    },
 
-  "float_rules": [
     {
       "kind": "Exe",
       "id": "mpv.exe",
