@@ -1,4 +1,5 @@
 #Requires AutoHotkey v2 64-bit
+
 ; Toggle Taskbar Visibility (Windows 10/11)
 ; Hotkey: Ctrl+Alt+T
 

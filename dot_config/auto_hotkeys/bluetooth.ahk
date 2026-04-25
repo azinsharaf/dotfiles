@@ -1,7 +1,5 @@
 #Requires AutoHotkey v2 64-bit
 
-CapsLock::Esc
-
 ; toggle Bluetooth on/off
 F4:: {
     Send "#a"
