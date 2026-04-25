@@ -34,6 +34,7 @@ return {
 				"lua_ls",
 				"pyright",
 				"yamlls",
+				"jsonls",
 			},
 		})
 
