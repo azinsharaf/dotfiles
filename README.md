@@ -132,6 +132,7 @@ scoop install extras/psreadline # A bash inspired readline implementation for Po
 scoop install rust
 scoop install go # go programming language
 scoop install main/witr # why is this running?
+scoop install main/uv # python package manager
 ```
 
 #### uv applications
