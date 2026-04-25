@@ -21,6 +21,7 @@ return {
 		local luasnip = require("luasnip")
 
 		local lspkind = require("lspkind")
+		local highlight_colors = require("nvim-highlight-colors")
 
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
@@ -70,16 +71,24 @@ return {
 
 		-- configure lspkind for vs-code like pictograms in completion menu
 		formatting = {
-			format = lspkind.cmp_format({
-				maxwidth = 50,
-				ellipsis_char = "...",
-				menu = {
-					nvim_lsp = "[LSP]",
-					luasnip = "[Snippet]",
-					buffer = "[Buffer]",
-					path = "[Path]",
-				},
-			}),
+			format = function(entry, item)
+				local color_item = highlight_colors.format(entry, { kind = item.kind })
+				item = lspkind.cmp_format({
+					maxwidth = 50,
+					ellipsis_char = "...",
+					menu = {
+						nvim_lsp = "[LSP]",
+						luasnip = "[Snippet]",
+						buffer = "[Buffer]",
+						path = "[Path]",
+					},
+				})(entry, item)
+				if color_item.abbr_hl_group then
+					item.kind_hl_group = color_item.abbr_hl_group
+					item.kind = color_item.abbr
+				end
+				return item
+			end,
 		},
 		})
 	end,
