@@ -68,13 +68,19 @@ return {
 				{ name = "path" }, -- file system paths
 			}),
 
-			-- configure lspkind for vs-code like pictograms in completion menu
-			formatting = {
-				format = lspkind.cmp_format({
-					maxwidth = 50,
-					ellipsis_char = "...",
-				}),
-			},
+		-- configure lspkind for vs-code like pictograms in completion menu
+		formatting = {
+			format = lspkind.cmp_format({
+				maxwidth = 50,
+				ellipsis_char = "...",
+				menu = {
+					nvim_lsp = "[LSP]",
+					luasnip = "[Snippet]",
+					buffer = "[Buffer]",
+					path = "[Path]",
+				},
+			}),
+		},
 		})
 	end,
 }

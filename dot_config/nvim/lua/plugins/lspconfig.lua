@@ -5,6 +5,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
+		{ "b0o/SchemaStore.nvim" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
 	},
@@ -89,7 +90,18 @@ return {
 						capabilities = capabilities,
 					})
 				end,
-				["lua_ls"] = function()
+				["jsonls"] = function()
+				lspconfig["jsonls"].setup({
+					capabilities = capabilities,
+					settings = {
+						json = {
+							schemas = require("schemastore").json.schemas(),
+							validate = { enable = true },
+						},
+					},
+				})
+			end,
+			["lua_ls"] = function()
 					-- configure lua server (with special settings)
 					lspconfig["lua_ls"].setup({
 						capabilities = capabilities,
