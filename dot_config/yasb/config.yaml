@@ -18,9 +18,9 @@ bars:
       enabled: true
       duration: 1000
     blur_effect:
-      enabled: false
-      acrylic: false
-      dark_mode: false
+      enabled: true
+      acrylic: true
+      dark_mode: true
       round_corners: false
       round_corners_type: "normal"
       border_color: "System"
@@ -37,19 +37,19 @@ bars:
       right: 6
     widgets:
       left: ["home", "glazewm_workspaces"]
-      center:
-        [
+      center: [
           "glazewm_binding_mode",
           "glazewm_tiling_direction",
-          "komorebi_workspaces",
-          "komorebi_active_layout",
-          "taskbar",
+          # "komorebi_workspaces",
+          # "komorebi_active_layout",
+          # "taskbar",
           "apps",
         ]
       right:
         [
-          "media",
           "systray",
+          "media",
+          "wallpapers",
           "weather",
           "github",
           "microphone",
@@ -59,6 +59,8 @@ bars:
           "cpu",
           "gpu",
           "memory",
+          "update_check",
+          "pomodoro",
           "clock",
           "power_menu",
         ]
@@ -100,10 +102,10 @@ widgets:
       max_field_size:
         label: 50
         label_alt: 40
-      show_thumbnail: true
+      show_thumbnail: false
       controls_only: false
       controls_left: true
-      controls_hide: false
+      controls_hide: true
       hide_empty: true
       thumbnail_alpha: 50
       thumbnail_padding: 16
@@ -268,7 +270,7 @@ widgets:
         default: "\uebaa"
       weather_card:
         blur: true
-        round_corners: true
+        round_corners: false
         round_corners_type: "normal"
         border_color: "system"
         alignment: "right"
@@ -294,7 +296,7 @@ widgets:
           rain_icon: "\udb81\udd96"
           snow_icon: "\udb81\udd98"
         weather_animation:
-          enabled: false
+          enabled: true
           snow_overrides_rain: true
           temp_line_animation_style: both # can be "rain", "snow", "both", or "none"
           rain_effect_intensity: 1.0 # 0.01 - 10.0
@@ -437,17 +439,48 @@ widgets:
   memory:
     type: "yasb.memory.MemoryWidget"
     options:
-      label: "<span>\uf4bc</span> {virtual_mem_free}/{virtual_mem_total}"
+      label: "<span>\uf4bc</span> {virtual_mem_percent}%"
       label_alt: "<span>\uf4bc</span> VIRT: {virtual_mem_percent}% SWAP: {swap_mem_percent}%"
       update_interval: 5000
       callbacks:
         on_left: "toggle_label"
         on_middle: "do_nothing"
-        on_right: "do_nothing"
+        on_right: "exec cmd /c Taskmgr"
       memory_thresholds:
         low: 25
         medium: 50
         high: 90
+      histogram_icons:
+        - "\u2581" # 0%
+        - "\u2581" # 10%
+        - "\u2582" # 20%
+        - "\u2583" # 30%
+        - "\u2584" # 40%
+        - "\u2585" # 50%
+        - "\u2586" # 60%
+        - "\u2587" # 70%
+        - "\u2588" # 80%+
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+      animation: { "enabled": true, "type": "fadeInOut", "duration": 200 }
+      progress_bar:
+        {
+          "enabled": False,
+          "position": "left",
+          "size": 14,
+          "thickness": 2,
+          "color": "#57948a",
+          "animation": True,
+        }
+      hide_decimal: true
+      menu:
+        enabled: true
+        show_graph: true
+        show_graph_grid: true
+        graph_history_size: 60
 
   disk:
     type: "yasb.disk.DiskWidget"
@@ -570,22 +603,35 @@ widgets:
       show_battery: false
       show_volume: false
       show_network: false
+      show_in_popup: false
+      hide_icons: []
+      tooltip: true
+      use_hook: true
       btn_shadow:
         enabled: true
         color: "black"
         radius: 3
         offset: [1, 1]
+      popup:
+        blur: true
+        round_corners: false
+        round_corners_type: "normal"
+        border_color: None
+        alignment: "center"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
 
   github:
     type: "yasb.github.GithubWidget"
     options:
       label: "<span>\ueba1</span>"
       label_alt: "Notifications {data}" # {data} return number of unread notification
-      token: env # add YAZI_GITHUB_TOKEN in environment variable from GitHub Personal access tokens (classic) https://github.com/settings/token
+      # token: ghp_xxxxxxxxxxx # GitHub Personal access tokens (classic) https://github.com/settings/tokens
       max_notification: 30 # Max number of notification displaying in menu max: 50
       notification_dot:
         enabled: True
-        corner: "bottom_left" # Can be "top_left", "top_right", "bottom_left", "bottom_right"
+        corner: "bottom_right" # Can be "top_left", "top_right", "bottom_left", "bottom_right"
         color: "red" # Can be hex color or string
         margin: [1, 1] # x and y margin for the dot
       only_unread: true # Show only unread or all notifications;
@@ -595,15 +641,14 @@ widgets:
       update_interval: 300 # Check for new notification in seconds
       menu:
         blur: True # Enable blur effect for the menu
-        round_corners: False # Enable round corners for the menu (this option is not supported on Windows 10)
-        # round_corners_type: "normal" # Set the type of round corners for the menu (normal, small) (this option is not supported on Windows 10)
+        round_corners: false # Enable round corners for the menu (this option is not supported on Windows 10)
+        round_corners_type: "normal" # Set the type of round corners for the menu (normal, small) (this option is not supported on Windows 10)
         border_color: "System" # Set the border color for the menu (this option is not supported on Windows 10)
         alignment: "right"
         direction: "down"
-        show_categories: true
+        show_categories: false
         categories_order:
-          # ["PullRequest", "Issue", "CheckSuite", "Release", "Discussion"]
-          ["Issue", "CheckSuite", "Release", "Discussion"]
+          ["PullRequest", "Issue", "CheckSuite", "Release", "Discussion"]
       label_shadow:
         enabled: True
         color: "black"
@@ -615,6 +660,7 @@ widgets:
     options:
       label: "<span>\uf4bc</span> {info[utilization]}%"
       label_alt: "<span>\uf4bc</span> {info[temp]}°C | {info[mem_used]} / {info[mem_total]}"
+      gpu_index: 0
       update_interval: 2000
       gpu_thresholds:
         low: 25
@@ -633,3 +679,116 @@ widgets:
       histogram_num_columns: 8
       callbacks:
         on_left: "toggle_label"
+        on_right: "toggle_menu"
+      menu:
+        enabled: true
+        show_graph: true
+        show_graph_grid: true
+        graph_history_size: 60
+
+  pomodoro:
+    type: "yasb.pomodoro.PomodoroWidget"
+    options:
+      label: "<span>{icon}</span> {remaining}"
+      label_alt: "<span>{icon}</span> {session}/{total_sessions} - {status}"
+      work_duration: 25
+      break_duration: 5
+      long_break_duration: 15
+      long_break_interval: 4
+      auto_start_breaks: true
+      auto_start_work: true
+      sound_notification: true
+      show_notification: true
+      hide_on_break: false
+      session_target: 8
+      icons:
+        work: "\uf252"
+        break: "\uf253"
+        paused: "\uf254"
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        circle_background_color: "#09ffffff"
+        circle_work_progress_color: "#88c0d0"
+        circle_break_progress_color: "#a3be8c"
+        circle_thickness: 8
+        circle_size: 160
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "reset_timer"
+        on_right: "toggle_label"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+
+  update_check:
+    type: "yasb.update_check.UpdateCheckWidget"
+    options:
+      windows_update:
+        enabled: true
+        label: "<span>\uf0ab</span> {count}"
+        interval: 1440
+        exclude: []
+      winget_update:
+        enabled: true
+        label: "<span>\uf0ab</span> {count}"
+        interval: 240
+        exclude: ["Microsoft.Edge"]
+      scoop_update:
+        enabled: true
+        label: "<span>\uf0ab</span> {count}"
+        interval: 240
+        exclude: ["aws", "neovim-nightly", "azure-cli"]
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+
+  wallpapers:
+    type: "yasb.wallpapers.WallpapersWidget"
+    options:
+      label: "<span>\udb83\ude09</span>"
+      # Example path to folder with images. Can be a single string or a list of strings.
+      # image_path: "C:\\Users\\{Username}\\Images"
+      image_path:
+        - "C:\\Users\\azin\\wallpaper"
+        - "D:\\Wallpapers\\Nature"
+      change_automatically: false # Automatically change wallpaper
+      update_interval: 60 # If change_automatically is true, update interval in seconds
+      gallery:
+        enabled: true
+        blur: true
+        image_width: 420
+        image_per_page: 6
+        gallery_columns: 0 # 0 = auto, matches image_per_page for a single row
+        horizontal_position: "center" # left/center/right placement on screen
+        vertical_position: "center" # top/center/bottom placement
+        position_offset: 0 # minimum gap (px) from screen edges - see below for advanced options
+        respect_work_area: true # clamp to OS work area (avoids Windows taskbar)
+        show_buttons: true
+        orientation: "landscape"
+        image_spacing: 8
+        lazy_load: true
+        lazy_load_fadein: 400
+        image_corner_radius: 12
+      run_after: # List of functions to run after wallpaper is updated
+        - "wal -s -t -e -q -n -i {image}" # Example command to run after wallpaper is updated
+        - "cmd.exe /c start /min pwsh ./yasb.ps1" # Example command to run after wallpaper is updated
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+      callbacks:
+        on_left: "toggle_gallery"
+        on_middle: "do_nothing"
+        on_right: "change_wallpaper"
