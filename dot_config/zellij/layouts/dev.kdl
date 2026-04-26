@@ -61,14 +61,10 @@ layout {
         }
     }
     tab name="NVIM" focus=true {
-        pane name="NVIM" {
-
-        }
+        pane name="NVIM" command="nvim"
     }
     tab name="AI" {
-        pane name="AI" {
-
-        }
+        pane name="AI" command="opencode"
     }
     tab name="GIT" {
         pane name="GIT" {
@@ -76,14 +72,10 @@ layout {
         }
     }
     tab name="YAZI" {
-        pane name="YAZI" {
-
-        }
+        pane name="YAZI" command="yazi"
     }
     tab name="NOTES" {
-        pane name="NOTES" {
-
-        }
+        pane name="NOTES" command="nvim"
     }
     tab name="SHELL" {
         pane name="SHELL" {
@@ -91,14 +83,10 @@ layout {
         }
     }
     tab name="BTOP" {
-        pane name="BTOP" {
-
-        }
+        pane name="BTOP" command="btop"
     }
     tab name="MUSIC" {
-        pane name="MUSIC" {
-
-        }
+        pane name="MUSIC" command="xytz"
     }
 }
 
