@@ -981,37 +981,3 @@ Example: "Windows Media" becomes "windows-media" */
   font-weight: 600;
   font-size: 14px;
 }
-
-.wallpapers-widget {
-  padding: 0 6px 0 6px;
-}
-.wallpapers-widget .widget-container {
-}
-.wallpapers-gallery-window {
-  background-color: rgba(85, 42, 240, 0.01);
-  border: 0;
-  margin: 16px;
-}
-.wallpapers-gallery-buttons {
-  background-color: rgba(255, 255, 255, 0);
-  color: white;
-  border: none;
-  font-size: 14px;
-  padding: 8px 0;
-  border-radius: 8px;
-  margin: 0 8px 8px 8px;
-  width: 200px;
-}
-.wallpapers-gallery-buttons:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.wallpapers-gallery-image {
-  border: 4px solid transparent;
-  border-radius: 16px;
-}
-.wallpapers-gallery-image:hover {
-  border: 4px solid rgb(66, 68, 83);
-}
-.wallpapers-gallery-image.focused {
-  border: 4px solid #89b4fa;
-}

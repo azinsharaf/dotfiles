@@ -604,7 +604,7 @@ widgets:
       show_volume: false
       show_network: false
       show_in_popup: false
-      hide_icons: []
+      hide_icons: ["Remote Desktop", "Explorer"]
       tooltip: true
       use_hook: true
       btn_shadow:
@@ -757,32 +757,34 @@ widgets:
     type: "yasb.wallpapers.WallpapersWidget"
     options:
       label: "<span>\udb83\ude09</span>"
+      tooltip: true
       # Example path to folder with images. Can be a single string or a list of strings.
       # image_path: "C:\\Users\\{Username}\\Images"
       image_path:
         - "C:\\Users\\azin\\wallpaper"
-        - "D:\\Wallpapers\\Nature"
       change_automatically: false # Automatically change wallpaper
       update_interval: 60 # If change_automatically is true, update interval in seconds
       gallery:
         enabled: true
         blur: true
-        image_width: 420
+        image_width: 600
         image_per_page: 6
         gallery_columns: 0 # 0 = auto, matches image_per_page for a single row
         horizontal_position: "center" # left/center/right placement on screen
         vertical_position: "center" # top/center/bottom placement
         position_offset: 0 # minimum gap (px) from screen edges - see below for advanced options
         respect_work_area: true # clamp to OS work area (avoids Windows taskbar)
-        show_buttons: true
+        show_buttons: false
         orientation: "landscape"
         image_spacing: 8
         lazy_load: true
         lazy_load_fadein: 400
         image_corner_radius: 12
-      run_after: # List of functions to run after wallpaper is updated
-        - "wal -s -t -e -q -n -i {image}" # Example command to run after wallpaper is updated
-        - "cmd.exe /c start /min pwsh ./yasb.ps1" # Example command to run after wallpaper is updated
+      # run_after: # List of functions to run after wallpaper is updated
+      # - "wal -s -t -e -q -n -i {image}" # Example command to run after wallpaper is updated
+      # - "cmd.exe /c start /min pwsh ./yasb.ps1" # Example command to run after wallpaper is updated
+      animation: { "enabled": true, "type": "fadeInOut", "duration": 200 }
+
       label_shadow:
         enabled: true
         color: "black"
