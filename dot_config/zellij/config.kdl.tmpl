@@ -580,13 +580,9 @@ keybinds clear-defaults=true {
         bind "l" {
             GoToNextTab
         }
-        // Pane navigation: leader + j/k (left/right for side-by-side layout)
+        // Pane navigation: leader + j cycles focus (works regardless of layout direction)
         bind "j" {
-            MoveFocus "left"
-            SwitchToMode "normal"
-        }
-        bind "k" {
-            MoveFocus "right"
+            SwitchFocus
             SwitchToMode "normal"
         }
         // Direct tab jump: leader + number
