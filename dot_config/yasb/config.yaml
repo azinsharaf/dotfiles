@@ -746,7 +746,7 @@ widgets:
         enabled: true
         label: "<span>\uf0ab</span> {count}"
         interval: 240
-        exclude: ["aws", "neovim-nightly", "azure-cli"]
+        exclude: []
       label_shadow:
         enabled: true
         color: "black"
