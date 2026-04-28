@@ -762,6 +762,7 @@ widgets:
       # image_path: "C:\\Users\\{Username}\\Images"
       image_path:
         - "C:\\Users\\azin\\wallpaper"
+        - "C:\\Users\\asharaf\\wallpaper"
       change_automatically: false # Automatically change wallpaper
       update_interval: 60 # If change_automatically is true, update interval in seconds
       gallery:
