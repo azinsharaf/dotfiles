@@ -748,7 +748,7 @@ widgets:
         interval: 240
         exclude: []
       label_shadow:
-        enabled: true
+        enabled: false
         color: "black"
         radius: 3
         offset: [1, 1]
