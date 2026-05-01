@@ -408,14 +408,25 @@ keybinds clear-defaults=true {
         // }
         // }
         // zoxide plugin
+        // bind "Ctrl y" {
+        //     // Note: you must use the absolulte path to the plugin file
+        //     LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zsm.wasm" {
+        //         floating true
+        //         move_to_focused_tab true
+        //         session_separator "_"
+        //         base_paths "~/repos"
+        //     }
+        // }
         bind "Ctrl y" {
-            // Note: you must use the absolulte path to the plugin file
-            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zsm.wasm" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij-sessionizer.wasm" {
                 floating true
                 move_to_focused_tab true
-                session_separator "_"
-                base_paths "~/repos"
+                cwd "/"
+                root_dirs "~/repos"
+                // individual_dirs "~/repos"
+                session_layout "dev"
             }
+ // SwitchToMode "Locked"
         }
     }
     shared_except "normal" "locked" "entersearch" {
