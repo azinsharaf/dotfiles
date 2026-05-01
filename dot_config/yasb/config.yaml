@@ -77,11 +77,11 @@ widgets:
       round_corners_type: "normal"
       border_color: "System"
       distance: 6
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
+      # container_padding:
+      #   top: 0
+      #   left: 0
+      #   bottom: 0
+      #   right: 0
       alignment: "left"
       direction: "down"
       menu_labels:
@@ -129,11 +129,11 @@ widgets:
         max_artist_size: 20
         show_source: true
       animation: { "enabled": true, "type": "fadeInOut", "duration": 200 }
-      label_shadow:
-        enabled: true
-        color: "#000000"
-        radius: 2
-        offset: [1, 1]
+      # label_shadow:
+      #   enabled: true
+      #   color: "#000000"
+      #   radius: 2
+      #   offset: [1, 1]
       scrolling_label:
         enabled: false
         update_interval_ms: 50
@@ -192,11 +192,11 @@ widgets:
       hide_empty_workspaces: false
       hide_if_offline: true
       animation: true
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
+      # container_padding:
+      #   top: 0
+      #   left: 8
+      #   bottom: 0
+      #   right: 8
   komorebi_active_layout:
     type: "komorebi.active_layout.ActiveLayoutWidget"
     options:
@@ -226,11 +226,11 @@ widgets:
         maximised: "MAX"
         floating: "FLOATING"
         paused: "PAUSED"
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
+      # container_padding:
+      #   top: 0
+      #   left: 8
+      #   bottom: 0
+      #   right: 8
       callbacks:
         on_left: "next_layout"
         on_middle: "toggle_monocle"
@@ -303,11 +303,11 @@ widgets:
           snow_effect_intensity: 1.0 # 0.01 - 10.0
           scale_with_chance: true
           enable_debug: false
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
+      # label_shadow:
+      #   enabled: true
+      #   color: "black"
+      #   radius: 3
+      #   offset: [1, 1]
 
   volume:
     type: "yasb.volume.VolumeWidget"
@@ -355,11 +355,11 @@ widgets:
   apps:
     type: "yasb.applications.ApplicationsWidget"
     options:
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
+      # container_padding:
+      #   top: 0
+      #   left: 8
+      #   bottom: 0
+      #   right: 8
       label: "{data}"
       animation: { "enabled": True, "type": "fadeInOut", "duration": 200 }
       image_icon_size: 20
@@ -400,11 +400,11 @@ widgets:
         processes: []
         titles: []
         classes: []
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
+      # container_padding:
+      #   top: 0
+      #   left: 8
+      #   bottom: 0
+      #   right: 8
   bluetooth:
     type: "yasb.bluetooth.BluetoothWidget"
     options:
@@ -460,11 +460,11 @@ widgets:
         - "\u2586" # 60%
         - "\u2587" # 70%
         - "\u2588" # 80%+
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
+      # label_shadow:
+      #   enabled: true
+      #   color: "black"
+      #   radius: 3
+      #   offset: [1, 1]
       animation: { "enabled": true, "type": "fadeInOut", "duration": 200 }
       progress_bar:
         {
@@ -552,7 +552,7 @@ widgets:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
       offline_label: "GlazeWM Offline"
-      hide_empty_workspaces: false
+      # hide_empty_workspaces: false
       hide_if_offline: true
       enable_scroll_switching: true
       btn_shadow:
@@ -649,11 +649,11 @@ widgets:
         show_categories: false
         categories_order:
           ["PullRequest", "Issue", "CheckSuite", "Release", "Discussion"]
-      label_shadow:
-        enabled: True
-        color: "black"
-        radius: 3
-        offset: [1, 1]
+      # label_shadow:
+      #   enabled: True
+      #   color: "black"
+      #   radius: 3
+      #   offset: [1, 1]
 
   gpu:
     type: "yasb.gpu.GpuWidget"
@@ -723,11 +723,11 @@ widgets:
         on_left: "toggle_menu"
         on_middle: "reset_timer"
         on_right: "toggle_label"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
+      # label_shadow:
+      #   enabled: true
+      #   color: "black"
+      #   radius: 3
+      #   offset: [1, 1]
 
   update_check:
     type: "yasb.update_check.UpdateCheckWidget"
@@ -747,11 +747,11 @@ widgets:
         label: "<span>\uf0ab</span> {count}"
         interval: 240
         exclude: []
-      label_shadow:
-        enabled: false
-        color: "black"
-        radius: 3
-        offset: [1, 1]
+      # label_shadow:
+      #   enabled: false
+      #   color: "black"
+      #   radius: 3
+      #   offset: [1, 1]
 
   wallpapers:
     type: "yasb.wallpapers.WallpapersWidget"
@@ -786,11 +786,11 @@ widgets:
       # - "cmd.exe /c start /min pwsh ./yasb.ps1" # Example command to run after wallpaper is updated
       animation: { "enabled": true, "type": "fadeInOut", "duration": 200 }
 
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
+      # label_shadow:
+      #   enabled: true
+      #   color: "black"
+      #   radius: 3
+      #   offset: [1, 1]
       callbacks:
         on_left: "toggle_gallery"
         on_middle: "do_nothing"
