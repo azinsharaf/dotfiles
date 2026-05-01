@@ -2,10 +2,16 @@ watch_stylesheet: true
 watch_config: true
 debug: false
 update_check: true
+show_systray: true
 komorebi:
   start_command: "ks"
   stop_command: "ke"
   reload_command: "ks && ke"
+
+glazewm:
+  start_command: "glazewm.exe start"
+  stop_command: "glazewm.exe command wm-exit"
+  reload_command: "glazewm.exe command wm-exit && glazewm.exe start"
 bars:
   primary-bar:
     enabled: true
