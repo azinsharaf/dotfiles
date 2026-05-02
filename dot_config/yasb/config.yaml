@@ -320,16 +320,23 @@ widgets:
     options:
       label: "<span>{icon}</span> {level}"
       label_alt: "{volume}"
-      tooltip: false
       volume_icons:
-        - "\ueee8"
-        - "\uf026"
-        - "\uf027"
-        - "\uf027"
-        - "\uf028"
+        - "\ueee8" # Icon for muted
+        - "\uf026" # Icon for 0-10% volume
+        - "\uf027" # Icon for 11-30% volume
+        - "\uf027" # Icon for 31-60% volume
+        - "\uf028" # Icon for 61-100% volume
+      audio_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "right"
+        direction: "down"
       callbacks:
-        on_left: "toggle_mute"
-        on_right: "exec cmd.exe /c start ms-settings:sound"
+        on_left: "toggle_volume_menu"
+        on_right: "toggle_mute"
+
   microphone:
     type: "yasb.microphone.MicrophoneWidget"
     options:
