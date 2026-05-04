@@ -145,6 +145,9 @@ uv tool install sqlit-tui # A user friendly TUI for SQL databases.
 #### rust (cargo) applications
 
 `cargo install --git https://github.com/8LWXpg/dwag` # drag drop in terminal (windows version)
+`cargo install --git https://github.com/siriusmart/youtube-tui`
+`cargo install --git https://github.com/nevermore23274/AetherTune` # radio in terminal
+`cargo install --git https://github.com/christo-auer/eilmeldung` # RSS reader in temrinal
 
 #### go applications
 
