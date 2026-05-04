@@ -1,0 +1,32 @@
+mouse_support: true
+invidious_instance: https://invidious.f5.si
+write_config: Try
+allow_unicode: true
+message_bar_default: All good :)
+images: Sixel
+refresh_after_modifying_search_filters: true
+syncing:
+  download_images: true
+  sync_channel_info: true
+  sync_channel_cooldown_secs: 86400
+  sync_videos_cooldown_secs: 600
+limits:
+  watch_history: 50
+  search_history: 75
+  commands_history: 75
+textbar_scroll_behaviour: History
+image_index: 0
+provider: YouTube
+search_provider: RustyPipe
+api_key: YOUR API KEY HERE
+shell: pwsh
+legacy_input_handling: false
+env:
+  download-path: C:\Users\azin\Downloads\%(title)s-%(id)s.%(ext)s
+  browser: explorer
+  video-player: mpv
+  youtube-downloader: yt-dlp
+  save-path: C:\Users\azin\AppData\Local\youtube-tui\saved\
+  terminal-emulator: cmd /c start cmd /k
+block_list:
+  channels: []
