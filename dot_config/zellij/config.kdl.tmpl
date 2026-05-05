@@ -401,32 +401,15 @@ keybinds clear-defaults=true {
         bind "Ctrl q" {
             Quit
         }
-        // harpoon plugin
-        // bind "Ctrl y" {
-        // LaunchOrFocusPlugin "file:~/.config/zellij/plugins/harpoon.wasm" {
-        //     floating true; move_to_focused_tab true;
-        // }
-        // }
-        // zoxide plugin
-        // bind "Ctrl y" {
-        //     // Note: you must use the absolulte path to the plugin file
-        //     LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zsm.wasm" {
-        //         floating true
-        //         move_to_focused_tab true
-        //         session_separator "_"
-        //         base_paths "~/repos"
-        //     }
-        // }
         bind "Ctrl y" {
             LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij-sessionizer.wasm" {
                 floating true
                 move_to_focused_tab true
                 cwd "C:/"
                 root_dirs "C:/Users/azin/repos;C:/Users/asharaf/repos"
-                // individual_dirs "~/repos"
+                individual_dirs "C:/Users/azin/.config;C:/Users/asharaf/.config"
                 session_layout "dev"
             }
- // SwitchToMode "Locked"
         }
     }
     shared_except "normal" "locked" "entersearch" {
