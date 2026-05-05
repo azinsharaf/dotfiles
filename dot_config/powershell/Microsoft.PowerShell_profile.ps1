@@ -259,6 +259,7 @@ $Env:TMP = "$Env:USERPROFILE\.tmp"
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
 $Env:MPV_HOME = "$Env:USERPROFILE\.config\mpv"
+$Env:YOUTUBETUI_CONFIG_HOME = "$Env:USERPROFILE\.config\youtube-tui"
 
 $Env:KOMOREBI_CONFIG_HOME = "$Env:USERPROFILE\.config\komorebi"
 $Env:KOMOREBI_AHK_EXE = "$Env:USERPROFILE\scoop\apps\autohotkey\current\UX\AutoHotkeyUX.exe"
