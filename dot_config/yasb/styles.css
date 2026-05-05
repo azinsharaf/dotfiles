@@ -1563,3 +1563,107 @@ QScrollBar::sub-page {
   color: rgb(255, 255, 255);
   background-color: rgb(226, 0, 0);
 }
+
+.komorebi-control-widget .label {
+  font-size: 14px;
+  color: #cdd6f4;
+  font-weight: 600;
+}
+.komorebi-control-menu {
+  background-color: rgba(17, 17, 27, 0.2);
+}
+.komorebi-control-menu .button {
+  color: rgba(162, 177, 199, 0.4);
+  padding: 8px 16px;
+  font-size: 32px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.04);
+}
+.komorebi-control-menu .button.active {
+  color: rgb(228, 228, 228);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+.komorebi-control-menu .button:disabled,
+.komorebi-control-menu .button.active:disabled {
+  background-color: rgba(255, 255, 255, 0.01);
+  color: rgba(255, 255, 255, 0.2);
+}
+.komorebi-control-menu .footer .text {
+  font-size: 12px;
+  color: #6c7086;
+}
+
+.komorebi-layout-menu {
+  background-color: rgba(17, 17, 27, 0.4);
+}
+.komorebi-layout-menu .menu-item {
+  padding: 8px 16px;
+  font-size: 12px;
+  color: #cdd6f4;
+  font-weight: 600;
+}
+.komorebi-layout-menu .menu-item-icon {
+  color: #cdd6f4;
+  font-size: 16px;
+}
+.komorebi-layout-menu .menu-item-text {
+  font-family: "Segoe UI";
+  padding-left: 4px;
+  font-size: 12px;
+}
+.komorebi-layout-menu .menu-item:hover {
+  background-color: rgba(128, 130, 158, 0.15);
+  color: #fff;
+}
+.komorebi-layout-menu .separator {
+  max-height: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.komorebi-workspaces {
+  margin: 0;
+  padding: 0 6px;
+}
+.komorebi-workspaces .widget-container {
+  padding: 0;
+}
+.komorebi-workspaces .ws-btn {
+  font-size: 13px;
+  background-color: transparent;
+  border: none;
+  padding: 4px 8px;
+  margin: 0 3px;
+  color: var(--overlay1);
+  border-radius: 6px;
+}
+.komorebi-workspaces .ws-btn.populated {
+  color: var(--subtext1);
+}
+.komorebi-workspaces .ws-btn.active {
+  color: var(--mauve);
+  background-color: #cba6f726;
+  font-weight: 600;
+}
+.komorebi-workspaces .ws-btn:hover,
+.komorebi-workspaces .ws-btn.populated:hover {
+  background-color: #ffffff14;
+  color: var(--text);
+}
+.komorebi-workspaces .offline-status {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 600;
+}
+.komorebi-workspaces .float-override {
+  color: var(--yellow);
+  font-size: 11px;
+}
+.komorebi-workspaces .workspace-layer {
+  font-size: 11px;
+}
+.komorebi-workspaces .workspace-layer.tiling {
+  color: var(--teal);
+}
+.komorebi-workspaces .workspace-layer.floating {
+  color: var(--peach);
+}
