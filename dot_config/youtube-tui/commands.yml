@@ -1,7 +1,7 @@
 launch_command: loadpage library ;; flush ;; history clear ;; key Esc 0 ;; key Up 0 ;; key Up 0 ;; key Left 0 ;; key Enter 0
 video:
 - Reload updated video: rmcache ${id} ;; video ${id}
-- Play video: parrun pwsh -Command ${video-player} "${embed-url}"
+- Play video: parrun ${video-player} "${embed-url}"
 - Play audio: mpv stop ;; resume ;; mpv sprop loop-file no ;; mpv loadfile "${embed-url}" ;; echo mpv Player started
 - Play audio (loop): mpv stop ;; resume ;; mpv sprop loop-file inf ;; mpv loadfile "${embed-url}" ;; echo mpv Player started
 - View channel: channel ${channel-id}
