@@ -432,22 +432,22 @@ widgets:
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
-      icon_size: 16
+      icon_size: 18
       tooltip: true
       show_only_visible: false
-      strict_filtering: true
+      strict_filtering: false
     monitor_exclusive: false
     animation:
       enabled: true
       duration: 200
     preview:
-      enabled: false
+      enabled: true
       width: 240
       delay: 400
       padding: 8
       margin: 8
     title_label:
-      enabled: false
+      enabled: true
       show: "always"
       min_length: 10
       max_length: 30
