@@ -1431,6 +1431,19 @@ QScrollBar::sub-page {
   color: var(--lavender);
   font-weight: 700;
 }
+@keyframes fadeInOut {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.media-widget .label {
+  animation: fadeInOut 200ms ease-in-out;
+}
+.memory-widget .label {
+  animation: fadeInOut 200ms ease-in-out;
+}
+.wallpapers-widget .label {
+  animation: fadeInOut 200ms ease-in-out;
+}
 .wallpapers-widget .icon {
   color: var(--mauve);
   font-size: 16px;
@@ -1531,6 +1544,7 @@ QScrollBar::sub-page {
 }
 .taskbar-widget .app-container .app-title {
   padding-left: 4px;
+  color: #d6d6d6;
 }
 /* Taskbar preview popup is very limited in styling options, do not use margins/paddings here */
 .taskbar-preview {
