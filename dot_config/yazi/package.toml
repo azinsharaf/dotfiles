@@ -58,6 +58,11 @@ use = "yazi-rs/plugins:no-status"
 rev = "babfd0f"
 hash = "b6467b3358393ba82b38dd9f20915227"
 
+[[plugin.deps]]
+use = "cap153/tv"
+rev = "b6b1f12"
+hash = "781c565bf90759ef5f72e648cf1fb6f8"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "0670801"
