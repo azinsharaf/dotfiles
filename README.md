@@ -70,6 +70,7 @@ scoop install ffmpeg # Multimedia framework
 scoop install flow-launcher # Productivity tool to quickly search and launch
 scoop install fzf # Command-line fuzzy finder
 scoop install gh # GitHub’s official command line tool
+gh extension install dlvhdr/gh-dash
 scoop install git-with-openssh # Git version control with OpenSSH
 scoop install glow # Render markdown on the CLI
 scoop install greenshot # Screenshot tool
