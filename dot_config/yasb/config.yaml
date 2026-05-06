@@ -46,9 +46,9 @@ bars:
           "taskbar",
           "glazewm_binding_mode",
           "glazewm_tiling_direction",
-          "komorebi_control",
-          "komorebi_active_layout",
-          "komorebi_workspaces",
+          # "komorebi_control",
+          # "komorebi_active_layout",
+          # "komorebi_workspaces",
           # "apps",
           "glazewm_workspaces",
         ]
@@ -228,7 +228,7 @@ widgets:
       show_version: true
       komorebi_menu:
         blur: true
-        round_corners: true
+        round_corners: false
         round_corners_type: "normal"
         border_color: "System"
         alignment: "left"
@@ -293,7 +293,7 @@ widgets:
       label_default_name: ""
       label_zero_index: false
       hide_empty_workspaces: false
-      hide_if_offline: false
+      hide_if_offline: true
       toggle_workspace_layer:
         enabled: false
         tiling_label: "Tiling"
@@ -618,7 +618,7 @@ widgets:
   glazewm_binding_mode:
     type: "glazewm.binding_mode.GlazewmBindingModeWidget"
     options:
-      hide_if_no_active: false
+      hide_if_no_active: true
       label_if_no_active: "no binding"
       default_icon: "\uf071"
       icons:
@@ -641,7 +641,7 @@ widgets:
     type: "glazewm.workspaces.GlazewmWorkspacesWidget"
     options:
       offline_label: "GlazeWM Offline"
-      hide_if_offline: false
+      hide_if_offline: true
       monitor_exclusive: true
       enable_scroll_switching: true
       app_icons:
@@ -676,7 +676,7 @@ widgets:
       label_position: "left" # Can be "left" or "right"
       icon_size: 16 # Can be any integer between 8 and 64
       pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
-      show_unpinned: true
+      show_unpinned: false
       show_unpinned_button: true
       show_battery: false
       show_volume: false
