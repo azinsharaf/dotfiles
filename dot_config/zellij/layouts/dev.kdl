@@ -85,6 +85,12 @@ layout {
     tab name="BTOP" {
         pane name="BTOP" command="btop"
     }
+    tab name="GH-DASH" {
+        pane name="GH-DASH" command="gh dash"
+    }
+    tab name="RSS" {
+        pane name="RSS" command="eilmeldung"
+    }
     tab name="MUSIC" {
         pane name="MUSIC" command="xytz"
     }
