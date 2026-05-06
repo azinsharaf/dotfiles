@@ -200,6 +200,11 @@
       "Path": "C:\\Users\\asharaf\\.pyenv\\pyenv-win\\versions\\3.12.8",
       "Type": 1,
       "Name": "PYENV"
+    },
+    {
+      "Path": "\\\\woodrodgers.loc\\ProductionData\\Jobs-Oak\\Jobs\\8349_Alameda_Z5_DMP_Support\\Z5_DMP_Support",
+      "Type": 1,
+      "Name": "Zone 5 DMP Support"
     }
   ],
   "IndexSearchExcludedSubdirectoryPaths": [],
