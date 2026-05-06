@@ -1,6 +1,6 @@
 watch_stylesheet: true
 watch_config: true
-debug: false
+debug: true
 update_check: true
 show_systray: true
 komorebi:
@@ -18,13 +18,12 @@ bars:
     class_name: "yasb-bar"
     alignment:
       position: "top"
-      center: false
+      align: "left"
     animation:
       enabled: true
       duration: 1000
     blur_effect:
       enabled: true
-      acrylic: true
       dark_mode: true
       round_corners: false
       round_corners_type: "normal"
@@ -46,9 +45,9 @@ bars:
           "taskbar",
           "glazewm_binding_mode",
           "glazewm_tiling_direction",
-          # "komorebi_control",
-          # "komorebi_active_layout",
-          # "komorebi_workspaces",
+          "komorebi_control",
+          "komorebi_active_layout",
+          "komorebi_workspaces",
           # "apps",
           "glazewm_workspaces",
         ]
@@ -83,7 +82,7 @@ widgets:
       round_corners: false
       round_corners_type: "normal"
       border_color: "System"
-      distance: 6
+      offset_top: 6
       # container_padding:
       #   top: 0
       #   left: 0
@@ -135,7 +134,6 @@ widgets:
         max_title_size: 80
         max_artist_size: 20
         show_source: true
-      animation: { "enabled": true, "type": "fadeInOut", "duration": 200 }
       # label_shadow:
       #   enabled: true
       #   color: "#000000"
@@ -228,7 +226,7 @@ widgets:
       show_version: true
       komorebi_menu:
         blur: true
-        round_corners: false
+        round_corners: true
         round_corners_type: "normal"
         border_color: "System"
         alignment: "left"
@@ -293,7 +291,7 @@ widgets:
       label_default_name: ""
       label_zero_index: false
       hide_empty_workspaces: false
-      hide_if_offline: true
+      hide_if_offline: false
       toggle_workspace_layer:
         enabled: false
         tiling_label: "Tiling"
@@ -554,22 +552,11 @@ widgets:
       #   color: "black"
       #   radius: 3
       #   offset: [1, 1]
-      animation: { "enabled": true, "type": "fadeInOut", "duration": 200 }
-      progress_bar:
-        {
-          "enabled": False,
-          "position": "left",
-          "size": 14,
-          "thickness": 2,
-          "color": "#57948a",
-          "animation": True,
-        }
-      hide_decimal: true
-      menu:
-        enabled: true
-        show_graph: true
-        show_graph_grid: true
-        graph_history_size: 60
+      # label_shadow:
+      #   enabled: true
+      #   color: "black"
+      #   radius: 3
+      #   offset: [1, 1]
 
   disk:
     type: "yasb.disk.DiskWidget"
@@ -585,7 +572,7 @@ widgets:
         border_color: "System"
         alignment: "right"
         direction: "down"
-        distance: 6
+        offset_top: 6
       callbacks:
         on_left: "toggle_group"
 
@@ -676,7 +663,7 @@ widgets:
       label_position: "left" # Can be "left" or "right"
       icon_size: 16 # Can be any integer between 8 and 64
       pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
-      show_unpinned: false
+      show_unpinned: true
       show_unpinned_button: true
       show_battery: false
       show_volume: false
@@ -862,8 +849,6 @@ widgets:
       # run_after: # List of functions to run after wallpaper is updated
       # - "wal -s -t -e -q -n -i {image}" # Example command to run after wallpaper is updated
       # - "cmd.exe /c start /min pwsh ./yasb.ps1" # Example command to run after wallpaper is updated
-      animation: { "enabled": true, "type": "fadeInOut", "duration": 200 }
-
       # label_shadow:
       #   enabled: true
       #   color: "black"
