@@ -82,40 +82,46 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		-- Apply server-specific settings using vim.lsp.config (nvim-lspconfig 0.11+)
+		-- This runs independently of mason-lspconfig setup order
+		vim.lsp.config("jsonls", {
+			capabilities = capabilities,
+			settings = {
+				json = {
+					schemas = vim.list_extend(require("schemastore").json.schemas(), {}),
+					validate = { enable = true },
+				},
+			},
+		})
+
+		vim.lsp.config("yamlls", {
+			capabilities = capabilities,
+			settings = {
+				yaml = {
+					completion = true,
+					hover = true,
+					validate = true,
+					schemaStore = { enable = false, url = "" },
+					schemas = vim.tbl_deep_extend("force", require("schemastore").yaml.schemas(), {}),
+				},
+			},
+		})
+
+		vim.lsp.config("lua_ls", {
+			capabilities = capabilities,
+			settings = {
+				Lua = {
+					diagnostics = { globals = { "vim" } },
+					completion = { callSnippet = "Replace" },
+				},
+			},
+		})
+
 		mason_lspconfig.setup({
-			handlers = { -- mason_lspconfig.setup_handlers doesn't exist but mason_lspconfig.setup({handlers = {}}) exists
-				-- default handler for installed servers
+			handlers = {
 				function(server_name)
 					lspconfig[server_name].setup({
 						capabilities = capabilities,
-					})
-				end,
-				["jsonls"] = function()
-				lspconfig["jsonls"].setup({
-					capabilities = capabilities,
-					settings = {
-						json = {
-							schemas = require("schemastore").json.schemas(),
-							validate = { enable = true },
-						},
-					},
-				})
-			end,
-			["lua_ls"] = function()
-					-- configure lua server (with special settings)
-					lspconfig["lua_ls"].setup({
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								-- make the language server recognize "vim" global
-								diagnostics = {
-									globals = { "vim" },
-								},
-								completion = {
-									callSnippet = "Replace",
-								},
-							},
-						},
 					})
 				end,
 			},
