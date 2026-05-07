@@ -1,9 +1,9 @@
 # Include specific configurations based on the remote URL
 [includeIf "hasconfig:remote.origin.url=git@bitbucket.org:"]
-    path = C:/Users/asharaf/.gitconfig-work
+    path = {{ .chezmoi.homeDir }}/.gitconfig-work
 
 [includeIf "hasconfig:remote.origin.url=git@github.com:"]
-    path = C:/Users/asharaf/.gitconfig-personal
+    path = {{ .chezmoi.homeDir }}/.gitconfig-personal
 
 
 [init]
