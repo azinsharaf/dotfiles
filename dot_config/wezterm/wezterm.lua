@@ -54,6 +54,7 @@ local config = {
 	text_background_opacity = 1.0, -- Text backgrounds opaque relative to window
 	default_workspace = "default",
 	-- status_update_interval = 1000, -- Disabled: using Zellij status
+	mux_enable_ssh_agent = false,
 }
 
 -- Pick default shell by OS
