@@ -291,7 +291,7 @@ widgets:
       label_default_name: ""
       label_zero_index: false
       hide_empty_workspaces: false
-      hide_if_offline: false
+      hide_if_offline: true
       toggle_workspace_layer:
         enabled: false
         tiling_label: "Tiling"
