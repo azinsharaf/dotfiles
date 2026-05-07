@@ -22,11 +22,11 @@ api_key: YOUR API KEY HERE
 shell: pwsh
 legacy_input_handling: false
 env:
-  browser: explorer
-  terminal-emulator: cmd /c start cmd /k
-  download-path: C:\Users\azin\Downloads\%(title)s-%(id)s.%(ext)s
   youtube-downloader: yt-dlp
+  terminal-emulator: cmd /c start cmd /k
   video-player: mpv
   save-path: C:\Users\azin\AppData\Local\youtube-tui\saved\
+  browser: explorer
+  download-path: C:\Users\azin\Downloads\%(title)s-%(id)s.%(ext)s
 block_list:
   channels: []
