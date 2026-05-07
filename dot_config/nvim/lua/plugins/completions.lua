@@ -63,33 +63,33 @@ return {
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
+				{ name = "nvim_lsp", keyword_length = 0 },
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),
 
-		-- configure lspkind for vs-code like pictograms in completion menu
-		formatting = {
-			format = function(entry, item)
-				local color_item = highlight_colors.format(entry, { kind = item.kind })
-				item = lspkind.cmp_format({
-					maxwidth = 50,
-					ellipsis_char = "...",
-					menu = {
-						nvim_lsp = "[LSP]",
-						luasnip = "[Snippet]",
-						buffer = "[Buffer]",
-						path = "[Path]",
-					},
-				})(entry, item)
-				if color_item.abbr_hl_group then
-					item.kind_hl_group = color_item.abbr_hl_group
-					item.kind = color_item.abbr
-				end
-				return item
-			end,
-		},
+			-- configure lspkind for vs-code like pictograms in completion menu
+			formatting = {
+				format = function(entry, item)
+					local color_item = highlight_colors.format(entry, { kind = item.kind })
+					item = lspkind.cmp_format({
+						maxwidth = 50,
+						ellipsis_char = "...",
+						menu = {
+							nvim_lsp = "[LSP]",
+							luasnip = "[Snippet]",
+							buffer = "[Buffer]",
+							path = "[Path]",
+						},
+					})(entry, item)
+					if color_item.abbr_hl_group then
+						item.kind_hl_group = color_item.abbr_hl_group
+						item.kind = color_item.abbr
+					end
+					return item
+				end,
+			},
 		})
 	end,
 }
