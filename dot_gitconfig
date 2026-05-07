@@ -1,0 +1,11 @@
+# Include specific configurations based on the remote URL
+[includeIf "hasconfig:remote.origin.url=git@bitbucket.org:"]
+    path = C:/Users/asharaf/.gitconfig-work
+
+[includeIf "hasconfig:remote.origin.url=git@github.com:"]
+    path = C:/Users/asharaf/.gitconfig-personal
+
+
+[init]
+	defaultBranch = main
+
