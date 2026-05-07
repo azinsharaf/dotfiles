@@ -86,7 +86,9 @@ layout {
         pane name="BTOP" command="btop"
     }
     tab name="GH-DASH" {
-        pane name="GH-DASH" command="gh dash"
+        pane name="GH-DASH" command="pwsh" {
+            args "-c" "gh dash"
+        }
     }
     tab name="RSS" {
         pane name="RSS" command="eilmeldung"
