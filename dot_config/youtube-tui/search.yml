@@ -1,4 +1,4 @@
-query: ""
+query: ''
 filters:
   sort: Relevance
   date: None
