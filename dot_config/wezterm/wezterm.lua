@@ -13,6 +13,7 @@ local config = {
 	-- tab_bar_at_bottom = true, -- Disabled: using Zellij tabs/status
 	-- use_fancy_tab_bar = true, -- Disabled: using Zellij tabs/status
 	enable_tab_bar = false, -- Disable WezTerm tabs entirely (Zellij handles tabs)
+	audible_bell = "Disabled",
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE", -- Remove the title bar
 	window_padding = {
