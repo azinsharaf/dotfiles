@@ -184,11 +184,14 @@ function capply
 }
 
 function ks
-{komorebic-no-console start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json" --ahk
+{komorebic-no-console start --config "$Env:USERPROFILE\.config\komorebi\komorebi.json"
+  Start-Sleep -Seconds 1
+  & $Env:KOMOREBI_AHK_EXE "$Env:USERPROFILE\.config\komorebi\komorebi.ahk"
 }
 
 function ke
-{komorebic stop --ahk
+{komorebic stop
+  Get-Process -Name "AutoHotkey*" -ErrorAction SilentlyContinue | Stop-Process -Force
 }
 
 function su
