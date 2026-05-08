@@ -68,6 +68,10 @@ Komorebic(cmd) {
 !3::Komorebic("focus-workspace 2")
 !4::Komorebic("focus-workspace 3")
 !5::Komorebic("focus-workspace 4")
+!6::Komorebic("focus-workspace 5")
+!7::Komorebic("focus-workspace 6")
+!8::Komorebic("focus-workspace 7")
+!9::Komorebic("focus-workspace 8")
 
 ; Move windows across workspaces
 !+1::Komorebic("move-to-workspace 0")
@@ -75,3 +79,7 @@ Komorebic(cmd) {
 !+3::Komorebic("move-to-workspace 2")
 !+4::Komorebic("move-to-workspace 3")
 !+5::Komorebic("move-to-workspace 4")
+!+6::Komorebic("move-to-workspace 5")
+!+7::Komorebic("move-to-workspace 6")
+!+8::Komorebic("move-to-workspace 7")
+!+9::Komorebic("move-to-workspace 8")
