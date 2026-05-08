@@ -184,27 +184,68 @@
 
       "workspaces": [
         {
-          "name": "I chat",
+          "name": "1-chat",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": []
+          "initial_workspace_rules": [
+            { "kind": "Exe", "id": "ms-teams.exe", "matching_strategy": "Equals" }
+          ]
         },
         {
-          "name": "II seconed brain",
+          "name": "2-email",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": []
+          "initial_workspace_rules": [
+            { "kind": "Exe", "id": "olk.exe", "matching_strategy": "Equals" }
+          ]
         },
         {
-          "name": "III",
+          "name": "3-tasks",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": []
+          "initial_workspace_rules": [
+            { "kind": "Exe", "id": "Morgen.exe", "matching_strategy": "Equals" },
+            { "kind": "Exe", "id": "chrome.exe", "matching_strategy": "Equals" }
+          ]
         },
         {
-          "name": "IV",
+          "name": "4-obsidian",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": []
+          "initial_workspace_rules": [
+            { "kind": "Exe", "id": "Obsidian.exe", "matching_strategy": "Equals" }
+          ]
         },
         {
-          "name": "V",
+          "name": "5-terminal",
+          "layout": "UltrawideVerticalStack",
+          "initial_workspace_rules": [
+            { "kind": "Exe", "id": "wezterm-gui.exe", "matching_strategy": "Equals" }
+          ]
+        },
+        {
+          "name": "6-arcgis",
+          "layout": "UltrawideVerticalStack",
+          "initial_workspace_rules": [
+            { "kind": "Exe", "id": "ArcGISPro.exe", "matching_strategy": "Equals" },
+            { "kind": "Exe", "id": "ArcMap.exe", "matching_strategy": "Equals" },
+            { "kind": "Exe", "id": "ArcCatalog.exe", "matching_strategy": "Equals" }
+          ]
+        },
+        {
+          "name": "7-browser",
+          "layout": "UltrawideVerticalStack",
+          "initial_workspace_rules": [
+            { "kind": "Exe", "id": "zen.exe", "matching_strategy": "Equals" },
+            { "kind": "Exe", "id": "qutebrowser.exe", "matching_strategy": "Equals" },
+            { "kind": "Exe", "id": "firefox.exe", "matching_strategy": "Equals" }
+          ]
+        },
+        {
+          "name": "8-music",
+          "layout": "UltrawideVerticalStack",
+          "initial_workspace_rules": [
+            { "kind": "Exe", "id": "Spotify.exe", "matching_strategy": "Equals" }
+          ]
+        },
+        {
+          "name": "9",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": []
         }
