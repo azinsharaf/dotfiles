@@ -88,10 +88,8 @@ scoop install main/7zip # File archiver with a high compression ratio
 scoop install main/unzip # Unzip compression utility
 scoop install main/gzip # Popular data compression utility
 scoop install motrix # Full-featured download manager
-scoop install nerd-fonts/FiraCode-NF # FiraCode Nerd Font
-scoop install nerd-fonts/Hack-NF # Hack Nerd Font
 scoop install nerd-fonts/JetBrainsMono-NF # JetBrainsMono Nerd Font
-scoop install nerd-fonts/CascadiaCode-NF-Mono # CascadiaCode Nerd Font
+scoop install nerd-fonts/JetBrainsMono-NF-Propo # JetBrainsMono Nerd Font Propo
 scoop install neovim-nightly # Hyperextensible Vim-based text editor
 scoop install nodejs-lts # JavaScript runtime built on Chrome's V8
 scoop install nonportable/files-np # File manager
