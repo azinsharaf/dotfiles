@@ -170,15 +170,15 @@ QScrollBar::sub-page {
   padding: 4px 8px;
   margin: 0 3px;
   color: var(--overlay1);
-  border-radius: 6px;
+  border-radius: 0;
 }
 .glazewm-workspaces .ws-btn.populated {
   color: var(--subtext1);
 }
 .glazewm-workspaces .ws-btn.active_populated,
 .glazewm-workspaces .ws-btn.active_empty {
-  color: var(--lavender);
-  background-color: #b4befe26;
+  color: var(--mauve);
+  background-color: #cba6f726;
   font-weight: 600;
 }
 .glazewm-workspaces .ws-btn:hover,
@@ -1525,26 +1525,39 @@ QScrollBar::sub-page {
   color: var(--blue);
 }
 
+.taskbar-widget {
+  min-width: 400px;
+}
+.taskbar-widget .widget-container {
+  background: transparent;
+}
 .taskbar-widget .app-container {
-  margin: 4px 2px;
-  border-radius: 4px;
-  padding: 0 4px;
+  font-size: 13px;
+  background-color: transparent;
+  border: none;
+  padding: 4px 8px;
+  margin: 0 3px;
+  color: var(--subtext1);
+  border-radius: 0;
 }
 .taskbar-widget .app-container.foreground {
-  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--mauve);
+  background-color: #cba6f726;
+  font-weight: 600;
 }
 .taskbar-widget .app-container.flashing {
   background-color: rgba(255, 106, 106, 0.63);
+  color: var(--text);
 }
 .taskbar-widget .app-container.running {
-  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--subtext1);
 }
 .taskbar-widget .app-container:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #ffffff14;
+  color: var(--text);
 }
 .taskbar-widget .app-container .app-title {
   padding-left: 4px;
-  color: #d6d6d6;
 }
 /* Taskbar preview popup is very limited in styling options, do not use margins/paddings here */
 .taskbar-preview {
