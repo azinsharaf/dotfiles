@@ -1,6 +1,6 @@
 watch_stylesheet: true
 watch_config: true
-debug: true
+debug: false
 update_check: true
 show_systray: true
 komorebi:
@@ -40,9 +40,8 @@ bars:
       bottom: 0
       right: 6
     widgets:
-      left: ["home"]
+      left: ["home", "taskbar"]
       center: [
-          "taskbar",
           "glazewm_binding_mode",
           "glazewm_tiling_direction",
           "komorebi_control",
@@ -472,25 +471,25 @@ widgets:
       tooltip: true
       show_only_visible: false
       strict_filtering: false
-    monitor_exclusive: false
-    animation:
-      enabled: true
-      duration: 200
-    preview:
-      enabled: true
-      width: 240
-      delay: 400
-      padding: 8
-      margin: 8
-    title_label:
-      enabled: true
-      show: "always"
-      min_length: 5
-      max_length: 30
-    ignore_apps:
-      processes: []
-      titles: []
-      classes: []
+      monitor_exclusive: false
+      animation:
+        enabled: true
+        duration: 200
+      preview:
+        enabled: true
+        width: 240
+        delay: 400
+        padding: 8
+        margin: 8
+      title_label:
+        enabled: true
+        show: "focused"
+        min_length: 5
+        max_length: 30
+      ignore_apps:
+        processes: []
+        titles: []
+        classes: []
 
   bluetooth:
     type: "yasb.bluetooth.BluetoothWidget"
