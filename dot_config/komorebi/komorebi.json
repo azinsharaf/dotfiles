@@ -245,9 +245,11 @@
           ]
         },
         {
-          "name": "9",
+          "name": "9-RDP",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": []
+          "initial_workspace_rules": [
+            { "kind": "Exe", "id": "workspot.exe", "matching_strategy": "Equals" }
+          ]
         }
       ]
     }
