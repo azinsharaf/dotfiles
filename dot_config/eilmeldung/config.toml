@@ -1,9 +1,9 @@
 [login_setup]
 login_type = "direct_password"
 provider = "freshrss"
-url = "cmd:%USERPROFILE%/.config/eilmeldung/get-url.ps1"
-user = "cmd:%USERPROFILE%/.config/eilmeldung/get-user.ps1"
-password = "cmd:%USERPROFILE%/.config/eilmeldung/get-pass.ps1"
+url = "cmd:pwsh -NoProfile -File ~/.config/eilmeldung/get-url.ps1"
+user = "cmd:pwsh -NoProfile -File ~/.config/eilmeldung/get-user.ps1"
+password = "cmd:pwsh -NoProfile -File ~/.config/eilmeldung/get-pass.ps1"
 
 # Basic Configuration
 startup_commands = ["sync"]
