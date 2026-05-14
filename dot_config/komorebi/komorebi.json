@@ -43,6 +43,12 @@
     [
       {
         "kind": "Exe",
+        "id": "explorer.exe",
+        "matching_strategy": "Equals"
+      },
+
+      {
+        "kind": "Exe",
         "id": "olk.exe",
         "matching_strategy": "Equals"
       },
@@ -187,7 +193,11 @@
           "name": "1-chat",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-            { "kind": "Exe", "id": "ms-teams.exe", "matching_strategy": "Equals" }
+            {
+              "kind": "Exe",
+              "id": "ms-teams.exe",
+              "matching_strategy": "Equals"
+            }
           ]
         },
         {
@@ -201,7 +211,11 @@
           "name": "3-tasks",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-            { "kind": "Exe", "id": "Morgen.exe", "matching_strategy": "Equals" },
+            {
+              "kind": "Exe",
+              "id": "Morgen.exe",
+              "matching_strategy": "Equals"
+            },
             { "kind": "Exe", "id": "chrome.exe", "matching_strategy": "Equals" }
           ]
         },
@@ -209,23 +223,43 @@
           "name": "4-obsidian",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-            { "kind": "Exe", "id": "Obsidian.exe", "matching_strategy": "Equals" }
+            {
+              "kind": "Exe",
+              "id": "Obsidian.exe",
+              "matching_strategy": "Equals"
+            }
           ]
         },
         {
           "name": "5-terminal",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-            { "kind": "Exe", "id": "wezterm-gui.exe", "matching_strategy": "Equals" }
+            {
+              "kind": "Exe",
+              "id": "wezterm-gui.exe",
+              "matching_strategy": "Equals"
+            }
           ]
         },
         {
           "name": "6-arcgis",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-            { "kind": "Exe", "id": "ArcGISPro.exe", "matching_strategy": "Equals" },
-            { "kind": "Exe", "id": "ArcMap.exe", "matching_strategy": "Equals" },
-            { "kind": "Exe", "id": "ArcCatalog.exe", "matching_strategy": "Equals" }
+            {
+              "kind": "Exe",
+              "id": "ArcGISPro.exe",
+              "matching_strategy": "Equals"
+            },
+            {
+              "kind": "Exe",
+              "id": "ArcMap.exe",
+              "matching_strategy": "Equals"
+            },
+            {
+              "kind": "Exe",
+              "id": "ArcCatalog.exe",
+              "matching_strategy": "Equals"
+            }
           ]
         },
         {
@@ -233,22 +267,38 @@
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
             { "kind": "Exe", "id": "zen.exe", "matching_strategy": "Equals" },
-            { "kind": "Exe", "id": "qutebrowser.exe", "matching_strategy": "Equals" },
-            { "kind": "Exe", "id": "firefox.exe", "matching_strategy": "Equals" }
+            {
+              "kind": "Exe",
+              "id": "qutebrowser.exe",
+              "matching_strategy": "Equals"
+            },
+            {
+              "kind": "Exe",
+              "id": "firefox.exe",
+              "matching_strategy": "Equals"
+            }
           ]
         },
         {
           "name": "8-music",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-            { "kind": "Exe", "id": "Spotify.exe", "matching_strategy": "Equals" }
+            {
+              "kind": "Exe",
+              "id": "Spotify.exe",
+              "matching_strategy": "Equals"
+            }
           ]
         },
         {
           "name": "9-RDP",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-            { "kind": "Exe", "id": "workspot.exe", "matching_strategy": "Equals" }
+            {
+              "kind": "Exe",
+              "id": "workspot.exe",
+              "matching_strategy": "Equals"
+            }
           ]
         }
       ]
