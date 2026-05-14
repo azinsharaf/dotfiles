@@ -99,6 +99,12 @@
       "kind": "Exe",
       "id": "mpv.exe",
       "matching_strategy": "Equals"
+    },
+
+    {
+      "kind": "Exe",
+      "id": "ArcGISPro.exe",
+      "matching_strategy": "Equals"
     }
   ],
 
