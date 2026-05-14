@@ -858,7 +858,7 @@ copy_on_select true
 //   - true (default)
 //   - false
 //
-// session_serialization false
+session_serialization true
 // Whether pane viewports are serialized along with the session, default is false
 // Options:
 //   - true
@@ -869,7 +869,7 @@ serialize_pane_viewport true
 // defaults to the scrollback size. If this number is higher than the scrollback size, it will
 // also default to the scrollback size. This does nothing if `serialize_pane_viewport` is not true.
 //
-// scrollback_lines_to_serialize 10000
+scrollback_lines_to_serialize 500
 // Enable or disable the rendering of styled and colored underlines (undercurl).
 // May need to be disabled for certain unsupported terminals
 // (Requires restart)
