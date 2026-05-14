@@ -36,12 +36,6 @@ enclosure_image_icon = ""
 image_icon = ""
 url_icon = ""
 
-# Scrollbar symbols
-scrollbar_begin_symbol = "│"
-scrollbar_end_symbol = "│"
-scrollbar_track_symbol = " "
-scrollbar_thumb_symbol = "│"
-
 # Labels
 all_label = "󱀂 All {unread_count}"
 last_synced_label = " Last Synced"
@@ -72,7 +66,6 @@ text_max_width = 66
 content_preferred_type = "markdown"
 
 # Layout
-show_top_bar = true
 feed_list_focused_width = "25%"
 article_list_focused_width = "75%"
 article_list_focused_height = "20%"
@@ -107,7 +100,7 @@ timeout_millis = 5000
 "C-b"       = ["pageup"]
 "g g"       = ["gotofirst"]
 "G"         = ["gotolast"]
-"q"         = ["confirm quit"]
+"q"         = ["quit"]
 "C-c"       = ["quit"]
 "x"         = ["scrape"]
 "g f"       = ["focus feeds"]
@@ -230,3 +223,8 @@ highlighted = { fg = "highlight", mods = ["italic"] }
 flagged = { fg = "flagged" }
 unread_count = { mods = ["italic"] }
 marked_count = { mods = ["italic"] }
+
+[border_theme]
+focused = "thick"
+unfocused = "plain"
+framing = "closed"
