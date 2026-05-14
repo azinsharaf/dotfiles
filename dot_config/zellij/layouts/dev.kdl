@@ -72,7 +72,9 @@ layout {
         }
     }
     tab name="YAZI" {
-        pane name="YAZI" command="yazi"
+        pane name="YAZI" {
+
+        }
     }
     tab name="NOTES" {
         pane name="NOTES" command="nvim"
@@ -86,15 +88,15 @@ layout {
         pane name="BTOP" command="btop"
     }
     tab name="GH-DASH" {
-        pane name="GH-DASH" command="pwsh" {
-            args "-c" "gh dash"
+        pane name="GH-DASH" {
+
         }
     }
     tab name="RSS" {
         pane name="RSS" command="eilmeldung"
     }
     tab name="MUSIC" {
-        pane name="MUSIC" command="xytz"
+        pane name="MUSIC" command="youtube-tui"
     }
 }
 
