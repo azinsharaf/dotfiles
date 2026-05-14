@@ -431,7 +431,7 @@ $env:FZF_DEFAULT_OPTS = @(
   "--color=marker:#ed8796,fg+:#cad3f5,prompt:#89b4fa,hl+:#f38ba8"
 
   # Preview settings
-  "--preview 'pwsh -NoProfile -File $HOME/.config/fzf/fzf_preview.ps1 {}'"
+  "--preview 'pwsh -NoProfile -File $Env:USERPROFILE/.config/fzf/fzf_preview.ps1 {}'"
   "--preview-window=right,60%,border-left"
 ) -join ' '
 
@@ -446,7 +446,12 @@ $Env:BAT_CONFIG_DIR = "$Env:USERPROFILE\.config\bat\"
 $Env:BAT_CONFIG_PATH = "$Env:USERPROFILE\.config\bat\bat.conf"
 
 $ENV:YAZI_FILE_ONE = "$Env:USERPROFILE\scoop\apps\git\current\usr\bin\file.exe"
-$Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi" 
+$Env:YAZI_CONFIG_HOME = "$Env:USERPROFILE\.config\yazi"
+
+# Override fzf preview for yazi's zoxide plugin on Windows.
+# {2..} skips the frecency score and passes only the directory path.
+# eza --tree --level=2 shows the folder as a tree (1 level deep) for quick orientation.
+$Env:YAZI_ZOXIDE_OPTS = "--preview 'eza --color=always --icons --group-directories-first --tree --level=2 {2..}' --preview-window=right,40%,border-left"
 
 $Env:NEOVIM_NODE_PATH = "$USERPROFILE\scoop\apps\nodejs-nightly\current\node.exe"
 
