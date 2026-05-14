@@ -78,7 +78,5 @@
     "ignore": [".git/**"]
   },
 
-  "command": {},
-  "mcp": {},
   "plugin": ["opencode-wakatime"]
 }
