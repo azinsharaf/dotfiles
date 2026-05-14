@@ -180,7 +180,7 @@ function cstatus
 {chezmoi status
 }
 function capply
-{chezmoi -v apply
+{chezmoi apply --interactive -v
 }
 
 function ks
