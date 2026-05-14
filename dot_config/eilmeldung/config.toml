@@ -68,8 +68,8 @@ content_preferred_type = "markdown"
 # Layout
 feed_list_focused_width = "25%"
 article_list_focused_width = "75%"
-article_list_focused_height = "20%"
-article_content_focused_height = "80%"
+article_list_focused_height = "40%"
+article_content_focused_height = "60%"
 
 # Input Configuration
 [input_config]
