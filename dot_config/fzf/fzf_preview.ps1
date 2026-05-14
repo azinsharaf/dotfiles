@@ -1,6 +1,11 @@
 
 param([string]$file)
 
+# Strip zoxide frecency score prefix if present (e.g. " 244.0  C:\path\to\dir")
+if ($file -match '^\s*\d+(\.\d+)?\s+(.+)$') {
+    $file = $Matches[2].Trim()
+}
+
 # Handle directories
 if (Test-Path $file -PathType Container) {
     Write-Output " Directory:`n"
