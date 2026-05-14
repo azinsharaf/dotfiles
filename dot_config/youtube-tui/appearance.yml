@@ -1,27 +1,27 @@
-borders: Rounded
+borders: Plain
 colors:
-  text: Reset
-  text_special: Reset
-  text_secondary: Reset
-  text_error: LightRed
-  outline: Reset
-  outline_selected: LightBlue
-  outline_hover: LightRed
-  outline_secondary: LightYellow
-  message_outline: '#FF7F00'
-  message_error_outline: LightRed
-  message_success_outline: LightGreen
-  command_capture: '#64FF64'
+  text: "#cdd6f4" # Mocha Text
+  text_special: "#cba6f7" # Mocha Mauve
+  text_secondary: "#a6adc8" # Mocha Subtext0
+  text_error: "#f38ba8" # Mocha Red
+  outline: "#585b70" # Mocha Surface2
+  outline_selected: "#89b4fa" # Mocha Blue
+  outline_hover: "#f38ba8" # Mocha Red
+  outline_secondary: "#f9e2af" # Mocha Yellow
+  message_outline: "#fab387" # Mocha Peach
+  message_error_outline: "#f38ba8" # Mocha Red
+  message_success_outline: "#a6e3a1" # Mocha Green
+  command_capture: "#a6e3a1" # Mocha Green
   item_info:
-    tag: Gray
-    title: LightBlue
-    description: Gray
-    author: LightGreen
-    viewcount: LightYellow
-    length: LightCyan
-    published: LightMagenta
-    video_count: '#838DFF'
-    sub_count: '#65FFBA'
-    likes: '#C8FF81'
-    genre: '#FF75D7'
-    page_turner: Gray
+    tag: "#585b70" # Mocha Surface2
+    title: "#89b4fa" # Mocha Blue
+    description: "#a6adc8" # Mocha Subtext0
+    author: "#a6e3a1" # Mocha Green
+    viewcount: "#f9e2af" # Mocha Yellow
+    length: "#89dceb" # Mocha Sky
+    published: "#cba6f7" # Mocha Mauve
+    video_count: "#b4befe" # Mocha Lavender
+    sub_count: "#94e2d5" # Mocha Teal
+    likes: "#a6e3a1" # Mocha Green
+    genre: "#f5c2e7" # Mocha Pink
+    page_turner: "#585b70" # Mocha Surface2
