@@ -132,6 +132,7 @@ keymap = [
 	{ on = [ "g", "D" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 	{ on = [ "g", "s" ], run = "cd ~/scoop", desc = "Goto Scoop" },
+	{ on = [ "g", "a" ], run = "cd ~/AppData", desc = "Goto AppData" },
 
     # go to drives
     { on = [ "g", "o"],             run = "cd ~/azin_notes/",   desc = "Obsidian Azin Vault"},
