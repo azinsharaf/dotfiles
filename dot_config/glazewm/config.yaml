@@ -179,6 +179,9 @@ window_rules:
       - window_process: { equals: "Bitwarden" }
       - window_process: { equals: "mpv" }
 
+      # Ignore ArcGIS Pro windows
+      - window_process: { equals: "ArcGISPro" }
+
   - commands: ["set-floating"]
     match:
       - window_process: { equals: "mpv" }
