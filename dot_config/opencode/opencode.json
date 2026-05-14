@@ -60,7 +60,12 @@
 
   "permission": {
     "edit": "ask",
-    "bash": "ask"
+    "bash": {
+      "git add*": "deny",
+      "git commit*": "deny",
+      "git push*": "deny",
+      "*": "ask"
+    }
   },
 
   "compaction": {
