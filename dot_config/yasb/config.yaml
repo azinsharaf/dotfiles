@@ -64,7 +64,9 @@ bars:
           "cpu",
           "gpu",
           "memory",
-          "update_check",
+           "update_scoop",
+           "update_winget",
+           "update_windows",
           "pomodoro",
           "clock",
           "power_menu",
@@ -793,29 +795,62 @@ widgets:
       #   radius: 3
       #   offset: [1, 1]
 
-  update_check:
+  update_scoop:
     type: "yasb.update_check.UpdateCheckWidget"
     options:
       windows_update:
-        enabled: true
-        label: "<span>\uf0c28</span> {count}"
+        enabled: false
+        label: "<span>\u24ca</span> {count}"
         interval: 1440
         exclude: []
       winget_update:
-        enabled: true
-        label: "<span>\uf0c2e</span> {count}"
+        enabled: false
+        label: "<span>\u24cc</span> {count}"
         interval: 240
         exclude: ["Microsoft.Edge"]
       scoop_update:
         enabled: true
-        label: "<span>\uf0c22</span> {count}"
+        label: "<span>\u24c8</span> {count}"
         interval: 240
         exclude: []
-      # label_shadow:
-      #   enabled: false
-      #   color: "black"
-      #   radius: 3
-      #   offset: [1, 1]
+
+  update_winget:
+    type: "yasb.update_check.UpdateCheckWidget"
+    options:
+      windows_update:
+        enabled: false
+        label: "<span>\u24ca</span> {count}"
+        interval: 1440
+        exclude: []
+      winget_update:
+        enabled: true
+        label: "<span>\u24cc</span> {count}"
+        interval: 240
+        exclude: ["Microsoft.Edge"]
+      scoop_update:
+        enabled: false
+        label: "<span>\u24c8</span> {count}"
+        interval: 240
+        exclude: []
+
+  update_windows:
+    type: "yasb.update_check.UpdateCheckWidget"
+    options:
+      windows_update:
+        enabled: true
+        label: "<span>\u24ca</span> {count}"
+        interval: 1440
+        exclude: []
+      winget_update:
+        enabled: false
+        label: "<span>\u24cc</span> {count}"
+        interval: 240
+        exclude: ["Microsoft.Edge"]
+      scoop_update:
+        enabled: false
+        label: "<span>\u24c8</span> {count}"
+        interval: 240
+        exclude: []
 
   wallpapers:
     type: "yasb.wallpapers.WallpapersWidget"

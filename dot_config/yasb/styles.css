@@ -1696,6 +1696,9 @@ QScrollBar::sub-page {
 }
 
 /* Update Check - colorized source icons */
-.update-check-widget .windows-update .label span { color: #89b4fa; } /* blue  - Windows Update */
-.update-check-widget .winget-update .label span  { color: #a6e3a1; } /* green - Winget         */
-.update-check-widget .scoop-update .label span   { color: #fab387; } /* peach - Scoop          */
+.update-check-widget .windows .icon,
+.update-check-widget .windows .label { color: #89b4fa; } /* blue  - Windows Update */
+.update-check-widget .winget .icon,
+.update-check-widget .winget .label  { color: #a6e3a1; } /* green - Winget         */
+.update-check-widget .scoop .icon,
+.update-check-widget .scoop .label   { color: #fab387; } /* peach - Scoop          */
