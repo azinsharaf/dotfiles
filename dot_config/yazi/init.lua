@@ -1,4 +1,4 @@
-require("mime-ext"):setup {
+require("mime-ext.local"):setup {
 	with_exts = {
 		tcss = "text/css",
 	},
