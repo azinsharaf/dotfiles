@@ -1,3 +1,10 @@
+require("mime-ext"):setup {
+	with_exts = {
+		tcss = "text/css",
+	},
+	fallback_file1 = true,
+}
+
 require("full-border"):setup({
 	-- Available values: ui.Border.PLAIN, ui.Border.ROUNDED
 	type = ui.Border.PLAIN,
