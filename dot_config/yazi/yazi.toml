@@ -175,6 +175,10 @@ url = "**/Jobs/**"
 run  = "noop"
 
 [[plugin.prepend_previewers]]
+url = "*.tcss"
+run  = 'piper -- bat --color=always --map-syntax="*.tcss:CSS" "$1"'
+
+[[plugin.prepend_previewers]]
 url = "*.tar*"
 run  = 'piper --format=url -- tar tf "$1"'
 
