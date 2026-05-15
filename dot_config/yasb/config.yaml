@@ -798,17 +798,17 @@ widgets:
     options:
       windows_update:
         enabled: true
-        label: "<span>\uf0ab</span> {count}"
+        label: "<span>\uf0c28</span> {count}"
         interval: 1440
         exclude: []
       winget_update:
         enabled: true
-        label: "<span>\uf0ab</span> {count}"
+        label: "<span>\uf0c2e</span> {count}"
         interval: 240
         exclude: ["Microsoft.Edge"]
       scoop_update:
         enabled: true
-        label: "<span>\uf0ab</span> {count}"
+        label: "<span>\uf0c22</span> {count}"
         interval: 240
         exclude: []
       # label_shadow:
