@@ -99,8 +99,10 @@
       "kind": "Exe",
       "id": "mpv.exe",
       "matching_strategy": "Equals"
-    },
+    }
+  ],
 
+  "float_rules": [
     {
       "kind": "Exe",
       "id": "ArcGISPro.exe",
