@@ -24,9 +24,9 @@ legacy_input_handling: false
 env:
   video-player: mpv
   youtube-downloader: yt-dlp
-  download-path: C:\Users\azin\Downloads\%(title)s-%(id)s.%(ext)s
+  download-path: {{ .chezmoi.homeDir }}\Downloads\%(title)s-%(id)s.%(ext)s
   browser: explorer
   terminal-emulator: pwsh -NoExit -Command
-  save-path: C:\Users\azin\AppData\Local\youtube-tui\saved\
+  save-path: {{ .chezmoi.homeDir }}\AppData\Local\youtube-tui\saved\
 block_list:
   channels: []
