@@ -1,7 +1,7 @@
 watch_stylesheet: true
 watch_config: true
 debug: false
-update_check: true
+update_check: false
 show_systray: true
 komorebi:
   start_command: "ks"
@@ -64,9 +64,9 @@ bars:
           "cpu",
           "gpu",
           "memory",
-           "update_scoop",
-           "update_winget",
-           "update_windows",
+          "update_scoop",
+          "update_winget",
+          "update_windows",
           "pomodoro",
           "clock",
           "power_menu",
@@ -662,7 +662,7 @@ widgets:
       label_collapsed: "◀"
       label_expanded: "▶"
       label_position: "left" # Can be "left" or "right"
-      icon_size: 16 # Can be any integer between 8 and 64
+      icon_size: 17 # Can be any integer between 8 and 64
       pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
       show_unpinned: true
       show_unpinned_button: true
@@ -673,16 +673,11 @@ widgets:
       hide_icons: ["Remote Desktop", "Explorer"]
       tooltip: true
       use_hook: true
-      # btn_shadow:
-      #   enabled: true
-      #   color: "black"
-      #   radius: 3
-      #   offset: [1, 1]
       popup:
         blur: true
         round_corners: false
         round_corners_type: "normal"
-        border_color: None
+        border_color: "System"
         alignment: "center"
         direction: "down"
         offset_top: 6
