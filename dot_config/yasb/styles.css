@@ -1383,6 +1383,7 @@ QScrollBar::sub-page {
 .systray .button {
   border-radius: 4px;
   padding: 2px;
+  margin: 0 5px;
 }
 .systray .button:hover {
   background: #ffffff1a;
