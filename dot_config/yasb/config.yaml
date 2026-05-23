@@ -670,7 +670,7 @@ widgets:
       show_volume: false
       show_network: false
       show_in_popup: false
-      hide_icons: ["Remote Desktop", "Explorer"]
+      hide_icons: ["Remote Desktop", "Explorer", "SecurityHealthSystray"]
       tooltip: true
       use_hook: true
       popup:
