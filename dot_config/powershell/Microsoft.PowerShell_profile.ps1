@@ -386,15 +386,15 @@ function f() {
 # Ensure modules are loaded
 $Env:PSModulePath += ";$Env:USERPROFILE\scoop\modules"
 Import-Module PSReadLine
-Import-Module PSFzf
+# Import-Module PSFzf
 
 # PSReadLine settings
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -PredictionSource None
+# Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineOption -EditMode Vi
 Set-PSReadLineOption -ViModeIndicator Prompt
 # Set-PSReadLineKeyHandler -Key Ctrl+h -ScriptBlock { Invoke-FzfHistory }
-Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+# Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 
 # Improve syntax highlighting
 # Set-PSReadLineOption -Colors @{
@@ -409,11 +409,11 @@ Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 # PSFzf keybindings
 # Match fzf defaults from Unix (Ctrl-T, Ctrl-R, Alt-C)
 
-Set-PsFzfOption `
-    -PSReadlineChordProvider 'Ctrl+t' `
-    -HistorySearchProvider 'Ctrl+r' `
-    -FileSystemNavigation 'Alt+c' `
-    -MatchFuzzySetProvider 'Ctrl+f'
+# Set-PsFzfOption `
+#     -PSReadlineChordProvider 'Ctrl+t' `
+#     -HistorySearchProvider 'Ctrl+r' `
+#     -FileSystemNavigation 'Alt+c' `
+#     -MatchFuzzySetProvider 'Ctrl+f'
 
 # --- FZF default settings for better UX ---
 $env:FZF_DEFAULT_OPTS = @(
@@ -494,6 +494,13 @@ $Env:Path += ";C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common"
 $Env:Path += ";C:\Program Files\NVIDIA Corporation\Nsight Compute 2025.1.0"
 $Env:Path += ";C:\Program Files\ImageMagick-7.1.2-Q16-HDRI"
 $Env:Path += ";$Env:USERPROFILE\AppData\Local\pnpm"
+
+# Carapace — multi-shell multi-command argument completer
+$Env:CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+$Env:CARAPACE_MATCH = 1   # case-insensitive matching
+Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
+Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete  # must come after EditMode Vi
+carapace _carapace | Out-String | Invoke-Expression
 
 # using starship prompt
 Invoke-Expression (&starship init powershell)
