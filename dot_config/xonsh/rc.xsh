@@ -129,6 +129,7 @@ $PATH = [
     r'C:\Program Files\NVIDIA Corporation\Nsight Compute 2025.1.0',
     r'C:\Program Files\ImageMagick-7.1.2-Q16-HDRI',
     _h + r'\AppData\Local\pnpm',
+    _h + r'\go\bin',
 
 ]
 
@@ -193,8 +194,8 @@ def pgrep(name):
     print(result.stdout)
 
 def reload():
-    """Re-source .xonshrc."""
-    source ~/.xonshrc
+    """Re-source xonsh rc file."""
+    source ~/.config/xonsh/rc.xsh
 
 def fzfn():
     """Open a file picked with fzf in nvim."""
@@ -230,11 +231,30 @@ def ke():
     komorebic stop
     subprocess.run(['taskkill', '/F', '/IM', 'AutoHotkey*.exe'], capture_output=True)
 
+# Auto-select the single completion if there is only one match
+@events.on_ptk_create
+def _auto_single_complete(bindings, **kw):
+    @bindings.add('tab')
+    def _smart_tab(event):
+        buf = event.current_buffer
+        if buf.complete_state:
+            # Menu already open — cycle to next item
+            buf.complete_next()
+        else:
+            # Start completion; auto-apply immediately if only one match
+            def _check_single(_):
+                cs = buf.complete_state
+                if cs and len(cs.completions) == 1:
+                    buf.apply_completion(cs.completions[0])
+                buf.on_completions_changed -= _check_single
+            buf.on_completions_changed += _check_single
+            buf.start_completion(select_first=False)
+
 # Carapace — multi-shell multi-command argument completer
 $CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'  # use completions from other shells as fallback
 $CARAPACE_MATCH = 1                                 # case insensitive matching
-$COMPLETIONS_CONFIRM = True                         # press enter to confirm, not just tab
 execx($(carapace _carapace), 'exec', __xonsh__.ctx, filename='carapace')
+$COMPLETIONS_CONFIRM = False                        # Enter runs the command directly (no double-Enter)
 
 # Zoxide — bootstraps z/zi commands into the session
 execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
