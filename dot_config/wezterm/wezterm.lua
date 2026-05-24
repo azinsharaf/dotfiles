@@ -61,8 +61,7 @@ local config = {
 -- Pick default shell by OS
 if wezterm.target_triple:find("windows") then
 	config.default_prog = {
-		"pwsh.exe",
-		"-NoLogo",
+		"xonsh.exe",
 	}
 else
 	config.default_prog = { "/bin/zsh", "-l" }
