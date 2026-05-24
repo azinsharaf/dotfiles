@@ -34,17 +34,15 @@ $DIRSTACK_SIZE = 50
 $DOTGLOB = True
 
 # Completion menu style — Catppuccin Mocha
-# Token.PTK.* keys map to prompt_toolkit native style names via CamelCase→kebab-case conversion
-from pygments.token import Token
-
+# String keys avoid RuntimeWarning from xonsh's to_dict() when the env var is serialised
 $XONSH_STYLE_OVERRIDES = {
-    Token.PTK.CompletionMenu:                          'bg:#313244 #cdd6f4',        # menu background / text
-    Token.PTK.CompletionMenu.Completion:               'bg:#313244 #cdd6f4',        # each item
-    Token.PTK.CompletionMenu.Completion.Current:       'bg:#45475a #cba6f7 bold',   # selected item (mauve)
-    Token.PTK.CompletionMenu.Meta.Completion:          'bg:#313244 #6c7086',        # description text (dimmed)
-    Token.PTK.CompletionMenu.Meta.Completion.Current:  'bg:#45475a #89b4fa',        # selected description (blue)
-    Token.PTK.Scrollbar:                               'bg:#313244',
-    Token.PTK.Scrollbar.Button:                        'bg:#cba6f7',
+    'Token.PTK.CompletionMenu':                         'bg:#313244 #cdd6f4',        # menu background / text
+    'Token.PTK.CompletionMenu.Completion':              'bg:#313244 #cdd6f4',        # each item
+    'Token.PTK.CompletionMenu.Completion.Current':      'bg:#45475a #cba6f7 bold',   # selected item (mauve)
+    'Token.PTK.CompletionMenu.Meta.Completion':         'bg:#313244 #6c7086',        # description text (dimmed)
+    'Token.PTK.CompletionMenu.Meta.Completion.Current': 'bg:#45475a #89b4fa',        # selected description (blue)
+    'Token.PTK.Scrollbar':                              'bg:#313244',
+    'Token.PTK.Scrollbar.Button':                       'bg:#cba6f7',
 }
 
 # Input & Display
