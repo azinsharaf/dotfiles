@@ -1,0 +1,23 @@
+name: git-scope
+description: A fast TUI to see the status of all git repositories
+flags:
+  -config=: Path to config file
+  -v: Show version
+  --version: Show version
+completion:
+  flag:
+    config: ["$files"]
+commands:
+  - name: scan
+    description: Scan and print repos (JSON)
+    completion:
+      positional+:
+        - ["$directories"]
+  - name: scan-all
+    description: Full system scan from home directory (with stats)
+  - name: init
+    description: Create config file interactively
+  - name: issue
+    description: Open git-scope GitHub issues page in browser
+  - name: help
+    description: Show help
