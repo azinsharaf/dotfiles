@@ -40,24 +40,23 @@
 
   "object_name_change_applications": [],
   "ignore_rules": [
-    [
-      {
-        "kind": "Exe",
-        "id": "explorer.exe",
-        "matching_strategy": "Equals"
-      },
+    {
+      "kind": "Exe",
+      "id": "explorer.exe",
+      "matching_strategy": "Equals"
+    },
 
-      {
-        "kind": "Exe",
-        "id": "olk.exe",
-        "matching_strategy": "Equals"
-      },
-      {
-        "kind": "Title",
-        "id": "Reminders",
-        "matching_strategy": "StartsWith"
-      }
-    ],
+    {
+      "kind": "Exe",
+      "id": "olk.exe",
+      "matching_strategy": "Equals"
+    },
+
+    {
+      "kind": "Title",
+      "id": "Reminders",
+      "matching_strategy": "StartsWith"
+    },
 
     {
       "kind": "Title",
@@ -102,7 +101,7 @@
     }
   ],
 
-  "float_rules": [
+  "floating_applications": [
     {
       "kind": "Exe",
       "id": "ArcGISPro.exe",
