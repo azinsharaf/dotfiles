@@ -1,0 +1,29 @@
+# Work account
+Host bitbucket.org
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/id_ed25519_work
+
+# Personal Account (GitHub)
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_github
+
+# Azin MacBook Pro
+Host azin-macbook-pro
+    HostName {{ .macbookProIP }}
+    User {{ .macbookProUser }}
+    IdentityFile ~/.ssh/azin-macbook-pro
+
+# Docker server
+Host docker-server
+    HostName {{ .dockerServerIP }}
+    User {{ .dockerServerUser }}
+    IdentityFile ~/.ssh/docker-server
+
+# Proxmox server
+Host proxmox-server
+    HostName {{ .proxmoxServerIP }}
+    User {{ .proxmoxServerUser }}
+    IdentityFile ~/.ssh/proxmox-server
