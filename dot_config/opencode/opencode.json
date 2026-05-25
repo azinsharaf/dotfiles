@@ -3,6 +3,7 @@
 
   "autoupdate": true,
   "shell": "pwsh",
+  "small_model": "anthropic/claude-haiku-4-5",
   "provider": {
     "anthropic": {
       "models": {
@@ -68,10 +69,11 @@
     }
   },
 
+  "tool_output": { "max_lines": 150, "max_bytes": 6000 },
+
   "compaction": {
     "auto": true,
-    "prune": true,
-    "reserved": 10000
+    "tail_turns": 15
   },
 
   "watcher": {
