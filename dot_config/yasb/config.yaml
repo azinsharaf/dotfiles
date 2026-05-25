@@ -670,7 +670,21 @@ widgets:
       show_volume: false
       show_network: false
       show_in_popup: false
-      hide_icons: ["Remote Desktop", "Explorer", "SecurityHealthSystray"]
+      hide_icons:
+        - "Remote Desktop"
+        - "Explorer"
+        - "SecurityHealthSystray"
+        - "Thunderbird"
+        - "WhatsApp"
+        - "Docker Desktop"
+        - "OneDrive"
+        - "TickTick"
+        - "Greenshot"
+        - "GlobalProtect"
+        - "PanGPA"
+        - "Global Protect"
+        - "Morgen"
+        - "AltSnap"
       tooltip: true
       use_hook: true
       popup:
