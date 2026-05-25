@@ -104,6 +104,8 @@ $GNUPGHOME   = _h + r'\.config\gnupg'
 
 $PIPX_DEFAULT_PYTHON = _h + r'\scoop\apps\python\current\python.exe'
 
+$UV_TOOL_DIR = _h + r'\.venvs'
+
 # PATH
 
 $PATH = [
