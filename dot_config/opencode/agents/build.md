@@ -12,4 +12,18 @@ tools:
   list: true
   todowrite: true
   question: true
+permission:
+  edit: allow
+  write: allow
+  bash:
+    "git add*": deny
+    "git commit*": deny
+    "git push*": deny
+    "git status*": allow
+    "git diff*": allow
+    "git log*": allow
+    "git branch*": allow
+    "git show*": allow
+    "git *": allow
+    "*": ask
 ---
