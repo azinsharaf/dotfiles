@@ -7,7 +7,7 @@ Run the following git commands and analyse the output holistically:
 1. `git status` — show the working tree state
 2. `git diff --stat` — summarise unstaged changes
 3. `git diff --cached --stat` — summarise staged changes
-4. `git log --oneline @{u}..HEAD 2>$null || git log --oneline -10` — commits not yet pushed (falls back to last 10 if no upstream)
+4. `git log --oneline @{u}..HEAD` — commits not yet pushed (if this fails due to no upstream, run `git log --oneline -10` as fallback)
 5. `git stash list` — show any stashed work
 
 Then produce a clear, structured report:
