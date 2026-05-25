@@ -2,7 +2,7 @@
   "$schema": "https://opencode.ai/config.json",
 
   "autoupdate": true,
-  "shell": "pwsh",
+  "shell": "xonsh",
   "small_model": "anthropic/claude-haiku-4-5",
   "provider": {
     "anthropic": {
@@ -44,11 +44,6 @@
     }
   },
 
-  "tools": {
-    "write": false,
-    "bash": false
-  },
-
   "share": "disabled",
 
   "formatter": {
@@ -58,16 +53,6 @@
   },
 
   "default_agent": "plan",
-
-  "permission": {
-    "edit": "ask",
-    "bash": {
-      "git add*": "deny",
-      "git commit*": "deny",
-      "git push*": "deny",
-      "*": "ask"
-    }
-  },
 
   "tool_output": { "max_lines": 150, "max_bytes": 6000 },
 

@@ -1,16 +1,26 @@
 ---
 mode: primary
 model: anthropic/claude-sonnet-4-6
-tools:
-  webfetch: true
-  websearch: true
-  read: true
-  write: false
-  edit: false
-  bash: false
-  grep: true
-  glob: true
-  list: true
-  todowrite: true
-  question: true
+permission:
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  question: allow
+  external_directory: allow
+  webfetch: allow
+  websearch: allow
+  todowrite: allow
+  task: allow
+  edit: deny
+  write: deny
+  bash:
+    "git status*": allow
+    "git diff*": allow
+    "git log*": allow
+    "git branch*": allow
+    "git show*": allow
+    "git stash*": allow
+    "git *": allow
+    "*": ask
 ---
