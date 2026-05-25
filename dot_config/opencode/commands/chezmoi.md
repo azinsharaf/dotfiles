@@ -15,19 +15,47 @@ Run `chezmoi status` to show all pending changes (files that differ between the 
 
 ## Direction: always ask before acting
 
-For each changed file, determine which side is the source of truth before doing anything:
+For each changed file, determine which side is the source of truth before doing anything.
 
-**Ask the user:** "Was this file edited on disk (outside chezmoi), or was it edited via chezmoi source?"
-- If the **live file on disk is newer/correct** → use `chezmoi add <target-path>` to snapshot it into chezmoi source
-- If the **chezmoi source is correct** → use `chezmoi apply <target-path>` to push it to disk
-- If **unsure**, show the diff with `chezmoi diff <target-path>` and let the user decide
+### Step 1 — Gather signals automatically
+
+For every file in `chezmoi status`, collect **all three signals in parallel** before asking the user anything:
+
+1. **Modified dates** — compare disk mtime vs source mtime:
+   - Get the source path via `chezmoi source-path` then resolve the source file path
+   - Use `powershell -Command "Get-Item <path> | Select-Object LastWriteTime"` for each side
+   - Report which side is newer and by how much
+
+2. **Diff** — run `chezmoi diff <target-path>` and show it, labelled:
+   - `--- source (chezmoi repo)` = what chezmoi has
+   - `+++ disk (live file)` = what is on disk
+
+3. **Template check** — check if the chezmoi source file ends in `.tmpl`:
+   - Run `chezmoi source-path <target-path>` to get the exact source filename
+   - If the filename ends in `.tmpl`, print a prominent warning:
+     **"⚠ WARNING: This file is a chezmoi template (.tmpl). Running `chezmoi add` will overwrite the template with the rendered output, destroying all template expressions. Do NOT add unless you intend to convert this to a plain file."**
+
+### Step 2 — Ask the user per file
+
+After showing all three signals, ask:
+> "apply (source→disk), add (disk→source), or skip?"
+
+- If the **disk is newer** and no template warning → suggest `add`
+- If the **source is newer** → suggest `apply`
+- If **template warning is active** → strongly recommend `apply` or `skip`, never suggest `add`
+- Modified date is a hint only — always defer to the user's explicit choice
+
+### Step 3 — Act
+
+- `add` chosen → run `chezmoi add <target-path>`
+- `apply` chosen → run `chezmoi apply <target-path>`
+- `skip` → move on
 
 ## Rules
 - Never apply or add everything blindly — always confirm per file
 - If files are passed as arguments to the command, handle only those files directly
-- Show diffs clearly when requested — label which side is source vs disk
-- After showing a diff, ask: "apply (source→disk), add (disk→source), or skip?"
 - Warn explicitly before any destructive action (D=delete, overwriting newer file)
+- Modified date is a useful hint but not authoritative — always show the diff too
 - After all selected files are handled, run `chezmoi status` again to confirm the result
 
 ## Phase 2: Commit & push the chezmoi source repo
