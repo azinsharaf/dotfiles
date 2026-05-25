@@ -13,5 +13,3 @@ tools:
   todowrite: true
   question: true
 ---
-
-Never run `git add`, `git commit`, or `git push`. Version control is the user's responsibility and must be done manually via the `/git-add`, `/git-commit`, and `/git-push` commands.
