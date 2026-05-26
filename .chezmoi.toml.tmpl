@@ -1,0 +1,40 @@
+
+[data]
+    macbookProIP   = {{ promptStringOnce . "macbookProIP"   "MacBook Pro IP address" | quote }}
+    macbookProUser = {{ promptStringOnce . "macbookProUser" "MacBook Pro username"   | quote }}
+    dockerServerIP   = {{ promptStringOnce . "dockerServerIP"   "Docker server IP address" | quote }}
+    dockerServerUser = {{ promptStringOnce . "dockerServerUser" "Docker server username"   | quote }}
+    proxmoxServerIP   = {{ promptStringOnce . "proxmoxServerIP"   "Proxmox server IP address" | quote }}
+    proxmoxServerUser = {{ promptStringOnce . "proxmoxServerUser" "Proxmox server username"   | quote }}
+
+[template]
+
+[add]
+
+[apply]
+
+[diff]
+
+[edit]
+
+[init]
+
+[merge]
+
+[remove]
+
+[re-add]
+
+[verify]
+
+[windows]
+    shell = "{{ .chezmoi.homeDir }}\\.venvs\\xonsh\\Scripts\\xonsh.exe"
+
+[cd]
+    command = "{{ .chezmoi.homeDir }}\\.venvs\\xonsh\\Scripts\\xonsh.exe"
+
+[shell]
+    command = "{{ .chezmoi.homeDir }}\\.venvs\\xonsh\\Scripts\\xonsh.exe"
+
+[macos]
+    shell = "zsh"
