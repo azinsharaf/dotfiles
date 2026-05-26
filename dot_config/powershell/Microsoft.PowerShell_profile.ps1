@@ -438,7 +438,7 @@ $env:FZF_DEFAULT_OPTS = @(
 
 # env variables
 
-$Env:PIPX_DEFAULT_PYTHON = "$Env:USERPROFILE\scoop\apps\python\current\python.exe"
+# $Env:PIPX_DEFAULT_PYTHON = "$Env:USERPROFILE\scoop\apps\python\current\python.exe"
 
 $ENV:STARSHIP_CONFIG = "$Env:USERPROFILE\.config\starship\starship.toml"
 
