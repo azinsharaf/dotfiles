@@ -60,8 +60,9 @@ local config = {
 
 -- Pick default shell by OS
 if wezterm.target_triple:find("windows") then
+	local home = os.getenv("USERPROFILE")
 	config.default_prog = {
-		"xonsh.exe",
+		home .. "/.venvs/xonsh/Scripts/xonsh.exe",
 	}
 else
 	config.default_prog = { "/bin/zsh", "-l" }
