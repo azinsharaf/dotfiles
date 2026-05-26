@@ -53,16 +53,13 @@ $COLOR_INPUT = True
 $PRETTY_PRINT_RESULTS = True
 $SUGGEST_COMMANDS = True
 $ENABLE_ASYNC_PROMPT = True
-$VC_BRANCH_TIMEOUT = 0.2
 
 # Environment
 
 $EDITOR        = 'nvim'
 $VISUAL        = 'nvim'
-$SHELL         = 'xonsh'
 $COLORTERM     = 'truecolor'
 
-$TMPDIR        = _h + r'\.tmp'
 $TMP           = _h + r'\.tmp'
 
 $XDG_CONFIG_HOME         = _h + r'\.config'
@@ -84,7 +81,7 @@ $BAT_CONFIG_PATH = _h + r'\.config\bat\bat.conf'
 $YAZI_FILE_ONE    = _h + r'\scoop\apps\git\current\usr\bin\file.exe'
 $YAZI_CONFIG_HOME = _h + r'\.config\yazi'
 $YAZI_ZOXIDE_OPTS = ' '.join([
-    "--preview 'eza --color=always --icons --group-directories-first --tree --level=2 {2..}'",
+    "--preview 'eza --color=always --icons --group-directories-first --tree --level=2 {2}'",
     "--preview-window=right,40%,border-left",
 ])
 
@@ -102,7 +99,7 @@ $CARGO_HOME  = _h + r'\.cargo'
 $RUSTUP_HOME = _h + r'\.rustup'
 $GNUPGHOME   = _h + r'\.config\gnupg'
 
-# $UV_TOOL_DIR = _h + r'\.venvs'
+$UV_TOOL_DIR = _h + r'\.venvs'
 
 # PATH
 
@@ -208,13 +205,13 @@ def f():
         print(file)
 
 def ai(*args):
-    """Run opencode with gpt-5."""
+    """Run opencode with gpt-4o."""
     msg = ' '.join(args)
-    opencode --model openai/gpt-5 run @(msg)
+    opencode --model openai/gpt-4o run @(msg)
 
 def ai_mini():
-    """Open opencode with gpt-5-mini."""
-    opencode --model openai/gpt-5-mini
+    """Open opencode with gpt-4o-mini."""
+    opencode --model openai/gpt-4o-mini
 
 def ks():
     """Start Komorebi + AutoHotkey."""
@@ -230,8 +227,11 @@ def ke():
     subprocess.run(['taskkill', '/F', '/IM', 'AutoHotkey*.exe'], capture_output=True)
 
 # Scoop completer — subcommands, flags, and dynamic installed apps / buckets / cache
+import re as _re
 import time as _time
 from xonsh.completers.tools import RichCompletion as _RC
+
+_ANSI_ESCAPE = _re.compile(r'\x1b\[[0-9;]*m')
 
 _scoop_cache = {}  # cleared on every rc.xsh source
 _SCOOP_CACHE_TTL = 30  # seconds
@@ -455,29 +455,31 @@ if 'scoop' in __xonsh__.completers:
 completer add scoop _scoop_completer 'start'
 
 # Auto-select the single completion if there is only one match
-@events.on_ptk_create
-def _auto_single_complete(bindings, **kw):
-    @bindings.add('tab')
-    def _smart_tab(event):
-        buf = event.current_buffer
-        if buf.complete_state:
-            # Menu already open — cycle to next item
-            buf.complete_next()
-        else:
-            # Start completion; auto-apply immediately if only one match
-            def _check_single(_):
-                cs = buf.complete_state
-                if cs and len(cs.completions) == 1:
-                    buf.apply_completion(cs.completions[0])
-                buf.on_completions_changed -= _check_single
-            buf.on_completions_changed += _check_single
-            buf.start_completion(select_first=False)
+# Guard against duplicate registration when reload() re-sources this file
+if not globals().get('_auto_single_complete_registered'):
+    @events.on_ptk_create
+    def _auto_single_complete(bindings, **kw):
+        @bindings.add('tab')
+        def _smart_tab(event):
+            buf = event.current_buffer
+            if buf.complete_state:
+                # Menu already open — cycle to next item
+                buf.complete_next()
+            else:
+                # Start completion; auto-apply immediately if only one match
+                def _check_single(_):
+                    cs = buf.complete_state
+                    if cs and len(cs.completions) == 1:
+                        buf.apply_completion(cs.completions[0])
+                    buf.on_completions_changed -= _check_single
+                buf.on_completions_changed += _check_single
+                buf.start_completion(select_first=False)
+    _auto_single_complete_registered = True
 
 # Carapace — multi-shell multi-command argument completer
 $CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'  # use completions from other shells as fallback
 $CARAPACE_MATCH = 1                                 # case insensitive matching
 execx($(carapace _carapace), 'exec', __xonsh__.ctx, filename='carapace')
-$COMPLETIONS_CONFIRM = False                        # Enter runs the command directly (no double-Enter)
 
 # Zoxide — bootstraps z/zi commands into the session
 execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
