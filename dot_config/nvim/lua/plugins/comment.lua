@@ -1,6 +1,6 @@
 return {
 	"numToStr/Comment.nvim",
-	enabled = false,
+	enabled = true,
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"JoosepAlviste/nvim-ts-context-commentstring",
@@ -14,7 +14,7 @@ return {
 		-- enable comment
 		comment.setup({
 			-- for commenting tsx, jsx, svelte, html files
-			pre_hook = ts_context_commentstring.create_pre_hook(),
+			-- pre_hook = ts_context_commentstring.create_pre_hook(),
 		})
 	end,
 }
