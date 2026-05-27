@@ -47,12 +47,6 @@
     },
 
     {
-      "kind": "Exe",
-      "id": "olk.exe",
-      "matching_strategy": "Equals"
-    },
-
-    {
       "kind": "Title",
       "id": "Reminders",
       "matching_strategy": "StartsWith"
@@ -101,13 +95,7 @@
     }
   ],
 
-  "floating_applications": [
-    {
-      "kind": "Exe",
-      "id": "ArcGISPro.exe",
-      "matching_strategy": "Equals"
-    }
-  ],
+  "floating_applications": [],
 
   "manage_rules": [
     [
