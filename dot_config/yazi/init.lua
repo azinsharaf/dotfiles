@@ -44,13 +44,14 @@ require("bookmarks"):setup({
 
 -- to get the size and modified time for linemode
 function Linemode:size_and_mtime()
-	local time = math.floor(self._file.cha.mtime or 0)
-	if time == 0 then
+	local mtime = math.floor(self._file.cha.mtime or 0)
+	local time ---@type string
+	if mtime == 0 then
 		time = ""
-	elseif os.date("%Y", time) == os.date("%Y") then
-		time = os.date("%b %d %H:%M", time)
+	elseif os.date("%Y", mtime) == os.date("%Y") then
+		time = os.date("%b %d %H:%M", mtime) --[[@as string]]
 	else
-		time = os.date("%b %d  %Y", time)
+		time = os.date("%b %d  %Y", mtime) --[[@as string]]
 	end
 
 	local size = self._file:size()
