@@ -1,0 +1,15 @@
+{
+  "diagnostics.globals": [
+    "Linemode",
+    "ya",
+    "cx",
+    "ui",
+    "Tab",
+    "Manager",
+    "Header",
+    "Status",
+    "Entity",
+    "Icon",
+    "THEME"
+  ]
+}
