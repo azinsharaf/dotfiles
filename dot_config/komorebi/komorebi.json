@@ -258,24 +258,7 @@
           ]
         },
         {
-          "name": "7-browser",
-          "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            { "kind": "Exe", "id": "zen.exe", "matching_strategy": "Equals" },
-            {
-              "kind": "Exe",
-              "id": "qutebrowser.exe",
-              "matching_strategy": "Equals"
-            },
-            {
-              "kind": "Exe",
-              "id": "firefox.exe",
-              "matching_strategy": "Equals"
-            }
-          ]
-        },
-        {
-          "name": "8-music",
+          "name": "7-music",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
             {
@@ -286,7 +269,7 @@
           ]
         },
         {
-          "name": "9-RDP",
+          "name": "8-RDP",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
             {
