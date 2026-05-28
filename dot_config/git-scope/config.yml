@@ -1,0 +1,10 @@
+# ~/.config/git-scope/config.yml
+roots:
+  - ~/repos
+
+ignore:
+  - node_modules
+  - .venv
+  - dist
+
+editor: nvim
