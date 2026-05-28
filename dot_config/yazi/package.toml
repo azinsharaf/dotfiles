@@ -63,6 +63,11 @@ use = "cap153/tv"
 rev = "b6b1f12"
 hash = "781c565bf90759ef5f72e648cf1fb6f8"
 
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "179ebf6"
+hash = "38c0d8cdd02e7e52655e168dc07cd87"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "0670801"
