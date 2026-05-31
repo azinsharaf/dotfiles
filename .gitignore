@@ -22,3 +22,4 @@ scoop/persist/flow-launcher/UserData/Settings/**/*.bak
 scoop/persist/flow-launcher/UserData/Settings/History.json
 scoop/persist/flow-launcher/UserData/Settings/MultipleTopMostRecord.json
 scoop/persist/flow-launcher/UserData/Settings/UserSelectedRecord.json
+/.understand-anything
