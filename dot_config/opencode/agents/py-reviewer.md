@@ -1,7 +1,7 @@
 ---
 description: Python code reviewer. Checks PEP 8, type hints, docstrings, and common bugs. Call explicitly when you want a review.
 mode: subagent
-model: anthropic/claude-haiku-4-5
+model: anthropic/claude-haiku-4.5
 permission:
   edit: deny
   bash: deny
@@ -18,6 +18,7 @@ When given Python source files or diffs:
 5. **Logic** — off-by-one errors, None checks, unclosed resources
 
 Return findings grouped by severity:
+
 - **critical** — likely bugs
 - **warning** — bad practice
 - **suggestion** — style/quality improvements
