@@ -1,7 +1,7 @@
 ---
 description: Checks if the last commit warrants documentation updates and applies targeted edits to README.md and docs/. Called automatically after commits — do not invoke directly.
 mode: subagent
-model: anthropic/claude-haiku-4-5
+model: anthropic/claude-haiku-4.5
 permission:
   bash:
     "git diff*": allow
@@ -23,6 +23,7 @@ If neither exists, stop silently — there is nothing to update.
 ## Step 2 — Get the last commit diff
 
 Run:
+
 ```
 git diff HEAD~1..HEAD --stat
 git diff HEAD~1..HEAD --name-only
@@ -32,19 +33,19 @@ git diff HEAD~1..HEAD --name-only
 
 Docs need updating **only** if the commit touched something user-visible:
 
-| Changed | Update docs? |
-|---|---|
-| New or removed CLI command, subcommand, or flag | Yes |
-| New or changed public API, function signature visible to users | Yes |
-| New supported file format, input type, or output type | Yes |
-| Install, dependency, or environment change | Yes |
-| New or changed TUI keybinding, panel, or user-facing behavior | Yes |
-| Bug fix that changes observable behavior | Yes |
-| Pure internal refactor (no behavior change) | No |
-| Test files only | No |
-| Config, CI, build files only | No |
-| Docstring or comment only | No |
-| Rename of internal variable/function (not public) | No |
+| Changed                                                        | Update docs? |
+| -------------------------------------------------------------- | ------------ |
+| New or removed CLI command, subcommand, or flag                | Yes          |
+| New or changed public API, function signature visible to users | Yes          |
+| New supported file format, input type, or output type          | Yes          |
+| Install, dependency, or environment change                     | Yes          |
+| New or changed TUI keybinding, panel, or user-facing behavior  | Yes          |
+| Bug fix that changes observable behavior                       | Yes          |
+| Pure internal refactor (no behavior change)                    | No           |
+| Test files only                                                | No           |
+| Config, CI, build files only                                   | No           |
+| Docstring or comment only                                      | No           |
+| Rename of internal variable/function (not public)              | No           |
 
 If none of the "Yes" conditions apply, stop silently — do not edit anything.
 
