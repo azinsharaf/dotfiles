@@ -3,11 +3,11 @@
 
   "autoupdate": true,
   "shell": "xonsh",
-  "small_model": "anthropic/claude-haiku-4-5",
+  "small_model": "openrouter/openrouter/free",
   "provider": {
-    "anthropic": {
+    "openrouter": {
       "models": {
-        "anthropic/claude-opus-4-7": {
+        "anthropic/claude-sonnet-4.6": {
           "variants": {
             "thinking": {
               "reasoningEffort": "low",
@@ -18,18 +18,7 @@
             }
           }
         },
-        "anthropic/claude-sonnet-4-6": {
-          "variants": {
-            "thinking": {
-              "reasoningEffort": "low",
-              "textVerbosity": "low"
-            },
-            "fast": {
-              "disabled": true
-            }
-          }
-        },
-        "anthropic/claude-haiku-4-5": {
+        "anthropic/claude-haiku-4.5": {
           "variants": {
             "thinking": {
               "reasoningEffort": "low",
