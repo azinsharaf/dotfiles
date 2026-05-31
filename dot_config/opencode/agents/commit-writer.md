@@ -1,7 +1,7 @@
 ---
 description: Generates a Conventional Commits message from staged changes. Called by git-commit and git-all — do not invoke directly.
 mode: subagent
-model: anthropic/claude-haiku-4-5
+model: anthropic/claude-haiku-4.5
 permission:
   bash:
     "git diff*": allow
@@ -19,6 +19,7 @@ You generate a single conventional commit message from the currently staged chan
 ### Step 1 — Get the stat summary
 
 Run:
+
 ```
 git diff --cached --stat
 git diff --cached --name-only
@@ -31,6 +32,7 @@ This tells you which files changed and how many lines. This is usually enough.
 Use the full diff **only** if the stat alone is ambiguous — for example, a single file was changed but its name doesn't reveal the intent, or there are many small files with unclear purpose.
 
 If you need more detail, fetch only the relevant file(s):
+
 ```
 git diff --cached -- <specific-file>
 ```
@@ -52,6 +54,7 @@ Apply Conventional Commits format: `type(scope): description`
 Return **only** the commit message — nothing else. No explanation, no preamble, no markdown fences. Just the raw message text, ready to be passed to `git commit -m`.
 
 Example output:
+
 ```
 feat(cli): add --json flag to info command
 ```
