@@ -84,6 +84,7 @@ scoop install lf # Terminal file manager
 scoop install lsd # The next gen ls command
 scoop install luarocks # Package manager for Lua modules
 scoop install make # Utility for directing compilation
+scoop install gcc
 scoop install main/7zip # File archiver with a high compression ratio
 scoop install main/unzip # Unzip compression utility
 scoop install main/gzip # Popular data compression utility
