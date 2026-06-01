@@ -12,6 +12,7 @@ vim.filetype.add({
 		[".*%.json%.tmpl"] = "json",
 		[".*%.lua%.tmpl"] = "lua",
 		[".*%.sh%.tmpl"] = "sh",
+		[".*%.py%.tmpl"] = "python",
 	},
 })
 
