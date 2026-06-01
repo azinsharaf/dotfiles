@@ -2187,11 +2187,19 @@ config.bind("wi", "devtools")
 # config.bind('n', 'prompt-accept no', mode='yesno')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
 
-# config.bind("<Ctrl-Shift-m>", "spawn mpv {url}")
-config.bind(";v", "hint links spawn --detach mpv {hint-url}")
-config.bind(
-    ";a",
-    "hint links spawn --detach mpv --no-video --force-window --osc {hint-url}",
-)
+## MPV Configuration
+## Launch mpv (detached) using our managed config dir (~/.config/mpv).
+## On Windows we must call mpv.exe (the GUI build) rather than letting PATH
+## resolve to mpv.com (the console build), otherwise spawning from a GUI app
+## fails to render the uosc theme properly. Use forward slashes in the path:
+## qutebrowser's `spawn` splits args shlex-style and eats backslashes, so a
+## Windows path with `\` gets mangled. mpv accepts `/` on Windows fine.
+{{- if eq .chezmoi.os "windows" }}
+config.bind(";v", r'hint links spawn -d mpv.exe --config-dir={{ .chezmoi.homeDir }}/.config/mpv {hint-url}')
+config.bind(";a", r'hint links spawn -d mpv.exe --config-dir={{ .chezmoi.homeDir }}/.config/mpv --no-video --force-window {hint-url}')
+{{- else }}
+config.bind(";v", r'hint links spawn -d mpv --config-dir={{ .chezmoi.homeDir }}/.config/mpv {hint-url}')
+config.bind(";a", r'hint links spawn -d mpv --config-dir={{ .chezmoi.homeDir }}/.config/mpv --no-video --force-window {hint-url}')
+{{- end }}
 
 config.bind("td", 'config-cycle colors.webpage.darkmode.enabled "True" "False" ')
