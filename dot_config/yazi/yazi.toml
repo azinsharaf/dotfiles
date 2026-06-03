@@ -103,20 +103,20 @@ fetchers = [
 	{ id = "mime", group = "mime", url = "local://*",  run = "mime.local", prio = "high" },
 	{ id = "mime", group = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
 ]
-spotters = [
-	{ url = "*/", run = "folder" },
-	# Code
-	{ mime = "text/*", run = "code" },
-	{ mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
-	# Image
-    { mime = "image/{avif,hei?,jxl}", run = "magick" },
-	{ mime = "image/svg+xml", run = "svg" },
-	{ mime = "image/*", run = "image" },
-	# Video
-	{ mime = "video/*", run = "video" },
-	# Fallback
-	{ url = "*", run = "file" },
-]
+# spotters = [
+# 	{ url = "*/", run = "folder" },
+# 	# Code
+# 	{ mime = "text/*", run = "code" },
+# 	{ mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
+# 	# Image
+#     { mime = "image/{avif,hei?,jxl}", run = "magick" },
+# 	{ mime = "image/svg+xml", run = "svg" },
+# 	{ mime = "image/*", run = "image" },
+# 	# Video
+# 	{ mime = "video/*", run = "video" },
+# 	# Fallback
+# 	{ url = "*", run = "file" },
+# ]
 preloaders = [
 	# Image
     { mime = "image/{avif,hei?,jxl}", run = "magick" },
@@ -254,9 +254,12 @@ url   = "remote://*"
 run   = "mime-ext.remote"
 prio  = "high"
 
-append_spotters = [
-    { url = "*", run = "file-extra-metadata" },
-]
+[[plugin.prepend_spotters]]
+id = "mime"
+group = "mime"
+url = "image/*"
+run = "spot-image"
+prio = "high"
 
 [input]
 cursor_blink = true
