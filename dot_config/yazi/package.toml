@@ -68,6 +68,16 @@ use = "pirafrank/what-size"
 rev = "179ebf6"
 hash = "38c0d8cdd02e7e52655e168dc07cd87"
 
+[[plugin.deps]]
+use = "AminurAlam/yazi-plugins:spot"
+rev = "6206bae"
+hash = "d7171f4bbf0537ee0a3ba768ac44f9b7"
+
+[[plugin.deps]]
+use = "AminurAlam/yazi-plugins:spot-image"
+rev = "6206bae"
+hash = "6f56023588a8a10fead646c6dac18d8c"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "0670801"
