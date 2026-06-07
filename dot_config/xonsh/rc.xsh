@@ -4,20 +4,45 @@ $XONSH_COLOR_STYLE = 'catppuccin-mocha'
 # Base
 
 import os as _os
-_h = _os.environ['USERPROFILE']  # e.g. C:\Users\azin
+_h = _os.environ['USERPROFILE']
 
 # Starship prompt
 xontrib load prompt_starship
+# xontrib load xxh
+xontrib load coreutils
 
 # Jedi — Python autocompletion (attributes, imports, docstrings)
 xontrib load jedi
 
+
+# General
+XONSH_INTERACTIVE = True
+
+# cd behavior
+$AUTO_CD = True
+
+# intractive prompt
+$SUGGEST_COMMAND = True
+$XONSH_HISTORY_MATCH_ANYWHERE = True
+$PRETTY_PRINT_RESULTS = True
+$AUTO_SUGGEST_IN_COMPLETIONS = True
+$VI_MODE = True
+$XONSH_USE_SYSTEM_CLIPBOARD = True
+$XONSH_PROMPT_CURSOR_SHAPE = 'modal-vi-mode-only'
+
+$XONSH_AUTOPAIR = True
+
+
 # History
-$XONSH_HISTORY_BACKEND = 'sqlite'
+$XONSH_HISTORY_BACKEND = 'json'
 $XONSH_HISTORY_SIZE = '10000 commands'
-$HISTCONTROL = {'ignoredups'}
+$HISTCONTROL = {'ignoredups', 'ignoreerr'}
 $XONSH_HISTORY_MATCH_ANYWHERE = True
 $XONSH_HISTORY_SAVE_CWD = True
+
+
+
+
 
 # Completion
 $FUZZY_PATH_COMPLETION = True
@@ -27,6 +52,8 @@ $COMPLETION_IN_THREAD = True
 $XONSH_PROMPT_AUTO_SUGGEST = True
 $UPDATE_COMPLETIONS_ON_KEYPRESS = True
 $COMPLETIONS_CONFIRM = False
+$CMD_COMPLETIONS_SHOW_DESC = True
+$COMPLETIONS_DISPLAY = 'single'
 
 # Navigation
 $AUTO_PUSHD = True
@@ -46,12 +73,9 @@ $XONSH_STYLE_OVERRIDES = {
 }
 
 # Input & Display
-$VI_MODE = True
-$XONSH_AUTOPAIR = True
-$XONSH_CTRL_BKSP_DELETION = True
+$XONSH_CTRL_BKSP_DELETION = False
 $COLOR_INPUT = True
 $PRETTY_PRINT_RESULTS = True
-$SUGGEST_COMMANDS = True
 $ENABLE_ASYNC_PROMPT = True
 
 # Environment
@@ -526,32 +550,12 @@ if 'scoop' in __xonsh__.completers:
     completer remove scoop
 completer add scoop _scoop_completer 'start'
 
-# Auto-select the single completion if there is only one match
-# Guard against duplicate registration when reload() re-sources this file
-if not globals().get('_auto_single_complete_registered'):
-    @events.on_ptk_create
-    def _auto_single_complete(bindings, **kw):
-        @bindings.add('tab')
-        def _smart_tab(event):
-            buf = event.current_buffer
-            if buf.complete_state:
-                # Menu already open — cycle to next item
-                buf.complete_next()
-            else:
-                # Start completion; auto-apply immediately if only one match
-                def _check_single(_):
-                    cs = buf.complete_state
-                    if cs and len(cs.completions) == 1:
-                        buf.apply_completion(cs.completions[0])
-                    buf.on_completions_changed -= _check_single
-                buf.on_completions_changed += _check_single
-                buf.start_completion(select_first=False)
-    _auto_single_complete_registered = True
+
 
 # Carapace — multi-shell multi-command argument completer
-$CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'  # use completions from other shells as fallback
-$CARAPACE_MATCH = 1                                 # case insensitive matching
-execx($(carapace _carapace), 'exec', __xonsh__.ctx, filename='carapace')
+$CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+$COMPLETIONS_CONFIRM=True
+exec($(carapace _carapace))
 
 # Zoxide — bootstraps z/zi commands into the session
 execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
