@@ -51,7 +51,6 @@ $COMPLETIONS_DISPLAY = 'single'
 $COMPLETION_IN_THREAD = True
 $XONSH_PROMPT_AUTO_SUGGEST = True
 $UPDATE_COMPLETIONS_ON_KEYPRESS = True
-$COMPLETIONS_CONFIRM = False
 $CMD_COMPLETIONS_SHOW_DESC = True
 $COMPLETIONS_DISPLAY = 'single'
 
@@ -559,4 +558,8 @@ exec($(carapace _carapace))
 
 # Zoxide — bootstraps z/zi commands into the session
 execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
+
+# Restore single-Enter behavior — carapace sets COMPLETIONS_CONFIRM=True which forces
+# two Enters (one to accept, one to run). Override after all init blocks.
+$COMPLETIONS_CONFIRM = False
 
