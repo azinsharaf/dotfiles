@@ -85,6 +85,7 @@ $COLORTERM     = 'truecolor'
 $SHELL         = _h + r'\.venvs\xonsh\Scripts\xonsh.exe'
 
 $TMP           = _h + r'\.tmp'
+$TMPDIR        = _h + r'\.tmp'
 
 $XDG_CONFIG_HOME         = _h + r'\.config'
 $MPV_HOME                = _h + r'\.config\mpv'
