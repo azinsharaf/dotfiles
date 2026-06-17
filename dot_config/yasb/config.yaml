@@ -821,7 +821,7 @@ widgets:
         enabled: true
         label: "<span>\u24c8</span> {count}"
         interval: 240
-        exclude: []
+        exclude: ["YASB"]
 
   update_winget:
     type: "yasb.update_check.UpdateCheckWidget"
