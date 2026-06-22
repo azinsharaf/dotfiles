@@ -1,5 +1,5 @@
 # Syntax highlighting theme (pygments style)
-$XONSH_COLOR_STYLE = 'catppuccin-mocha'
+# $XONSH_COLOR_STYLE = 'catppuccin-mocha'
 
 # Base
 
