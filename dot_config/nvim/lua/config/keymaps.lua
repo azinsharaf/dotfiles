@@ -34,3 +34,7 @@ keymap("n", "g#", "g#zz", opts) -- move highlighted rows
 keymap("n", "<RightMouse>", "<cmd>:popup PopUp<CR>")
 
 keymap("n", "<leader>ts", ":set spell!<CR>", { desc = "Toggle Spell Check" })
+
+-- markdown task/checkbox creation
+keymap("n", "<leader>mt", "o- [ ] ", { desc = "Create markdown task" })
+keymap("i", "<C-t>", "- [ ] ", { desc = "Insert markdown task" })
