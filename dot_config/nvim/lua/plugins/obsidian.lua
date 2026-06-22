@@ -104,16 +104,6 @@ return {
 	config = function()
 		-- Configure obsidian.nvim with the valid workspace
 		require("obsidian").setup({
-			legacy_commands = false,
-
-			---@class obsidian.config.StatuslineOpts
-			---
-			---@field format? string
-			---@field enabled? boolean
-			-- footer = {
-			-- 	format = "{{backlinks}} backlinks  {{properties}} properties  {{words}} words  {{chars}} chars",
-			-- 	enabled = true,
-			-- },
 
 			workspaces = {
 				{ name = "personal_notes", path = get_vault_paths().personal_notes },
@@ -122,6 +112,7 @@ return {
 			link = {
 				style = "wiki",
 				format = "shortest",
+				auto_update = false,
 			},
 
 			log_level = vim.log.levels.INFO,
@@ -129,6 +120,7 @@ return {
 			-- wiki_link_func = require("obsidian.builtin").wiki_link_id_prefix,
 			-- markdown_link_func = require("obsidian.builtin").markdown_link,
 			open_notes_in = "current",
+			legacy_commands = false,
 
 			---@class obsidian.config.FrontmatterOpts
 			---
@@ -146,14 +138,6 @@ return {
 				func = require("obsidian.builtin").frontmatter,
 				sort = { "id", "aliases", "tags" },
 			},
-
-			-- Optional, completion of wiki links, local markdown links, and tags using nvim-cmp.
-			-- completion = {
-			-- 	-- Set to false to disable completion.
-			-- 	nvim_cmp = true,
-			-- 	-- Trigger completion
-			-- 	min_chars = 1,
-			-- },
 
 			daily_notes = {
 				folder = "5 - Daily Notes/" .. os.date("%Y") .. "/" .. os.date("%m-%B"),
@@ -176,40 +160,7 @@ return {
 			search = {
 				sort_by = "modified",
 				sort_reversed = true,
-			},
-			max_lines = 1000,
-
-			-- Optional, configure additional syntax highlighting / extmarks.
-			-- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
-			ui = {
-				enable = false, -- set to false to disable all additional syntax features
-				ignore_conceal_warn = false,
-				update_debounce = 200, -- update delay after a text change (in milliseconds)
-				max_file_length = 5000, -- disable UI features for files with more than this many lines
-
-				-- Use bullet marks for non-checkbox lists.
-				bullets = { char = "•", hl_group = "ObsidianBullet" },
-				external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
-				-- Replace the above with this if you don't have a patched font:
-				-- external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
-				reference_text = { hl_group = "ObsidianRefText" },
-				highlight_text = { hl_group = "ObsidianHighlightText" },
-				tags = { hl_group = "ObsidianTag" },
-				block_ids = { hl_group = "ObsidianBlockID" },
-				hl_groups = {
-					-- The options are passed directly to `vim.api.nvim_set_hl()`. See `:help nvim_set_hl`.
-					ObsidianTodo = { bold = true, fg = "#f78c6c" },
-					ObsidianDone = { bold = true, fg = "#89ddff" },
-					ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
-					ObsidianTilde = { bold = true, fg = "#ff5370" },
-					ObsidianImportant = { bold = true, fg = "#d73128" },
-					ObsidianBullet = { bold = true, fg = "#89ddff" },
-					ObsidianRefText = { underline = true, fg = "#c792ea" },
-					ObsidianExtLinkIcon = { fg = "#c792ea" },
-					ObsidianTag = { italic = true, fg = "#89ddff" },
-					ObsidianBlockID = { italic = true, fg = "#89ddff" },
-					ObsidianHighlightText = { bg = "#75662e" },
-				},
+				max_lines = 1000,
 			},
 
 			---@class obsidian.config.AttachmentsOpts
@@ -247,20 +198,20 @@ return {
 				separator = string.rep("-", 80),
 			},
 
-			---@class obsidian.config.CheckboxOpts
-			---
-			---@field enabled? boolean
-			---
-			---Order of checkbox state chars, e.g. { " ", "x" }
-			---@field order? string[]
-			---
-			---Whether to create new checkbox on paragraphs
-			---@field create_new? boolean
-			checkbox = {
-				enabled = true,
-				create_new = true,
-				order = { " ", "x", "~", "!", ">" },
-			},
+		---@class obsidian.config.CheckboxOpts
+		---
+		---@field enabled? boolean
+		---
+		---Order of checkbox state chars, e.g. { " ", "x" }
+		---@field order? string[]
+		---
+		---Whether to create new checkbox on paragraphs
+		---@field create_new? boolean
+		checkbox = {
+			enabled = false,
+			create_new = true,
+			order = { " ", "x", "~", "!", ">" },
+		},
 
 			---@class obsidian.config.CommentOpts
 			---@field enabled boolean
@@ -278,7 +229,7 @@ return {
 		{ "<leader>ot", "<cmd>Obsidian today<cr>", desc = "Obsidian Today" },
 		{ "<leader>oy", "<cmd>Obsidian yesterday<cr>", desc = "Obsidian Yesterday" },
 		{ "<leader>ow", "<cmd>Obsidian search<cr>", desc = "Obsidian Search Word" },
-		{ "<leader>ow", "<cmd>Obsidian workspace<cr>", desc = "Obsidian Workspace" },
+		{ "<leader>oW", "<cmd>Obsidian workspace<cr>", desc = "Obsidian Workspace" },
 		{ "<leader>oc", "<cmd>Obsidian toggle_checkbox<cr>", desc = "Toggle Checkbox" },
 		{ "<leader>op", "<cmd>GitPullObsidian<cr>", desc = "Obsidian Git Pull" },
 		{ "<leader>oP", "<cmd>GitPushObsidian<cr>", desc = "Obsidian Git Push" },
