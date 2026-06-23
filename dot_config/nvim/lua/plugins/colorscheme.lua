@@ -1,7 +1,15 @@
 -- Define the default colorscheme here
-local default_colorscheme = "catppuccin-mocha" -- Change this line to "catppuccin-mocha" or "nord" as needed
+local default_colorscheme = "tokyonight-night" -- Change this line to "catppuccin-mocha" or "nord" as needed
 
 return {
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		enabled = true,
+		priority = 1000,
+		opts = {},
+	},
+
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
