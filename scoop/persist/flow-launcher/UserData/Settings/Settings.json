@@ -20,7 +20,7 @@
   "CycleHistoryDownHotkey": "Alt \u002B Down",
   "DialogJumpHotkey": "Alt \u002B G",
   "Language": "system",
-  "Theme": "Catppuccin Mocha",
+  "Theme": "tokyonight",
   "UseDropShadowEffect": true,
   "BackdropType": 0,
   "ReleaseNotesVersion": "2.1.1",
@@ -193,9 +193,7 @@
         "ID": "0ECADE17459B49F587BF81DC3A125110",
         "Name": "Browser Bookmarks",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "b"
-        ],
+        "ActionKeywords": ["b"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": false,
@@ -205,16 +203,7 @@
         "ID": "572be03c74c642baae319fc283e561a8",
         "Name": "Explorer",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "doc:",
-          "*",
-          "*",
-          "*",
-          "q",
-          "*",
-          "f",
-          "*"
-        ],
+        "ActionKeywords": ["doc:", "*", "*", "*", "q", "*", "f", "*"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": false,
@@ -224,9 +213,7 @@
         "ID": "6A122269676E40EB86EB543B945932B9",
         "Name": "Plugin Indicator",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "?"
-        ],
+        "ActionKeywords": ["?"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": true,
@@ -236,9 +223,7 @@
         "ID": "9f8f9b14-2518-4907-b211-35ab6290dee7",
         "Name": "Plugins Manager",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "pm"
-        ],
+        "ActionKeywords": ["pm"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": true,
@@ -248,9 +233,7 @@
         "ID": "b64d0a79-329a-48b0-b53f-d658318a1bf6",
         "Name": "Process Killer",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "kill"
-        ],
+        "ActionKeywords": ["kill"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": false,
@@ -260,9 +243,7 @@
         "ID": "791FC278BA414111B8D1886DFE447410",
         "Name": "Program",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "*"
-        ],
+        "ActionKeywords": ["*"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": false,
@@ -272,9 +253,7 @@
         "ID": "D409510CD0D2481F853690A07E6DC426",
         "Name": "Shell",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "\u003E"
-        ],
+        "ActionKeywords": ["\u003E"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": false,
@@ -284,9 +263,7 @@
         "ID": "CEA08895D2544B019B2E9C5009600DF4",
         "Name": "System Commands",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "*"
-        ],
+        "ActionKeywords": ["*"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": false,
@@ -296,9 +273,7 @@
         "ID": "0308FD86DE0A4DEE8D62B9B535370992",
         "Name": "URL",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "*"
-        ],
+        "ActionKeywords": ["*"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": true,
@@ -308,9 +283,7 @@
         "ID": "565B73353DBF4806919830B9202EE3BF",
         "Name": "Web Searches",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "duckduckgo"
-        ],
+        "ActionKeywords": ["duckduckgo"],
         "Priority": 0,
         "SearchDelayTime": 450,
         "Disabled": false,
@@ -320,9 +293,7 @@
         "ID": "5043CETYU6A748679OPA02D27D99677A",
         "Name": "Windows Settings",
         "Version": "2.0.3",
-        "ActionKeywords": [
-          "*"
-        ],
+        "ActionKeywords": ["*"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": false,
@@ -332,9 +303,7 @@
         "ID": "CEA0FDFC6D3B4085823D60DC76F28855",
         "Name": "Calculator",
         "Version": "2.1.0",
-        "ActionKeywords": [
-          "*"
-        ],
+        "ActionKeywords": ["*"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": true,
@@ -344,9 +313,7 @@
         "ID": "028C97F910684231AB09B5DD5997D424",
         "Name": "Obsidian",
         "Version": "1.1.1",
-        "ActionKeywords": [
-          "ob"
-        ],
+        "ActionKeywords": ["ob"],
         "Priority": 0,
         "SearchDelayTime": null,
         "Disabled": false,
@@ -355,3 +322,4 @@
     }
   }
 }
+
