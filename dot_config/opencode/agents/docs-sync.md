@@ -1,7 +1,6 @@
 ---
 description: Checks if the last commit warrants documentation updates and applies targeted edits to README.md and docs/. Called automatically after commits — do not invoke directly.
 mode: subagent
-model: anthropic/claude-haiku-4.5
 permission:
   bash:
     "git diff*": allow
