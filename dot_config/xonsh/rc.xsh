@@ -1,5 +1,96 @@
-# Syntax highlighting theme (pygments style)
-# $XONSH_COLOR_STYLE = 'catppuccin-mocha'
+# Syntax highlighting theme (pygments style) — Tokyo Night Night
+from xonsh.tools import register_custom_style
+
+_tokyonight_night = {
+    # ---- Base palette (named colors) ----
+    "BLACK":   "#15161e",
+    "RED":     "#f7768e",
+    "GREEN":   "#9ece6a",
+    "YELLOW":  "#e0af68",
+    "BLUE":    "#7aa2f7",
+    "MAGENTA": "#bb9af7",
+    "CYAN":    "#7dcfff",
+    "WHITE":   "#a9b1d6",
+    "INTENSE_BLACK":   "#414868",
+    "INTENSE_RED":     "#ff5874",
+    "INTENSE_GREEN":   "#a3d97a",
+    "INTENSE_YELLOW":  "#f9c574",
+    "INTENSE_BLUE":    "#7da6ff",
+    "INTENSE_MAGENTA": "#c8a4f7",
+    "INTENSE_CYAN":    "#a4cdff",
+    "INTENSE_WHITE":   "#d8dee9",
+    "BACKGROUND":      "#1a1b26",
+    "TEXT":            "#c0caf5",
+    "SELECTION":       "#283457",
+    "COMMENT":         "#565f89",
+
+    # ---- Pygments token overrides (Tokyo Night Night mapping) ----
+    "Token.Literal.String.Single":            "#9ece6a",
+    "Token.Literal.String.Double":            "#9ece6a",
+    "Token.Literal.String.Backtick":          "#9ece6a",
+    "Token.Literal.String.Heredoc":           "#9ece6a",
+    "Token.Literal.String.Regex":             "#bb9af7",
+    "Token.Literal.String.Escape":            "#bb9af7",
+    "Token.Literal.String.Interpol":          "#bb9af7",
+    "Token.Literal.String.Symbol":            "#7dcfff",
+    "Token.Literal.String.Other":             "#9ece6a",
+    "Token.Literal.Number":                   "#ff9e64",
+    "Token.Literal.Number.Integer":           "#ff9e64",
+    "Token.Literal.Number.Float":             "#ff9e64",
+    "Token.Literal.Number.Bin":               "#ff9e64",
+    "Token.Literal.Number.Hex":               "#ff9e64",
+    "Token.Literal.Number.Oct":               "#ff9e64",
+    "Token.Literal.Date":                     "#7dcfff",
+
+    "Token.Keyword":                          "#bb9af7",
+    "Token.Keyword.Constant":                 "#bb9af7",
+    "Token.Keyword.Declaration":              "#bb9af7 bold",
+    "Token.Keyword.Namespace":                "#bb9af7",
+    "Token.Keyword.Pseudo":                   "#565f89",
+    "Token.Keyword.Reserved":                 "#bb9af7",
+    "Token.Keyword.Type":                     "#e0af68",
+
+    "Token.Name.Builtin":                     "#7dcfff",
+    "Token.Name.Builtin.Pseudo":              "#7dcfff",
+    "Token.Name.Function":                    "#7aa2f7",
+    "Token.Name.Function.Magic":              "#bb9af7",
+    "Token.Name.Class":                       "#e0af68 bold",
+    "Token.Name.Decorator":                   "#bb9af7",
+    "Token.Name.Exception":                   "#f7768e",
+    "Token.Name.Label":                       "#7aa2f7",
+    "Token.Name.Tag":                         "#f7768e",
+    "Token.Name.Variable":                   "#c0caf5",
+    "Token.Name.Variable.Magic":             "#bb9af7",
+    "Token.Name.Variable.Global":            "#c0caf5",
+    "Token.Name.Variable.Class":             "#c0caf5",
+    "Token.Name.Variable.Instance":          "#c0caf5",
+    "Token.Name.Constant":                    "#ff9e64",
+    "Token.Name.Attribute":                   "#7dcfff",
+
+    "Token.Operator":                         "#89ddff",
+    "Token.Operator.Word":                    "#bb9af7",
+    "Token.Punctuation":                      "#c0caf5",
+    "Token.Punctuation.Marker":               "#565f89",
+
+    "Token.Comment":                          "#565f89 italic",
+    "Token.Comment.Single":                   "#565f89 italic",
+    "Token.Comment.Multiline":                "#565f89 italic",
+    "Token.Comment.Preproc":                  "#bb9af7",
+    "Token.Comment.PreprocFile":              "#565f89",
+
+    "Token.Generic.Heading":                  "#7aa2f7 bold",
+    "Token.Generic.Subheading":               "#7aa2f7 bold",
+    "Token.Generic.Emph":                     "#c0caf5 italic",
+    "Token.Generic.Strong":                   "#c0caf5 bold",
+    "Token.Generic.Output":                   "#565f89",
+    "Token.Generic.Deleted":                  "#f7768e bg:#1a1b26",
+    "Token.Generic.Inserted":                 "#9ece6a bg:#1a1b26",
+    "Token.Generic.Traceback":                "#f7768e",
+    "Token.Generic.Error":                    "#f7768e",
+}
+
+register_custom_style("tokyonight-night", _tokyonight_night, base="default")
+$XONSH_COLOR_STYLE = "tokyonight-night"
 
 # Base
 
@@ -59,16 +150,16 @@ $AUTO_PUSHD = True
 $DIRSTACK_SIZE = 50
 $DOTGLOB = True
 
-# Completion menu style — Catppuccin Mocha
+# Completion menu style — Tokyo Night Night
 # String keys avoid RuntimeWarning from xonsh's to_dict() when the env var is serialised
 $XONSH_STYLE_OVERRIDES = {
-    'Token.PTK.CompletionMenu':                         'bg:#313244 #cdd6f4',        # menu background / text
-    'Token.PTK.CompletionMenu.Completion':              'bg:#313244 #cdd6f4',        # each item
-    'Token.PTK.CompletionMenu.Completion.Current':      'bg:#45475a #cba6f7 bold',   # selected item (mauve)
-    'Token.PTK.CompletionMenu.Meta.Completion':         'bg:#313244 #6c7086',        # description text (dimmed)
-    'Token.PTK.CompletionMenu.Meta.Completion.Current': 'bg:#45475a #89b4fa',        # selected description (blue)
-    'Token.PTK.Scrollbar':                              'bg:#313244',
-    'Token.PTK.Scrollbar.Button':                       'bg:#cba6f7',
+    'Token.PTK.CompletionMenu':                         'bg:#1a1b26 #c0caf5',        # menu background / text
+    'Token.PTK.CompletionMenu.Completion':              'bg:#1a1b26 #c0caf5',        # each item
+    'Token.PTK.CompletionMenu.Completion.Current':      'bg:#283457 #bb9af7 bold',   # selected item (purple)
+    'Token.PTK.CompletionMenu.Meta.Completion':         'bg:#1a1b26 #565f89',        # description text (dimmed)
+    'Token.PTK.CompletionMenu.Meta.Completion.Current': 'bg:#283457 #7dcfff',        # selected description (cyan)
+    'Token.PTK.Scrollbar':                              'bg:#1a1b26',
+    'Token.PTK.Scrollbar.Button':                       'bg:#bb9af7',
 }
 
 # Input & Display
