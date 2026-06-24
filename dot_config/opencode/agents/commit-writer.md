@@ -1,7 +1,6 @@
 ---
 description: Generates a Conventional Commits message from staged changes. Called by git-commit and git-all — do not invoke directly.
 mode: subagent
-model: anthropic/claude-haiku-4.5
 permission:
   bash:
     "git diff*": allow
