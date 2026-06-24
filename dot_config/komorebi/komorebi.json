@@ -64,11 +64,11 @@
       "matching_strategy": "Equals"
     },
 
-    // {
-    //   "kind": "Title",
-    //   "id": "Workspot",
-    //   "matching_strategy": "Equals"
-    // },
+    {
+      "kind": "Title",
+      "id": "Workspot",
+      "matching_strategy": "Equals"
+    },
 
     {
       "kind": "Title",
