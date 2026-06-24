@@ -11,6 +11,7 @@ description: Use when working on Python files, writing or fixing tests, implemen
 - Activate the project env before running anything: `conda activate <env-name>`
 - If `environment.yml` is absent, check `pyproject.toml` `[project.dependencies]` or `[project.optional-dependencies]`
 - Never suggest `pip install` for packages that are better served by conda-forge (e.g. GDAL, GEOS, Proj)
+- use ArcGIS Pro python interpreter if `arcpy` library is used in the code.
 
 ---
 
@@ -49,6 +50,7 @@ description: Use when working on Python files, writing or fixing tests, implemen
 - Required on: all public classes, all public functions/methods, all modules
 - Omit for private helpers (`_name`) unless the logic is non-obvious
 - Example:
+
   ```python
   def get_info(self, limit: int | None = None) -> dict:
       """Return metadata about the dataset.
