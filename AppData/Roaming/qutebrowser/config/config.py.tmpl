@@ -14,15 +14,19 @@
 c = c  # noqa: F821 pylint: disable=E0602,C0103
 config = config  # noqa: F821 pylint: disable=E0602,C0103
 
-import catppuccin
 
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
 config.load_autoconfig(False)
+
 # set the flavor you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
 # last argument (optional, default is False): enable the plain look for the menu rows
-catppuccin.setup(c, "mocha", True)
+# import catppuccin
+# catppuccin.setup(c, "mocha", True)
+
+# tokyonight theme
+config.source(r"{{ .chezmoi.homeDir }}\AppData\Roaming\qutebrowser\config\tokyonight\tokyonight.py")
 
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
@@ -1508,7 +1512,7 @@ c.statusbar.position = "bottom"
 ##   - always: Always show the statusbar.
 ##   - never: Always hide the statusbar.
 ##   - in-mode: Show the statusbar when in modes other than normal mode.
-c.statusbar.show = "in-mode"
+c.statusbar.show = "always"
 
 ## List of widgets displayed in the statusbar.
 ## Type: List of StatusbarWidget
