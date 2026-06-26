@@ -69,7 +69,7 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.modifiable = true
 -- opt.guicursor = ""
 opt.encoding = "UTF-8"
-opt.showmode = true
+opt.showmode = false
 opt.updatetime = 50
 
 -- Terminal escape sequence timeout (helps with kitty keyboard protocol via Zellij)
