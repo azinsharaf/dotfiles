@@ -549,7 +549,10 @@ c.content.javascript.enabled = True
 ## qutebrowser's stylesheet handling are excluded, as those errors are to
 ## be expected and can't be easily handled by the underlying code.
 ## Type: Dict
-# c.content.javascript.log_message.excludes = {'userscript:_qute_stylesheet': ['*Refused to apply inline style because it violates the following Content Security Policy directive: *']}
+c.content.javascript.log_message.excludes = {
+    'userscript:_qute_stylesheet': ['*Refused to apply inline style because it violates the following Content Security Policy directive: *'],
+    'userscript:_qute_js:*': ['*TrustedHTML*'],
+}
 
 ## Javascript message sources/levels to show in the qutebrowser UI. When
 ## a JavaScript message is logged from a location matching the glob
@@ -1497,7 +1500,7 @@ c.search.wrap_messages = True
 
 ## Padding (in pixels) for the statusbar.
 ## Type: Padding
-# c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 0}
+c.statusbar.padding = {"top": 5, "bottom": 5, "left": 0, "right": 0}
 
 ## Position of the status bar.
 ## Type: VerticalPosition
