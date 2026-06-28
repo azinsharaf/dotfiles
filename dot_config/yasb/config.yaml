@@ -490,7 +490,7 @@ widgets:
         max_length: 30
       ignore_apps:
         processes: []
-        titles: []
+        titles: ["Remote Desktop"]
         classes: []
 
   bluetooth:
