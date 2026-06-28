@@ -1,42 +1,42 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "5d5c480"
+rev = "39aaf6d"
 hash = "1e3b6c8b03dae81c3672ec9e9700b666"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "5d5c480"
+rev = "39aaf6d"
 hash = "b94720e0ef40cb0e97093fabd9694775"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "5d5c480"
+rev = "39aaf6d"
 hash = "6e67c36d6c25fc84cb0976aac8a3ff5"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "5d5c480"
-hash = "bef05511fab6c6414990eb48003582b9"
+rev = "39aaf6d"
+hash = "22bd6d4fe14524e79a0818d705b85d99"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "5d5c480"
+rev = "39aaf6d"
 hash = "c8695b60cdf205d9ee71efcba4fd40af"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "5d5c480"
-hash = "77c0dd89349f367282c5ea1999754915"
+rev = "39aaf6d"
+hash = "aa5b4b4167d71c59b8b662cf9761c435"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:zoom"
-rev = "5d5c480"
-hash = "95b6348b374ab93067073759987d84ce"
+rev = "39aaf6d"
+hash = "32d16404a732394aaef697f7f6020908"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "a837101"
-hash = "d396365cef932fce588b80df69438f2e"
+rev = "159eaba"
+hash = "495954995e4130980ca81b23c5f03bbe"
 
 [[plugin.deps]]
 use = "Tyarel8/goto-drives"
@@ -50,12 +50,12 @@ hash = "fc77f2bd3aad78199fbe11b727b1954f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "5d5c480"
+rev = "39aaf6d"
 hash = "cdc2f9417e2f0785dfd3c9871b8738bb"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:no-status"
-rev = "5d5c480"
+rev = "39aaf6d"
 hash = "b6467b3358393ba82b38dd9f20915227"
 
 [[plugin.deps]]
@@ -66,19 +66,19 @@ hash = "781c565bf90759ef5f72e648cf1fb6f8"
 [[plugin.deps]]
 use = "pirafrank/what-size"
 rev = "179ebf6"
-hash = "38c0d8cdd02e7e52655e168dc07cd87"
+hash = "57056b9728006881d580ccabe8154a9c"
 
 [[plugin.deps]]
 use = "AminurAlam/yazi-plugins:spot"
-rev = "6206bae"
-hash = "d7171f4bbf0537ee0a3ba768ac44f9b7"
+rev = "ce325af"
+hash = "b5dbd1d4ead010b28f6818f7b3404954"
 
 [[plugin.deps]]
 use = "AminurAlam/yazi-plugins:spot-image"
-rev = "6206bae"
-hash = "6f56023588a8a10fead646c6dac18d8c"
+rev = "ce325af"
+hash = "21b20480575c2da3ea2d849da1f4d5d1"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "0670801"
+rev = "4770a34"
 hash = "5ebc8659108fcb68fe853e523115ed3c"
