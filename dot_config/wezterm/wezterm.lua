@@ -50,12 +50,6 @@ local config = {
 	},
 	-- Force high-performance power profile (mostly for hybrid GPUs; harmless on desktop).
 	webgpu_power_preference = "HighPerformance",
-	-- Same explicit target for the OpenGL A/B path (`WEZTERM_FE=opengl`).
-	webgl2_preferred_adapter = {
-		backend = "Discrete",
-		device_type = "DiscreteGpu",
-		name = "NVIDIA GeForce RTX 4070 SUPER",
-	},
 	-- max_fps = 240,  -- uncomment for max smoothness on 240Hz; 120 is the sweet spot
 	max_fps = 120,
 	window_background_opacity = 1.0, -- Fully transparent terminal: let the desktop show through
