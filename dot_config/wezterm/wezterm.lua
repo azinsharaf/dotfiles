@@ -41,29 +41,23 @@ local config = {
 	enable_kitty_keyboard = false,
 	enable_csi_u_key_encoding = false,
 	front_end = "WebGpu",
-	-- webgpu_preferred_adapter = (function()
-	-- 	if computer_name == "Azin-Desktop" then
-	-- 		return {
-	-- 			backend = "Vulkan",
-	-- 			device_type = "DiscreteGpu",
-	-- 			name = "NVIDIA GeForce RTX 4070 SUPER",
-	-- 		}
-	-- 	elseif computer_name == "Machine2" then
-	-- 		return {
-	-- 			backend = "Vulkan",
-	-- 			device_type = "DiscreteGpu",
-	-- 			name = "Another GPU Name",
-	-- 		}
-	-- 	else
-	-- 		return {
-	-- 			backend = "Vulkan",
-	-- 			device_type = "DiscreteGpu",
-	-- 			name = "Default GPU Name",
-	-- 		}
-	-- 	end
-	-- end)(),
-	-- max_fps = 240,  -- uncomment for 240Hz panels; 60 is gentler on OLED and avoids glyph tearing
-	max_fps = 60,
+	-- Explicitly target the discrete NVIDIA GPU via Vulkan. Without this,
+	-- WebGpu may pick the iGPU on hybrid systems or fall back to DX12.
+	webgpu_preferred_adapter = {
+		backend = "Vulkan",
+		device_type = "DiscreteGpu",
+		name = "NVIDIA GeForce RTX 4070 SUPER",
+	},
+	-- Force high-performance power profile (mostly for hybrid GPUs; harmless on desktop).
+	webgpu_power_preference = "HighPerformance",
+	-- Same explicit target for the OpenGL A/B path (`WEZTERM_FE=opengl`).
+	webgl2_preferred_adapter = {
+		backend = "Discrete",
+		device_type = "DiscreteGpu",
+		name = "NVIDIA GeForce RTX 4070 SUPER",
+	},
+	-- max_fps = 240,  -- uncomment for max smoothness on 240Hz; 120 is the sweet spot
+	max_fps = 120,
 	window_background_opacity = 1.0, -- Fully transparent terminal: let the desktop show through
 	text_background_opacity = 1.0, -- Text backgrounds opaque relative to window
 
