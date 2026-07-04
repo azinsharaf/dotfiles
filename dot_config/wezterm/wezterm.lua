@@ -40,14 +40,16 @@ local config = {
 	scrollback_lines = 5000,
 	enable_kitty_keyboard = false,
 	enable_csi_u_key_encoding = false,
-	front_end = "OpenGL",
-	-- WebGpu-specific (inert while front_end = "OpenGL"; uncomment to test WebGpu).
-	-- webgpu_preferred_adapter = {
-	-- 	backend = "Vulkan",
-	-- 	device_type = "DiscreteGpu",
-	-- 	name = "NVIDIA GeForce RTX 4070 SUPER",
-	-- },
-	-- webgpu_power_preference = "HighPerformance",
+	front_end = "WebGpu",
+	-- Explicitly target the discrete NVIDIA GPU via Vulkan. Without this,
+	-- WebGpu may pick the iGPU on hybrid systems or fall back to DX12.
+	webgpu_preferred_adapter = {
+		backend = "Vulkan",
+		device_type = "DiscreteGpu",
+		name = "NVIDIA GeForce RTX 4070 SUPER",
+	},
+	-- Force high-performance power profile (mostly for hybrid GPUs; harmless on desktop).
+	webgpu_power_preference = "HighPerformance",
 	-- max_fps = 240,  -- uncomment for max smoothness on 240Hz; 120 is the sweet spot
 	max_fps = 240,
 	window_background_opacity = 0.95, -- Fully transparent terminal: let the desktop show through
