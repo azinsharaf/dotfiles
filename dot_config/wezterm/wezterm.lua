@@ -13,7 +13,7 @@ local config = {
 	color_scheme = "tokyonight-soft",
 
 	-- Font rendering (Mac-like crispness on Windows)
-	font_size = 15,
+	font_size = 14,
 	line_height = 1.15,
 	cell_width = 1.0,
 	freetype_load_target = "HorizontalLcd",
