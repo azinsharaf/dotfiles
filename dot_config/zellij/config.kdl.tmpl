@@ -640,31 +640,31 @@ plugins {
         welcome_screen true
     }
     zjstatus location="file:~/.config/zellij/plugins/zjstatus.wasm" {
-        format_left "{mode} #[fg=#CDD6F4,bg=#181825,bold] {session} "
+        format_left "{mode} #[fg=#CDD6F4,bg=#1a1b26,bold] {session} "
         format_center "{tabs}"
         format_right "{datetime}"
-        format_space "#[bg=#181825]"
-        mode_normal "#[fg=#1E1E2E,bg=#89B4FA,bold] NORMAL #[bg=#181825]"
-        mode_locked "#[fg=#1E1E2E,bg=#F38BA8,bold] LOCKED #[bg=#181825]"
-        mode_resize "#[fg=#1E1E2E,bg=#FAB387,bold] RESIZE #[bg=#181825]"
-        mode_pane "#[fg=#1E1E2E,bg=#A6E3A1,bold] PANE #[bg=#181825]"
-        mode_move "#[fg=#1E1E2E,bg=#94E2D5,bold] MOVE #[bg=#181825]"
-        mode_tab "#[fg=#1E1E2E,bg=#74C7EC,bold] TAB #[bg=#181825]"
-        mode_scroll "#[fg=#1E1E2E,bg=#89DCEB,bold] SCROLL #[bg=#181825]"
-        mode_search "#[fg=#1E1E2E,bg=#B4BEFE,bold] SEARCH #[bg=#181825]"
-        mode_enter_search "#[fg=#1E1E2E,bg=#CBA6F7,bold] ENTERSEARCH #[bg=#181825]"
-        mode_rename_tab "#[fg=#1E1E2E,bg=#F9E2AF,bold] RENAMETAB #[bg=#181825]"
-        mode_rename_pane "#[fg=#1E1E2E,bg=#F2CDCD,bold] RENAMEPANE #[bg=#181825]"
-        mode_session "#[fg=#1E1E2E,bg=#EBA0AC,bold] SESSION #[bg=#181825]"
-        mode_tmux "#[fg=#1E1E2E,bg=#ffc387,bold] CMD #[bg=#181825]"
+        format_space "#[bg=#1a1b26]"
+        mode_normal "#[fg=#1E1E2E,bg=#89B4FA,bold] NORMAL #[bg=#1a1b26]"
+        mode_locked "#[fg=#1E1E2E,bg=#F38BA8,bold] LOCKED #[bg=#1a1b26]"
+        mode_resize "#[fg=#1E1E2E,bg=#FAB387,bold] RESIZE #[bg=#1a1b26]"
+        mode_pane "#[fg=#1E1E2E,bg=#A6E3A1,bold] PANE #[bg=#1a1b26]"
+        mode_move "#[fg=#1E1E2E,bg=#94E2D5,bold] MOVE #[bg=#1a1b26]"
+        mode_tab "#[fg=#1E1E2E,bg=#74C7EC,bold] TAB #[bg=#1a1b26]"
+        mode_scroll "#[fg=#1E1E2E,bg=#89DCEB,bold] SCROLL #[bg=#1a1b26]"
+        mode_search "#[fg=#1E1E2E,bg=#B4BEFE,bold] SEARCH #[bg=#1a1b26]"
+        mode_enter_search "#[fg=#1E1E2E,bg=#CBA6F7,bold] ENTERSEARCH #[bg=#1a1b26]"
+        mode_rename_tab "#[fg=#1E1E2E,bg=#F9E2AF,bold] RENAMETAB #[bg=#1a1b26]"
+        mode_rename_pane "#[fg=#1E1E2E,bg=#F2CDCD,bold] RENAMEPANE #[bg=#1a1b26]"
+        mode_session "#[fg=#1E1E2E,bg=#EBA0AC,bold] SESSION #[bg=#1a1b26]"
+        mode_tmux "#[fg=#1E1E2E,bg=#ffc387,bold] CMD #[bg=#1a1b26]"
         // mode_default_to_mode "normal"
-        tab_normal "#[fg=#6C7086,bg=#181825] {index}:{name}"
-        tab_active "#[fg=#1E1E2E,bg=#89B4FA,bold] {index}:{name} #[fg=#89B4FA,bg=#181825,bold]"
-        tab_separator "#[fg=#6C7086,bg=#181825] | "
+        tab_normal "#[fg=#6C7086,bg=#1a1b26] {index}:{name}"
+        tab_active "#[fg=#1E1E2E,bg=#89B4FA,bold] {index}:{name} #[fg=#89B4FA,bg=#1a1b26,bold]"
+        tab_separator "#[fg=#6C7086,bg=#1a1b26] | "
         tab_fullscreen_indicator "□ "
         tab_sync_indicator "  "
         tab_floating_indicator "󰉈 "
-        datetime "#[fg=#9399B2,bg=#181825] {format} "
+        datetime "#[fg=#9399B2,bg=#1a1b26] {format} "
         datetime_format "%a %b %d %I:%M %p"
         datetime_timezone "US/Pacific"
         // Note: this is necessary or else zjstatus won't render the pipe:
@@ -824,6 +824,15 @@ layout_dir "{{ .chezmoi.homeDir }}/.config/zellij/layouts"
 //   - false
 //
 pane_frames true
+
+// UI styling: rounded pane-frame corners for a softer look
+// (Requires restart)
+//
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
 // or should each user have their own cursor (false)
@@ -990,7 +999,7 @@ show_release_notes false
 advanced_mouse_actions false
 // Whether to enable mouse hover visual effects (frame highlight and help text)
 // default is true
-mouse_hover_effects false
+mouse_hover_effects true
  // Whether to show visual bell indicators (pane/tab frame flash and [!] suffix)
 // default is true
 // visual_bell true
