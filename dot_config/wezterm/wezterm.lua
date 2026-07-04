@@ -13,7 +13,7 @@ local config = {
 	color_scheme = "tokyonight-soft",
 
 	-- Font rendering (Mac-like crispness on Windows)
-	font_size = 14,
+	font_size = 13,
 	line_height = 1.15,
 	cell_width = 1.0,
 	freetype_load_target = "HorizontalLcd",
@@ -51,8 +51,8 @@ local config = {
 	-- Force high-performance power profile (mostly for hybrid GPUs; harmless on desktop).
 	webgpu_power_preference = "HighPerformance",
 	-- max_fps = 240,  -- uncomment for max smoothness on 240Hz; 120 is the sweet spot
-	max_fps = 120,
-	window_background_opacity = 1.0, -- Fully transparent terminal: let the desktop show through
+	max_fps = 240,
+	window_background_opacity = 0.95, -- Fully transparent terminal: let the desktop show through
 	text_background_opacity = 1.0, -- Text backgrounds opaque relative to window
 
 	-- Window frame chrome (kept minimal)
