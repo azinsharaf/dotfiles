@@ -16,7 +16,10 @@ local config = {
 	font_size = 13,
 	line_height = 1.15,
 	cell_width = 1.0,
-	freetype_load_target = "HorizontalLcd",
+	-- FreeType: grayscale hinting (Normal) for glyph-shape accuracy, subpixel
+	-- rendering (HorizontalLcd) for perceived horizontal resolution on
+	-- QD-OLED's RGB subpixels. Best "Mac-like on Windows" recipe.
+	freetype_load_target = "Normal",
 	freetype_render_target = "HorizontalLcd",
 	harfbuzz_features = { "calt=1", "liga=1", "dlig=1", "ss01=1" },
 
