@@ -7,7 +7,19 @@ local config = {
 	-- keys = require("keybindings"),
 	disable_default_key_bindings = false,
 	font = require("fonts"),
-	color_scheme = require("colors"),
+	-- Custom color scheme (softened Tokyo Night). Define the palette via the
+	-- `color_schemes` table, then reference it by name in `color_scheme`.
+	color_schemes = require("colors"),
+	color_scheme = "tokyonight-soft",
+
+	-- Font rendering (Mac-like crispness on Windows)
+	font_size = 15,
+	line_height = 1.15,
+	cell_width = 1.0,
+	freetype_load_target = "HorizontalLcd",
+	freetype_render_target = "HorizontalLcd",
+	harfbuzz_features = { "calt=1", "liga=1", "dlig=1", "ss01=1" },
+
 	-- Appearance settings
 	-- hide_tab_bar_if_only_one_tab = false, -- Disabled: using Zellij tabs/status
 	-- tab_bar_at_bottom = true, -- Disabled: using Zellij tabs/status
@@ -50,9 +62,16 @@ local config = {
 	-- 		}
 	-- 	end
 	-- end)(),
-	max_fps = 240,
-	window_background_opacity = 0.90, -- WezTerm handles transparency (uniform across terminal content)
+	-- max_fps = 240,  -- uncomment for 240Hz panels; 60 is gentler on OLED and avoids glyph tearing
+	max_fps = 60,
+	window_background_opacity = 1.0, -- Fully transparent terminal: let the desktop show through
 	text_background_opacity = 1.0, -- Text backgrounds opaque relative to window
+
+	-- Window frame chrome (kept minimal)
+	window_frame = {
+		font_size = 11,
+	},
+
 	default_workspace = "default",
 	-- status_update_interval = 1000, -- Disabled: using Zellij status
 	mux_enable_ssh_agent = false,
@@ -66,6 +85,13 @@ if wezterm.target_triple:find("windows") then
 	}
 else
 	config.default_prog = { "/bin/zsh", "-l" }
+end
+
+-- A/B test front-ends: launch with `WEZTERM_FE=opengl wezterm.exe` to use OpenGL.
+-- OpenGL is more battle-tested on Windows + NVIDIA; WebGpu is shinier but has
+-- occasional font-rasterization bugs.
+if os.getenv("WEZTERM_FE") == "opengl" then
+	config.front_end = "OpenGL"
 end
 
 config.keys = {
