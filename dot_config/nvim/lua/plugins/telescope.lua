@@ -45,6 +45,7 @@ return {
 					},
 				},
 			},
+			pickers = { find_files = { hidden = true } },
 			extensions = {
 				file_browser = {
 					hidden = { file_browser = true, folder_browser = true },
@@ -72,7 +73,6 @@ return {
 		keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "old files" })
 		keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "grep a word" })
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "string under cursor in cwd" })
-		-- keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 		keymap.set("n", "<leader>fc", telescope.extensions.chezmoi.find_files, { desc = "chezmoi files" })
 		keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser hidden=true<cr>", { desc = "browser" })
 		keymap.set("n", "<leader>fx", "<cmd>Telescope buffers<cr>", { desc = "buffers" })
