@@ -4,7 +4,7 @@
 # Loaded on every shell start (after env.nu).
 
 # ----- Theme: Tokyo Night Night -----
-source 'C:\Users\azin\.config\nushell\themes\tokyo_night_night.nu'
+source '{{ .chezmoi.homeDir }}\.config\nushell\themes\tokyo_night_night.nu'
 $env.config.color_config = $theme
 
 # ----- Shell configuration -----
@@ -225,7 +225,7 @@ def pgrep [name: string] {
 # Re-source the nushell env (config.nu changes require restarting the shell)
 def reload [] {
     print "Reload only refreshes env.nu. For config.nu changes, exit and re-open nushell."
-    nu -c 'source "C:\Users\azin\.config\nushell\env.nu"; source "C:\Users\azin\.config\nushell\config.nu"; print "env.nu + config.nu sourced in subshell (changes do NOT affect the current shell)"'
+    nu -c 'source "({{ .chezmoi.homeDir }}\.config\nushell\env.nu)"; source "({{ .chezmoi.homeDir }}\.config\nushell\config.nu)"; print "env.nu + config.nu sourced in subshell (changes do NOT affect the current shell)"'
 }
 
 # Open a file picked with fzf in nvim
