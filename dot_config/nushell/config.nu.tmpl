@@ -269,7 +269,7 @@ def ke [] {
 # Resolves the env path via `conda env list --json`, then mutates
 # $env.Path and $CONDA_* variables — same logic as activate.bat's CONDA_SKIPCHECK path.
 # Usage: ca [env-name]   (default: arcgispro-py3-clone)
-export def ca [env_name: string = "arcgispro-py3-clone"] {
+export def --env ca [env_name: string = "arcgispro-py3-clone"] {
     let conda_exe = "C:\\Program Files\\ArcGIS\\Pro\\bin\\Python\\Scripts\\conda.exe"
 
     let result = (^$conda_exe env list --json | complete)
@@ -296,7 +296,7 @@ export def ca [env_name: string = "arcgispro-py3-clone"] {
     if ($prev_prefix | str length) > 0 {
         let deact_d = ($prev_prefix | path join "etc" "conda" "deactivate.d")
         if ($deact_d | path type) == dir {
-            for s in (ls $deact_d | where ext == bat | get name | sort) {
+            for s in (ls $deact_d | where ext? == bat | get name | sort) {
                 ^$s | complete | ignore
             }
         }
@@ -333,7 +333,7 @@ export def ca [env_name: string = "arcgispro-py3-clone"] {
     # Run activate.d hooks if any
     let act_d = ($env_path | path join "etc" "conda" "activate.d")
     if ($act_d | path type) == dir {
-        for s in (ls $act_d | where ext == bat | get name | sort) {
+        for s in (ls $act_d | where ext? == bat | get name | sort) {
             ^$s | complete | ignore
         }
     }
