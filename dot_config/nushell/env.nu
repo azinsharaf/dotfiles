@@ -82,13 +82,14 @@ export-env {
 }
 
 # ----- PATH: prepend (high priority) -----
-$env.Path = ([
-    ($env.USERPROFILE | path join ".venvs" "xonsh" "Scripts")
-    ($env.USERPROFILE | path join "scoop" "shims")
-    ($env.USERPROFILE | path join "scoop" "apps" "miniconda3" "current")
-    ($env.USERPROFILE | path join "scoop" "apps" "miniconda3" "current" "Scripts")
-    ($env.USERPROFILE | path join "scoop" "apps" "miniconda3" "current" "condabin")
-] | append $env.Path)
+# Commented out: conda env activation (ca) now manages PATH via `def --env`.
+# $env.Path = ([
+#     ($env.USERPROFILE | path join ".venvs" "xonsh" "Scripts")
+#     ($env.USERPROFILE | path join "scoop" "shims")
+#     ($env.USERPROFILE | path join "scoop" "apps" "miniconda3" "current")
+#     ($env.USERPROFILE | path join "scoop" "apps" "miniconda3" "current" "Scripts")
+#     ($env.USERPROFILE | path join "scoop" "apps" "miniconda3" "current" "condabin")
+# ] | append $env.Path)
 
 # ----- PATH: append (low priority) -----
 $env.Path = ($env.Path | append [
