@@ -1,0 +1,342 @@
+# config.nu
+# Nushell shell configuration.
+# Ported from xonsh rc.xsh.
+# Loaded on every shell start (after env.nu).
+
+# ----- Theme: Tokyo Night Night -----
+source 'C:\Users\azin\.config\nushell\themes\tokyo_night_night.nu'
+$env.config.color_config = $theme
+
+# ----- Shell configuration -----
+$env.config = {
+    # Editor behavior
+    edit_mode: vi
+    cursor_shape: {
+        emacs: line
+        vi_insert: line
+        vi_normal: block
+    }
+
+    # History (mirrors xonsh $XONSH_HISTORY_SIZE = '10000 commands')
+    history: {
+        max_size: 10000
+        file_format: sqlite
+        sync_on_enter: true
+        isolation: false
+        ignore_space_prefixed: true
+    }
+
+    # Toggles
+    bracketed_paste: true
+    show_banner: false
+    footer_mode: "always"
+
+    # Shell integration (OSC sequences)
+    shell_integration: {
+        osc2: true
+        osc7: true
+        osc8: true
+        osc9_9: true
+        osc133: true
+        osc633: true
+        reset_application_mode: true
+    }
+
+    # Keybindings (replaces xonsh $XONSH_PROMPT_CURSOR_SHAPE / ctrl-bksp / etc.)
+    # Note: use `send:` for top-level ReedlineEvent (Enter, ClearScreen, etc.),
+    # use `edit:` for EditCommand (InsertString, Clear, etc.)
+    keybindings: [
+        {
+            name: clear_screen
+            modifier: control
+            keycode: char_l
+            mode: [emacs vi_normal vi_insert]
+            event: [{ send: ClearScreen }]
+        }
+        {
+            name: exit_shell
+            modifier: control
+            keycode: char_d
+            mode: [emacs vi_normal vi_insert]
+            event: [
+                { edit: InsertString, value: "exit" }
+                { send: Enter }
+            ]
+        }
+    ]
+
+    # Menus (replaces xonsh $XONSH_STYLE_OVERRIDES for PTK completion menu)
+    menus: [
+        {
+            name: completion_menu
+            only_buffer_difference: false
+            marker: "│ "
+            type: {
+                layout: columnar
+                columns: 4
+                col_width: 20
+                col_padding: 2
+            }
+            style: {
+                text: "#c0caf5"
+                selected_text: "#bb9af7 bold"
+                description_text: "#565f89"
+                selected_description_text: "#7dcfff"
+                background: "#1a1b26"
+            }
+        }
+        {
+            name: history_menu
+            only_buffer_difference: true
+            marker: "│ "
+            type: {
+                layout: list
+                description_position: "after"
+            }
+            style: {
+                text: "#c0caf5"
+                selected_text: "#bb9af7 bold"
+                description_text: "#565f89"
+                background: "#1a1b26"
+            }
+        }
+        {
+            name: help_menu
+            only_buffer_difference: true
+            marker: "│ "
+            type: {
+                layout: description
+                columns: 4
+                col_width: 20
+                col_padding: 2
+                description_rows: 3
+            }
+            style: {
+                text: "#c0caf5"
+                selected_text: "#bb9af7 bold"
+                description_text: "#565f89"
+                background: "#1a1b26"
+            }
+        }
+    ]
+
+    # External completion — Carapace (replaces `exec($(carapace _carapace))`)
+    completions: {
+        external: {
+            enable: true
+            max_results: 100
+            completer: {|spans|
+                carapace $spans.0 nushell ...$spans | from json
+            }
+        }
+        algorithm: "prefix"
+        case_sensitive: false
+        quick: true
+        partial: true
+    }
+
+    # Table display
+    table: {
+        mode: rounded
+        index_mode: "always"
+        show_empty: true
+    }
+}
+
+# ----- Prompt (replaces `xontrib load prompt_starship`) -----
+$env.PROMPT_COMMAND = { || starship prompt }
+$env.PROMPT_INDICATOR = ""
+$env.PROMPT_INDICATOR_VI_NORMAL = ""
+$env.PROMPT_INDICATOR_VI_INSERT = ""
+
+# ----- Zoxide: z / zi commands -----
+# (zoxide init nushell output, embedded so it survives `nu -c` runs)
+
+export def --env --wrapped __zoxide_z [...rest: directory] {
+    let path = match $rest {
+        [] => {'~'},
+        [ '-' ] => {'-'},
+        [ $arg ] if ($arg | path expand | path type) == 'dir' => {$arg}
+        _ => {
+            ^zoxide query --exclude $env.PWD -- ...$rest | str trim -r -c "\n"
+        }
+    }
+    cd $path
+}
+
+export def --env --wrapped __zoxide_zi [...rest: string] {
+    cd $'(^zoxide query --interactive -- ...$rest | str trim -r -c "\n")'
+}
+
+export alias z = __zoxide_z
+export alias zi = __zoxide_zi
+
+# ----- Aliases -----
+
+# Listings
+# `ls` is left to nushell's built-in so it returns a structured table.
+# Use `ll`/`la`/`lt` for eza's long-format output (ported from xonsh).
+alias ll = eza -lh
+alias la = eza -lha
+alias lt = eza --tree
+alias l = eza --long -a --group-directories-first --icons --color=auto --header
+alias cat = bat
+
+# Common
+alias n = nvim
+alias lg = lazygit
+alias y = yazi
+alias ":q" = exit
+alias e = exit
+alias c = clear
+alias tls = tuios ls
+
+# Scoop
+alias su = scoop update
+alias ss = scoop status
+alias sua = scoop update --all
+
+# Chezmoi
+alias cedit = chezmoi edit
+alias cdiff = chezmoi diff
+alias cstatus = chezmoi status
+alias capply = chezmoi apply --interactive -v
+alias ccd = chezmoi cd
+
+# ----- Functions -----
+
+# Create an empty file
+def touch [file: string] {
+    if not ($file | path exists) {
+        " " | save -f $file
+    }
+}
+
+# Kill a process by name (Windows: taskkill)
+def pkill [name: string] {
+    taskkill /F /IM $"($name).exe" | complete | ignore
+}
+
+# List processes matching name
+def pgrep [name: string] {
+    tasklist /FI $"IMAGENAME eq ($name).exe" | complete | get stdout
+}
+
+# Re-source the nushell env (config.nu changes require restarting the shell)
+def reload [] {
+    print "Reload only refreshes env.nu. For config.nu changes, exit and re-open nushell."
+    nu -c 'source "C:\Users\azin\.config\nushell\env.nu"; source "C:\Users\azin\.config\nushell\config.nu"; print "env.nu + config.nu sourced in subshell (changes do NOT affect the current shell)"'
+}
+
+# Open a file picked with fzf in nvim
+def fzfn [] {
+    let file = (fzf --preview "bat {}" | str trim)
+    if ($file | str length) > 0 {
+        nvim $file
+    }
+}
+
+# Pick a file with fd | fzf
+def f [] {
+    fd | fzf
+}
+
+# Run opencode with gpt-4o
+def ai [...msg: string] {
+    opencode --model openai/gpt-4o run ($msg | str join " ")
+}
+
+# Open opencode with gpt-4o-mini
+def ai_mini [] {
+    opencode --model openai/gpt-4o-mini
+}
+
+# Start Komorebi + AutoHotkey
+def ks [] {
+    komorebic-no-console start --config ($env.KOMOREBI_CONFIG_HOME | path join "komorebi.json")
+    sleep 1sec
+    ^$"($env.KOMOREBI_AHK_EXE)" $"($env.KOMOREBI_CONFIG_HOME | path join "komorebi.ahk")"
+}
+
+# Stop Komorebi + AutoHotkey
+def ke [] {
+    komorebic stop
+    taskkill /F /IM "AutoHotkey*.exe" | complete | ignore
+}
+
+# ----- Conda activate (port of xonsh _ca) -----
+# Activates a conda environment using the ArcGIS Pro conda installation.
+# Resolves the env path via `conda env list --json`, then mutates
+# $env.Path and $CONDA_* variables — same logic as activate.bat's CONDA_SKIPCHECK path.
+# Usage: ca [env-name]   (default: arcgispro-py3-clone)
+export def ca [env_name: string = "arcgispro-py3-clone"] {
+    let conda_exe = "C:\\Program Files\\ArcGIS\\Pro\\bin\\Python\\Scripts\\conda.exe"
+
+    let result = (^$conda_exe env list --json | complete)
+    if $result.exit_code != 0 {
+        print -e $"ca: conda env list failed:\n($result.stderr)"
+        return
+    }
+
+    let envs = ($result.stdout | from json | get envs)
+    let env_path = (
+        $envs
+        | where { |e| ($e | path basename) == $env_name or $e == $env_name }
+        | get 0
+    )
+
+    if $env_path == null {
+        print -e $"ca: environment '($env_name)' not found. Available envs:"
+        $envs | each { |e| print -e $"  ($e | path basename)  ($e)" }
+        return
+    }
+
+    # Deactivate current env if one is active
+    let prev_prefix = ($env | get -o CONDA_PREFIX | default "")
+    if ($prev_prefix | str length) > 0 {
+        let deact_d = ($prev_prefix | path join "etc" "conda" "deactivate.d")
+        if ($deact_d | path type) == dir {
+            for s in (ls $deact_d | where ext == bat | get name | sort) {
+                ^$s | complete | ignore
+            }
+        }
+        # Strip old env dirs from PATH
+        let old_bins = [
+            $prev_prefix,
+            ($prev_prefix | path join "Library" "mingw-w64" "bin"),
+            ($prev_prefix | path join "Library" "usr" "bin"),
+            ($prev_prefix | path join "Library" "bin"),
+            ($prev_prefix | path join "Scripts"),
+            ($prev_prefix | path join "bin"),
+        ]
+        $env.Path = ($env.Path | where { |p| $p not-in $old_bins })
+    }
+
+    # Prepend new env dirs to PATH
+    let new_bins = [
+        $env_path,
+        ($env_path | path join "Library" "mingw-w64" "bin"),
+        ($env_path | path join "Library" "usr" "bin"),
+        ($env_path | path join "Library" "bin"),
+        ($env_path | path join "Scripts"),
+        ($env_path | path join "bin"),
+    ]
+    $env.Path = ($new_bins | append ($env.Path | where { |p| $p not-in $new_bins }))
+
+    # Set CONDA_* env vars
+    $env.CONDA_PREFIX = $env_path
+    $env.CONDA_DEFAULT_ENV = $env_name
+    $env.CONDA_SHLVL = "1"
+    $env.CONDA_EXE = $conda_exe
+    $env.CONDA_PROMPT_MODIFIER = $"($env_name) "
+
+    # Run activate.d hooks if any
+    let act_d = ($env_path | path join "etc" "conda" "activate.d")
+    if ($act_d | path type) == dir {
+        for s in (ls $act_d | where ext == bat | get name | sort) {
+            ^$s | complete | ignore
+        }
+    }
+
+    print $"activated: ($env_name)  ($env_path)"
+}
