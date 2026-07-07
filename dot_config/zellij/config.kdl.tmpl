@@ -406,8 +406,8 @@ keybinds clear-defaults=true {
                 floating true
                 move_to_focused_tab true
                 cwd "C:/"
-                root_dirs "C:/Users/azin/repos;C:/Users/asharaf/repos"
-                individual_dirs "C:/Users/azin/.config;C:/Users/asharaf/.config"
+                root_dirs "{{ .chezmoi.homeDir }}/repos;C:/Users/azin/repos"
+                individual_dirs "{{ .chezmoi.homeDir }}/.config;C:/Users/azin/.config"
                 session_layout "dev"
             }
         }
