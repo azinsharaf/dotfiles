@@ -72,7 +72,7 @@ local config = {
 if wezterm.target_triple:find("windows") then
 	local home = os.getenv("USERPROFILE")
 	config.default_prog = {
-		home .. "/.venvs/xonsh/Scripts/xonsh.exe",
+		home .. "/scoop/shims/nu.exe",
 	}
 else
 	config.default_prog = { "/bin/zsh", "-l" }
