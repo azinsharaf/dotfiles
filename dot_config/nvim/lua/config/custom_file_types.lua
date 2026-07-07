@@ -33,3 +33,14 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.bo.commentstring = "// %s"
 	end,
 })
+
+-- Strip stray carriage returns from Python files (incl. .pyt) before write.
+-- Safety net for opencode.nvim / formatters that may inject ^M and pollute
+-- git diffs. The repo's .gitattributes pins these files to LF, so any \r
+-- that lands here is a leak we want gone before the bytes hit disk.
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = { "*.py", "*.pyt" },
+	callback = function()
+		vim.cmd("keeppatterns %s/\\r//ge")
+	end,
+})
