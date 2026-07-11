@@ -199,7 +199,12 @@
           "name": "2-email",
           "layout": "UltrawideVerticalStack",
           "initial_workspace_rules": [
-            { "kind": "Exe", "id": "olk.exe", "matching_strategy": "Equals" }
+            { "kind": "Exe", "id": "olk.exe", "matching_strategy": "Equals" },
+            {
+              "kind": "Exe",
+              "id": "thunderbird.exe",
+              "matching_strategy": "Equals"
+            }
           ]
         },
         {
@@ -211,7 +216,16 @@
               "id": "Morgen.exe",
               "matching_strategy": "Equals"
             },
-            { "kind": "Exe", "id": "chrome.exe", "matching_strategy": "Equals" }
+            {
+              "kind": "Exe",
+              "id": "chrome.exe",
+              "matching_strategy": "Equals"
+            },
+            {
+              "kind": "Exe",
+              "id": "TickTick.exe",
+              "matching_strategy": "Equals"
+            }
           ]
         },
         {
