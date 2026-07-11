@@ -2,24 +2,24 @@ gui:
   nerdFontsVersion: "3"
   theme:
     activeBorderColor:
-      - "#b4befe"
+      - "#7aa2f7"
       - bold
     inactiveBorderColor:
-      - "#a6adc8"
+      - "#414868"
     optionsTextColor:
-      - "#89b4fa"
+      - "#7dcfff"
     selectedLineBgColor:
-      - "#313244"
+      - "#24283b"
     cherryPickedCommitBgColor:
-      - "#45475a"
+      - "#414868"
     cherryPickedCommitFgColor:
-      - "#b4befe"
+      - "#bb9af7"
     unstagedChangesColor:
-      - "#f38ba8"
+      - "#f7768e"
     defaultFgColor:
-      - "#cdd6f4"
+      - "#c0caf5"
     searchingActiveBorderColor:
-      - "#f9e2af"
+      - "#e0af68"
 # to skip without creating a new repo
 notARepository: "skip"
 os:
