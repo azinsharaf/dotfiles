@@ -1,6 +1,6 @@
 return {
 	"gelguy/wilder.nvim",
-	enabled = true,
+	enabled = false,
 	event = "VeryLazy",
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- Required for fzy-lua-native
