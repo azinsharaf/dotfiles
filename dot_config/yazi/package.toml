@@ -1,67 +1,67 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "65559fd"
+rev = "1cf48ea"
 hash = "1e3b6c8b03dae81c3672ec9e9700b666"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "65559fd"
+rev = "1cf48ea"
 hash = "b94720e0ef40cb0e97093fabd9694775"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "65559fd"
+rev = "1cf48ea"
 hash = "6e67c36d6c25fc84cb0976aac8a3ff5"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "65559fd"
-hash = "22bd6d4fe14524e79a0818d705b85d99"
+rev = "1cf48ea"
+hash = "a6753fdeb66fdaf2cd4b4419d2a3e4d0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "65559fd"
-hash = "c8695b60cdf205d9ee71efcba4fd40af"
+rev = "1cf48ea"
+hash = "6d6947de8dc84c07167ab5e98aebae2e"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "65559fd"
+rev = "1cf48ea"
 hash = "aa5b4b4167d71c59b8b662cf9761c435"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:zoom"
-rev = "65559fd"
+rev = "1cf48ea"
 hash = "32d16404a732394aaef697f7f6020908"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
 rev = "159eaba"
-hash = "7de446280b1ba8c49ffd86dbc24bbbe6"
+hash = "495954995e4130980ca81b23c5f03bbe"
 
 [[plugin.deps]]
 use = "Tyarel8/goto-drives"
 rev = "ea8de5c"
-hash = "f93be81ad9bb148fe2911ffbd4b120e7"
+hash = "391dceaaa173b6e429ce9be4630959ae"
 
 [[plugin.deps]]
 use = "dedukun/bookmarks"
 rev = "9ef1254"
-hash = "92fbb5483657fa7976cdf4e0104e18e0"
+hash = "fc77f2bd3aad78199fbe11b727b1954f"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "65559fd"
-hash = "cdc2f9417e2f0785dfd3c9871b8738bb"
+rev = "1cf48ea"
+hash = "2de77ec38c106a465b192147e3ac2938"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:no-status"
-rev = "65559fd"
+rev = "1cf48ea"
 hash = "b6467b3358393ba82b38dd9f20915227"
 
 [[plugin.deps]]
 use = "cap153/tv"
 rev = "b6b1f12"
-hash = "4bdf0523d3711d20982ad80b061dedf2"
+hash = "781c565bf90759ef5f72e648cf1fb6f8"
 
 [[plugin.deps]]
 use = "pirafrank/what-size"
@@ -81,4 +81,9 @@ hash = "21b20480575c2da3ea2d849da1f4d5d1"
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
 rev = "4770a34"
-hash = "7dfe41c9c3d9be76da8a844263d0bbed"
+hash = "5ebc8659108fcb68fe853e523115ed3c"
+
+[[flavor.deps]]
+use = "BennyOe/tokyo-night"
+rev = "8e6296f"
+hash = "d9da921c3bd37ba32ee27a8a7a40461f"
