@@ -235,12 +235,6 @@ function wezterm-update-plugins
     & $script @Args
 }
 
-# function ai { aider --model gpt-5 --chat-mode ask --no-git }
-# function ai-openai { aider --model gpt-5-mini --chat-mode architect --watch-files }
-# function ai-deepseek-r1 { aider --model ollama_chat/deepseek-r1:latest --chat-mode architect --watch-files}
-# function ai-llama3.1 { aider --model ollama_chat/llama3.1:latest --chat-mode architect --watch-files}
-# function ai-gptoss { aider --model ollama_chat/gpt-oss:latest --chat-mode architect --watch-files}
-
 function ai
 {
     param([Parameter(ValueFromRemainingArguments=$true)][string[]]$Message)
@@ -257,8 +251,6 @@ function ai-gpt-5-mini
 $Env:TMPDIR = "$Env:USERPROFILE\.tmp"
 $Env:TMP = "$Env:USERPROFILE\.tmp"
 
-# function ai-pull-all { (Invoke-RestMethod http://localhost:11434/api/tags).Models.Name.ForEach{ ollama pull $_ } }
-
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
 
 $Env:MPV_HOME = "$Env:USERPROFILE\.config\mpv"
@@ -267,29 +259,10 @@ $Env:YOUTUBETUI_CONFIG_HOME = "$Env:USERPROFILE\.config\youtube-tui"
 $Env:KOMOREBI_CONFIG_HOME = "$Env:USERPROFILE\.config\komorebi"
 $Env:KOMOREBI_AHK_EXE = "$Env:USERPROFILE\scoop\apps\autohotkey\current\UX\AutoHotkeyUX.exe"
 
-$Env:GDAL_DRIVER_PATH = "$Env:USERPROFILE\gdal-env\.pixi\envs\default\Library\lib\gdalplugins"
-
-$Env:GLAZEWM_CONFIG_PATH = "$Env:USERPROFILE\.config\glazewm\config.yaml"
-
 $Env:VISUAL = 'nvim'
 $Env:EDITOR = 'nvim'
 $Env:SHELL = 'pwsh'
 $Env:COLORTERM = 'truecolor'
-
-$Env:PYENV = "$Env:USERPROFILE\.pyenv\pyenv-win\"
-$Env:PYENV_HOME = "$Env:USERPROFILE\.pyenv\pyenv-win\"
-$Env:PYENV_ROOT = "$Env:USERPROFILE\.pyenv\pyenv-win\"
-
-# Auto-activate venv if it exists
-$venvPath = "$Env:USERPROFILE\.pyenv\pyenv-win\versions\3.12.10\env-geospatial-object-detection\Scripts\Activate.ps1"
-if (Test-Path $venvPath)
-{
-    & $venvPath
-}
-
-function python3 {
-  & "$Env:USERPROFILE\scoop\apps\python\current\python.exe" @args
-}
 
 function tls {
 tuios ls
@@ -483,10 +456,6 @@ $Env:Path = "$Env:USERPROFILE\scoop\shims;" + $Env:Path
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
 $Env:Path += ";$Env:USERPROFILE\.local\bin"
-$Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\bin"
-$Env:Path += ";$Env:USERPROFILE\.pyenv\pyenv-win\shims"
-$Env:Path += ";$Env:USERPROFILE\gdal-env\.pixi\envs\default\Library\bin"
-$Env:Path += ";$Env:USERPROFILE\pdal-env\.pixi\envs\default\Library\bin"
 $Env:Path += ";$Env:USERPROFILE\scoop\apps\perl\current\perl\bin"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\libnvvp"
