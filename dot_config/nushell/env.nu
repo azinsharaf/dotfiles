@@ -52,6 +52,11 @@ $env.CUDA_PATH_V12_8 = $cuda_path
 
 # Tool config dirs
 $env.EZA_CONFIG_DIR = ($env.USERPROFILE | path join ".config" "eza")
+
+# Eza color scheme: Tokyo Night (Night variant).
+# Eza loads $EZA_CONFIG_DIR/theme.yml when $EZA_THEME is set to its basename (no .yml).
+# Format reference: https://github.com/eza-community/eza/blob/main/man/eza_themes.5.md
+$env.EZA_THEME = "theme"
 $env.ZELLIJ_CONFIG_DIR = ($env.USERPROFILE | path join ".config" "zellij")
 
 # Tool homes
