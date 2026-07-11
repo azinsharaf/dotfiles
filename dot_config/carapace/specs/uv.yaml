@@ -1,0 +1,990 @@
+# yaml-language-server: $schema=https://carapace.sh/schemas/command.json
+name: uv
+description: An extremely fast Python package and project manager
+
+persistentflags:
+  -h, --help: "Concise help for the command"
+  -V, --version: "Display version"
+  -v, --verbose*: "Use verbose output (-v, -vv, -vvv for more verbosity)"
+  -q, --quiet*: "Use quiet output (-qq for silent)"
+  --color=: "Control colors in output"
+  --directory=: "Change to DIRECTORY before running"
+  --project=: "Use the project at PROJECT"
+  --config-file=: "Use CONFIG_FILE for configuration"
+  --no-config: "Disable reading configuration files"
+  --cache-dir=: "Path to the cache directory"
+  -n, --no-cache: "Avoid reading from or writing to the cache"
+  --offline: "Disable network access"
+  --no-progress: "Hide all progress displays"
+  --allow-insecure-host=*: "Allow insecure connections to a host (repeatable)"
+  --keyring-provider=: "Specify the keyring provider"
+  --managed-python: "Require use of uv-managed Python"
+  --no-managed-python: "Disable use of uv-managed Python"
+  --no-python-downloads: "Disable automatic Python downloads"
+  --system-certs: "Use the system trust store for TLS validation"
+
+completion:
+  flag:
+    color:
+      - [auto, Use colors only when output is to a terminal]
+      - [always, Always use colors]
+      - [never, Never use colors]
+    keyring-provider:
+      - [disabled, "Don't use a keyring"]
+      - [subprocess, Use the keyring CLI]
+      - [native, Use the platform-native keyring]
+
+commands:
+  - name: run
+    description: Run a command or script
+    flags:
+      -w, --with=: "Run with the given package installed"
+      --with-editable=: "Run with the given editable package installed"
+      --with-requirements=: "Run with all packages listed in the given requirements file"
+      -p, --python=: "The Python interpreter to use"
+      -U, --upgrade: "Allow package upgrades"
+      -P, --upgrade-package=*: "Allow upgrades for a specific package (repeatable)"
+      --no-sync: "Don't sync the virtual environment before running"
+      --frozen: "Assert that the lockfile is up-to-date"
+      --isolated: "Run without the project environment"
+      --package=: "Run the command in a specific package of the workspace"
+      --all-packages: "Run the command in all packages of the workspace"
+      -m, --module: "Run a Python module as a script"
+      --script: "Run a script (PEP 723)"
+      --gui: "Run the command in a new graphical window"
+      -e, --exact: "Override any in-memory assumptions about the project"
+    completion:
+      flag:
+        with: ["$(uvx __complete run ${C_VALUE} 2>/dev/null)"]
+        with-editable: ["$directories"]
+        with-requirements: ["$files(.txt)"]
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        package: ["$(uv workspace list --format=json 2>/dev/null)"]
+      positional:
+        - ["$files(.py)"]
+
+  - name: init
+    description: Create a new project
+    flags:
+      -p, --python=: "The Python interpreter to use"
+      --bare: "Create a minimal project (no readme, no src layout)"
+      --package: "Create a packagable project (default)"
+      --no-package: "Do not create a packagable project"
+      --no-readme: "Do not create a README.md"
+      --no-pin-python: "Do not create a .python-version file"
+      --no-workspace: "Avoid creating a workspace"
+      --workspace: "Add the project to an existing workspace"
+      --script: "Create a script project"
+      -q, --quiet: "Use quiet output"
+      --name=: "The name of the project"
+      -r, --requirements=: "The requirements file to use"
+    completion:
+      flag:
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        requirements: ["$files(.txt)"]
+      positional:
+        - ["$directories"]
+
+  - name: add
+    description: Add dependencies to the project
+    flags:
+      -d, --dev: "Add as a development dependency"
+      --optional: "Add as an optional dependency"
+      --group=: "Add to a dependency group"
+      --extra=: "Add as an extra"
+      --raw: "Add a raw requirement"
+      --bounds=: "The kind of version specifier to use"
+      --prerelease=: "Allow pre-release versions"
+      -U, --upgrade: "Allow package upgrades"
+      -P, --upgrade-package=*: "Allow upgrades for a specific package (repeatable)"
+      --upgrade-group=*: "Allow upgrades for a specific dependency group (repeatable)"
+      --no-sync: "Don't sync the virtual environment after adding"
+      --frozen: "Assert that the lockfile is up-to-date"
+      --tag=: "Git tag to use for the dependency"
+      --branch=: "Git branch to use for the dependency"
+      --rev=: "Git rev to use for the dependency"
+      -r, --requirements=: "Add the packages listed in the given requirements file"
+      -p, --python=: "The Python interpreter to use"
+      --all-packages: "Add to all packages in the workspace"
+      --package=: "Add to a specific package in the workspace"
+      --script: "Add to a PEP 723 script"
+      --no-config: "Don't discover config files"
+      --isolated: "Run in isolated mode"
+    completion:
+      flag:
+        bounds:
+          - [lowest-direct, Resolve with the lowest compatible versions]
+          - [exact, Keep the existing version specifiers]
+        prerelease:
+          - [disallow, "Don't allow pre-release versions"]
+          - [allow, Allow pre-release versions]
+          - [if-necessary, Allow pre-release versions only if needed]
+          - [explicit, Allow pre-release versions only for explicit specifiers]
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        package: ["$(uv workspace list --format=json 2>/dev/null)"]
+        requirements: ["$files(.txt)"]
+      positionalany:
+        - ["$files"]
+
+  - name: remove
+    description: Remove dependencies from the project
+    flags:
+      -d, --dev: "Remove a development dependency"
+      --optional: "Remove an optional dependency"
+      --group=: "Remove from a dependency group"
+      --extra=: "Remove an extra"
+      --no-sync: "Don't sync the virtual environment after removing"
+      --frozen: "Assert that the lockfile is up-to-date"
+      -p, --python=: "The Python interpreter to use"
+      --all-packages: "Remove from all packages in the workspace"
+      --package=: "Remove from a specific package in the workspace"
+      --script: "Remove from a PEP 723 script"
+      --no-config: "Don't discover config files"
+      --isolated: "Run in isolated mode"
+    completion:
+      flag:
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        package: ["$(uv workspace list --format=json 2>/dev/null)"]
+      positionalany:
+        - ["$files"]
+
+  - name: version
+    description: Read or update the project version
+    flags:
+      --bump=: "Bump the version (major, minor, patch, etc.)"
+      --short: "Shorten the version output"
+      --output-format=: "The format of the output"
+      --no-sync: "Don't sync the project"
+      -p, --python=: "The Python interpreter to use"
+      --frozen: "Assert that the lockfile is up-to-date"
+      --all-packages: "Update version for all packages in the workspace"
+      --package=: "Update version for a specific package in the workspace"
+      --no-config: "Don't discover config files"
+      --isolated: "Run in isolated mode"
+    completion:
+      flag:
+        bump:
+          - [major, Bump the major version]
+          - [minor, Bump the minor version]
+          - [patch, Bump the patch version]
+          - [alpha, Bump to the next alpha]
+          - [beta, Bump to the next beta]
+          - [rc, Bump to the next release candidate]
+          - [post, Bump the post-release]
+          - [dev, Bump the dev release]
+        output-format:
+          - [text, Plain text]
+          - [json, JSON]
+
+  - name: sync
+    description: Update the environment to match the lockfile
+    flags:
+      -p, --python=: "The Python interpreter to use"
+      --frozen: "Assert that the lockfile is up-to-date"
+      --all-packages: "Sync all packages in the workspace"
+      --package=*: "Sync a specific package in the workspace (repeatable)"
+      --extra=: "Include the given extra"
+      --group=*: "Include the given dependency group (repeatable)"
+      --no-group=*: "Exclude the given dependency group (repeatable)"
+      --no-extra=: "Exclude the given extra"
+      --no-dev: "Disable the development dependency group"
+      --only-dev: "Only include the development dependency group"
+      --no-default-groups: "Don't include the default dependency groups"
+      --only-group=: "Only include the given dependency group"
+      -U, --upgrade: "Allow package upgrades"
+      -P, --upgrade-package=*: "Allow upgrades for a specific package (repeatable)"
+      --upgrade-group=*: "Allow upgrades for a specific dependency group (repeatable)"
+      --no-sync: "No-op (sync is the default)"
+      --inexact: "Sync with inexact versions"
+      --dry-run: "Perform a dry run"
+      --no-config: "Don't discover config files"
+      --isolated: "Run in isolated mode"
+    completion:
+      flag:
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        package: ["$(uv workspace list --format=json 2>/dev/null)"]
+
+  - name: lock
+    description: Update the lockfile
+    flags:
+      -p, --python=: "The Python interpreter to use"
+      --check-exists: "Check if the lockfile is up-to-date (alias for --frozen)"
+      --frozen: "Assert that the lockfile is up-to-date"
+      --all-packages: "Lock all packages in the workspace"
+      --package=*: "Lock a specific package in the workspace (repeatable)"
+      --extra=: "Include the given extra"
+      --group=*: "Include the given dependency group (repeatable)"
+      --no-group=*: "Exclude the given dependency group (repeatable)"
+      --no-dev: "Disable the development dependency group"
+      --no-default-groups: "Don't include the default dependency groups"
+      --only-group=: "Only include the given dependency group"
+      -U, --upgrade: "Allow package upgrades"
+      -P, --upgrade-package=*: "Allow upgrades for a specific package (repeatable)"
+      --upgrade-group=*: "Allow upgrades for a specific dependency group (repeatable)"
+      --dry-run: "Perform a dry run"
+      --script: "Lock a PEP 723 script"
+      --no-config: "Don't discover config files"
+      --isolated: "Run in isolated mode"
+    completion:
+      flag:
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        package: ["$(uv workspace list --format=json 2>/dev/null)"]
+
+  - name: export
+    description: Export the lockfile to an alternate format
+    flags:
+      -o, --output-file=: "Write the exported lockfile to FILE"
+      --format=: "The format to export to"
+      --frozen: "Assert that the lockfile is up-to-date"
+      --all-packages: "Export all packages in the workspace"
+      --package=*: "Export a specific package in the workspace (repeatable)"
+      --extra=: "Include the given extra"
+      --group=: "Include the given dependency group"
+      --no-dev: "Disable the development dependency group"
+      --no-default-groups: "Don't include the default dependency groups"
+      --no-hashes: "Omit hashes from the exported lockfile"
+      --no-header: "Omit the preamble from the exported lockfile"
+      -p, --python=: "The Python interpreter to use"
+      --no-config: "Don't discover config files"
+      --isolated: "Run in isolated mode"
+    completion:
+      flag:
+        output-file: ["$files(.txt, .toml, .json)"]
+        format:
+          - [requirements-txt, Export as requirements.txt]
+          - [pylock-toml, Export as pylock.toml]
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        package: ["$(uv workspace list --format=json 2>/dev/null)"]
+
+  - name: tree
+    description: Display the dependency tree
+    flags:
+      --depth=: "Maximum display depth of the dependency tree"
+      --prune=*: "Prune the given package from the display (repeatable)"
+      --all-packages: "List dependencies for all packages in the workspace"
+      --package=: "List dependencies for a specific package in the workspace"
+      --no-dev: "Disable the development dependency group"
+      --no-default-groups: "Don't include the default dependency groups"
+      --group=: "Include the given dependency group"
+      --invert: "Show the reverse dependency tree"
+      -p, --python=: "The Python interpreter to use"
+      --no-config: "Don't discover config files"
+      --isolated: "Run in isolated mode"
+    completion:
+      flag:
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        package: ["$(uv workspace list --format=json 2>/dev/null)"]
+
+  - name: format
+    description: Format Python code in the project
+    flags:
+      --check: "Check if files are formatted, but don't write"
+      --diff: "Show a diff of changes"
+      --no-sync: "Don't sync the project before formatting"
+      --check-version: "Check the installed ruff version"
+      --version=: "The version of Ruff to use"
+      --no-cache: "Disable the cache"
+      --force: "Force execution of the formatter"
+      --show-settings: "Show the resolved settings"
+      --all-packages: "Format all packages in the workspace"
+      --package=: "Format a specific package in the workspace"
+      --no-config: "Don't discover config files"
+      --isolated: "Run in isolated mode"
+      -p, --python=: "The Python interpreter to use"
+    completion:
+      flag:
+        version: ["$executables"]
+      positionalany:
+        - ["$files(.py)"]
+
+  - name: check
+    description: Check the project for errors
+    flags:
+      --all-packages: "Check all packages in the workspace"
+      --package=: "Check a specific package in the workspace"
+      --no-sync: "Don't sync the project"
+      --frozen: "Assert that the lockfile is up-to-date"
+      -p, --python=: "The Python interpreter to use"
+      --no-config: "Don't discover config files"
+      --isolated: "Run in isolated mode"
+    completion:
+      flag:
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        package: ["$(uv workspace list --format=json 2>/dev/null)"]
+
+  - name: audit
+    description: Audit the project for known vulnerabilities
+    flags:
+      --all-packages: "Audit all packages in the workspace"
+      --package=: "Audit a specific package in the workspace"
+      --no-sync: "Don't sync the project"
+      --frozen: "Assert that the lockfile is up-to-date"
+      -p, --python=: "The Python interpreter to use"
+      --no-config: "Don't discover config files"
+      --isolated: "Run in isolated mode"
+    completion:
+      flag:
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        package: ["$(uv workspace list --format=json 2>/dev/null)"]
+
+  - name: venv
+    description: Create a virtual environment
+    flags:
+      -p, --python=: "The Python interpreter to use"
+      --prompt=: "Provide a prompt string for the virtual environment"
+      --system-site-packages: "Give the virtual environment access to the system site-packages"
+      --relocatable: "Make the virtual environment relocatable"
+      --seed: "Seed the virtual environment with pip and setuptools"
+      --no-seed: "Don't seed the virtual environment"
+      --no-project: "Don't associate the venv with a project"
+      -i, --index=: "The package index to use (repeatable)"
+      --default-index=: "The default package index to use"
+      --extra-index-url=*: "Extra package index to use (repeatable)"
+      --index-strategy=: "The strategy to use when resolving against multiple indexes"
+      --resolution=: "The resolution strategy"
+      --prerelease=: "Allow pre-release versions"
+      --config-settings=: "Settings to pass to the PEP 517 build backend (repeatable)"
+      --link-mode=: "The method to use when installing packages"
+      --upgrade: "Allow package upgrades"
+      --no-build-isolation: "Disable build isolation"
+      --no-build: "Don't build source distributions"
+      --no-binary: "Don't install pre-built wheels"
+    completion:
+      flag:
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        index-strategy:
+          - [first-index, Prefer the first index that contains a compatible package]
+          - [unsafe-first-match, "Prefer the first index, but allow unsafe matches"]
+        resolution:
+          - [highest, Resolve to the highest compatible version]
+          - [lowest, Resolve to the lowest compatible version]
+          - [lowest-direct, Resolve to the lowest direct version]
+        prerelease:
+          - [disallow, "Don't allow pre-release versions"]
+          - [allow, Allow pre-release versions]
+          - [if-necessary, Allow pre-release versions only if needed]
+          - [explicit, Allow pre-release versions only for explicit specifiers]
+      positional:
+        - ["$directories"]
+
+  - name: build
+    description: Build Python packages into source and binary distributions
+    flags:
+      -o, --out-dir=: "The output directory for artifacts"
+      -p, --python=: "The Python interpreter to use"
+      --package=: "Build a specific package in the workspace"
+      --all-packages: "Build all packages in the workspace"
+      --no-build-logs: "Hide build output"
+      --wheel: "Build a binary distribution (wheel)"
+      --sdist: "Build a source distribution"
+      --list: "List the available packages"
+      --force-pep517: "Always use PEP 517 to build the project"
+      --config-settings=*: "Settings to pass to the PEP 517 build backend (repeatable)"
+      --no-config: "Don't discover config files"
+      --no-isolation: "Disable isolation"
+      --no-cache: "Don't use the cache"
+    completion:
+      flag:
+        out-dir: ["$directories"]
+        python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+        package: ["$(uv workspace list --format=json 2>/dev/null)"]
+
+  - name: publish
+    description: Upload distributions to a Python package index
+    flags:
+      --token=: "The token to use for authentication"
+      --publish-url=: "The URL of the package index"
+      --trusted-publishing: "Use trusted publishing via OIDC"
+      -y, --yes: "Skip confirmation prompt"
+      --check-url=: "Check the index for existing files (pass the index URL)"
+      --dry-run: "Perform a dry run"
+      --no-config: "Don't discover config files"
+    completion:
+      positional:
+        - ["$files(.whl, .tar.gz)"]
+
+  - name: auth
+    description: Manage authentication
+    commands:
+      - name: login
+        description: Login to a service
+        flags:
+          --username=: "The username to use for authentication"
+          --password=: "The password to use for authentication"
+          --token=: "The token to use for authentication"
+          --no-store: "Don't store the token in the keyring"
+        completion:
+          positional:
+            - ["$files"]
+
+      - name: logout
+        description: Logout of a service
+        flags:
+          --username=: "The username to logout"
+        completion:
+          positional:
+            - ["$files"]
+
+      - name: token
+        description: Get a token for a service
+        flags:
+          --username=: "The username to get the token for"
+          --keyring: "Force using the system keyring"
+        completion:
+          positional:
+            - ["$files"]
+
+      - name: dir
+        description: Show the directory where credentials are stored
+        completion:
+          positional:
+            - ["$files"]
+
+  - name: tool
+    description: Run and install commands provided by Python packages
+    commands:
+      - name: run
+        description: Run a tool (alias for uvx)
+        flags:
+          -w, --with=: "Run with the given package installed"
+          --with-editable=: "Run with the given editable package installed"
+          --with-requirements=: "Run with all packages listed in the given requirements file"
+          -p, --python=: "The Python interpreter to use"
+          -U, --upgrade: "Allow package upgrades"
+          -P, --upgrade-package=*: "Allow upgrades for a specific package (repeatable)"
+          --from=: "Use the given package to provide the command"
+          --isolated: "Run in isolation"
+          --no-cache: "Avoid reading from or writing to the cache"
+          --with-default-groups: "Use the default dependency groups for the project"
+          --refresh: "Refresh all cached data"
+        completion:
+          flag:
+            from: ["$executables"]
+            with: ["$(uvx __complete run ${C_VALUE} 2>/dev/null)"]
+            with-editable: ["$directories"]
+            with-requirements: ["$files(.txt)"]
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+          positional:
+            - ["$executables"]
+
+      - name: install
+        description: Install tools
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          -U, --upgrade: "Allow package upgrades"
+          -P, --upgrade-package=*: "Allow upgrades for a specific package (repeatable)"
+          --with=*: "Include the given package (repeatable)"
+          --with-editable=*: "Include the given editable package (repeatable)"
+          --with-requirements=*: "Include all packages from the given requirements file (repeatable)"
+          --editable: "Install the tool as an editable package"
+          --reinstall: "Reinstall all packages"
+          --reinstall-package=*: "Reinstall a specific package (repeatable)"
+          --no-cache: "Avoid reading from or writing to the cache"
+          --refresh: "Refresh all cached data"
+          --force: "Force installation"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+            with: ["$(uvx __complete run ${C_VALUE} 2>/dev/null)"]
+            with-editable: ["$directories"]
+            with-requirements: ["$files(.txt)"]
+          positionalany:
+            - ["$files"]
+
+      - name: upgrade
+        description: Upgrade installed tools
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          -U, --upgrade: "Allow package upgrades"
+          -P, --upgrade-package=*: "Allow upgrades for a specific package (repeatable)"
+          --all: "Upgrade all tools"
+          --reinstall: "Reinstall all packages"
+          --reinstall-package=*: "Reinstall a specific package (repeatable)"
+          --no-cache: "Avoid reading from or writing to the cache"
+          --refresh: "Refresh all cached data"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+          positionalany:
+            - ["$files"]
+
+      - name: list
+        description: List installed tools
+        flags:
+          --show-paths: "Show the path to each tool"
+          --show-with: "Show the resolved requirements for each tool"
+          --show-version-specifiers: "Show the version specifiers for each tool"
+          -p, --python=: "The Python interpreter to use"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+
+      - name: uninstall
+        description: Uninstall a tool
+        flags:
+          -p, --python=: "The Python interpreter to use"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+          positionalany:
+            - ["$files"]
+
+      - name: update-shell
+        description: Ensure that the tool bin directory is on PATH
+
+      - name: dir
+        description: Show the tool installation directory
+        flags:
+          -p, --python=: "The Python interpreter to use"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+
+  - name: python
+    description: Manage Python installations
+    commands:
+      - name: list
+        description: List available Python installations
+        flags:
+          --all-versions: "List all available Python versions"
+          --all-arches: "List Python installations for all architectures"
+          --only-installed: "Only show installed Python versions"
+          --only-downloads: "Only show downloadable Python versions"
+          -p, --python=: "The Python interpreter to use"
+          --format=: "The format of the output"
+          --no-config: "Don't discover config files"
+          --isolated: "Run in isolated mode"
+        completion:
+          flag:
+            format:
+              - [text, Plain text]
+              - [json, JSON]
+
+      - name: install
+        description: Download and install Python versions
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          --install-dir=: "The directory to install Python into"
+          --mirror=: "Use a mirror for downloading Python"
+          -r, --reinstall: "Reinstall the Python version"
+          --upgrade: "Upgrade the Python version"
+          --free-threaded: "Install free-threaded Python"
+          --no-managed-python: "Don't use uv-managed Python"
+          --no-config: "Don't discover config files"
+        completion:
+          flag:
+            install-dir: ["$directories"]
+          positionalany:
+            - ["$files"]
+
+      - name: upgrade
+        description: Upgrade installed Python versions
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          --install-dir=: "The directory to upgrade Python in"
+          --mirror=: "Use a mirror for downloading Python"
+          --reinstall: "Reinstall the Python version"
+          --free-threaded: "Install free-threaded Python"
+          --no-managed-python: "Don't use uv-managed Python"
+          --no-config: "Don't discover config files"
+        completion:
+          flag:
+            install-dir: ["$directories"]
+          positionalany:
+            - ["$files"]
+
+      - name: find
+        description: Find an installed Python version
+        flags:
+          -p, --python=: "The Python interpreter to find"
+          --no-managed-python: "Don't use uv-managed Python"
+          --no-config: "Don't discover config files"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+          positional:
+            - ["$files"]
+
+      - name: pin
+        description: Pin to a specific Python version
+        flags:
+          -p, --python=: "The Python interpreter to pin to"
+          --resolved: "Resolve the Python version before pinning"
+          --no-managed-python: "Don't use uv-managed Python"
+          --no-config: "Don't discover config files"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+
+      - name: dir
+        description: Show the Python installation directory
+        flags:
+          -p, --python=: "The Python interpreter to show the directory for"
+          --no-managed-python: "Don't use uv-managed Python"
+          --no-config: "Don't discover config files"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+
+      - name: uninstall
+        description: Uninstall a Python version
+        flags:
+          -p, --python=: "The Python interpreter to uninstall"
+          --install-dir=: "The directory to uninstall Python from"
+          --no-managed-python: "Don't use uv-managed Python"
+          --no-config: "Don't discover config files"
+        completion:
+          flag:
+            install-dir: ["$directories"]
+          positionalany:
+            - ["$files"]
+
+      - name: update-shell
+        description: Ensure that the Python bin directory is on PATH
+
+  - name: pip
+    description: Manage Python packages with a pip-compatible interface
+    commands:
+      - name: compile
+        description: Compile a requirements file from a pyproject.toml or requirements.in
+        flags:
+          -o, --output-file=: "Write the compiled requirements to FILE"
+          -p, --python=: "The Python interpreter to use"
+          -U, --upgrade: "Allow package upgrades"
+          -P, --upgrade-package=*: "Allow upgrades for a specific package (repeatable)"
+          --no-strip-extras: "Include extras in the output"
+          --no-strip-markers: "Include environment markers in the output"
+          --no-annotate: "Don't annotate the output"
+          --no-header: "Don't include the header in the output"
+          --no-emit-find-links: "Don't emit find-links entries"
+          --emit-find-links: "Emit find-links entries"
+          --emit-index-url: "Emit index URL entries"
+          --no-emit-index-url: "Don't emit index URL entries"
+          --no-index: "Ignore the registry index"
+          --index=: "The package index to use (repeatable)"
+          --default-index=: "The default package index to use"
+          --extra-index-url=*: "Extra package index to use (repeatable)"
+          -i, --index-url=: "The index URL to use"
+          --index-strategy=: "The strategy to use when resolving against multiple indexes"
+          --keyring-provider=: "The keyring provider to use"
+          --resolution=: "The resolution strategy"
+          --prerelease=: "Allow pre-release versions"
+          --bounds=: "The kind of version specifier to use"
+          --exclude-newer=: "Limit candidate versions to those that were released before DATE"
+          --no-binary: "Don't install pre-built wheels"
+          --no-build: "Don't build source distributions"
+          --no-build-isolation: "Disable build isolation"
+          --config-settings=*: "Settings to pass to the PEP 517 build backend (repeatable)"
+          --link-mode=: "The method to use when installing packages"
+          --refresh: "Refresh all cached data"
+          --no-cache: "Avoid reading from or writing to the cache"
+          --no-deps: "Don't install dependencies"
+          --allow-unsafe: "Allow packages considered unsafe"
+          --generate-hashes: "Generate hashes in the output"
+          --no-config: "Don't discover config files"
+          --isolated: "Run in isolated mode"
+        completion:
+          flag:
+             output-file: ["$files(.txt)"]
+             python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+             index-strategy:
+               - [first-index, Prefer the first index that contains a compatible package]
+               - [unsafe-first-match, "Prefer the first index, but allow unsafe matches"]
+             resolution:
+               - [highest, Resolve to the highest compatible version]
+               - [lowest, Resolve to the lowest compatible version]
+               - [lowest-direct, Resolve to the lowest direct version]
+             prerelease:
+               - [disallow, "Don't allow pre-release versions"]
+               - [allow, Allow pre-release versions]
+               - [if-necessary, Allow pre-release versions only if needed]
+               - [explicit, Allow pre-release versions only for explicit specifiers]
+             bounds:
+               - [lowest-direct, Resolve to the lowest direct version]
+               - [exact, Keep the existing version specifiers]
+           positional:
+             - ["$files(.in, .txt)"]
+
+      - name: sync
+        description: Sync the environment with a requirements file
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          --no-strip-extras: "Include extras in the output"
+          --no-strip-markers: "Include environment markers in the output"
+          --no-annotate: "Don't annotate the output"
+          --no-header: "Don't include the header in the output"
+          --no-index: "Ignore the registry index"
+          --index=: "The package index to use (repeatable)"
+          --default-index=: "The default package index to use"
+          --extra-index-url=*: "Extra package index to use (repeatable)"
+          -i, --index-url=: "The index URL to use"
+          --index-strategy=: "The strategy to use when resolving against multiple indexes"
+          --keyring-provider=: "The keyring provider to use"
+          --resolution=: "The resolution strategy"
+          --prerelease=: "Allow pre-release versions"
+          --refresh: "Refresh all cached data"
+          --no-cache: "Avoid reading from or writing to the cache"
+          --no-build-isolation: "Disable build isolation"
+          --link-mode=: "The method to use when installing packages"
+          --config-settings=*: "Settings to pass to the PEP 517 build backend (repeatable)"
+          --no-config: "Don't discover config files"
+          --isolated: "Run in isolated mode"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+          positional:
+            - ["$files(.txt)"]
+
+      - name: install
+        description: Install packages into the environment
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          -e, --editable=: "Install the given package as editable"
+          -r, --requirements=: "Install all packages listed in the given requirements file"
+          -U, --upgrade: "Allow package upgrades"
+          -P, --upgrade-package=*: "Allow upgrades for a specific package (repeatable)"
+          --reinstall: "Reinstall all packages"
+          --reinstall-package=*: "Reinstall a specific package (repeatable)"
+          --no-deps: "Don't install dependencies"
+          --no-index: "Ignore the registry index"
+          --index=: "The package index to use (repeatable)"
+          --default-index=: "The default package index to use"
+          --extra-index-url=*: "Extra package index to use (repeatable)"
+          -i, --index-url=: "The index URL to use"
+          --index-strategy=: "The strategy to use when resolving against multiple indexes"
+          --keyring-provider=: "The keyring provider to use"
+          --resolution=: "The resolution strategy"
+          --prerelease=: "Allow pre-release versions"
+          --bounds=: "The kind of version specifier to use"
+          --exclude-newer=: "Limit candidate versions to those that were released before DATE"
+          --no-binary: "Don't install pre-built wheels"
+          --no-build: "Don't build source distributions"
+          --no-build-isolation: "Disable build isolation"
+          --config-settings=*: "Settings to pass to the PEP 517 build backend (repeatable)"
+          --link-mode=: "The method to use when installing packages"
+          --refresh: "Refresh all cached data"
+          --no-cache: "Avoid reading from or writing to the cache"
+          --system: "Install to the system Python"
+          --break-system-packages: "Allow uv to modify system packages"
+          --compile-bytecode: "Compile Python source files to bytecode"
+          --no-compile-bytecode: "Don't compile Python source files to bytecode"
+          --no-config: "Don't discover config files"
+          --isolated: "Run in isolated mode"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+            editable: ["$directories"]
+            requirements: ["$files(.txt)"]
+            index-strategy:
+              - "first-index"
+              - "unsafe-first-match"
+            resolution:
+              - "highest"
+              - "lowest"
+              - "lowest-direct"
+            prerelease:
+              - "disallow"
+              - "allow"
+              - "if-necessary"
+              - "explicit"
+            bounds:
+              - "lowest-direct"
+              - "exact"
+          positionalany:
+            - ["$files"]
+
+      - name: uninstall
+        description: Uninstall packages from the environment
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          -r, --requirements=: "Uninstall all packages listed in the given requirements file"
+          --system: "Uninstall from the system Python"
+          --break-system-packages: "Allow uv to modify system packages"
+          --no-config: "Don't discover config files"
+          --isolated: "Run in isolated mode"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+            requirements: ["$files(.txt)"]
+          positionalany:
+            - ["$files"]
+
+      - name: freeze
+        description: List installed packages in requirements format
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          --path=: "Restrict to the specified PATH"
+          --no-config: "Don't discover config files"
+          --isolated: "Run in isolated mode"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+            path: ["$directories"]
+
+      - name: list
+        description: List installed packages
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          --format=: "The format of the output"
+          --no-deps: "Don't include dependencies"
+          --path=: "Restrict to the specified PATH"
+          --system: "List packages in the system Python"
+          --no-config: "Don't discover config files"
+          --isolated: "Run in isolated mode"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+            format:
+              - "columns"
+              - "freeze"
+              - "json"
+              - "markdown"
+              - "plain"
+              - "tree"
+            path: ["$directories"]
+
+      - name: show
+        description: Show information about one or more installed packages
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          --format=: "The format of the output"
+          --no-deps: "Don't include dependencies"
+          --path=: "Restrict to the specified PATH"
+          --system: "Show packages in the system Python"
+          --all-files: "Show all files in the package"
+          --no-config: "Don't discover config files"
+          --isolated: "Run in isolated mode"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+            format:
+              - "columns"
+              - "freeze"
+              - "json"
+              - "markdown"
+              - "plain"
+              - "tree"
+            path: ["$directories"]
+          positionalany:
+            - ["$files"]
+
+      - name: tree
+        description: Display the dependency tree
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          --depth=: "Maximum display depth of the dependency tree"
+          --prune=*: "Prune the given package from the display (repeatable)"
+          --invert: "Show the reverse dependency tree"
+          --no-deps: "Don't include dependencies"
+          --path=: "Restrict to the specified PATH"
+          --system: "Show packages in the system Python"
+          --no-config: "Don't discover config files"
+          --isolated: "Run in isolated mode"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+            path: ["$directories"]
+
+      - name: check
+        description: Verify the environment has compatible packages
+        flags:
+          -p, --python=: "The Python interpreter to use"
+          --path=: "Restrict to the specified PATH"
+          --system: "Check the system Python"
+          --no-config: "Don't discover config files"
+          --isolated: "Run in isolated mode"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+            path: ["$directories"]
+
+  - name: workspace
+    description: Manage a workspace
+    commands:
+      - name: metadata
+        description: Display the workspace's metadata
+        flags:
+          --format=: "The format of the output"
+          --no-sync: "Don't sync the project"
+        completion:
+          flag:
+            format:
+              - "json"
+
+      - name: dir
+        description: Display the workspace's root directory
+        flags:
+          --no-sync: "Don't sync the project"
+
+      - name: list
+        description: List the members of the workspace
+        flags:
+          --all-paths: "List all paths in the workspace"
+          --no-sync: "Don't sync the project"
+
+  - name: cache
+    description: Manage the cache
+    commands:
+      - name: clean
+        description: Clear the cache
+        flags:
+          --force: "Force clean"
+        completion:
+          positionalany:
+            - ["$files"]
+
+      - name: prune
+        description: Prune the cache
+        flags:
+          --force: "Force prune"
+
+      - name: dir
+        description: Show the cache directory
+        flags:
+          -p, --python=: "The Python interpreter to use"
+        completion:
+          flag:
+            python: ["$(uv python list --only-installed --format=json 2>/dev/null | $(cmd jq -r '.[].version' 2>/dev/null))"]
+
+      - name: size
+        description: Show the cache size
+
+  - name: self
+    description: Manage the uv installation
+    commands:
+      - name: update
+        description: Update uv
+        flags:
+          --channel=: "The channel to update from"
+        completion:
+          flag:
+            channel:
+              - [stable, The stable channel]
+              - [beta, The beta channel]
+              - [preview, The preview channel]
+
+      - name: version
+        description: Show uv's version
+
+  - name: help
+    description: Display documentation for a command
+    flags:
+      --no-pager: "Disable the pager"
+    completion:
+      positional:
+        - ["$commands"]
+
+  - name: generate-shell-completion
+    description: Generate shell completion scripts
+    hidden: true
+    flags:
+      --shell=: "The shell to generate completions for"
+    completion:
+      flag:
+        shell:
+          - "bash"
+          - "zsh"
+          - "fish"
+          - "nushell"
+          - "powershell"
+          - "elvish"
