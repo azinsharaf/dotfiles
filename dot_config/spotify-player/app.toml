@@ -1,4 +1,4 @@
-theme = "Catppuccin-mocha"
+theme = "Tokyo-night"
 client_id = "00f17e5050d14199b943acaaa68850e3"
 client_port = 8080
 login_redirect_uri = "http://127.0.0.1:8989/login"
