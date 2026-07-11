@@ -183,6 +183,28 @@ pixi add gdal libgdal-core
   pixi add pdal
   ```
 
+#### Python Virtual Environments
+
+User-level Python venvs (in `~/.venvs/`) that the Obsidian "obsidian_terminal" plugin
+and Neovim's Python provider depend on. The dotfiles repo ships bootstrap scripts in
+`~/.config/uv/scripts/` — run them once after `chezmoi apply` on a new machine.
+
+```pwsh
+# Obsidian "obsidian_terminal" plugin (Python 3.11)
+pwsh ~/.config/uv/scripts/install-obsidian-terminal.ps1
+
+# Neovim's Python provider (Python 3.12)
+pwsh ~/.config/uv/scripts/install-pynvim.ps1
+```
+
+After running, point the consuming tool at the rebuilt interpreter:
+
+- **Obsidian** plugin settings → Python path:
+  `C:\Users\<you>\.venvs\obsidian_terminal\Scripts\python.exe`
+- **Neovim** is already configured to use
+  `C:\Users\<you>\.venvs\pynvim\Scripts\python.exe`
+  (see `dot_config/nvim/lua/config/globals.lua.tmpl`).
+
 ## MacOS Setup
 
 ### Install Homebrew
