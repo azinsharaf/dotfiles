@@ -173,7 +173,6 @@ $ENABLE_ASYNC_PROMPT = True
 $EDITOR        = 'nvim'
 $VISUAL        = 'nvim'
 $COLORTERM     = 'truecolor'
-$SHELL         = _h + r'\.venvs\xonsh\Scripts\xonsh.exe'
 
 $TMP           = _h + r'\.tmp'
 $TMPDIR        = _h + r'\.tmp'
@@ -184,10 +183,6 @@ $YOUTUBETUI_CONFIG_HOME  = _h + r'\.config\youtube-tui'
 
 $KOMOREBI_CONFIG_HOME    = _h + r'\.config\komorebi'
 $KOMOREBI_AHK_EXE        = _h + r'\scoop\apps\autohotkey\current\UX\AutoHotkeyUX.exe'
-
-# $GDAL_DRIVER_PATH        = _h + r'\gdal-env\.pixi\envs\default\Library\lib\gdalplugins'
-$GLAZEWM_CONFIG_PATH     = _h + r'\.config\glazewm\config.yaml'
-
 
 $STARSHIP_CONFIG = _h + r'\.config\starship\starship.toml'
 
@@ -221,7 +216,6 @@ $UV_TOOL_DIR = _h + r'\.venvs'
 
 $PATH = [
     # High priority — prepend
-    _h + r'\.venvs\xonsh\Scripts',
     _h + r'\scoop\shims',
     # Conda
     _h + r'\scoop\apps\miniconda3\current',
@@ -232,8 +226,6 @@ $PATH = [
     _h + r'\.cargo\bin',
     _h + r'\.local\bin',
 
-    _h + r'\gdal-env\.pixi\envs\default\Library\bin',
-    _h + r'\pdal-env\.pixi\envs\default\Library\bin',
     _h + r'\scoop\apps\perl\current\perl\bin',
     r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin',
     r'C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\libnvvp',
