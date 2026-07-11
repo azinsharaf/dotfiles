@@ -146,3 +146,40 @@ playback_status = { fg = "Cyan", modifiers = ["Bold"] }
 playback_artists = { fg = "Cyan", modifiers = ["Bold"] }
 playlist_desc = { fg = "#a6adc8" }
 
+[[themes]]
+name = "Tokyo-night"
+[themes.palette]
+background = "#1a1b26"
+foreground = "#c0caf5"
+black = "#15161e"
+blue = "#7aa2f7"
+cyan = "#7dcfff"
+green = "#9ece6a"
+magenta = "#bb9af7"
+red = "#f7768e"
+white = "#a9b1d6"
+yellow = "#e0af68"
+bright_black = "#414868"
+bright_blue = "#7aa2f7"
+bright_cyan = "#7dcfff"
+bright_green = "#9ece6a"
+bright_magenta = "#bb9af7"
+bright_red = "#f7768e"
+bright_white = "#c0caf5"
+bright_yellow = "#e0af68"
+
+[themes.component_style]
+selection = { bg = "#24283b", modifiers = ["Bold"] }
+block_title = { fg = "Magenta" }
+playback_track = { fg = "Cyan", modifiers = ["Bold"] }
+playback_album = { fg = "Yellow" }
+playback_metadata = { fg = "Blue" }
+playback_progress_bar = { bg = "#24283b", fg = "Green" }
+current_playing = { fg = "Green", modifiers = ["Bold"] }
+page_desc = { fg = "Cyan", modifiers = ["Bold"] }
+table_header = { fg = "Blue" }
+border = {}
+playback_status = { fg = "Cyan", modifiers = ["Bold"] }
+playback_artists = { fg = "Cyan", modifiers = ["Bold"] }
+playlist_desc = { fg = "#565f89" }
+
