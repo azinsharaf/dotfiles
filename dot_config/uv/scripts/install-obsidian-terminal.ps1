@@ -16,11 +16,10 @@ Write-Host "Creating venv at $venvDir (Python 3.11)..."
 uv venv --python 3.11 $venvDir
 
 Write-Host "Installing plugin dependencies..."
-& $pyExe -m pip install --upgrade pip
-& $pyExe -m pip install `
-    'psutil>=5.9.5' `
-    'pywinctl>=0.0.50' `
-    'typing-extensions>=4.7.1'
+uv pip install --python $pyExe `
+    'psutil==5.9.5' `
+    'pywinctl==0.0.50' `
+    'typing_extensions==4.7.1'
 
 Write-Host ""
 Write-Host "Done. Point your Obsidian plugin at:"
