@@ -1,0 +1,15 @@
+search_limit: 25
+default_download_path: ~/Videos
+default_quality: best
+sort_by_default: relevance
+embed_subtitles: false
+embed_metadata: true
+embed_chapters: true
+ffmpeg_path: ""
+yt_dlp_path: ""
+video_format: mp4
+audio_format: mp3
+cookies_browser: ""
+cookies_file: ""
+thumbnail_preview: true
+thumbnail_timeout_ms: 2500
