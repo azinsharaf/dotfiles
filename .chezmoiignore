@@ -22,3 +22,9 @@ scoop/persist/flow-launcher/UserData/Settings/UserSelectedRecord.json
 
 # gh: hosts.yml contains the OAuth token in non-keyring configurations; keep it out of the repo
 dot_config/gh/hosts.yml
+
+# Defensive: never track Python venvs or bytecode caches if they ever end up in the source tree
+.venv/**
+venv/**
+__pycache__/**
+*.pyc
