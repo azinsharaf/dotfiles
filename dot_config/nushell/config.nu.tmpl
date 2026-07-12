@@ -268,8 +268,8 @@ def ke [] {
 # Activates a conda environment using the ArcGIS Pro conda installation.
 # Resolves the env path via `conda env list --json`, then mutates
 # $env.Path and $CONDA_* variables — same logic as activate.bat's CONDA_SKIPCHECK path.
-# Usage: ca [env-name]   (default: arcgispro-py3-clone)
-export def --env ca [env_name: string = "arcgispro-py3-clone"] {
+# Usage: ca [env-name]   (default: arcgispro-py3)
+export def --env ca [env_name: string = "arcgispro-py3"] {
     let conda_exe = "C:\\Program Files\\ArcGIS\\Pro\\bin\\Python\\Scripts\\conda.exe"
 
     let result = (^$conda_exe env list --json | complete)
