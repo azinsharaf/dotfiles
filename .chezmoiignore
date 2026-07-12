@@ -28,3 +28,22 @@ dot_config/gh/hosts.yml
 venv/**
 __pycache__/**
 *.pyc
+
+# Unused AI agent app folders (only opencode is in use)
+.claude
+.continue
+.copilot
+.aethertune
+.continuum
+.herdr
+
+# opencode auto-creates these at runtime in ~/.agents/skills/;
+# keep them out of the dotfiles source — they're not user-managed
+.agents/skills/understand
+.agents/skills/understand-chat
+.agents/skills/understand-dashboard
+.agents/skills/understand-diff
+.agents/skills/understand-domain
+.agents/skills/understand-explain
+.agents/skills/understand-knowledge
+.agents/skills/understand-onboard
