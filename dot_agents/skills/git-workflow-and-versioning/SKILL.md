@@ -118,6 +118,18 @@ Target ~100 lines per commit/PR. Changes over ~1000 lines should be split. See t
 ~1000 lines → Split into smaller changes
 ```
 
+## Repository Setup
+
+When creating a new git repository, read the user's identity from `~/.gitconfig` and apply it locally instead of asking or using placeholders:
+
+```bash
+GIT_USER_NAME=$(git config --global user.name)
+GIT_USER_EMAIL=$(git config --global user.email)
+git init
+git config user.name "$GIT_USER_NAME"
+git config user.email "$GIT_USER_EMAIL"
+```
+
 ## Branching Strategy
 
 ### Feature Branches
