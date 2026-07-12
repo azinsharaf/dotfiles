@@ -12,8 +12,8 @@ if (-not (Get-Command uv -ErrorAction SilentlyContinue)) {
 $venvDir = Join-Path $env:USERPROFILE '.venvs\obsidian_terminal'
 $pyExe   = Join-Path $venvDir 'Scripts\python.exe'
 
-Write-Host "Creating venv at $venvDir (Python 3.11)..."
-uv venv --python 3.11 $venvDir
+Write-Host "Recreating venv at $venvDir (Python 3.11)..."
+uv venv --python 3.11 --clear $venvDir
 
 Write-Host "Installing plugin dependencies..."
 uv pip install --python $pyExe `
