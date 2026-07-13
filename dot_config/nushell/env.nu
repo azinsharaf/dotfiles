@@ -21,6 +21,9 @@ $env.TMPDIR = ($env.TMP | into string)
 
 # ----- XDG / app config homes -----
 $env.XDG_CONFIG_HOME = ($env.USERPROFILE | path join ".config")
+$env.XDG_DATA_HOME = ($env.USERPROFILE | path join ".local" "share")
+$env.XDG_STATE_HOME = ($env.USERPROFILE | path join ".local" "state")
+$env.XDG_CACHE_HOME = ($env.USERPROFILE | path join ".cache")
 $env.MPV_HOME = ($env.USERPROFILE | path join ".config" "mpv")
 $env.YOUTUBETUI_CONFIG_HOME = ($env.USERPROFILE | path join ".config" "youtube-tui")
 

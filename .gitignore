@@ -9,6 +9,12 @@ dot_config/yasb/yasb.log
 /dot_config/spotatui/streaming_cache/credentials.json
 /dot_config/spotatui/client.yml
 
+# gh: hosts.yml can contain OAuth tokens in non-keyring configurations; keep it local
+/dot_config/gh/hosts.yml
+
+# qutebrowser bookmarks may contain internal-network, work, and personal URLs
+AppData/Roaming/qutebrowser/config/bookmarks/urls
+
 AppData/Roaming/FlowLauncher/Cache/**
 AppData/Roaming/FlowLauncher/Logs/**
 AppData/Roaming/FlowLauncher/Plugins/**
