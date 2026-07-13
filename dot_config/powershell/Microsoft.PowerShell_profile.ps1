@@ -157,7 +157,10 @@ function n
 }
 
 function nvim-remove
-{Remove-Item -Path "$Env:USERPROFILE\AppData\Local\nvim-data" -Recurse -Force
+{
+    Remove-Item -Path "$Env:USERPROFILE\AppData\Local\nvim-data" -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path "$Env:XDG_DATA_HOME\nvim-data" -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path "$Env:XDG_STATE_HOME\nvim" -Recurse -Force -ErrorAction SilentlyContinue
 }
 
 function lg
@@ -252,6 +255,9 @@ $Env:TMPDIR = "$Env:USERPROFILE\.tmp"
 $Env:TMP = "$Env:USERPROFILE\.tmp"
 
 $Env:XDG_CONFIG_HOME = "$Env:USERPROFILE\.config"
+$Env:XDG_DATA_HOME = "$Env:USERPROFILE\.local\share"
+$Env:XDG_STATE_HOME = "$Env:USERPROFILE\.local\state"
+$Env:XDG_CACHE_HOME = "$Env:USERPROFILE\.cache"
 
 $Env:MPV_HOME = "$Env:USERPROFILE\.config\mpv"
 $Env:YOUTUBETUI_CONFIG_HOME = "$Env:USERPROFILE\.config\youtube-tui"
