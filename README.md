@@ -1,5 +1,7 @@
 # Personal Development Environment (PDE)
 
+> Browser bookmarks (`AppData/Roaming/qutebrowser/config/bookmarks/urls`) and the `gh` hosts file are intentionally **not** tracked — they may contain internal-network, work, or personal URLs/tokens and are kept local-only.
+
 ## Windows Setup
 
 ### Install Applications
