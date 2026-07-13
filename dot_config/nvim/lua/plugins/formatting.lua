@@ -18,7 +18,7 @@ return {
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "ruff_fix", "ruff" },
 				kdl = { "kdlfmt" },
 			},
 			format_on_save = {
@@ -31,14 +31,6 @@ return {
 			log_level = vim.log.levels.ERROR,
 			notify_on_error = true,
 			notify_no_formatters = true,
-			formatters = {
-				isort = {
-					command = "isort",
-					args = {
-						"-",
-					},
-				},
-			},
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
