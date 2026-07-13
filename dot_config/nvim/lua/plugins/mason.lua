@@ -40,9 +40,8 @@ return {
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"black",
+				"ruff",
 				"prettier",
-				"isort",
 				"stylua",
 				"kdlfmt",
 			},
