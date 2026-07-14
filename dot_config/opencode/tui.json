@@ -3,5 +3,8 @@
   "theme": "tokyonight",
   "scroll_acceleration": { "enabled": true },
   "mouse": true,
-  "keybinds": { "app_exit": "ctrl+d" }
+  "keybinds": {
+    "app_exit": "ctrl+d,:q",
+    "input_newline": "shift+return,ctrl+j"
+  }
 }
