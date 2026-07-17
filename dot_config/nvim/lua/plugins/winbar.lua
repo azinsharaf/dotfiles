@@ -20,7 +20,6 @@ return {
 			},
 
 			exclude_filetype = {
-				"", -- for wilder.nvim plugin
 				"help",
 				"startify",
 				"dashboard",

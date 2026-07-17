@@ -50,7 +50,8 @@ opt.colorcolumn = ""  -- off: 79 is too narrow on 4K displays
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 opt.cmdheight = 1
 opt.scrolloff = 10
-opt.completeopt = "menuone,noinsert,noselect"
+opt.winborder = "rounded"
+opt.completeopt = "noinsert,noselect"
 opt.cursorline = true -- highlight current line
 
 -- Behavior
