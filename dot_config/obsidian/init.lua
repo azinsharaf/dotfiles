@@ -5,7 +5,8 @@ vim.opt.textobjects = true
 vim.opt.clipboard = "unnamed"
 vim.opt.whichkeygrouping = "grouped"
 vim.opt.whichkey = "all"
-
+vim.opt.flashjump = true
+vim.opt.flashjumpkey = "s"
 -- delete table entries to use termianl instead
 vim.keymap.del("n", "t")
 
