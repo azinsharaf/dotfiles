@@ -29,10 +29,9 @@ alias capply = chezmoi apply --interactive -v
 alias ccd    = chezmoi cd
 
 # zoxide
-source ~/.config/nushell/zoxide.nu
+# source ~/.config/nushell/zoxide.nu
 
 # carapace
-$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 source ~/.config/nushell/carapace.nu
 
 # PATH
