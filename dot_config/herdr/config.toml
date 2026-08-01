@@ -1,0 +1,38 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+a"
+
+[theme]
+name = "catppuccin"
+
+[terminal]
+default_shell = "nu.exe"
+new_cwd = "follow"
+
+[[keys.command]]
+key = "prefix+p"
+type = "popup"
+command = "nu ~/.config/herdr/scripts/pick-project.nu"
+description = "switch project"
+
+[[keys.command]]
+key = "prefix+r"
+type = "shell"
+command = "herdr server reload-config"
+description = "reload herdr config"
+
+[ui]
+agent_panel_sort = "spaces"
+
+show_agent_labels_on_pane_borders = true
+[ui.sidebar.agents]
+row_gap = 0
+rows = [
+    ["state_icon", "agent"],
+    ["terminal_title_stripped"],
+    ["workspace", "tab"]
+]
+
+[ui.toast]
+delivery = "herdr"
