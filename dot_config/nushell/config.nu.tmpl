@@ -7,3 +7,23 @@ $env.PROMPT_COMMAND = { || starship prompt }
 $env.PROMPT_INDICATOR = ""
 $env.PROMPT_INDICATOR_VI_NORMAL = ""
 $env.PROMPT_INDICATOR_VI_INSERT = ""
+
+# Aliases
+alias ll     = eza -lh
+alias la     = eza -lha
+alias lt     = eza --tree
+alias cat    = bat
+alias n      = nvim
+alias lg     = lazygit
+alias y      = yazi
+alias ":q"   = exit
+alias e      = exit
+alias c      = clear
+alias su     = scoop update
+alias ss     = scoop status
+alias sua    = scoop update --all
+alias cedit  = chezmoi edit
+alias cdiff  = chezmoi diff
+alias cstatus = chezmoi status
+alias capply = chezmoi apply --interactive -v
+alias ccd    = chezmoi cd
