@@ -7,10 +7,7 @@ local config = {
 	-- keys = require("keybindings"),
 	disable_default_key_bindings = false,
 	font = require("fonts"),
-	-- Custom color scheme (softened Tokyo Night). Define the palette via the
-	-- `color_schemes` table, then reference it by name in `color_scheme`.
-	color_schemes = require("colors"),
-	color_scheme = "tokyonight-soft",
+	color_scheme = "Tokyo Night",
 
 	-- Font rendering (Mac-like crispness on Windows)
 	font_size = 13,
