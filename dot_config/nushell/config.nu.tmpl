@@ -31,15 +31,11 @@ alias ccd    = chezmoi cd
 # zoxide
 source ~/.config/nushell/zoxide.nu
 
-# Completions — carapace
-$env.config.completions = {
-    external: {
-        enable: true
-        max_results: 100
-        completer: {|spans| carapace $spans.0 nushell ...$spans | from json}
-    }
-    algorithm: "prefix"
-}
+# carapace
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+source ~/.config/nushell/carapace.nu
+$env.config.completions.algorithm = "prefix"
+$env.config.completions.external.max_results = 100
 
 # PATH
 let h = $env.USERPROFILE
