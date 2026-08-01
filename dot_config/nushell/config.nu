@@ -28,14 +28,11 @@ alias cstatus = chezmoi status
 alias capply = chezmoi apply --interactive -v
 alias ccd    = chezmoi cd
 
-# zoxide
-# source ~/.config/nushell/zoxide.nu
-
 # carapace
 source ~/.config/nushell/carapace.nu
 
 # PATH
-let h = $env.USERPROFILE
+let h = $env.HOME
 
 # Prepended (high priority)
 $env.path = (
