@@ -27,3 +27,23 @@ alias cdiff  = chezmoi diff
 alias cstatus = chezmoi status
 alias capply = chezmoi apply --interactive -v
 alias ccd    = chezmoi cd
+
+# PATH
+let h = $env.USERPROFILE
+
+# Prepended (high priority)
+$env.path = (
+    [
+        ($h | path join "scoop" "shims")
+    ]
+    | append $env.path
+)
+
+# Appended
+$env.path ++= [
+    ($h | path join ".cargo" "bin"),
+    ($h | path join ".local" "bin"),
+    "C:\Program Files\ImageMagick-7.1.2-Q16-HDRI",
+    ($h | path join "AppData" "Local" "pnpm"),
+    ($h | path join "go" "bin"),
+]
