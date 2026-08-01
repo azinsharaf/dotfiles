@@ -1,5 +1,5 @@
 let carapace_bin = (($env.USERPROFILE? | default $env.HOME) | path join "scoop" "apps" "carapace-bin" "current")
-$env.Path = ($env.Path | split row (char esep) | where { $in != $carapace_bin } | prepend $carapace_bin)
+$env.path = ($env.path | split row (char esep) | where { $in != $carapace_bin } | prepend $carapace_bin)
 
 def --env get-env [name] { $env | get $name }
 def --env set-env [name, value] { load-env { $name: $value } }
