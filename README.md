@@ -172,6 +172,7 @@ After running, point the consuming tool at the rebuilt interpreter:
 `cargo install --git https://github.com/siriusmart/youtube-tui`
 `cargo install --git https://github.com/nevermore23274/AetherTune` # radio in terminal
 `cargo install --git https://github.com/christo-auer/eilmeldung` # RSS reader in temrinal
+`cargo install --locked tabiew` # view and query tabular data files, such as CSV, Parquet, Arrow, and ... it has issue on windows
 
 #### go applications
 
