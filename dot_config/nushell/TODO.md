@@ -5,3 +5,4 @@
 - [x] 2- remove datetime in shell
 - [x] 3- add starship (already installed)
 - [x] add to path:'\scoop\apps\perl\current\perl\bin',
+- [x] add tokyo night theme
