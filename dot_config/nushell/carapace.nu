@@ -1,4 +1,5 @@
-$env.Path = ($env.Path | split row (char esep) | where { $in != "C:/Users/azin/.config/carapace/bin" } | prepend "C:/Users/azin/.config/carapace/bin")
+let carapace_bin = (($env.USERPROFILE? | default $env.HOME) | path join "scoop" "apps" "carapace-bin" "current")
+$env.Path = ($env.Path | split row (char esep) | where { $in != $carapace_bin } | prepend $carapace_bin)
 
 def --env get-env [name] { $env | get $name }
 def --env set-env [name, value] { load-env { $name: $value } }
@@ -25,12 +26,14 @@ let carapace_completer = {|spans|
   | from json
 }
 
-mut current = (($env | default {} config).config | default {} completions)
-$current.completions = ($current.completions | default {} external)
-$current.completions.external = ($current.completions.external
-| default true enable
-# backwards compatible workaround for default, see nushell #15654
-| upsert completer { if $in == null { $carapace_completer } else { $in } })
+mut config = ($env.config? | default {})
+if ($config.completions? == null) { $config.completions = {} }
+if ($config.completions.external? == null) { $config.completions.external = {} }
 
-$env.config = $current
+let completer = (if ($config.completions.external.completer? == null) { $carapace_completer } else { $config.completions.external.completer })
+
+$config.completions.external.enable = ($config.completions.external.enable? | default true)
+$config.completions.external.completer = $completer
+
+$env.config = $config
     
