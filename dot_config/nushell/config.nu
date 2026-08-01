@@ -52,4 +52,6 @@ $env.path ++= [
     'C:\Program Files\ImageMagick-7.1.2-Q16-HDRI',
     ($h | path join "AppData" "Local" "pnpm"),
     ($h | path join "go" "bin"),
+    ($h | path join "scoop" "apps" "perl" "current" "perl" "bin"),
+    ($h | path join "scoop" "apps" "git" "current" "usr" "bin"),
 ]
