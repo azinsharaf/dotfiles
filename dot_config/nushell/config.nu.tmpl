@@ -33,12 +33,7 @@ source ~/.config/nushell/zoxide.nu
 
 # carapace
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
-let carapace_cache = ($nu.cache-dir | path join "carapace.nu")
-if not ($carapace_cache | path exists) {
-    mkdir $nu.cache-dir
-    carapace _carapace nushell | save --force $carapace_cache
-}
-source $carapace_cache
+source ~/.config/nushell/carapace.nu
 
 # PATH
 let h = $env.USERPROFILE
