@@ -28,6 +28,8 @@ alias cstatus = chezmoi status
 alias capply = chezmoi apply --interactive -v
 alias ccd    = chezmoi cd
 
+use conda.nu *
+
 # carapace
 source ~/.config/nushell/carapace.nu
 
