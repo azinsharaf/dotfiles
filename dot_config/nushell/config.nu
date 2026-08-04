@@ -30,8 +30,12 @@ alias ccd    = chezmoi cd
 
 use conda.nu *
 
-# carapace
-source ~/.config/nushell/carapace.nu
+source ~/.config/nushell/scripts/carapace.nu
+
+# zoxide (smarter cd; registers `z` and `zi` aliases).
+# Regenerate scripts/zoxide_init.nu with `zoxide init nushell` after
+# updating zoxide, then `chezmoi add --force` and `chezmoi apply`.
+source ~/.config/nushell/scripts/zoxide_init.nu
 
 # PATH
 let h = $env.HOME
