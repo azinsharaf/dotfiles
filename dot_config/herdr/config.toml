@@ -3,12 +3,17 @@ onboarding = false
 [keys]
 prefix = "ctrl+a"
 
-[theme]
-name = "catppuccin"
+# Tab cycling: Ctrl+A then h/l
+previous_tab = "prefix+h"
+next_tab     = "prefix+l"
 
-[terminal]
-default_shell = "nu.exe"
-new_cwd = "follow"
+# Pane focus: Ctrl+A then j/k for left/right
+focus_pane_left  = "prefix+j"
+focus_pane_right = "prefix+k"
+
+# Disable defaults that collide with the above
+focus_pane_down = ""
+focus_pane_up   = ""
 
 [[keys.command]]
 key = "prefix+p"
@@ -21,6 +26,19 @@ key = "prefix+r"
 type = "shell"
 command = "herdr server reload-config"
 description = "reload herdr config"
+
+[[keys.command]]
+key = "ctrl+tab"
+type = "shell"
+command = "nu ~/.config/herdr/scripts/tab-toggle.nu"
+description = "toggle to previously focused tab"
+
+[theme]
+name = "tokyo-night"
+
+[terminal]
+default_shell = "nu.exe"
+new_cwd = "follow"
 
 [ui]
 agent_panel_sort = "spaces"
