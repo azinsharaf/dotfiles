@@ -1,38 +1,68 @@
 #!/usr/bin/env nu
 
-let PROJECTS_DIR = ("~/repos" | path expand)
-let SEED_SCRIPT  = ("~/.config/herdr/scripts/seed-tabs.nu" | path expand)
+let SEED_SCRIPT = ("~/.config/herdr/scripts/seed-tabs.nu" | path expand)
+
+let SOURCES = [
+    {
+        name: "repos"
+        path: ("~/repos" | path expand)
+        entries: "children"
+    }
+    {
+        name: "chezmoi"
+        path: ("~/.local/share/chezmoi" | path expand)
+        entries: "self"
+    }
+]
 
 let candidates = (
-    ls $PROJECTS_DIR
-    | where type == dir
-    | get name
-    | path basename
-    | sort
+    $SOURCES
+    | each { |src|
+        if not ($src.path | path exists) {
+            []
+        } else if $src.entries == "self" {
+            [ { label: $src.name, cwd: $src.path } ]
+        } else {
+            ls $src.path
+            | where type == dir
+            | get name
+            | path basename
+            | each { |d| { label: $"($src.name)/($d)", cwd: ([$src.path $d] | path join) } }
+        }
+    }
+    | flatten
+    | sort-by label
 )
 
 if ($candidates | is-empty) {
-    print "No projects found in ~/repos"
+    print "No projects found"
     exit 1
 }
 
-let pick = ($candidates | str join "\n" | ^fzf --prompt "project> " --height 20)
+let pick = (
+    $candidates
+    | get label
+    | str join "\n"
+    | ^fzf --prompt "project> " --height 20
+)
 if ($pick | is-empty) { exit 0 }
 
-let cwd = ([$PROJECTS_DIR $pick] | path join)
+let chosen = ($candidates | where label == $pick | first)
+let label = ($chosen | get label)
+let cwd = ($chosen | get cwd)
 
 let existing = (
     herdr workspace list
     | from json
     | get result.workspaces
-    | where label == $pick
+    | where label == $label
 )
 
 if ($existing | is-empty) {
-    print $"Creating workspace for ($pick)..."
+    print $"Creating workspace for ($label)..."
 
     let resp = (
-        herdr workspace create --cwd $cwd --label $pick --no-focus
+        herdr workspace create --cwd $cwd --label $label --no-focus
         | from json
     )
 
@@ -44,7 +74,7 @@ if ($existing | is-empty) {
     herdr tab close $initial_tab_id | ignore
     herdr workspace focus $workspace_id | ignore
 } else {
-    print $"Focusing existing workspace ($pick)..."
+    print $"Focusing existing workspace ($label)..."
     let workspace_id = ($existing | get id | first)
     herdr workspace focus $workspace_id | ignore
 }
