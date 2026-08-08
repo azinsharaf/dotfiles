@@ -41,6 +41,7 @@ default_shell = "nu.exe"
 new_cwd = "follow"
 
 [ui]
+host_cursor = "native"
 agent_panel_sort = "spaces"
 
 show_agent_labels_on_pane_borders = true

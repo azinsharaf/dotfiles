@@ -68,7 +68,6 @@ opt.autochdir = false
 opt.mouse:append("a")
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.modifiable = true
--- opt.guicursor = ""
 opt.encoding = "UTF-8"
 opt.showmode = false
 opt.updatetime = 50
