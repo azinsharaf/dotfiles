@@ -50,18 +50,18 @@ scoop bucket add CrypticButter https://github.com/CrypticButter/ScoopBucket
 #### Scoop Apps
 
 ```shell
-scoop install anaconda3 # Data science platform
+
 scoop install autohotkey # Scripting language for Windows automation
 scoop install bat # A cat clone with syntax highlighting
 scoop install bitwarden # Password manager
 scoop install bitwarden-cli # Command-line interface for Bitwarden
-scoop install brave-nightly # Privacy-focused web browser
+
 scoop install broot # A new way to see and navigate directory trees
 scoop install btop-lhm # Resource monitor
 scoop install chafa # Terminal graphics for the 21st century
 scoop install chezmoi # Manage your dotfiles across multiple machines
 scoop install clipboard # Clipboard manager
-scoop install CrypticButter/buttery-taskbar # Taskbar customization tool
+
 scoop install discord # Voice and text chat for gamers
 scoop install dust # More intuitive version of du in rust
 scoop install eza # Modern replacement for ls
@@ -73,7 +73,7 @@ scoop install flow-launcher # Productivity tool to quickly search and launch
 scoop install fzf # Command-line fuzzy finder
 scoop install gh # GitHub’s official command line tool
 gh extension install dlvhdr/gh-dash
-scoop install git-with-openssh # Git version control with OpenSSH
+
 scoop install glow # Render markdown on the CLI
 scoop install greenshot # Screenshot tool
 scoop install hexyl # A command-line hex viewer
@@ -82,7 +82,7 @@ scoop install jq # Command-line JSON processor
 scoop install keepass # Password manager
 scoop install keyviz # Keypress visualizer
 scoop install lazygit # Simple terminal UI for git commands
-scoop install lf # Terminal file manager
+
 scoop install lsd # The next gen ls command
 scoop install luarocks # Package manager for Lua modules
 scoop install make # Utility for directing compilation
@@ -99,30 +99,30 @@ scoop install nonportable/files-np # File manager
 scoop install notepadplusplus # Text editor
 scoop install obsidian # Knowledge base that works on top of a local folder of plain text Markdown files
 scoop install pandoc # Universal document converter
-scoop install pipx # Install and run Python applications in isolated environments
+
 scoop install poppler # PDF rendering library
 scoop install pwsh # PowerShell Core
 scoop install qutebrowser # A keyboard-driven, vim-like browser
 scoop install extras/zen-browser # Zen Browser
-scoop install revouninstaller # Uninstall software and remove unwanted programs
+
 scoop install ripgrep # Line-oriented search tool
 scoop install grep # Line-oriented search tool
 scoop install scoop install speedtest-cli # Internet speed testing from the command line
 scoop install spotify # Music streaming service
 scoop install spotify-player # Command-line Spotify client
 scoop install starship # The minimal, blazing-fast, and infinitely customizable prompt for any shell
-scoop install steam # Digital distribution platform for video games
+
 scoop install thunderbird # Email client
 scoop install treesize-free # Disk space analyzer
 scoop install tree-sitter # Incremental parsing system for programming tools
 scoop install uutils-coreutils # Cross-platform Rust rewrite of the GNU coreutils
-scoop install wezterm-nghtly # GPU-accelerated terminal emulator
-scoop install yazi # Blazing fast terminal file manager
+scoop install wezterm-nightly # GPU-accelerated terminal emulator
+
 scoop install yt-dlp # A youtube-dl fork with additional features
-scoop install zebar # Barcode reader
+
 scoop install zoom # Video conferencing tool
 scoop install zoxide # A smarter cd command
-scoop install main/pixi # python package management tool
+
 scoop install dua # disk usage analyzer
 scoop install exiftool # get the metadata of pictures
 scoop install mediainfo # get the metadata of videos
@@ -131,10 +131,36 @@ scoop install extras/opencode # ai coding agent
 scoop install main/uutils-coreutils # Rust implementation of GNU coreutils (binaries compiled with MSVC)
 scoop install extras/psfzf # Powershell wrapper around the fuzzy finder fzf
 scoop install extras/psreadline # A bash inspired readline implementation for PowerShell
-scoop install rust
 scoop install go # go programming language
 scoop install main/witr # why is this running?
 scoop install main/uv # python package manager
+scoop install extras/altsnap # Windows snapping alternative
+scoop install aws # AWS CLI
+scoop install azure-cli # Azure CLI
+scoop install extras/carapace-bin # Multi-shell argument completer
+scoop install extras/Cyberduck # FTP/SFTP/WebDAV client
+scoop install fastfetch # System info tool
+scoop install git # Git version control
+scoop install glazewm # Tiling window manager
+scoop install extras/lazysql # Lazy TUI for SQL databases
+scoop install lua # Lua interpreter
+scoop install extras/miniconda3 # Minimal conda installer
+scoop install extras/mpv # Media player
+scoop install ncspot # ncurses Spotify client
+scoop install nu # nushell shell
+scoop install extras/pdfgear # PDF editor
+scoop install perl # Perl interpreter
+scoop install extras/postman # API development environment
+scoop install python # Python interpreter
+scoop install stylua # Lua code formatter
+scoop install extras/television # Fuzzy finder for the terminal
+scoop install usql # Universal SQL client
+scoop install extras/vscode # Visual Studio Code
+scoop install extras/win-vind # Vim-like keybindings for Windows
+scoop install xdagiz/xytz # Timezone converter
+scoop install extras/yasb # Status bar for Windows
+scoop install versions/yazi-nightly # Terminal file manager (nightly)
+scoop install zellij # Terminal multiplexer
 ```
 
 #### uv applications
