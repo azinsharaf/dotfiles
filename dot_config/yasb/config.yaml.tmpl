@@ -42,20 +42,20 @@ bars:
     widgets:
       left: ["home", "taskbar"]
       center: [
-          "glazewm_binding_mode",
-          "glazewm_tiling_direction",
-          "komorebi_control",
-          "komorebi_active_layout",
-          "komorebi_workspaces",
-          # "apps",
-          "glazewm_workspaces",
+        "launchpad",
+        "glazewm_binding_mode",
+        "glazewm_tiling_direction",
+        "komorebi_control",
+        "komorebi_active_layout",
+        "komorebi_workspaces",
+        "glazewm_workspaces",
         ]
       right:
         [
           "systray",
           "media",
           "wallpapers",
-          "weather",
+          "open_meteo",
           "github",
           "microphone",
           "volume",
@@ -69,6 +69,7 @@ bars:
           "update_windows",
           "pomodoro",
           "clock",
+          "control_center",
           "power_menu",
         ]
 widgets:
@@ -104,52 +105,61 @@ widgets:
   media:
     type: "yasb.media.MediaWidget"
     options:
-      label: "{title}"
-      label_alt: "{artist} - {title}"
+      label: "{title}{s}{artist}"
+      label_alt: "{title}"
+      separator: " - "
+      hide_empty: true
+      callbacks:
+        on_left: "toggle_label"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
       max_field_size:
-        label: 50
-        label_alt: 40
-      show_thumbnail: false
+        label: 20
+        label_alt: 30
+      show_thumbnail: true
       controls_only: false
       controls_left: true
-      controls_hide: true
-      hide_empty: true
-      thumbnail_alpha: 50
-      thumbnail_padding: 16
-      thumbnail_corner_radius: 0
-      thumbnail_edge_fade: true
+      controls_hide: false
+      thumbnail_alpha: 80
+      thumbnail_padding: 8
+      thumbnail_corner_radius: 16
       icons:
-        prev_track: "\udb81\udcae"
-        next_track: "\udb81\udcad"
-        play: "\udb81\udc0a"
-        pause: "\udb80\udfe4"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+        play: "\ue768"
+        pause: "\ue769"
       media_menu:
-        blur: true
-        round_corners: false
+        blur: false
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
         alignment: "right"
         direction: "down"
         offset_top: 6
         offset_left: 0
-        thumbnail_corner_radius: 4
-        thumbnail_size: 100
-        max_title_size: 80
+        thumbnail_corner_radius: 8
+        thumbnail_size: 120
+        max_title_size: 60
         max_artist_size: 20
+        max_source_size: 16
         show_source: true
-      # label_shadow:
-      #   enabled: true
-      #   color: "#000000"
-      #   radius: 2
-      #   offset: [1, 1]
+        show_volume_slider: true
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
       scrolling_label:
         enabled: false
-        update_interval_ms: 50
-        style: "left" # can be "left", "right", "bounce", "bounce-ease"
+        update_interval_ms: 33
+        style: "left"  # can be "left", "right", "bounce", "bounce-ease"
         separator: " | "
-        label_padding: 1
-      callbacks:
-        on_left: "toggle_media_menu"
-        on_middle: "do_nothing"
-        on_right: "toggle_label"
+        label_padding: 0
+        always_scroll: false
+        # Easing curve params: https://www.desmos.com/calculator/j7eamemxzi
+        ease_slope: 20
+        ease_pos: 0.8
+        ease_min: 0.5
 
   active_window:
     type: "yasb.active_window.ActiveWindowWidget"
@@ -306,18 +316,16 @@ widgets:
         hide_duplicates: false
         hide_floating: false
 
-  weather:
-    type: "yasb.weather.WeatherWidget"
+  open_meteo:
+    type: "yasb.open_meteo.OpenMeteoWidget"
     options:
       label: "<span>{icon}</span> {temp}"
       label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
-      api_key: "5f86eb119b4a4a0292c165401260902" # Get your free API key from https://www.weatherapi.com/
-      show_alerts: true
       tooltip: true
-      update_interval: 600 # Update interval in seconds, Min 600 seconds
+      update_interval: 600
       hide_decimal: true
-      units: "imperial" # Can be 'metric' or 'imperial'
-      location: "Oakland, CA, USA" # You can use "USA Los Angeles 90006" {COUNTRY CITY ZIP_CODE}, or just city.
+      units: "imperial"
+      forecast_days: 7
       callbacks:
         on_left: "toggle_card"
         on_middle: "do_nothing"
@@ -327,12 +335,12 @@ widgets:
         clearNight: "\ue32b"
         cloudyDay: "\ue312"
         cloudyNight: "\ue311"
+        drizzleDay: "\udb81\ude7e"
+        drizzleNight: "\udb81\ude7e"
         rainyDay: "\ue308"
         rainyNight: "\ue333"
         snowyDay: "\ue30a"
         snowyNight: "\ue335"
-        blizzardDay: "\udb83\udf36"
-        blizzardNight: "\udb83\udf36"
         foggyDay: "\ue303"
         foggyNight: "\ue346"
         thunderstormDay: "\ue30f"
@@ -340,44 +348,38 @@ widgets:
         default: "\uebaa"
       weather_card:
         blur: true
-        round_corners: false
+        round_corners: true
         round_corners_type: "normal"
         border_color: "system"
         alignment: "right"
         direction: "down"
-        icon_size: 64
-        show_hourly_forecast: true # Set to False to disable hourly forecast
-        time_format: "24h" # can be 12h or 24h
+        icon_size: 48
+        show_hourly_forecast: true
+        time_format: "24h"
         hourly_point_spacing: 76
-        hourly_icon_size: 32 # better to set 16, 32 or 64 for better quality
-        icon_smoothing: true # should be true for smoother icon or false for sharper icon if using 16, 32 or 64 for hourly_icon_size
-        temp_line_width: 2 # can be 0 to hide the temperature line
+        hourly_icon_size: 24
+        icon_smoothing: true
+        temp_line_width: 2
         current_line_color: "#8EAEE8"
-        current_line_width: 1 # can be 0 to hide the current hour line
+        current_line_width: 1
         current_line_style: "dot"
         hourly_gradient:
           enabled: false
           top_color: "#8EAEE8"
           bottom_color: "#2A3E68"
-        hourly_forecast_buttons: # Optional hourly forecast data type toggle buttons, default disabled
-          enabled: true # Set to false to hide the buttons
-          default_view: "temperature" # Default view when opening the weather card. Options: "temperature", "rain", "snow"
+        hourly_forecast_buttons:
+          enabled: true
+          default_view: "temperature"
           temperature_icon: "\udb81\udd99"
           rain_icon: "\udb81\udd96"
           snow_icon: "\udb81\udd98"
         weather_animation:
-          enabled: true
+          enabled: false
           snow_overrides_rain: true
-          temp_line_animation_style: both # can be "rain", "snow", "both", or "none"
-          rain_effect_intensity: 1.0 # 0.01 - 10.0
-          snow_effect_intensity: 1.0 # 0.01 - 10.0
+          temp_line_animation_style: both
+          rain_effect_intensity: 1.0
+          snow_effect_intensity: 1.0
           scale_with_chance: true
-          enable_debug: false
-      # label_shadow:
-      #   enabled: true
-      #   color: "black"
-      #   radius: 3
-      #   offset: [1, 1]
 
   volume:
     type: "yasb.volume.VolumeWidget"
@@ -493,17 +495,18 @@ widgets:
         titles: ["Remote Desktop"]
         classes: []
 
+  
   bluetooth:
     type: "yasb.bluetooth.BluetoothWidget"
     options:
-      label: "<span>{icon}</span>"
-      label_alt: "{device_name}"
-      icons:
-        bluetooth_on: "\udb80\udcaf"
-        bluetooth_off: "\udb80\udcb2"
-        bluetooth_connected: "\udb80\udcb1"
+      label: "<span>{icon}</span> {device_count}"
+      label_alt: "<span>{icon}</span> {device_name}"
       callbacks:
-        on_right: "exec cmd.exe /c start ms-settings:bluetooth"
+        on_left: "toggle_menu"
+        on_right: "toggle_label"
+      menu_config:
+        blur: true
+        alignment: "center"
   cpu:
     type: "yasb.cpu.CpuWidget"
     options:
@@ -697,45 +700,40 @@ widgets:
         offset_top: 6
         offset_left: 0
 
+
+
   github:
     type: "yasb.github.GithubWidget"
     options:
       label: "<span>\ueba1</span>"
       label_alt: "Notifications {data}" # {data} return number of unread notification
-      # token: ghp_xxxxxxxxxxx # GitHub Personal access tokens (classic) https://github.com/settings/tokens
+      token: ghp_xxxxxxxxxxx # GitHub Personal access tokens (classic) https://github.com/settings/tokens
       max_notification: 30 # Max number of notification displaying in menu max: 50
       notification_dot:
         enabled: True
-        corner: "bottom_right" # Can be "top_left", "top_right", "bottom_left", "bottom_right"
+        corner: "bottom_left" # Can be "top_left", "top_right", "bottom_left", "bottom_right"
         color: "red" # Can be hex color or string
-        margin: [1, 1] # x and y margin for the dot
-      only_unread: true # Show only unread or all notifications;
+        margin: [ 1, 1 ] # x and y margin for the dot
+      only_unread: false # Show only unread or all notifications; 
       show_comment_count: false # Summarize comment totals for issues, PRs, and discussions
       reason_filters: [] # e.g. ['mention', 'assign'] to limit notifications by reason
       max_field_size: 54 # Max characters in title before truncation.
       update_interval: 300 # Check for new notification in seconds
       menu:
         blur: True # Enable blur effect for the menu
-        round_corners: false # Enable round corners for the menu (this option is not supported on Windows 10)
+        round_corners: True # Enable round corners for the menu (this option is not supported on Windows 10)
         round_corners_type: "normal" # Set the type of round corners for the menu (normal, small) (this option is not supported on Windows 10)
         border_color: "System" # Set the border color for the menu (this option is not supported on Windows 10)
         alignment: "right"
         direction: "down"
         show_categories: false
-        categories_order:
-          ["PullRequest", "Issue", "CheckSuite", "Release", "Discussion"]
-      # label_shadow:
-      #   enabled: True
-      #   color: "black"
-      #   radius: 3
-      #   offset: [1, 1]
+        categories_order: ["PullRequest", "Issue", "CheckSuite", "Release", "Discussion"]
 
   gpu:
     type: "yasb.gpu.GpuWidget"
     options:
       label: "<span>\uf4bc</span> {info[utilization]}%"
-      label_alt: "<span>\uf4bc</span> {info[temp]}°C | {info[mem_used]} / {info[mem_total]}"
-      gpu_index: 0
+      label_alt: "<span>\uf4bc</span> {info[temp]}°F | {info[mem_used]} / {info[mem_total]}"
       update_interval: 2000
       gpu_thresholds:
         low: 25
@@ -760,6 +758,8 @@ widgets:
         show_graph: true
         show_graph_grid: true
         graph_history_size: 60
+      units: imperial
+
 
   pomodoro:
     type: "yasb.pomodoro.PomodoroWidget"
@@ -901,3 +901,110 @@ widgets:
         on_left: "toggle_gallery"
         on_middle: "do_nothing"
         on_right: "change_wallpaper"
+
+
+
+
+  control_center:
+    type: "yasb.control_center.ControlCenterWidget"
+    options:
+      label: "<span>\ue713</span>"
+      tooltip: true
+      sections_order:
+        - "system_controls"
+        - "quick_actions"
+        - "sliders"
+        - "power"
+        - "media"
+      popup:
+        alignment: "center"
+        direction: "down"
+        border_color: System
+        round_corners: true
+        round_corners_type: normal
+        offset_top: 8
+      sections:
+        system_controls:
+          profile_image_size: 28
+          power_icon: "\uE7E8"
+          lock_icon: "\uE72E"
+          settings_icon: "\uE713"
+        quick_actions:
+          show: true
+          columns: 3
+          label_position: "default"
+          actions:
+            - id: "toggle_dnd"
+              label: "Do Not Disturb"
+              icon: "\uf285"
+            - id: "toggle_mute"
+              label: "Mute"
+              icon: "\ue74f"
+            - id: "toggle_mic_mute"
+              label: "Mic Mute"
+              icon: "\uF12E"
+            - id: "screenshot"
+              label: "Screenshot"
+              icon: "\ue91b"
+            - id: "touch_keyboard"
+              label: "Keyboard"
+              icon: "\uE765"
+            - id: "toggle_theme"
+              label: "Dark Mode"
+              icon: "\uE708"
+        sliders:
+          show: true
+          brightness:
+            show_slider: true
+            icon: "\uE706"
+            show_source_selector: true
+            source_selector_icon: "\uE972"
+          volume:
+            show_slider: true
+            icon: "\uE767"
+            show_source_selector: true
+            source_selector_icon: "\uE972"
+          microphone:
+            show_slider: true
+            icon: "\uE720"
+            show_source_selector: true
+            source_selector_icon: "\uE972"
+        media:
+          show: true
+          thumbnail_size: 36
+          thumbnail_radius: 4
+          icons:
+            prev_track: "\ue622"
+            next_track: "\ue623"
+            play: "\uf5b0"
+            pause: "\ue62e"
+        power:
+          show: true
+          power_plan_title: "Power Plan"
+          power_mode_title: "Power Mode"
+          button_menu_icon: "\ue76c"
+      callbacks:
+        on_left: "toggle_menu"
+
+  launchpad:
+    type: "yasb.launchpad.LaunchpadWidget"
+    options:
+      label: "<span>\udb85\udcde</span>"
+      search_placeholder: "Search apps..."
+      app_icon_size: 48
+      window:
+        fullscreen: false
+        width: 1024
+        height: 768
+        overlay_block: true
+      window_style:
+        enable_blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+      window_animation:
+        fade_in_duration: 120
+        fade_out_duration: 100
+      group_apps: false
+      callbacks:
+        on_left: "toggle_launchpad"
