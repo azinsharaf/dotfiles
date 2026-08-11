@@ -55,13 +55,11 @@ scoop install autohotkey # Scripting language for Windows automation
 scoop install bat # A cat clone with syntax highlighting
 scoop install bitwarden # Password manager
 scoop install bitwarden-cli # Command-line interface for Bitwarden
-
 scoop install broot # A new way to see and navigate directory trees
 scoop install btop-lhm # Resource monitor
 scoop install chafa # Terminal graphics for the 21st century
 scoop install chezmoi # Manage your dotfiles across multiple machines
 scoop install clipboard # Clipboard manager
-
 scoop install discord # Voice and text chat for gamers
 scoop install dust # More intuitive version of du in rust
 scoop install eza # Modern replacement for ls
@@ -73,7 +71,6 @@ scoop install flow-launcher # Productivity tool to quickly search and launch
 scoop install fzf # Command-line fuzzy finder
 scoop install gh # GitHub’s official command line tool
 gh extension install dlvhdr/gh-dash
-
 scoop install glow # Render markdown on the CLI
 scoop install greenshot # Screenshot tool
 scoop install hexyl # A command-line hex viewer
@@ -82,7 +79,6 @@ scoop install jq # Command-line JSON processor
 scoop install keepass # Password manager
 scoop install keyviz # Keypress visualizer
 scoop install lazygit # Simple terminal UI for git commands
-
 scoop install lsd # The next gen ls command
 scoop install luarocks # Package manager for Lua modules
 scoop install make # Utility for directing compilation
@@ -99,30 +95,24 @@ scoop install nonportable/files-np # File manager
 scoop install notepadplusplus # Text editor
 scoop install obsidian # Knowledge base that works on top of a local folder of plain text Markdown files
 scoop install pandoc # Universal document converter
-
 scoop install poppler # PDF rendering library
 scoop install pwsh # PowerShell Core
 scoop install qutebrowser # A keyboard-driven, vim-like browser
 scoop install extras/zen-browser # Zen Browser
-
 scoop install ripgrep # Line-oriented search tool
 scoop install grep # Line-oriented search tool
 scoop install scoop install speedtest-cli # Internet speed testing from the command line
 scoop install spotify # Music streaming service
 scoop install spotify-player # Command-line Spotify client
 scoop install starship # The minimal, blazing-fast, and infinitely customizable prompt for any shell
-
 scoop install thunderbird # Email client
 scoop install treesize-free # Disk space analyzer
 scoop install tree-sitter # Incremental parsing system for programming tools
 scoop install uutils-coreutils # Cross-platform Rust rewrite of the GNU coreutils
 scoop install wezterm-nightly # GPU-accelerated terminal emulator
-
 scoop install yt-dlp # A youtube-dl fork with additional features
-
 scoop install zoom # Video conferencing tool
 scoop install zoxide # A smarter cd command
-
 scoop install dua # disk usage analyzer
 scoop install exiftool # get the metadata of pictures
 scoop install mediainfo # get the metadata of videos
