@@ -1,36 +1,36 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "3f2b882"
+rev = "3d25b67"
 hash = "67ebef7cfaaf677d746909c55bdf8554"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "3f2b882"
+rev = "3d25b67"
 hash = "34f9d185853feb314d567f9cac5ad7ae"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "3f2b882"
+rev = "3d25b67"
 hash = "febe2a7922ced9db8b0d2bf576895fb5"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "3f2b882"
+rev = "3d25b67"
 hash = "fc35d8a08ee408066f4ef741239e499a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "3f2b882"
+rev = "3d25b67"
 hash = "a0dbcfbe2b3d1050c5dabbae776ad03"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "3f2b882"
+rev = "3d25b67"
 hash = "eddc504a5718e3735475e18c8319b1e7"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:zoom"
-rev = "3f2b882"
+rev = "3d25b67"
 hash = "ae2eeb3219effe8cae2924cf17ca813d"
 
 [[plugin.deps]]
@@ -50,12 +50,12 @@ hash = "92fbb5483657fa7976cdf4e0104e18e0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "3f2b882"
+rev = "3d25b67"
 hash = "1eb6f0887d52abb365c7dd9ed4b349da"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:no-status"
-rev = "3f2b882"
+rev = "3d25b67"
 hash = "f9eebd922330d7cd86bd7c8d615599ac"
 
 [[plugin.deps]]
