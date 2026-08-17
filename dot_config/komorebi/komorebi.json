@@ -92,6 +92,11 @@
       "kind": "Exe",
       "id": "mpv.exe",
       "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "handy.exe",
+      "matching_strategy": "Equals"
     }
   ],
 
