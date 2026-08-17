@@ -30,45 +30,47 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
-	{ run = '%EDITOR% %*',    block = true    , desc = "nvim"   , for = "windows" },
+	{ run = '$EDITOR %s', desc = "$EDITOR", block = true, for = "unix" },
+	{ run = '%EDITOR% %s',  block = true,     desc = "nvim",    for = "windows" },
 ]
 open = [
-	{ run = 'xdg-open "$1"',                desc = "Open", for = "linux" },
-	{ run = 'open "$@"',                    desc = "Open", for = "macos" },
-	{ run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
-	{ run = 'termux-open "$1"',             desc = "Open", for = "android" },
+	{ run = 'xdg-open %s1',                 desc = "Open", for = "linux" },
+	{ run = 'open %s1',                     desc = "Open", for = "macos" },
+	{ run = 'start "" "%s1"', orphan = true, desc = "Open", for = "windows" },
+	{ run = 'termux-open %s1',              desc = "Open", for = "android" },
 ]
 reveal = [
-	{ run = 'xdg-open "$(dirname "$1")"',           desc = "Reveal", for = "linux" },
-	{ run = 'open -R "$1"',                         desc = "Reveal", for = "macos" },
-	{ run = 'explorer /select,"%1"', orphan = true, desc = "Reveal", for = "windows" },
-	{ run = 'termux-open "$(dirname "$1")"',        desc = "Reveal", for = "android" },
-	{ run = '''exiftool "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
-    { run = '''pwsh -NoProfile -Command "exiftool -common '%1'; Write-Host 'Press Enter...'; [void][System.Console]::ReadLine()"''', block = true, desc = "Show EXIF", for = "windows" },
+	{ run = 'xdg-open %d1',                          desc = "Reveal", for = "linux" },
+	{ run = 'open -R %s1',                           desc = "Reveal", for = "macos" },
+	{ run = 'explorer /select,"%s1"', orphan = true, desc = "Reveal", for = "windows" },
+	{ run = 'termux-open %d1',                       desc = "Reveal", for = "android" },
+	{ run = '''exiftool "%s1"; echo "Press enter to exit"; read _''', block = true, desc = "Show EXIF", for = "unix" },
+    { run = '''pwsh -NoProfile -Command "exiftool -common '%s1'; Write-Host 'Press Enter...'; [void][System.Console]::ReadLine()"''', block = true, desc = "Show EXIF", for = "windows" },
 ]
 extract = [
-	{ run = 'ya pub extract --list "$@"', desc = "Extract here", for = "unix" },
+	{ run = 'ya pub extract --list %s', desc = "Extract here", for = "unix" },
 ]
 play = [
-	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
-	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
-	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+	{ run = 'mpv --force-window %s', orphan = true, for = "unix" },
+	{ run = 'mpv --force-window %s', orphan = true, for = "windows" },
+	{ run = '''mediainfo "%s1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 
 open-arcgispro = [
     # ArcGIS Pro execute file location. 
-    { run = '"C:\Program Files\ArcGIS\Pro\bin\ArcGISPro.exe" %*', orphan = true, for = "windows" }
+    { run = '"C:\Program Files\ArcGIS\Pro\bin\ArcGISPro.exe" %s', orphan = true, for = "windows" }
 ]
 
 open-vbs  = [
-    { run = '"path.exe" %*', orphan = true, for = "windows" }
+    { run = '"path.exe" %s', orphan = true, for = "windows" }
 ]
 
 [open]
 rules = [
     # ArcGIS Project File (.aprx)
     { url = "*.aprx", use = [ "open-arcgispro" ] },
+	# SQL
+	{ mime = "application/sql", use = [ "edit", "reveal" ] },
 	# Folder
 	{ url = "*/", use = [ "edit", "open", "reveal" ] },
 	# Text
