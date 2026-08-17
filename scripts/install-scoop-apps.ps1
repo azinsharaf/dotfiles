@@ -146,6 +146,7 @@ $scoopApps = @(
     @{ Spec = 'extras/yasb';                 Note = 'Status bar for Windows' },
     @{ Spec = 'versions/yazi-nightly';       Note = 'Terminal file manager (nightly)' },
     @{ Spec = 'zellij';                      Note = 'Terminal multiplexer' }
+    @{ Spec = 'llmfit';                      Note = 'Check hardware to host local llm' }
 )
 
 $ghExtensions = @(
