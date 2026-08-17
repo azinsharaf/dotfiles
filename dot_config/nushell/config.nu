@@ -58,3 +58,4 @@ $env.path ++= [
     ($h | path join "scoop" "apps" "perl" "current" "perl" "bin"),
     ($h | path join "scoop" "apps" "git" "current" "usr" "bin"),
 ]
+
