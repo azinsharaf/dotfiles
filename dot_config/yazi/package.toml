@@ -1,42 +1,42 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "3d25b67"
-hash = "67ebef7cfaaf677d746909c55bdf8554"
+rev = "4848aac"
+hash = "7e69f85c11b856d75c899bba5c32fe2c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "3d25b67"
-hash = "34f9d185853feb314d567f9cac5ad7ae"
+rev = "4848aac"
+hash = "d52f26f271ec4f77b0da0aa749330ca"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "3d25b67"
+rev = "4848aac"
 hash = "febe2a7922ced9db8b0d2bf576895fb5"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "3d25b67"
-hash = "fc35d8a08ee408066f4ef741239e499a"
+rev = "4848aac"
+hash = "3467fdfffaa33fbca84c1b9017923ab"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "3d25b67"
+rev = "4848aac"
 hash = "a0dbcfbe2b3d1050c5dabbae776ad03"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "3d25b67"
-hash = "eddc504a5718e3735475e18c8319b1e7"
+rev = "4848aac"
+hash = "7ff9b3dd9a986c610c08a4f686082e75"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:zoom"
-rev = "3d25b67"
+rev = "4848aac"
 hash = "ae2eeb3219effe8cae2924cf17ca813d"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "159eaba"
-hash = "7de446280b1ba8c49ffd86dbc24bbbe6"
+rev = "ea92cf4"
+hash = "9776f378459072b6c2875eae5addc49d"
 
 [[plugin.deps]]
 use = "Tyarel8/goto-drives"
@@ -50,12 +50,12 @@ hash = "92fbb5483657fa7976cdf4e0104e18e0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "3d25b67"
-hash = "1eb6f0887d52abb365c7dd9ed4b349da"
+rev = "4848aac"
+hash = "7d74f651b97c038a37ea7e6df70a09b8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:no-status"
-rev = "3d25b67"
+rev = "4848aac"
 hash = "f9eebd922330d7cd86bd7c8d615599ac"
 
 [[plugin.deps]]
