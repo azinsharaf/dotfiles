@@ -1,0 +1,17 @@
+[sftp.docker-server]
+host = "HOST_DOCKER"
+user = "azin"
+port = 22
+key_file = "~/.ssh/docker-server"
+
+[sftp.proxmox-server]
+host = "HOST_PROXMOX"
+user = "root"
+port = 22
+key_file = "~/.ssh/proxmox-server"
+
+[sftp.azin-macbook-pro]
+host = "HOST_MACBOOK"
+user = "azin"
+port = 22
+key_file = "~/.ssh/azin-macbook-pro"
