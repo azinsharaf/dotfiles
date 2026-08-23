@@ -3,13 +3,32 @@ onboarding = false
 [keys]
 prefix = "ctrl+a"
 
-# Tab cycling: Ctrl+A then h/l
-previous_tab = "prefix+h"
-next_tab     = "prefix+l"
+# Tab cycling: Ctrl+A then h/l OR rapid fire with Ctrl+Alt+h/l
+previous_tab = ["prefix+h", "ctrl+alt+h"]
+next_tab     = ["prefix+l", "ctrl+alt+l"]
 
 # Pane focus: Ctrl+A then j/k for left/right
 focus_pane_left  = "prefix+j"
 focus_pane_right = "prefix+k"
+
+# Tab/Pane management
+new_tab = "prefix+c"
+close_tab = "prefix+q"
+new_pane = "prefix+shift+n"
+close_pane = "prefix+x"
+
+# Pane layout
+split_pane_vertically = "prefix+v"
+split_pane_horizontally = "prefix+-"
+
+# Resize and navigation modes
+enter_resize_mode = "prefix+m"
+next_agent = "prefix+tab"
+previous_agent = "prefix+shift+tab"
+
+# Workspace navigation
+previous_workspace = "prefix+["
+next_workspace = "prefix+]"
 
 # Disable defaults that collide with the above
 focus_pane_down = ""
@@ -20,6 +39,12 @@ key = "prefix+p"
 type = "popup"
 command = "nu ~/.config/herdr/scripts/pick-project.nu"
 description = "switch project"
+
+[[keys.command]]
+key = "prefix+e"
+type = "shell"
+command = "nu ~/.config/herdr/scripts/toggle-sidebar.nu"
+description = "toggle sidebar visibility"
 
 [[keys.command]]
 key = "prefix+r"
@@ -43,6 +68,7 @@ new_cwd = "follow"
 [ui]
 host_cursor = "native"
 agent_panel_sort = "spaces"
+tab_bar_position = "bottom"
 
 show_agent_labels_on_pane_borders = true
 [ui.sidebar.agents]
