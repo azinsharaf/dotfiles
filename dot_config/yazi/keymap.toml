@@ -131,7 +131,7 @@ keymap = [
 	{ on = [ "g", "c" ],       run = "cd ~/.local/share/chezmoi",     desc = "Goto ChezMoi folder" },
 	{ on = [ "g", "D" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
-	{ on = [ "g", "s" ], run = "cd ~/scoop", desc = "Goto Scoop" },
+	{ on = [ "g", "p" ], run = "cd ~/scoop", desc = "Goto Scoop" },
 	{ on = [ "g", "a" ], run = "cd ~/AppData", desc = "Goto AppData" },
 
     # go to drives
@@ -501,3 +501,22 @@ desc = "Open files using neovim and jump to where the string is located"
 on   = "e"
 run  = "open --opener=edit"
 desc = "Edit in Neovim"
+
+# ssh to servers
+
+[[mgr.prepend_keymap]]
+on   = ["g", "s", "d"]
+run  = "cd sftp://docker-server"
+desc = "Go to doecker-server"
+
+[[mgr.prepend_keymap]]
+on   = ["g", "s", "p"]
+run  = "cd sftp://proxmox-server"
+desc = "Go to proxmox-server"
+
+[[mgr.prepend_keymap]]
+on   = ["g", "s", "m"]
+run  = "cd sftp://azin-macbook-pro"
+desc = "Go to azin-macbook-pro"
+
+
