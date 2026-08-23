@@ -63,8 +63,16 @@ host_cursor = "native"
 agent_panel_sort = "spaces"
 tab_bar_position = "bottom"
 sidebar_collapsed_mode = "hidden"
-
 show_agent_labels_on_pane_borders = true
+
+tab_bar_right = [
+  { type = "zoom" },
+  { type = "hostname" },
+]
+tab_bar_right_separator = " · "
+
+status_indicators = "symbols"
+
 [ui.sidebar.agents]
 row_gap = 0
 rows = [
@@ -75,3 +83,6 @@ rows = [
 
 [ui.toast]
 delivery = "herdr"
+
+[experimental]
+kitty_graphics = true
