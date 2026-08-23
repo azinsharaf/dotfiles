@@ -795,7 +795,7 @@ default_layout "dev"
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-// default_shell "fish"
+default_shell "nu"
 // Choose the path to override cwd that zellij will use for opening new panes
 //
 // default_cwd "/tmp"
@@ -824,7 +824,6 @@ layout_dir "{{ .chezmoi.homeDir }}/.config/zellij/layouts"
 //   - false
 //
 pane_frames true
-
 // UI styling: rounded pane-frame corners for a softer look
 // (Requires restart)
 //
@@ -936,6 +935,7 @@ scrollback_lines_to_serialize 500
 // Default: true (if the host terminal supports it)
 //
 support_kitty_keyboard_protocol true
+support_kitty_image_protocol true
 // Whether to make sure a local web server is running when a new Zellij session starts.
 // This web server will allow creating new sessions and attaching to existing ones that have
 // opted in to being shared in the browser.
