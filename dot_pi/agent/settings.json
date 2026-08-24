@@ -1,0 +1,16 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "theme": "dark",
+  "defaultProvider": "openrouter",
+  "defaultModel": "deepseek/deepseek-v4-flash-0731",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "git:github.com/kiil/nupi",
+    "npm:pi-powerline-footer",
+    "npm:pi-mcp-adapter",
+    "npm:@narumitw/pi-goal",
+    "npm:@narumitw/pi-plan-mode",
+    "npm:pi-web-access",
+    "npm:context-mode"
+  ]
+}
