@@ -76,10 +76,10 @@ window_effects:
 
     # Change the transparency of the window.
     transparency:
-      enabled: false
+      enabled: true
       # Can be something like '95%' or '0.95' for slightly transparent windows.
       # '0' or '0%' is fully transparent (and, by consequence, unfocusable).
-      opacity: "1.0"
+      opacity: "0.95"
 
   # Visual effects to apply to non-focused windows.
   other_windows:
@@ -121,35 +121,23 @@ window_behavior:
 
 workspaces:
   - name: "1"
-    display_name: "1-chat"
+    display_name: "1"
     bind_to_monitor: 0
     keep_alive: true
   - name: "2"
-    display_name: "2-email"
+    display_name: "2"
     bind_to_monitor: 0
     keep_alive: true
   - name: "3"
-    display_name: "3-tasks"
+    display_name: "3"
     bind_to_monitor: 0
     keep_alive: true
   - name: "4"
-    display_name: "4-obsidian"
+    display_name: "4"
     bind_to_monitor: 0
     keep_alive: true
   - name: "5"
-    display_name: "5-terminal"
-    bind_to_monitor: 0
-    keep_alive: true
-  - name: "6"
-    display_name: "6-arcgis"
-    bind_to_monitor: 0
-    keep_alive: true
-  - name: "7"
-    display_name: "7-music"
-    bind_to_monitor: 0
-    keep_alive: true
-  - name: "8"
-    display_name: "8-RDP"
+    display_name: "5"
     bind_to_monitor: 0
     keep_alive: true
 
@@ -186,33 +174,9 @@ window_rules:
     match:
       - window_process: { regex: "ms-teams" }
 
-  - commands: ["move --workspace 2"]
+  - commands: ["move --workspace 1"]
     match:
       - window_process: { regex: "olk" }
-
-  - commands: ["move --workspace 3"]
-    match:
-      - window_process: { regex: "Morgen|chrome" }
-
-  - commands: ["move --workspace 4"]
-    match:
-      - window_process: { regex: "Obsidian" }
-
-  - commands: ["move --workspace 5"]
-    match:
-      - window_process: { regex: "wezterm-gui" }
-
-  - commands: ["move --workspace 6"]
-    match:
-      - window_process: { regex: "ArcGISPro|ArcMap|ArcCatalog" }
-
-  - commands: ["move --workspace 7"]
-    match:
-      - window_process: { regex: "Spotify" }
-
-  - commands: ["move --workspace 8"]
-    match:
-      - window_process: { equals: "workspot" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
@@ -337,12 +301,6 @@ keybindings:
     bindings: ["alt+4"]
   - commands: ["focus --workspace 5"]
     bindings: ["alt+5"]
-  - commands: ["focus --workspace 6"]
-    bindings: ["alt+6"]
-  - commands: ["focus --workspace 7"]
-    bindings: ["alt+7"]
-  - commands: ["focus --workspace 8"]
-    bindings: ["alt+8"]
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
@@ -366,9 +324,3 @@ keybindings:
     bindings: ["alt+shift+4"]
   - commands: ["move --workspace 5", "focus --workspace 5"]
     bindings: ["alt+shift+5"]
-  - commands: ["move --workspace 6", "focus --workspace 6"]
-    bindings: ["alt+shift+6"]
-  - commands: ["move --workspace 7", "focus --workspace 7"]
-    bindings: ["alt+shift+7"]
-  - commands: ["move --workspace 8", "focus --workspace 8"]
-    bindings: ["alt+shift+8"]
