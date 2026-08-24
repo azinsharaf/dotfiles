@@ -3,9 +3,5 @@
     "ticktick": {
       "url": "https://mcp.ticktick.com"
     },
-    "github": {
-      "type": "http",
-      "url": "https://api.githubcopilot.com/mcp/"
-    }
   }
 }
