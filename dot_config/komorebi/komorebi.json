@@ -190,113 +190,29 @@
 
       "workspaces": [
         {
-          "name": "1-chat",
+          "name": "1",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "ms-teams.exe",
-              "matching_strategy": "Equals"
-            }
-          ]
+          "initial_workspace_rules": []
         },
         {
-          "name": "2-email",
+          "name": "2",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            { "kind": "Exe", "id": "olk.exe", "matching_strategy": "Equals" },
-            {
-              "kind": "Exe",
-              "id": "thunderbird.exe",
-              "matching_strategy": "Equals"
-            }
-          ]
+          "initial_workspace_rules": []
         },
         {
-          "name": "3-tasks",
+          "name": "3",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "Morgen.exe",
-              "matching_strategy": "Equals"
-            },
-            {
-              "kind": "Exe",
-              "id": "chrome.exe",
-              "matching_strategy": "Equals"
-            },
-            {
-              "kind": "Exe",
-              "id": "TickTick.exe",
-              "matching_strategy": "Equals"
-            }
-          ]
+          "initial_workspace_rules": []
         },
         {
-          "name": "4-obsidian",
+          "name": "4",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "Obsidian.exe",
-              "matching_strategy": "Equals"
-            }
-          ]
+          "initial_workspace_rules": []
         },
         {
-          "name": "5-terminal",
+          "name": "5",
           "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "wezterm-gui.exe",
-              "matching_strategy": "Equals"
-            }
-          ]
-        },
-        {
-          "name": "6-arcgis",
-          "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "ArcGISPro.exe",
-              "matching_strategy": "Equals"
-            },
-            {
-              "kind": "Exe",
-              "id": "ArcMap.exe",
-              "matching_strategy": "Equals"
-            },
-            {
-              "kind": "Exe",
-              "id": "ArcCatalog.exe",
-              "matching_strategy": "Equals"
-            }
-          ]
-        },
-        {
-          "name": "7-music",
-          "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "Spotify.exe",
-              "matching_strategy": "Equals"
-            }
-          ]
-        },
-        {
-          "name": "8-RDP",
-          "layout": "UltrawideVerticalStack",
-          "initial_workspace_rules": [
-            {
-              "kind": "Exe",
-              "id": "workspot.exe",
-              "matching_strategy": "Equals"
-            }
-          ]
+          "initial_workspace_rules": []
         }
       ]
     }
