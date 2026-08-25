@@ -37,6 +37,9 @@ source ~/.config/nushell/scripts/carapace.nu
 # updating zoxide, then `chezmoi add --force` and `chezmoi apply`.
 source ~/.config/nushell/scripts/zoxide_init.nu
 
+# load pi script
+source ~/.config/nushell/pi.nu
+
 # PATH
 let h = $env.HOME
 
