@@ -17,45 +17,43 @@ All keybindings use `Ctrl+A` as the prefix (leader key).
 
 | Key        | Action                       |
 | ---------- | ---------------------------- |
-| `Ctrl+A w` | Pick workspace (interactive) |
-| `Ctrl+A [` | Previous workspace           |
-| `Ctrl+A ]` | Next workspace               |
+| `Ctrl+A w` | Pick project / workspace (fzf popup) |
 
 ### Tabs (Tab Management)
 
 | Key          | Action                          |
 | ------------ | ------------------------------- |
-| `Ctrl+A c`   | New tab                         |
-| `Ctrl+A q`   | Close tab                       |
-| `Ctrl+A h`   | Previous tab                    |
-| `Ctrl+A l`   | Next tab                        |
-| `Ctrl+Tab`   | Toggle last tab                 |
+| `Ctrl+A c`       | New tab                         |
+| `Ctrl+A Shift+X` | Close tab                       |
+| `Ctrl+A p`       | Previous tab                    |
+| `Ctrl+A n`       | Next tab                        |
+| `Ctrl+Tab`       | Toggle last tab                 |
 
 ### Panes (Pane Management)
 
 | Key              | Action                         |
 | ---------------- | ------------------------------ |
-| `Ctrl+A n`   | New pane                        |
-| `Ctrl+A x`       | Close pane                     |
-| `Ctrl+A j`       | Focus left pane                |
-| `Ctrl+A k`       | Focus right pane               |
-| `Ctrl+A v`       | Split pane vertically (right)  |
-| `Ctrl+A -`       | Split pane horizontally (down) |
-| `Ctrl+A m`       | Enter resize mode              |
+| `Ctrl+A h`        | Focus pane left                |
+| `Ctrl+A j`        | Focus pane down                |
+| `Ctrl+A k`        | Focus pane up                  |
+| `Ctrl+A l`        | Focus pane right               |
+| `Ctrl+A Tab`      | Cycle to next pane             |
+| `Ctrl+A Shift+Tab`| Cycle to previous pane         |
+| `Ctrl+A x`        | Close pane                     |
+| `Ctrl+A v`        | Split pane vertically (right)  |
+| `Ctrl+A -`        | Split pane horizontally (down) |
+| `Ctrl+A r`        | Enter resize mode              |
 
 ### Agents (Agent Navigation)
 
-| Key                | Action         |
-| ------------------ | -------------- |
-| `Ctrl+A Tab`       | Next agent     |
-| `Ctrl+A Shift+Tab` | Previous agent |
+`Ctrl+A Tab` / `Ctrl+A Shift+Tab` cycle panes (herdr defaults). Use the sidebar to focus agents.
 
 ### Projects & UI (High Frequency)
 
 | Key        | Action                    |
 | ---------- | ------------------------- |
-| `Ctrl+A p` | Pick project (fzf popup)  |
-| `Ctrl+A r` | Reload config             |
+| `Ctrl+A w`       | Pick project (fzf popup)      |
+| `Ctrl+A Shift+R` | Reload config (herdr default) |
 
 ## Configuration Overview
 
@@ -80,30 +78,29 @@ Located in `scripts/` directory:
 
 | Script              | Binding    | Purpose                                        |
 | ------------------- | ---------- | ---------------------------------------------- |
-| `pick-project.nu`   | `Ctrl+A p` | Interactive project/workspace picker using fzf |
+| `pick-project.nu`   | `Ctrl+A w` | Interactive project/workspace picker using fzf |
 | `tab-toggle.nu`     | `Ctrl+Tab` | Toggle between last focused tabs               |
 | `seed-tabs.nu`      | Internal   | Initialize tabs for new workspaces             |
 
 ## Productivity Tips
 
-### Workspace Cycling
+### Workspace Navigation
 
-Navigate between spaces sequentially:
+Open the project/workspace picker:
 
 ```
-Ctrl+A [ (previous)
-Ctrl+A ] (next)
+Ctrl+A w
 ```
 
 ### Pane Resizing
 
-1. Press `Ctrl+A m` to enter resize mode
+1. Press `Ctrl+A r` to enter resize mode
 2. Use arrow keys to resize panes
 3. Press `Escape` or re-press `Ctrl+A` to exit
 
 ### Creating a New Workspace
 
-1. Press `Ctrl+A p` to open project picker
+1. Press `Ctrl+A w` to open project picker
 2. Select a project (or create new workspace)
 3. Herdr will initialize it with default tabs
 
@@ -113,7 +110,6 @@ Ctrl+A ] (next)
 dot_config/herdr/
 ├── config.toml              # Main configuration file
 ├── README.md                # This file
-├── KEYBINDINGS.md           # Detailed keybindings reference
 └── scripts/
     ├── pick-project.nu      # Project picker script
     ├── tab-toggle.nu        # Tab toggle script
