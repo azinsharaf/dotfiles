@@ -3,50 +3,35 @@ onboarding = false
 [keys]
 prefix = "ctrl+a"
 
-# toggle side bar
-toggle_sidebar = "prefix+e"
+# Tabs — herdr defaults
+previous_tab = "prefix+p"
+next_tab     = "prefix+n"
 
-# Tab cycling: Ctrl+A then h/l OR rapid fire with Ctrl+Alt+h/l
-previous_tab = "prefix+h"
-next_tab     = "prefix+l"
+# Pane focus — herdr defaults (Vim-style hjkl)
+focus_pane_left  = "prefix+h"
+focus_pane_down  = "prefix+j"
+focus_pane_up    = "prefix+k"
+focus_pane_right = "prefix+l"
 
-# Pane focus: Ctrl+A then j/k for left/right
-focus_pane_left  = "prefix+j"
-# focus_pane_right = "prefix+k"
-
-# Tab/Pane management
+# Tab/Pane management — herdr defaults
 new_tab = "prefix+c"
-close_tab = "prefix+x"
-close_pane = "prefix+shift+x"
+close_tab = "prefix+shift+x"
+close_pane = "prefix+x"
 
 # Pane layout
 split_vertical = "prefix+v"
 split_horizontal = "prefix+minus"
 
-# Resize and navigation modes
-resize_mode = "prefix+m"
-next_agent = "prefix+tab"
-previous_agent = "prefix+shift+tab"
-
-# Workspace navigation
-previous_workspace = "prefix+["
-next_workspace = "prefix+]"
-
-# Disable defaults that collide with the above
-focus_pane_down = ""
-focus_pane_up   = ""
+# Resize mode and pane cycling — herdr defaults
+resize_mode = "prefix+r"
+cycle_pane_next = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
 
 [[keys.command]]
-key = "prefix+p"
+key = "prefix+w"
 type = "popup"
 command = "nu ~/.config/herdr/scripts/pick-project.nu"
 description = "switch project"
-
-[[keys.command]]
-key = "prefix+r"
-type = "shell"
-command = "herdr server reload-config"
-description = "reload herdr config"
 
 [[keys.command]]
 key = "ctrl+tab"
