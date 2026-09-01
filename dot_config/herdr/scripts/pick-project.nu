@@ -13,6 +13,11 @@ let SOURCES = [
         path: ("~/.local/share/chezmoi" | path expand)
         entries: "self"
     }
+    {
+        name: "Hydro Viewer"
+        path: ("~/arcgis-experience-builder-1.17/ArcGISExperienceBuilder_PROD/server/public/apps" | path expand)
+        entries: "self"
+    }
 ]
 
 let candidates = (
@@ -75,6 +80,6 @@ if ($existing | is-empty) {
     herdr workspace focus $workspace_id | ignore
 } else {
     print $"Focusing existing workspace ($label)..."
-    let workspace_id = ($existing | get id | first)
+    let workspace_id = ($existing | get workspace_id | first)
     herdr workspace focus $workspace_id | ignore
 }
