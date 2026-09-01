@@ -3,13 +3,16 @@ onboarding = false
 [keys]
 prefix = "ctrl+a"
 
+# toggle side bar
+toggle_sidebar = "prefix+e"
+
 # Tab cycling: Ctrl+A then h/l OR rapid fire with Ctrl+Alt+h/l
 previous_tab = "prefix+h"
 next_tab     = "prefix+l"
 
 # Pane focus: Ctrl+A then j/k for left/right
 focus_pane_left  = "prefix+j"
-focus_pane_right = "prefix+k"
+# focus_pane_right = "prefix+k"
 
 # Tab/Pane management
 new_tab = "prefix+c"
@@ -51,17 +54,27 @@ type = "shell"
 command = "nu ~/.config/herdr/scripts/tab-toggle.nu"
 description = "toggle to previously focused tab"
 
+[[keys.command]]
+key = "prefix+k"
+type = "plugin_action"
+command = "herdr-bar.open"
+description = "command bar"
+
 [theme]
 name = "tokyo-night"
+auto_switch = true
+light_name = "tokyo-night-day"
+dark_name = "tokyo-night"
 
 [terminal]
-default_shell = "nu.exe"
+default_shell = "nu"
 new_cwd = "follow"
 
 [ui]
 host_cursor = "native"
 agent_panel_sort = "spaces"
 tab_bar_position = "bottom"
+sidebar_start_collapsed = true
 sidebar_collapsed_mode = "compact"
 show_agent_labels_on_pane_borders = true
 
@@ -72,6 +85,7 @@ tab_bar_right = [
 tab_bar_right_separator = " · "
 
 status_indicators = "symbols"
+window_title = "{hostname}: {workspace}"
 
 [ui.sidebar.agents]
 row_gap = 0
@@ -83,6 +97,10 @@ rows = [
 
 [ui.toast]
 delivery = "herdr"
+delay_seconds = 1
 
-[experimental]
-kitty_graphics = true
+[ui.toast.herdr]
+position = "bottom-right"
+
+[session]
+resume_agents_on_restore = true
