@@ -14,8 +14,13 @@ let SOURCES = [
         entries: "self"
     }
     {
-        name: "Hydro Viewer"
+        name: "Hydro Viewer ExB 1.17"
         path: ("~/arcgis-experience-builder-1.17/ArcGISExperienceBuilder_PROD/server/public/apps" | path expand)
+        entries: "self"
+    }
+    {
+        name: "Hydro Viewer ExB 1.21"
+        path: ("~/arcgis-experience-builder-1.21/ArcGISExperienceBuilder_PROD/server/public/apps" | path expand)
         entries: "self"
     }
 ]
