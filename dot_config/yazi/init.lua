@@ -1,6 +1,7 @@
 require("mime-ext.local"):setup({
 	with_exts = {
 		tcss = "text/css",
+		ps1  = "text/x-pwsh",
 	},
 	fallback_file1 = true,
 })
