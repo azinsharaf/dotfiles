@@ -22,3 +22,18 @@
 - [x] add EZA_CONFIG_DIR
 - [x] add CARGO_HOME, RUSTUP_HOME, GNUPGHOME
 - [x] add UV_TOOL_DIR
+
+## Cross-platform fixes (Linux + Windows)
+
+- [x] config.nu: convert to config.nu.tmpl with OS-conditional aliases and PATH
+- [x] env.nu.tmpl: wrap Windows-only env vars (KOMOREBI, CUDA, scoop paths) in OS conditionals
+- [x] env.nu.tmpl: use /tmp on Linux, ~/.tmp on Windows
+- [x] carapace.nu: convert to carapace.nu.tmpl; skip on Linux if carapace not installed
+- [x] conda.nu: convert to conda.nu.tmpl; detect Linux conda locations; skip .bat scripts on Linux
+- [x] tokyo_night_night theme: source and apply in config.nu
+
+## Remaining
+
+- [ ] carapace.nu: generate from `carapace _carapace nushell` and compare with upstream
+- [ ] zoxide_init.nu: regenerate with `zoxide init nushell` on Nushell updates
+- [ ] condawidth.nu: add `conda deactivate` convenience command (`cd`?)
