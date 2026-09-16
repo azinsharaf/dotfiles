@@ -41,10 +41,13 @@ return {
 			filters = {
 				custom = { ".DS_Store" },
 			},
-			git = {
-				ignore = false,
-			},
-		})
+git = {
+			ignore = false,
+		},
+		experimental = {
+			session_restore_nvim = false,
+		},
+	})
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
