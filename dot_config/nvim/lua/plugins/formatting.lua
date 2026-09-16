@@ -4,6 +4,13 @@ return {
 	config = function()
 		local conform = require("conform")
 		conform.setup({
+			formatters = {
+				prettier_md = {
+					command = "prettier",
+					args = { "--tab-width", "4", "--stdin-filepath", "$FILENAME" },
+					stdin = true,
+				},
+			},
 			formatters_by_ft = {
 				javascript = { "prettier" },
 				typescript = { "prettier" },
@@ -14,7 +21,7 @@ return {
 				html = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
-				markdown = { "prettier" },
+				markdown = { "prettier_md" },
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
