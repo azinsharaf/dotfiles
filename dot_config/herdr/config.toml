@@ -1,7 +1,7 @@
 onboarding = false
 
 [keys]
-prefix = "ctrl+a"
+prefix = "ctrl+b"
 
 # Tabs — herdr defaults
 previous_tab = "prefix+p"
@@ -40,7 +40,7 @@ command = "nu ~/.config/herdr/scripts/tab-toggle.nu"
 description = "toggle to previously focused tab"
 
 [[keys.command]]
-key = "prefix+k"
+key = "prefix+/"
 type = "plugin_action"
 command = "herdr-bar.open"
 description = "command bar"
