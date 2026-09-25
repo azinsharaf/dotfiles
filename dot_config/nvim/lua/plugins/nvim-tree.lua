@@ -44,6 +44,12 @@ return {
 git = {
 			ignore = false,
 		},
+		filesystem_watchers = {
+			ignore_dirs = {
+				"data_ignore",
+				"%.gdb$",
+			},
+		},
 		experimental = {
 			session_restore_nvim = false,
 		},
