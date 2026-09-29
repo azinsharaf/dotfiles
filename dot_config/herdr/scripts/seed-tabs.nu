@@ -12,9 +12,24 @@ def main [workspace_id: string] {
             | from json
         )
 
+        let root_pane_id = ($resp | get result.root_pane.pane_id)
+
         if ($tab.command? | is-not-empty) {
-            let pane_id = ($resp | get result.root_pane.pane_id)
-            herdr pane run $pane_id $tab.command
+            herdr pane run $root_pane_id $tab.command
+        }
+
+        if ($tab.split? | is-not-empty) {
+            let split_resp = (
+                herdr pane split
+                    --pane $root_pane_id
+                    --direction $tab.split.direction
+                    --no-focus
+                | from json
+            )
+            let new_pane_id = ($split_resp | get result.pane.pane_id)
+            if ($tab.split.command? | is-not-empty) {
+                herdr pane run $new_pane_id $tab.split.command
+            }
         }
     }
 }
