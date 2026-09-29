@@ -81,7 +81,7 @@ rows = [
 ]
 
 [ui.toast]
-delivery = "herdr"
+delivery = "system"
 delay_seconds = 1
 
 [ui.toast.herdr]
