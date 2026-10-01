@@ -137,7 +137,7 @@ workspaces:
     bind_to_monitor: 0
     keep_alive: true
   - name: "5"
-    display_name: "5"
+    display_name: "5-BST"
     bind_to_monitor: 0
     keep_alive: true
 
@@ -170,13 +170,9 @@ window_rules:
     match:
       - window_process: { equals: "mpv" }
 
-  - commands: ["move --workspace 1"]
+  - commands: ["move --workspace 5"]
     match:
-      - window_process: { regex: "ms-teams" }
-
-  - commands: ["move --workspace 1"]
-    match:
-      - window_process: { regex: "olk" }
+      - window_process: { regex: "SmartClient" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
