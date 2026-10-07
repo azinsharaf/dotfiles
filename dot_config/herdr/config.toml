@@ -23,7 +23,7 @@ split_vertical = "prefix+v"
 split_horizontal = "prefix+minus"
 
 # Pane zoom
-zoom_pane = "prefix+z"
+zoom = "prefix+z"
 
 # Resize mode and pane cycling — herdr defaults
 resize_mode = "prefix+r"
@@ -62,7 +62,7 @@ new_cwd = "follow"
 host_cursor = "native"
 agent_panel_sort = "spaces"
 tab_bar_position = "bottom"
-sidebar_start_collapsed = true
+sidebar_start_collapsed = false
 sidebar_collapsed_mode = "compact"
 show_agent_labels_on_pane_borders = true
 
