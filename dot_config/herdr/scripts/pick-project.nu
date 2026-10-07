@@ -23,6 +23,19 @@ let SOURCES = [
         path: ("~/arcgis-experience-builder-1.21/ArcGISExperienceBuilder_PROD/server/public/apps" | path expand)
         entries: "self"
     }
+
+
+    {
+        name: "Azin Notes"
+        path: ("~/azin_notes" | path expand)
+        entries: "self"
+    }
+
+    {
+        name: "Azin WR Notes"
+        path: ("~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work" | path expand)
+        entries: "self"
+    }
 ]
 
 let candidates = (
