@@ -1,7 +1,7 @@
 onboarding = false
 
 [keys]
-prefix = "ctrl+b"
+prefix = "ctrl+a"
 
 # Tabs — herdr defaults
 previous_tab = "prefix+p"
