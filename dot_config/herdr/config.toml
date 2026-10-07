@@ -22,10 +22,16 @@ close_pane = "prefix+x"
 split_vertical = "prefix+v"
 split_horizontal = "prefix+minus"
 
+# Pane zoom
+zoom_pane = "prefix+z"
+
 # Resize mode and pane cycling — herdr defaults
 resize_mode = "prefix+r"
 cycle_pane_next = "prefix+tab"
 cycle_pane_previous = "prefix+shift+tab"
+
+# other usefull key maps
+goto = "prefix+g"
 
 [[keys.command]]
 key = "prefix+w"
@@ -40,16 +46,13 @@ command = "nu ~/.config/herdr/scripts/tab-toggle.nu"
 description = "toggle to previously focused tab"
 
 [[keys.command]]
-key = "prefix+/"
+key = "prefix+slash"
 type = "plugin_action"
 command = "herdr-bar.open"
 description = "command bar"
 
 [theme]
 name = "tokyo-night"
-auto_switch = true
-light_name = "tokyo-night-day"
-dark_name = "tokyo-night"
 
 [terminal]
 default_shell = "nu"
