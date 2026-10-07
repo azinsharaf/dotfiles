@@ -11,3 +11,4 @@
     ; Run hidden so wezterm.exe doesn't leave a blank console window
     ; beside the actual WezTerm GUI.
     Run("wezterm.exe", , "Hide")
+}
