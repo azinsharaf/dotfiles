@@ -7,4 +7,4 @@ ignore:
   - .venv
   - dist
 
-editor: nvim
+editor: lazygit
