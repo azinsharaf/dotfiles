@@ -42,6 +42,7 @@ All keybindings use `Ctrl+A` as the prefix (leader key).
 | `Ctrl+A x`        | Close pane                     |
 | `Ctrl+A v`        | Split pane vertically (right)  |
 | `Ctrl+A -`        | Split pane horizontally (down) |
+| `Ctrl+A z`        | Zoom pane (toggle)             |
 | `Ctrl+A r`        | Enter resize mode              |
 
 ### Agents (Agent Navigation)
@@ -118,9 +119,13 @@ dot_config/herdr/
 
 ## Editing Configuration
 
-Edit `config.toml` directly, then reload with:
+Edit `config.toml` in this repo, then apply and reload:
 
-```
+```bash
+# Apply changes to live config
+chezmoi apply ~/.config/herdr/config.toml
+
+# Then reload herdr
 Ctrl+A r
 ```
 
