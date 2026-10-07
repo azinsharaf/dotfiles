@@ -29,3 +29,6 @@ scoop/persist/flow-launcher/UserData/Settings/History.json
 scoop/persist/flow-launcher/UserData/Settings/MultipleTopMostRecord.json
 scoop/persist/flow-launcher/UserData/Settings/UserSelectedRecord.json
 /.understand-anything
+/dot_pi/agent/auth.json
+/dot_pi/agent/models-store.json
+/dot_pi/agent/sessions
