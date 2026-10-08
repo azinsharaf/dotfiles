@@ -4,9 +4,62 @@ return {
 	lazy = false,
 
 	config = function()
-		-- Optional, you don't have to run setup.
+		-- Safelist: groups that MUST keep their background
+		local safelist = {
+			CursorLine = true,
+			BlinkCmpDocCursorLine = true,
+			CursorColumn = true,
+			Visual = true,
+			VisualNOS = true,
+			Search = true,
+			IncSearch = true,
+			CurSearch = true,
+			Substitute = true,
+			MatchParen = true,
+			DiffAdd = true,
+			DiffChange = true,
+			DiffDelete = true,
+			DiffText = true,
+			PmenuSel = true,
+			PmenuThumb = true,
+			WildMenu = true,
+			SpellBad = true,
+			SpellCap = true,
+			SpellRare = true,
+			SpellLocal = true,
+			DiagnosticError = true,
+			DiagnosticWarn = true,
+			DiagnosticInfo = true,
+			DiagnosticHint = true,
+			DiagnosticUnderlineError = true,
+			DiagnosticUnderlineWarn = true,
+			DiagnosticUnderlineInfo = true,
+			DiagnosticUnderlineHint = true,
+			LspReferenceText = true,
+			LspReferenceRead = true,
+			LspReferenceWrite = true,
+			IlluminatedWordText = true,
+			IlluminatedWordRead = true,
+			IlluminatedWordWrite = true,
+			SnippetTabstop = true,
+			TabLineSel = true,
+		}
+
+		-- Aggressively strip background from every highlight group
+		local function strip_all_bg()
+			for _, group in ipairs(vim.fn.getcompletion("", "highlight")) do
+				if not safelist[group] then
+					local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = group, link = false })
+					if ok and hl and hl.bg then
+						hl.bg = "NONE"
+						hl.ctermbg = "NONE"
+						pcall(vim.api.nvim_set_hl, 0, group, hl)
+					end
+				end
+			end
+		end
+
 		require("transparent").setup({
-			-- table: default groups
 			groups = {
 				"Normal",
 				"NormalNC",
@@ -34,19 +87,65 @@ return {
 				"StatusLineNC",
 				"EndOfBuffer",
 			},
-			-- table: additional groups that should be cleared
 			extra_groups = {
-				"NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
-				"NvimTreeNormal", -- NvimTree
+				"NormalFloat",
+				"NvimTreeNormal",
+				"FloatBorder",
+				"TelescopeNormal",
+				"TelescopePromptNormal",
+				"TelescopeResultsNormal",
+				"TelescopePreviewNormal",
+				"TelescopeBorder",
+				"TelescopePromptBorder",
+				"TelescopeResultsBorder",
+				"TelescopePreviewBorder",
+				"MasonNormal",
+				"MasonBorder",
+				"LazyNormal",
+				"LazyFloat",
+				"LazyFloatBorder",
+				"WhichKeyFloat",
+				"WhichKeyBorder",
+				"NotifyBackground",
+				"TroubleNormal",
+				"TroubleNormalNC",
+				"Pmenu",
+				"PmenuSel",
+				"WinBar",
+				"WinBarNC",
 			},
-			-- table: groups you don't want to clear
 			exclude_groups = {},
-			-- function: code to be executed after highlight groups are cleared
-			-- Also the user event "TransparentClear" will be triggered
-			on_clear = function() end,
+			-- After transparent.nvim clears its configured groups, nuke everything else
+			on_clear = strip_all_bg,
 		})
 
-		-- Enable transparency by default
-		require("transparent").clear()
+		local function clear()
+			require("transparent").clear()
+		end
+
+		-- transparent.nvim defaults to OFF unless its cache file exists; force it on,
+		-- otherwise clear() is a no-op and nothing below takes effect.
+		vim.g.transparent_enabled = true
+		clear()
+
+		-- Re-clear when the colorscheme changes
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			callback = clear,
+		})
+
+		-- Re-clear after Lazy finishes loading startup plugins
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "LazyDone",
+			once = true,
+			callback = clear,
+		})
+
+		-- Re-clear when any plugin window opens (Telescope, Mason, Lazy, NvimTree, etc.)
+		-- Defer slightly so the plugin has time to define its highlights first.
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function()
+				vim.defer_fn(clear, 50)
+			end,
+		})
 	end,
 }
