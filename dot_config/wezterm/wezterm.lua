@@ -75,66 +75,6 @@ else
 	config.default_prog = { "/bin/zsh", "-l" }
 end
 
-config.keys = {
-
-	-- Send Ctrl+Tab as kitty-encoded CSI sequence to Zellij
-	-- CSI 9;5u = Tab(9) with Ctrl modifier(5) in kitty keyboard protocol
-	-- {
-	-- 	key = "Tab",
-	-- 	mods = "CTRL",
-	-- 	action = act.SendString("\x1b[9;5u"),
-	-- },
-	--
-	-- Activate the previously active tab
-	-- {
-	-- 	key = "o",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = act.ShowTabNavigator,
-	-- },
-	--
-	-- Move focus between panes with Ctrl+Shift + H/J/K/L (use uppercase to override builtins)
-	-- {
-	-- 	key = "H",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = act.ActivatePaneDirection("Left"),
-	-- },
-	-- {
-	-- 	key = "J",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = act.ActivatePaneDirection("Down"),
-	-- },
-	-- {
-	-- 	key = "K",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = act.ActivatePaneDirection("Up"),
-	-- },
-	-- {
-	-- 	key = "L",
-	-- 	mods = "CTRL|SHIFT",
-	-- 	action = act.ActivatePaneDirection("Right"),
-	-- },
-	--
-	-- Resize panes with Ctrl+Alt+Shift + H/J/K/L (use uppercase to override builtins)
-	-- {
-	-- 	key = "H",
-	-- 	mods = "CTRL|ALT|SHIFT",
-	-- 	action = act.AdjustPaneSize({ "Left", 1 }),
-	-- },
-	-- {
-	-- 	key = "J",
-	-- 	mods = "CTRL|ALT|SHIFT",
-	-- 	action = act.AdjustPaneSize({ "Down", 1 }),
-	-- },
-	-- {
-	-- 	key = "K",
-	-- 	mods = "CTRL|ALT|SHIFT",
-	-- 	action = act.AdjustPaneSize({ "Up", 1 }),
-	-- },
-	-- {
-	-- 	key = "L",
-	-- 	mods = "CTRL|ALT|SHIFT",
-	-- 	action = act.AdjustPaneSize({ "Right", 1 }),
-	-- },
-}
+config.keys = {}
 
 return config
