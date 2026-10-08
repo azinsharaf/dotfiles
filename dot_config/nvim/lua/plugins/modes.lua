@@ -28,5 +28,13 @@ return {
 			-- Please PR commonly ignored filetypes
 			ignore_filetypes = { "NvimTree", "TelescopePrompt" },
 		})
+
+		-- modes.nvim remaps Visual -> ModesVisualVisual in visual mode and sets only a bg,
+		-- which overrides the reverse-video Visual. Make it reverse video too.
+		local function reverse_visual()
+			vim.api.nvim_set_hl(0, "ModesVisualVisual", { reverse = true })
+		end
+		reverse_visual()
+		vim.api.nvim_create_autocmd("ColorScheme", { callback = reverse_visual })
 	end,
 }
