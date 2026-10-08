@@ -9,6 +9,11 @@ return {
 		priority = 1000,
 		opts = {
 			transparent = true,
+			on_highlights = function(hl, _)
+				-- Reverse-video selection: visible regardless of background opacity
+				hl.Visual = { reverse = true }
+				hl.VisualNOS = { reverse = true }
+			end,
 		},
 	},
 
