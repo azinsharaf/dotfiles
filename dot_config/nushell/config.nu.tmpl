@@ -24,7 +24,9 @@ alias cedit  = chezmoi edit
 alias cdiff  = chezmoi diff
 alias cstatus = chezmoi status
 alias capply = chezmoi apply --interactive -v
-alias ccd    = chezmoi cd
+def --env ccd [] {
+    cd (chezmoi source-path)
+}
 {{- if eq .chezmoi.os "windows" }}
 alias su     = scoop update
 alias ss     = scoop status
