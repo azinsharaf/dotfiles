@@ -53,7 +53,7 @@ local config = {
 	-- max_fps = 240,  -- uncomment for max smoothness on 240Hz; 120 is the sweet spot
 	max_fps = 240,
 	window_background_opacity = 0.85, -- Fully transparent terminal: let the desktop show through
-	text_background_opacity = 1.0, -- Text backgrounds opaque relative to window
+	text_background_opacity = 0.5, -- Text backgrounds opaque relative to window
 
 	-- Window frame chrome (kept minimal)
 	window_frame = {
