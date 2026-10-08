@@ -169,7 +169,7 @@ function lg
 
 function ccd {
     $env:SKIP_AUTO_CONDA = "1"
-    chezmoi cd
+    Set-Location (chezmoi source-path)
     Remove-Item Env:SKIP_AUTO_CONDA -ErrorAction SilentlyContinue
 }
 
