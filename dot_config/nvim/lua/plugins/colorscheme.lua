@@ -10,9 +10,9 @@ return {
 		opts = {
 			transparent = true,
 			on_highlights = function(hl, _)
-				-- Reverse-video selection: visible regardless of background opacity
-				hl.Visual = { reverse = true }
-				hl.VisualNOS = { reverse = true }
+				-- Blue selection background; WezTerm's text_background_opacity makes it translucent
+				hl.Visual = { bg = "#3d59a1" }
+				hl.VisualNOS = { bg = "#3d59a1" }
 			end,
 		},
 	},
