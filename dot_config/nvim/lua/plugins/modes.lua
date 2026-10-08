@@ -8,7 +8,7 @@ return {
 				copy = "#f5c359",
 				delete = "#c75c6a",
 				insert = "#78ccc5",
-				visual = "#9745be",
+				visual = "#3d59a1", -- blue selection, matches Visual in colorscheme.lua
 			},
 
 			-- Set opacity for cursorline and number background
@@ -29,12 +29,16 @@ return {
 			ignore_filetypes = { "NvimTree", "TelescopePrompt" },
 		})
 
-		-- modes.nvim remaps Visual -> ModesVisualVisual in visual mode and sets only a bg,
-		-- which overrides the reverse-video Visual. Make it reverse video too.
-		local function reverse_visual()
-			vim.api.nvim_set_hl(0, "ModesVisualVisual", { reverse = true })
-		end
-		reverse_visual()
-		vim.api.nvim_create_autocmd("ColorScheme", { callback = reverse_visual })
+		-- modes.nvim blends its visual colour with Normal's bg. Normal is transparent, so the
+		-- blend comes out empty and the selection disappears. Set the group directly each
+		-- time visual mode starts, after modes.nvim has recalculated it.
+		vim.api.nvim_create_autocmd("ModeChanged", {
+			pattern = "*:[vV\22]",
+			callback = function()
+				vim.schedule(function()
+					vim.api.nvim_set_hl(0, "ModesVisualVisual", { bg = "#3d59a1" })
+				end)
+			end,
+		})
 	end,
 }
