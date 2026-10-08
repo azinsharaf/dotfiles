@@ -347,7 +347,11 @@ aliases['cedit']   = 'chezmoi edit'
 aliases['cdiff']   = 'chezmoi diff'
 aliases['cstatus'] = 'chezmoi status'
 aliases['capply']  = 'chezmoi apply --interactive -v'
-aliases['ccd']     = 'chezmoi cd'
+def _ccd(args, stdin=None):
+    import os, subprocess
+    path = subprocess.check_output(['chezmoi', 'source-path'], text=True).strip()
+    os.chdir(path)
+aliases['ccd'] = _ccd
 
 # Functions
 
