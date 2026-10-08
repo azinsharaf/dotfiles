@@ -7,7 +7,9 @@ return {
 		lazy = false,
 		enabled = true,
 		priority = 1000,
-		opts = {},
+		opts = {
+			transparent = true,
+		},
 	},
 
 	{
