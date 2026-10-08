@@ -91,4 +91,4 @@ delay_seconds = 1
 position = "bottom-right"
 
 [session]
-resume_agents_on_restore = true
+resume_agents_on_restore = false
