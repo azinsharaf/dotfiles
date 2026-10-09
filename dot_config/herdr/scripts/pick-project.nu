@@ -26,14 +26,14 @@ let SOURCES = [
 
 
     {
-        name: "Azin Notes"
-        path: ("~/azin_notes" | path expand)
+        name: "Azin Notes Personal"
+        path: ("~/Azin_Notes_Personal" | path expand)
         entries: "self"
     }
 
     {
-        name: "Azin WR Notes"
-        path: ("~/OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work" | path expand)
+        name: "Azin Notes Work"
+        path: ("~/OneDrive - Wood Rodgers Inc/Azin_Notes_Work" | path expand)
         entries: "self"
     }
 ]
