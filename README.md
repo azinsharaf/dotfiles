@@ -2,7 +2,6 @@
 
 ## Windows Setup
 
-
 ### Winget Apps
 
 ```shell
@@ -65,37 +64,6 @@ After running, point the consuming tool at the rebuilt interpreter:
 - **Neovim** is already configured to use
   `C:\Users\<you>\.venvs\pynvim\Scripts\python.exe`
   (see `dot_config/nvim/lua/config/globals.lua.tmpl`).
-
-
-### Additional Tools
-
-```shell
-pipx install rich-cli
-pipx install shell-gpt
-pipx install aider-chat
-pipx install euporie
-pipx install viewtif # https://github.com/nkeikon/tifviewer
-pipx install csvkit
-```
-
-### Other Installations
-
-- Install Win11 Toggle Rounded Corner: [GitHub Link](https://github.com/oberrich/win11-toggle-rounded-corners)
-- GDAL:
-
-```pwsh
-pixi init gdal-env
-cd gdal-env
-pixi add gdal libgdal-core
-```
-
-- PDAL:
-
-  ```pwsh
-  pixi init pdal-env
-  cd pdal-env
-  pixi add pdal
-  ```
 
 ## Linux Setup
 
