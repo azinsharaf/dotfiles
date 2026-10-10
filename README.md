@@ -66,13 +66,6 @@ After running, point the consuming tool at the rebuilt interpreter:
   `C:\Users\<you>\.venvs\pynvim\Scripts\python.exe`
   (see `dot_config/nvim/lua/config/globals.lua.tmpl`).
 
-### rust (cargo) applications
-
-`cargo install --git https://github.com/8LWXpg/dwag` # drag drop in terminal (windows version)
-`cargo install --git https://github.com/siriusmart/youtube-tui`
-`cargo install --git https://github.com/nevermore23274/AetherTune` # radio in terminal
-`cargo install --git https://github.com/christo-auer/eilmeldung` # RSS reader in temrinal
-`cargo install --locked tabiew` # view and query tabular data files, such as CSV, Parquet, Arrow, and ... it has issue on windows
 
 ### Additional Tools
 
