@@ -1,4 +1,4 @@
-
+{{- if stdinIsATTY }}
 [data]
     macbookProIP   = {{ promptStringOnce . "macbookProIP"   "MacBook Pro IP address" | quote }}
     macbookProUser = {{ promptStringOnce . "macbookProUser" "MacBook Pro username"   | quote }}
@@ -6,6 +6,9 @@
     dockerServerUser = {{ promptStringOnce . "dockerServerUser" "Docker server username"   | quote }}
     proxmoxServerIP   = {{ promptStringOnce . "proxmoxServerIP"   "Proxmox server IP address" | quote }}
     proxmoxServerUser = {{ promptStringOnce . "proxmoxServerUser" "Proxmox server username"   | quote }}
+{{ else }}
+[data]
+{{ end }}
 
 [template]
 
