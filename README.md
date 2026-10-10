@@ -1,16 +1,9 @@
 # Personal Development Environment (PDE)
 
-> Browser bookmarks (`AppData/Roaming/qutebrowser/config/bookmarks/urls`) and the `gh` hosts file are intentionally **not** tracked — they may contain internal-network, work, or personal URLs/tokens and are kept local-only.
-
 ## Windows Setup
 
-### Install Applications
 
-#### MS Store Apps
-
-- Install iCloud app from MS Store version 15.x
-
-#### Winget Apps
+### Winget Apps
 
 ```shell
 winget install Adobe.Acrobat.Reader.64-bit # PDF reader
@@ -26,14 +19,7 @@ winget install Nvidia.GeForceExperience # NVIDIA GPU management
 winget install lgug2z.komorebi # Tiling Windows Manager
 ```
 
-#### Manual Installations
-
-- MS Teams
-- Workspot Client
-- ArcGIS Pro
-- Ducker Desktop
-
-### Install Scoop
+### Install Scoop Package Manager
 
 ```shell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
@@ -44,10 +30,9 @@ scoop bucket add extras
 scoop bucket add versions
 scoop bucket add nerd-fonts
 scoop bucket add nonportable
-scoop bucket add CrypticButter https://github.com/CrypticButter/ScoopBucket
 ```
 
-#### Scoop Apps
+### Install apps via Scoop
 
 The full list lives in the PowerShell script. To install everything on a new Windows machine:
 
@@ -55,14 +40,14 @@ The full list lives in the PowerShell script. To install everything on a new Win
 pwsh ~/scripts/windows/install-scoop-apps.ps1
 ```
 
-#### uv applications
+### uv applications
 
 ```shell
 cargo install --locked uv
 uv tool install sqlit-tui # A user friendly TUI for SQL databases.
 ```
 
-#### Python Virtual Environments
+### Python Virtual Environments
 
 User-level Python venvs (in `~/.venvs/`) that the Obsidian "obsidian_terminal" plugin
 and Neovim's Python provider depend on. The dotfiles repo ships bootstrap scripts in
@@ -84,7 +69,7 @@ After running, point the consuming tool at the rebuilt interpreter:
   `C:\Users\<you>\.venvs\pynvim\Scripts\python.exe`
   (see `dot_config/nvim/lua/config/globals.lua.tmpl`).
 
-#### rust (cargo) applications
+### rust (cargo) applications
 
 `cargo install --git https://github.com/8LWXpg/dwag` # drag drop in terminal (windows version)
 `cargo install --git https://github.com/siriusmart/youtube-tui`
@@ -92,11 +77,7 @@ After running, point the consuming tool at the rebuilt interpreter:
 `cargo install --git https://github.com/christo-auer/eilmeldung` # RSS reader in temrinal
 `cargo install --locked tabiew` # view and query tabular data files, such as CSV, Parquet, Arrow, and ... it has issue on windows
 
-#### go applications
-
-`go install github.com/Gaurav-Gosain/tuios/cmd/tuios@latest # tuios`
-
-#### Additional Tools
+### Additional Tools
 
 ```shell
 pipx install rich-cli
@@ -107,7 +88,7 @@ pipx install viewtif # https://github.com/nkeikon/tifviewer
 pipx install csvkit
 ```
 
-#### Other Installations
+### Other Installations
 
 - Install Win11 Toggle Rounded Corner: [GitHub Link](https://github.com/oberrich/win11-toggle-rounded-corners)
 - GDAL:
@@ -126,14 +107,10 @@ pixi add gdal libgdal-core
   pixi add pdal
   ```
 
+## Linux Setup
+
+TBD
+
 ## MacOS Setup
-
-TBD
-
-## WSL Setup (WIP)
-
-TBD
-
-## WSL Arch Linux Setup
 
 TBD

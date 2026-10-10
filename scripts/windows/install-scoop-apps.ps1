@@ -140,7 +140,7 @@ $scoopApps = @(
     @{ Spec = 'usql';                        Note = 'Universal SQL client' },
     @{ Spec = 'extras/vscode';               Note = 'Visual Studio Code' },
     @{ Spec = 'extras/win-vind';             Note = 'Vim-like keybindings for Windows' },
-    @{ Spec = 'xdagiz/xytz';                 Note = 'Timezone converter' },
+
     @{ Spec = 'extras/yasb';                 Note = 'Status bar for Windows' },
     @{ Spec = 'versions/yazi-nightly';       Note = 'Terminal file manager (nightly)' },
     @{ Spec = 'zellij';                      Note = 'Terminal multiplexer' }
