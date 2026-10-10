@@ -63,7 +63,7 @@ dot_config/powershell/**
 dot_config/yasb/**
 dot_config/files/**
 scoop/**
-scripts/**
+scripts/windows/**
 {{ end }}
 
 # qutebrowser Linux path → hide on Windows (Windows uses AppData path)
@@ -74,6 +74,12 @@ dot_config/qutebrowser/**
 # Linux-only paths → ignore on Windows / macOS
 {{ if ne .chezmoi.os "linux" }}
 dot_config/hypr/**
+scripts/linux/**
+{{ end }}
+
+# macOS-only paths → ignore on Windows / Linux
+{{ if ne .chezmoi.os "darwin" }}
+scripts/macos/**
 {{ end }}
 
 # Ghostty → Linux + macOS only (not Windows)
