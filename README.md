@@ -34,8 +34,13 @@ pwsh ~/scripts/windows/install-scoop-apps.ps1
 
 ### uv applications
 
+Install `uv` per OS (Scoop on Windows, `pacman`/`brew` on Linux/mac, or see https://docs.astral.sh/uv/getting-started/installation/):
+
 ```shell
-cargo install --locked uv
+# Linux (Arch):  sudo pacman -S uv
+# macOS:         brew install uv
+# Windows:       scoop install main/uv  (included in install script above)
+
 uv tool install sqlit-tui # A user friendly TUI for SQL databases.
 ```
 
