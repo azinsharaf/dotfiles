@@ -10,20 +10,26 @@ Host github.com
     User git
     IdentityFile ~/.ssh/id_ed25519_github
 
+{{ if .macbookProIP }}
 # Azin MacBook Pro
 Host azin-macbook-pro
     HostName {{ .macbookProIP }}
     User {{ .macbookProUser }}
     IdentityFile ~/.ssh/azin-macbook-pro
+{{ end }}
 
+{{ if .dockerServerIP }}
 # Docker server
 Host docker-server
     HostName {{ .dockerServerIP }}
     User {{ .dockerServerUser }}
     IdentityFile ~/.ssh/docker-server
+{{ end }}
 
+{{ if .proxmoxServerIP }}
 # Proxmox server
 Host proxmox-server
     HostName {{ .proxmoxServerIP }}
     User {{ .proxmoxServerUser }}
     IdentityFile ~/.ssh/proxmox-server
+{{ end }}
