@@ -66,7 +66,17 @@ scoop/**
 scripts/**
 {{ end }}
 
+# qutebrowser Linux path → hide on Windows (Windows uses AppData path)
+{{ if eq .chezmoi.os "windows" }}
+dot_config/qutebrowser/**
+{{ end }}
+
 # Linux-only paths → ignore on Windows / macOS
 {{ if ne .chezmoi.os "linux" }}
 dot_config/hypr/**
+{{ end }}
+
+# Ghostty → Linux + macOS only (not Windows)
+{{ if eq .chezmoi.os "windows" }}
+dot_config/ghostty/**
 {{ end }}
