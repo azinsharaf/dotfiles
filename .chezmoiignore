@@ -1,8 +1,8 @@
-dot_config/yazi/plugins
+.config/yazi/plugins
 
-dot_config/spotatui/streaming_cache/credentials.json
-dot_config/spotatui/client.yml
-dot_config/spotatui/dot_spotify_token_cache.json
+.config/spotatui/streaming_cache/credentials.json
+.config/spotatui/client.yml
+.config/spotatui/dot_spotify_token_cache.json
 
 
 AppData/Roaming/FlowLauncher/Cache/**
@@ -21,7 +21,7 @@ scoop/persist/flow-launcher/UserData/Settings/MultipleTopMostRecord.json
 scoop/persist/flow-launcher/UserData/Settings/UserSelectedRecord.json
 
 # gh: hosts.yml contains the OAuth token in non-keyring configurations; keep it out of the repo
-dot_config/gh/hosts.yml
+.config/gh/hosts.yml
 
 # Defensive: never track Python venvs or bytecode caches if they ever end up in the source tree
 .venv/**
@@ -50,39 +50,56 @@ __pycache__/**
 
 
 # ── OS-CONDITIONAL IGNORES ──
+# Use TARGET paths (e.g., .config/name, not dot_config/name)
 
 # Windows-only paths → ignore on Linux / macOS
 {{ if ne .chezmoi.os "windows" }}
+AppData
 AppData/**
+Documents
 Documents/**
-dot_config/auto_hotkeys/**
-dot_config/glazewm/**
-dot_config/komorebi/**
-dot_config/nuphy/**
-dot_config/powershell/**
-dot_config/yasb/**
-dot_config/files/**
+.config/auto_hotkeys
+.config/auto_hotkeys/**
+.config/glazewm
+.config/glazewm/**
+.config/komorebi
+.config/komorebi/**
+.config/nuphy
+.config/nuphy/**
+.config/powershell
+.config/powershell/**
+.config/yasb
+.config/yasb/**
+.config/files
+.config/files/**
+scoop
 scoop/**
+scripts/windows
 scripts/windows/**
 {{ end }}
 
 # qutebrowser Linux path → hide on Windows (Windows uses AppData path)
 {{ if eq .chezmoi.os "windows" }}
-dot_config/qutebrowser/**
+.config/qutebrowser
+.config/qutebrowser/**
 {{ end }}
 
 # Linux-only paths → ignore on Windows / macOS
 {{ if ne .chezmoi.os "linux" }}
-dot_config/hypr/**
+.config/hypr
+.config/hypr/**
+scripts/linux
 scripts/linux/**
 {{ end }}
 
 # macOS-only paths → ignore on Windows / Linux
 {{ if ne .chezmoi.os "darwin" }}
+scripts/macos
 scripts/macos/**
 {{ end }}
 
 # Ghostty → Linux + macOS only (not Windows)
 {{ if eq .chezmoi.os "windows" }}
-dot_config/ghostty/**
+.config/ghostty
+.config/ghostty/**
 {{ end }}
