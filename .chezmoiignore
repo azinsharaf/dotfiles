@@ -47,3 +47,26 @@ __pycache__/**
 .agents/skills/understand-explain
 .agents/skills/understand-knowledge
 .agents/skills/understand-onboard
+
+
+# ── OS-CONDITIONAL IGNORES ──
+
+# Windows-only paths → ignore on Linux / macOS
+{{ if ne .chezmoi.os "windows" }}
+AppData/**
+Documents/**
+dot_config/auto_hotkeys/**
+dot_config/glazewm/**
+dot_config/komorebi/**
+dot_config/nuphy/**
+dot_config/powershell/**
+dot_config/yasb/**
+dot_config/files/**
+scoop/**
+scripts/**
+{{ end }}
+
+# Linux-only paths → ignore on Windows / macOS
+{{ if ne .chezmoi.os "linux" }}
+dot_config/hypr/**
+{{ end }}

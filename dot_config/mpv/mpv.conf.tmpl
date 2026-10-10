@@ -1,7 +1,9 @@
 
 # cookies (for yt-dlp / streaming)
 cookies=yes
+{{ if eq .chezmoi.os "windows" }}
 ytdl-raw-options=cookies-from-browser=firefox:{{ .chezmoi.homeDir }}\scoop\persist\zen-browser\profile
+{{ end }}
 
 #Profile which sets some quality settings (Recommended)
 profile=high-quality
