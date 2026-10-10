@@ -6,17 +6,9 @@
 ### Winget Apps
 
 ```shell
-winget install Adobe.Acrobat.Reader.64-bit # PDF reader
 winget install CLechasseur.PathCopyCopy # Windows Explorer extension for copying file paths
-winget install Devolutions.RemoteDesktopManager # Remote connection management
-winget install Doist.Todoist # Task management and to-do list
-winget install KeeperSecurity.KeeperDesktop # Password manager
 winget install Logitech.OptionsPlus # Logitech device configuration
-winget install Microsoft.Office # Office suite
-winget install Microsoft.SQLServer.2022.Developer # SQL Server 2022 Developer Edition
-winget install Microsoft.SQLServerManagementStudio # SQL Server Management Studio
 winget install Nvidia.GeForceExperience # NVIDIA GPU management
-winget install lgug2z.komorebi # Tiling Windows Manager
 ```
 
 ### Install Scoop Package Manager
