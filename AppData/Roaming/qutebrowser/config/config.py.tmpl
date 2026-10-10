@@ -26,7 +26,11 @@ config.load_autoconfig(False)
 # catppuccin.setup(c, "mocha", True)
 
 # tokyonight theme
+{{ if eq .chezmoi.os "windows" }}
 config.source(r"{{ .chezmoi.homeDir }}\AppData\Roaming\qutebrowser\config\tokyonight\tokyonight.py")
+{{ else }}
+config.source(r"{{ .chezmoi.homeDir }}/.config/qutebrowser/tokyonight/tokyonight.py")
+{{ end }}
 
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
