@@ -41,19 +41,11 @@ hl.config({
   },
 })
 
-hl.config({
-  decoration = {
-    active_opacity = 0.9,
-    inactive_opacity = 0.95,
-  },
-})
 
-hl.config({
-  layout = {
-    -- Still constrain a lone window to a sensible aspect ratio.
-    single_window_aspect_ratio = { 16, 9 },
-  },
-})
+-- Only Ghostty terminal should be transparent; everything else fully opaque.
+o.window(".*", { tag = "-default-opacity" })
+o.window({ class = "com.mitchellh.ghostty" }, { opacity = "0.92 0.88" })
+
 
 hl.config({
   scrolling = {
