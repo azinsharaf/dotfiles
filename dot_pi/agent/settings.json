@@ -3,6 +3,7 @@
   "defaultProvider": "openrouter",
   "hideThinkingBlock": true,
   "packages": [
-    "npm:pi-acp"
+    "npm:pi-acp",
+    "npm:@narumitw/pi-btw"
   ]
 }
