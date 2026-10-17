@@ -29,6 +29,19 @@ packages=(
     jq
     yq
 
+    # Languages & build
+    go
+    nodejs
+    npm
+    lua
+    luarocks
+    perl
+    gcc
+    make
+
+    # Formatters
+    stylua
+
     # File manager & viewer
     yazi
     glow
@@ -44,19 +57,48 @@ packages=(
     man-db
     man-pages
 
+    # Media
+    ffmpeg
+    imagemagick
+    pandoc
+    yt-dlp
+    mpv
+
+    # Archives
+    p7zip
+    unzip
+    zip
+
+    # Terminal extras
+    carapace
+    television
+    hexyl
+    broot
+    chafa
+
+    # Database
+    usql
+
+    # Browser
+    qutebrowser
+
     # Utilities
     hyperfine
     just
     rclone
     rsync
+    speedtest-cli
+    exiftool
+    mediainfo
 
     # Security
     bitwarden-cli
     gnupg
     age
 
-    # Herdr — AI-powered terminal assistant
+    # AI
     herdr
+    opencode
 )
 
 # Install via omarchy if available, else pacman
