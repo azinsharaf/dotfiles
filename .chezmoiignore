@@ -110,3 +110,10 @@ scripts/macos/**
 .config/zsh
 .config/zsh/**
 {{ end }}
+
+# SSH private keys — never track; only config + public keys
+.ssh/azin_omarchy_to_bitbucket
+.ssh/azin_omarchy_to_docker
+.ssh/azin_omarchy_to_github
+.ssh/azin_omarchy_to_macbook
+.ssh/azin_omarchy_to_proxmox
