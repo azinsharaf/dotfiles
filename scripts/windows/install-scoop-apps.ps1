@@ -83,7 +83,7 @@ $scoopApps = @(
     @{ Spec = 'motrix';                      Note = 'Full-featured download manager' },
     @{ Spec = 'nerd-fonts/JetBrainsMono-NF'; Note = 'JetBrainsMono Nerd Font' },
     @{ Spec = 'nerd-fonts/JetBrainsMono-NF-Propo'; Note = 'JetBrainsMono Nerd Font Propo' },
-    @{ Spec = 'neovim-nightly';              Note = 'Hyperextensible Vim-based text editor' },
+    @{ Spec = 'neovim';                       Note = 'Hyperextensible Vim-based text editor' },
     @{ Spec = 'nodejs-lts';                  Note = "JavaScript runtime built on Chrome's V8" },
     @{ Spec = 'nonportable/files-np';        Note = 'File manager' },
     @{ Spec = 'notepadplusplus';             Note = 'Text editor' },
@@ -103,7 +103,7 @@ $scoopApps = @(
     @{ Spec = 'treesize-free';               Note = 'Disk space analyzer' },
     @{ Spec = 'tree-sitter';                 Note = 'Incremental parsing system for programming tools' },
     @{ Spec = 'uutils-coreutils';            Note = 'Cross-platform Rust rewrite of the GNU coreutils' },
-    @{ Spec = 'wezterm-nightly';             Note = 'GPU-accelerated terminal emulator' },
+    @{ Spec = 'wezterm';                     Note = 'GPU-accelerated terminal emulator' },
     @{ Spec = 'yt-dlp';                      Note = 'A youtube-dl fork with additional features' },
     @{ Spec = 'zoom';                        Note = 'Video conferencing tool' },
     @{ Spec = 'zoxide';                      Note = 'A smarter cd command' },
@@ -142,7 +142,7 @@ $scoopApps = @(
     @{ Spec = 'extras/win-vind';             Note = 'Vim-like keybindings for Windows' },
 
     @{ Spec = 'extras/yasb';                 Note = 'Status bar for Windows' },
-    @{ Spec = 'versions/yazi-nightly';       Note = 'Terminal file manager (nightly)' },
+    @{ Spec = 'yazi';                        Note = 'Terminal file manager' },
     @{ Spec = 'zellij';                      Note = 'Terminal multiplexer' }
     @{ Spec = 'llmfit';                      Note = 'Check hardware to host local llm' }
 )
