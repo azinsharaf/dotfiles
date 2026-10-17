@@ -30,6 +30,8 @@ aur_packages=(
     television
     herdr
     opencode
+    pi        # AI agent
+    tuicr     # TUI code review for git
 )
 
 # ── Install main repo packages ──
