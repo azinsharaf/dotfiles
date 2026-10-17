@@ -6,8 +6,10 @@
     dockerServerUser = {{ promptStringOnce . "dockerServerUser" "Docker server username"   | quote }}
     proxmoxServerIP   = {{ promptStringOnce . "proxmoxServerIP"   "Proxmox server IP address" | quote }}
     proxmoxServerUser = {{ promptStringOnce . "proxmoxServerUser" "Proxmox server username"   | quote }}
+    terminal          = {{ if eq .chezmoi.os "windows" }}"wezterm"{{ else }}"ghostty"{{ end }}
 {{ else }}
 [data]
+    terminal = {{ if eq .chezmoi.os "windows" }}"wezterm"{{ else }}"ghostty"{{ end }}
 {{ end }}
 
 [template]
@@ -41,4 +43,7 @@
     command = "nu"
 
 [macos]
+    shell = "zsh"
+
+[linux]
     shell = "zsh"
