@@ -37,6 +37,14 @@ __pycache__/**
 .continuum
 .herdr
 
+# pi agent — sensitive + runtime (only track themes + package.json manifest)
+.pi/agent/auth.json
+.pi/agent/models-store.json
+.pi/agent/sessions
+.pi/agent/sessions/**
+.pi/agent/npm/node_modules
+.pi/agent/npm/node_modules/**
+
 # opencode auto-creates these at runtime in ~/.agents/skills/;
 # keep them out of the dotfiles source — they're not user-managed
 .agents/skills/understand
