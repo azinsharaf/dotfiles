@@ -44,9 +44,14 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # ── Aliases ──
+alias ls='eza --group-directories-first 2>/dev/null || ls --color=auto'
+alias l='eza -lah --group-directories-first --icons 2>/dev/null || ls -lah'
 alias ll='eza -lh --group-directories-first 2>/dev/null || ls -lh'
 alias la='eza -lha --group-directories-first 2>/dev/null || ls -lha'
 alias lt='eza --tree 2>/dev/null || tree'
+alias lr='eza -lahR --group-directories-first 2>/dev/null || ls -lahR'
+alias ld='eza -lhD --group-directories-first 2>/dev/null || ls -ld'
+alias ldot='eza -ld .* --group-directories-first 2>/dev/null || ls -ld .*'
 alias cat='bat --paging=never 2>/dev/null || cat'
 alias n='nvim'
 alias lg='lazygit'
