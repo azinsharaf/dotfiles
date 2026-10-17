@@ -20,6 +20,7 @@ main_packages=(
     hyperfine just rclone rsync
     speedtest-cli exiftool mediainfo
     bitwarden-cli gnupg age
+    globalprotect-openconnect  # VPN client (official repo, stable)
 )
 
 # ── AUR-only packages (last resort) ──
@@ -30,8 +31,11 @@ aur_packages=(
     television
     herdr
     opencode
-    pi        # AI agent
-    tuicr     # TUI code review for git
+    pi                    # AI agent
+    tuicr                 # TUI code review for git
+    ai-usagebar-bin       # AI usage bar widget
+    spotatui-bin          # Spotify TUI
+    zoom                  # Video conferencing
 )
 
 # ── Install main repo packages ──
