@@ -2,6 +2,7 @@
   "name": "pi-extensions",
   "private": true,
   "dependencies": {
+    "@narumitw/pi-btw": "^0.61.2",
     "pi-acp": "^0.0.34"
   }
 }
