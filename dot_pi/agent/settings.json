@@ -6,6 +6,7 @@
     "npm:pi-acp",
     "npm:@narumitw/pi-btw",
     "npm:@narumitw/pi-starship",
-    "npm:@narumitw/pi-plan-mode"
+    "npm:@narumitw/pi-plan-mode",
+    "https://github.com/ayghri/i-have-adhd"
   ]
 }
