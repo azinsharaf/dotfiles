@@ -103,3 +103,10 @@ scripts/macos/**
 .config/ghostty
 .config/ghostty/**
 {{ end }}
+
+# zsh → Linux + macOS only (not Windows)
+{{ if eq .chezmoi.os "windows" }}
+.zshenv
+.config/zsh
+.config/zsh/**
+{{ end }}
