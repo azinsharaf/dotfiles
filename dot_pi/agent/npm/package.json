@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@narumitw/pi-btw": "^0.61.2",
+    "@narumitw/pi-plan-mode": "^0.59.3",
     "@narumitw/pi-starship": "^0.59.1",
     "pi-acp": "^0.0.34"
   }
