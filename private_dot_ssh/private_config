@@ -2,13 +2,17 @@
 Host bitbucket.org
     HostName bitbucket.org
     User git
-    IdentityFile ~/.ssh/id_ed25519_work
+    IdentityFile ~/.ssh/azin_omarchy_to_bitbucket
 
 # Personal Account (GitHub)
 Host github.com
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_ed25519_github
+    IdentityFile ~/.ssh/azin_omarchy_to_github
+
+Host *
+    AddKeysToAgent yes
+    IdentitiesOnly yes
 
 
 
