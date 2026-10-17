@@ -117,3 +117,4 @@ scripts/macos/**
 .ssh/azin_omarchy_to_github
 .ssh/azin_omarchy_to_macbook
 .ssh/azin_omarchy_to_proxmox
+.ssh/known_hosts
