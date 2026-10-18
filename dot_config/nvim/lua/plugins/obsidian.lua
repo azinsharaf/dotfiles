@@ -8,13 +8,11 @@ local function get_vault_paths()
 
 	local os_name = vim.loop.os_uname().sysname
 	if os_name == "Windows_NT" then
-		obsidian_vault_personal = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute()
-		obsidian_vault_work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "5 - azin_obsidian_work")
-			:absolute()
+		obsidian_vault_personal = Path:new(vim.env.USERPROFILE, "Azin_Notes_Personal"):absolute()
+		obsidian_vault_work = Path:new(vim.env.USERPROFILE, "Azin_Notes_Work"):absolute()
 	else
-		obsidian_vault_personal = Path:new(vim.fn.expand("~"), "azin_notes"):absolute()
-		obsidian_vault_work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work")
-			:absolute()
+		obsidian_vault_personal = Path:new(vim.fn.expand("~"), "Azin_Notes_Personal"):absolute()
+		obsidian_vault_work = Path:new(vim.fn.expand("~"), "Azin_Notes_Work"):absolute()
 	end
 
 	return {
