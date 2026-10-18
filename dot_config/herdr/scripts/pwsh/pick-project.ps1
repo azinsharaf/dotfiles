@@ -68,9 +68,9 @@ if ($candidates.Count -eq 0) {
 $labels = $candidates | ForEach-Object { $_.label } | Sort-Object
 $pick = $null
 try {
-    $pick = $labels | fzf --prompt "project> " --height 20
+    $pick = $labels | fzf --prompt "Project Picker> " --height 20
 } catch {
-    $pick = $labels | Out-GridView -Title "Pick a project" -OutputMode Single
+    $pick = $labels | Out-GridView -Title "Project Picker" -OutputMode Single
 }
 
 if (-not $pick) { exit 0 }
