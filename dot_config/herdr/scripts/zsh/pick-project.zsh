@@ -82,7 +82,7 @@ if [[ "$candidates_json" == "[]" ]] || [[ -z "$candidates_json" ]]; then
 fi
 
 # ── Pick ──────────────────────────────────────────────────────────
-pick=$(echo "$candidates_json" | jq -r '.[].label' | sort | fzf --prompt "project> " --height 20)
+pick=$(echo "$candidates_json" | jq -r '.[].label' | sort | fzf --prompt "Project Picker> " --height 20)
 [[ -n "$pick" ]] || exit 0
 
 # ── Silence ALL output after fzf ────────────────────────────────

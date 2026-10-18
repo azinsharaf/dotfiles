@@ -47,9 +47,9 @@ command = "pwsh -NoProfile -File {{ .chezmoi.homeDir }}/.config/herdr/scripts/pw
 description = "toggle to previously focused tab"
 
 [[keys.command]]
-key = "prefix+slash"
+key = "prefix+f"
 type = "plugin_action"
-command = "herdr-bar.open-windows"
+command = "herdr-bar.open"
 description = "command bar"
 {{ else }}
 [[keys.command]]
@@ -65,7 +65,7 @@ command = "zsh {{ .chezmoi.homeDir }}/.config/herdr/scripts/zsh/tab-toggle.zsh"
 description = "toggle to previously focused tab"
 
 [[keys.command]]
-key = "prefix+slash"
+key = "prefix+f"
 type = "plugin_action"
 command = "herdr-bar.open"
 description = "command bar"
@@ -75,7 +75,6 @@ description = "command bar"
 name = "tokyo-night"
 
 [terminal]
-default_shell = "nu"
 new_cwd = "follow"
 
 [ui]
