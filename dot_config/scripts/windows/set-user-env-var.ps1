@@ -6,6 +6,7 @@ $envVars = @(
     @{ Name = "XDG_CACHE_HOME";      Value = "$HOME\.cache" }
     @{ Name = "BAT_CONFIG_PATH";     Value = "$HOME\.config\bat\bat.conf" }
 	@{ Name = "GIT_INSTALL_ROOT";    Value = "$HOME\scoop\apps\git\current" }
+	@{ Name = "PI_CODING_AGENT_DIR";    Value = "$HOME\.config\pi\agent" }
 )
 
 foreach ($item in $envVars) {
