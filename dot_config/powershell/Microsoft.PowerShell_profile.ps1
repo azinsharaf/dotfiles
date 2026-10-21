@@ -454,6 +454,15 @@ $Env:RUSTUP_HOME = "$Env:USERPROFILE\.rustup"
 
 $Env:GNUPGHOME = "$Env:USERPROFILE\.config\gnupg"
 
+
+# pi ai agent
+$Env:AI_AGENT= pi
+$Env:PI_CODING_AGENT = true
+$Env:PI_CODING_AGENT_DIR = "$Env:USERPROFILE\.config\pi\agent"
+
+
+
+
 # Prepend (high priority)
 $Env:Path = "$Env:USERPROFILE\scoop\shims;" + $Env:Path
 
