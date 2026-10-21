@@ -1,5 +1,13 @@
 # A compact, font-safe Pi footer.
-format = "$model$directory$git_branch$activity"
+format = """
+$provider\
+$model\
+$thinking\
+$directory\
+$git_branch\
+$git_status\
+$activity\
+$context"""
 
 [model]
 format = "[$model]($style) "
@@ -10,6 +18,9 @@ style = "bold blue"
 format = "[$path]($style) "
 symbol = ""
 style = "cyan bold"
+
+[thinking]
+style = "dimmed cyan"
 
 [git_branch]
 format = "[git:$branch]($style) "
