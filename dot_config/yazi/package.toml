@@ -1,37 +1,37 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "6229767"
-hash = "f281261ff04ad7ec867c3f802a50835f"
+rev = "9166202"
+hash = "acf841be033b88195a008c65fd973883"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "6229767"
+rev = "9166202"
 hash = "347cc6b190eb0c2fd60513cc7ae37412"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "6229767"
-hash = "7a4b4237223aaa94e589d1c01a23542a"
+rev = "9166202"
+hash = "8c60f68f63898faf1e420098487486c0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:piper"
-rev = "6229767"
+rev = "9166202"
 hash = "d1e0499cae5f3aeb628c267616d4b682"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "6229767"
-hash = "d6f7351ea25a43c9b5f4315fa1e23935"
+rev = "9166202"
+hash = "d964a3fa1d8880d80adffab244844be5"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "6229767"
-hash = "5b2fbef7d1513ce38ff72623a071a5e"
+rev = "9166202"
+hash = "a0d570162ec1ae6e3945f547c3d784f9"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:zoom"
-rev = "6229767"
-hash = "558bbb58e3dd36d488280a8f10e7b904"
+rev = "9166202"
+hash = "8aca54a0b05272515c57ab88352d9757"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
@@ -40,8 +40,8 @@ hash = "9776f378459072b6c2875eae5addc49d"
 
 [[plugin.deps]]
 use = "Tyarel8/goto-drives"
-rev = "ea8de5c"
-hash = "f93be81ad9bb148fe2911ffbd4b120e7"
+rev = "7b33683"
+hash = "b61b9055a017e327950c1df1c2646a7c"
 
 [[plugin.deps]]
 use = "dedukun/bookmarks"
@@ -50,13 +50,13 @@ hash = "92fbb5483657fa7976cdf4e0104e18e0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "6229767"
+rev = "9166202"
 hash = "7d3b7f99e600fd7e77ebc5eb8423a897"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:no-status"
-rev = "6229767"
-hash = "3e023d31f29201efdac2a6ae35fedb78"
+rev = "9166202"
+hash = "f2dd374a8bd1d2bbd327c264cce921f3"
 
 [[plugin.deps]]
 use = "cap153/tv"
@@ -70,12 +70,12 @@ hash = "7699acf73a1079f8a4afef5cec84ce73"
 
 [[plugin.deps]]
 use = "AminurAlam/yazi-plugins:spot"
-rev = "28eea47"
+rev = "7d8ead5"
 hash = "2e64679e3a122716a386954733cd3c28"
 
 [[plugin.deps]]
 use = "AminurAlam/yazi-plugins:spot-image"
-rev = "28eea47"
+rev = "7d8ead5"
 hash = "779bec9dc4f028ec148915cef1e4da44"
 
 [[flavor.deps]]
