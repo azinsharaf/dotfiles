@@ -105,6 +105,7 @@ if wezterm.target_triple:find("windows") then
 	local home = os.getenv("USERPROFILE")
 	config.default_prog = {
 		home .. "/scoop/shims/pwsh.exe",
+		"-NoLogo",
 	}
 else
 	config.default_prog = { "/bin/zsh", "-l" }
