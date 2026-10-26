@@ -1,5 +1,6 @@
 {
   "defaultProvider": "openrouter",
+  "defaultModel": "anthropic/claude-sonnet-latest",
   "hideThinkingBlock": true,
   "packages": [
     "npm:pi-acp",
@@ -8,5 +9,5 @@
     "npm:@narumitw/pi-plan-mode",
     "https://github.com/ayghri/i-have-adhd"
   ],
-  "lastChangelogVersion": "1.2.0"
+  "lastChangelogVersion": "1.4.0"
 }
