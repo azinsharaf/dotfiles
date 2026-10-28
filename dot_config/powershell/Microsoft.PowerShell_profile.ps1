@@ -470,6 +470,7 @@ $Env:Path = "$Env:USERPROFILE\scoop\shims;" + $Env:Path
 
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
+$Env:Path += ";$Env:USERPROFILE\scoop\apps\rustup\current\.cargo\bin"
 $Env:Path += ";$Env:USERPROFILE\.local\bin"
 $Env:Path += ";$Env:USERPROFILE\scoop\apps\perl\current\perl\bin"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin"
