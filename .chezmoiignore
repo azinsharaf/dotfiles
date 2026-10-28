@@ -1,4 +1,5 @@
 .config/yazi/plugins
+.config/yazi/plugins/**
 
 .config/spotatui/streaming_cache/credentials.json
 .config/spotatui/client.yml
@@ -15,6 +16,8 @@ AppData/Roaming/FlowLauncher/Settings/History.json
 scoop/persist/flow-launcher/UserData/Cache/**
 scoop/persist/flow-launcher/UserData/Logs/**
 scoop/persist/flow-launcher/UserData/Plugins/**
+scoop/persist/flow-launcher/UserData/Settings/Settings.json
+scoop/persist/flow-launcher/UserData/Settings/Plugins/**/Settings.json
 scoop/persist/flow-launcher/UserData/Settings/**/*.bak
 scoop/persist/flow-launcher/UserData/Settings/History.json
 scoop/persist/flow-launcher/UserData/Settings/MultipleTopMostRecord.json

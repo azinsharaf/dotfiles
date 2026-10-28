@@ -1,3 +1,4 @@
+{{- if ne .chezmoi.os "windows" -}}
 #!/bin/bash
 set -e
 
@@ -24,3 +25,4 @@ echo "Changing login shell to: $ZSH_PATH"
 echo "You will be prompted for your password..."
 chsh -s "$ZSH_PATH"
 echo "Done. Log out and back in for the change to take effect."
+{{- end -}}

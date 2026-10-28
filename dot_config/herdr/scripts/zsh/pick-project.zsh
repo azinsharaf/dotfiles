@@ -5,12 +5,13 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin:$PATH
 TABS_JSON=$(cat <<'JSON'
 [
   {"name":"1: NVIM/AI","command":"nvim","split":{"direction":"right","command":"pi"}},
-  {"name":"2: GIT","command":"lazygit","split":{"direction":"right","command":"tuicr"}},
-  {"name":"3: YAZI","command":"yazi"},
-  {"name":"4: SQL","command":"sqlit-tui"},
-  {"name":"5: BTOP","command":"btop"},
-  {"name":"6: RSS","command":""},
-  {"name":"7: MUSIC","command":""}
+  {"name":"2: NOTES","command":"nvim","split":{"direction":"right","command":"pi"}},
+  {"name":"3: GIT","command":"lazygit","split":{"direction":"right","command":"tuicr"}},
+  {"name":"4: YAZI","command":"yazi"},
+  {"name":"5: SQL","command":"sqlit-tui"},
+  {"name":"6: BTOP","command":"btop"},
+  {"name":"7: RSS","command":""},
+  {"name":"8: MUSIC","command":""}
 ]
 JSON
 )
