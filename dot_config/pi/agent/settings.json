@@ -1,6 +1,6 @@
 {
   "defaultProvider": "openrouter",
-  "defaultModel": "anthropic/claude-sonnet-latest",
+  "defaultModel": "~anthropic/claude-sonnet-latest",
   "hideThinkingBlock": true,
   "packages": [
     "npm:pi-acp",
