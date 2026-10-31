@@ -3,7 +3,7 @@
 set -e
 
 if ! command -v ya &>/dev/null; then
-    echo "ya (yazi pack) not found; skipping yazi plugin install."
+    echo "ya (yazi CLI) not found; skipping yazi plugin install."
     exit 0
 fi
 
@@ -13,5 +13,5 @@ if [ ! -f "${HOME}/.config/yazi/package.toml" ]; then
 fi
 
 echo "Installing yazi plugins..."
-ya pack -i
+ya pkg install
 {{- end -}}
