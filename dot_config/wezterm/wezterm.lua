@@ -21,10 +21,10 @@ local config = {
 	harfbuzz_features = { "calt=1", "liga=1", "dlig=1", "ss01=1" },
 
 	-- Appearance settings
-	-- hide_tab_bar_if_only_one_tab = false, -- Disabled: using herdr
-	-- tab_bar_at_bottom = true, -- Disabled: using herdr
-	-- use_fancy_tab_bar = true, -- Disabled: herdr
-	enable_tab_bar = false, -- Disable WezTerm tabs entirely.
+	-- hide_tab_bar_if_only_one_tab = false, -- Disabled: using Zellij tabs/status
+	-- tab_bar_at_bottom = true, -- Disabled: using Zellij tabs/status
+	-- use_fancy_tab_bar = true, -- Disabled: using Zellij tabs/status
+	enable_tab_bar = false, -- Disable WezTerm tabs entirely (Zellij handles tabs)
 	audible_bell = "Disabled",
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE", -- Remove the title bar
@@ -41,7 +41,19 @@ local config = {
 	enable_kitty_keyboard = false,
 	enable_csi_u_key_encoding = false,
 	front_end = "WebGpu",
+	-- Explicitly target the discrete NVIDIA GPU via Vulkan. Without this,
+	-- WebGpu may pick the iGPU on hybrid systems or fall back to DX12.
+	webgpu_preferred_adapter = {
+		backend = "Vulkan",
+		device_type = "DiscreteGpu",
+		name = "NVIDIA GeForce RTX 4070 SUPER",
+	},
+	-- Force high-performance power profile (mostly for hybrid GPUs; harmless on desktop).
+	webgpu_power_preference = "HighPerformance",
+	-- max_fps = 240,  -- uncomment for max smoothness on 240Hz; 120 is the sweet spot
 	max_fps = 240,
+	window_background_opacity = 0.85, -- Fully transparent terminal: let the desktop show through
+	text_background_opacity = 0.5, -- Text backgrounds opaque relative to window
 
 	-- Window frame chrome (kept minimal)
 	window_frame = {
@@ -53,64 +65,14 @@ local config = {
 	mux_enable_ssh_agent = false,
 }
 
--- Auto-select the best available GPU adapter
-local gpus = wezterm.gui.enumerate_gpus()
-local selected_gpu = nil
-
--- 1st preference: discrete GPU with Vulkan
-for _, gpu in ipairs(gpus) do
-	if gpu.device_type == "DiscreteGpu" and gpu.backend == "Vulkan" then
-		selected_gpu = gpu
-		break
-	end
-end
-
--- 2nd preference: any discrete GPU
-if not selected_gpu then
-	for _, gpu in ipairs(gpus) do
-		if gpu.device_type == "DiscreteGpu" then
-			selected_gpu = gpu
-			break
-		end
-	end
-end
-
--- 3rd preference: any Vulkan GPU
-if not selected_gpu then
-	for _, gpu in ipairs(gpus) do
-		if gpu.backend == "Vulkan" then
-			selected_gpu = gpu
-			break
-		end
-	end
-end
-
--- Final fallback: first available GPU
-if not selected_gpu and #gpus > 0 then
-	selected_gpu = gpus[1]
-end
-
-if selected_gpu then
-	config.webgpu_preferred_adapter = selected_gpu
-	if selected_gpu.device_type == "DiscreteGpu" then
-		config.webgpu_power_preference = "HighPerformance"
-	end
-	wezterm.log_info(string.format("Selected GPU: %s [%s, %s]", selected_gpu.name, selected_gpu.backend, selected_gpu.device_type))
-else
-	wezterm.log_warn("No GPU found; using WebGPU default")
-end
-
 -- Pick default shell by OS
 if wezterm.target_triple:find("windows") then
 	local home = os.getenv("USERPROFILE")
 	config.default_prog = {
-		home .. "/scoop/shims/pwsh.exe",
-		"-NoLogo",
+		home .. "/scoop/shims/nu.exe",
 	}
 else
 	config.default_prog = { "/bin/zsh", "-l" }
-	config.window_background_opacity = 0.85 -- Transparency on Linux/macOS
-	config.text_background_opacity = 0.5
 end
 
 config.keys = {}

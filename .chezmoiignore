@@ -1,9 +1,8 @@
-.config/yazi/plugins
-.config/yazi/plugins/**
+dot_config/yazi/plugins
 
-.config/spotatui/streaming_cache/credentials.json
-.config/spotatui/client.yml
-.config/spotatui/dot_spotify_token_cache.json
+dot_config/spotatui/streaming_cache/credentials.json
+dot_config/spotatui/client.yml
+dot_config/spotatui/dot_spotify_token_cache.json
 
 
 AppData/Roaming/FlowLauncher/Cache/**
@@ -16,21 +15,22 @@ AppData/Roaming/FlowLauncher/Settings/History.json
 scoop/persist/flow-launcher/UserData/Cache/**
 scoop/persist/flow-launcher/UserData/Logs/**
 scoop/persist/flow-launcher/UserData/Plugins/**
-scoop/persist/flow-launcher/UserData/Settings/Settings.json
-scoop/persist/flow-launcher/UserData/Settings/Plugins/**/Settings.json
 scoop/persist/flow-launcher/UserData/Settings/**/*.bak
 scoop/persist/flow-launcher/UserData/Settings/History.json
 scoop/persist/flow-launcher/UserData/Settings/MultipleTopMostRecord.json
 scoop/persist/flow-launcher/UserData/Settings/UserSelectedRecord.json
 
 # gh: hosts.yml contains the OAuth token in non-keyring configurations; keep it out of the repo
-.config/gh/hosts.yml
+dot_config/gh/hosts.yml
 
 # Defensive: never track Python venvs or bytecode caches if they ever end up in the source tree
 .venv/**
 venv/**
 __pycache__/**
 *.pyc
+
+# nvim_personal — backup of pre-LazyVim personal config; not applied to home
+dot_config/nvim_personal/**
 
 # Unused AI agent app folders (only opencode is in use)
 .claude
@@ -39,14 +39,6 @@ __pycache__/**
 .aethertune
 .continuum
 .herdr
-
-# pi agent — sensitive + runtime (only track themes + package.json manifest)
-.pi/agent/auth.json
-.pi/agent/models-store.json
-.pi/agent/sessions
-.pi/agent/sessions/**
-.pi/agent/npm/node_modules
-.pi/agent/npm/node_modules/**
 
 # opencode auto-creates these at runtime in ~/.agents/skills/;
 # keep them out of the dotfiles source — they're not user-managed
@@ -59,60 +51,55 @@ __pycache__/**
 .agents/skills/understand-knowledge
 .agents/skills/understand-onboard
 
+# pi agent — sensitive + runtime data under ~/.config/pi
+# (track only settings.json, extensions/, themes/, pi-starship.toml)
+.config/pi/agent/auth.json
+.config/pi/agent/models-store.json
+.config/pi/agent/mcp-auth.json
+.config/pi/agent/sessions
+.config/pi/agent/sessions/**
+.config/pi/agent/npm/node_modules
+.config/pi/agent/npm/node_modules/**
+.config/pi/agent/git
+.config/pi/agent/git/**
+
 
 # ── OS-CONDITIONAL IGNORES ──
-# Use TARGET paths (e.g., .config/name, not dot_config/name)
 
 # Windows-only paths → ignore on Linux / macOS
 {{ if ne .chezmoi.os "windows" }}
-AppData
 AppData/**
-Documents
 Documents/**
-.config/auto_hotkeys
-.config/auto_hotkeys/**
-.config/glazewm
-.config/glazewm/**
-.config/komorebi
-.config/komorebi/**
-.config/nuphy
-.config/nuphy/**
-.config/powershell
-.config/powershell/**
-.config/yasb
-.config/yasb/**
-.config/files
-.config/files/**
-scoop
+dot_config/auto_hotkeys/**
+dot_config/glazewm/**
+dot_config/komorebi/**
+dot_config/nuphy/**
+dot_config/powershell/**
+dot_config/yasb/**
+dot_config/files/**
 scoop/**
-scripts/windows
 scripts/windows/**
 {{ end }}
 
 # qutebrowser Linux path → hide on Windows (Windows uses AppData path)
 {{ if eq .chezmoi.os "windows" }}
-.config/qutebrowser
-.config/qutebrowser/**
+dot_config/qutebrowser/**
 {{ end }}
 
 # Linux-only paths → ignore on Windows / macOS
 {{ if ne .chezmoi.os "linux" }}
-.config/hypr
-.config/hypr/**
-scripts/linux
+dot_config/hypr/**
 scripts/linux/**
 {{ end }}
 
 # macOS-only paths → ignore on Windows / Linux
 {{ if ne .chezmoi.os "darwin" }}
-scripts/macos
 scripts/macos/**
 {{ end }}
 
 # Ghostty → Linux + macOS only (not Windows)
 {{ if eq .chezmoi.os "windows" }}
-.config/ghostty
-.config/ghostty/**
+dot_config/ghostty/**
 {{ end }}
 
 # zsh → Linux + macOS only (not Windows)
@@ -122,10 +109,7 @@ scripts/macos/**
 .config/zsh/**
 {{ end }}
 
-# SSH private keys — never track; only config + public keys
-.ssh/azin_omarchy_to_bitbucket
-.ssh/azin_omarchy_to_docker
-.ssh/azin_omarchy_to_github
-.ssh/azin_omarchy_to_macbook
-.ssh/azin_omarchy_to_proxmox
-.ssh/known_hosts
+# bashrc → Linux + macOS only (not Windows)
+{{ if eq .chezmoi.os "windows" }}
+.bashrc
+{{ end }}

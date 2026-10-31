@@ -259,6 +259,9 @@ $Env:XDG_DATA_HOME = "$Env:USERPROFILE\.local\share"
 $Env:XDG_STATE_HOME = "$Env:USERPROFILE\.local\state"
 $Env:XDG_CACHE_HOME = "$Env:USERPROFILE\.cache"
 
+# Pi agent directory — overrides default ~/.pi
+$Env:PI_CODING_AGENT_DIR = "$Env:USERPROFILE\.config\pi\agent"
+
 $Env:MPV_HOME = "$Env:USERPROFILE\.config\mpv"
 $Env:YOUTUBETUI_CONFIG_HOME = "$Env:USERPROFILE\.config\youtube-tui"
 
@@ -454,15 +457,6 @@ $Env:RUSTUP_HOME = "$Env:USERPROFILE\.rustup"
 
 $Env:GNUPGHOME = "$Env:USERPROFILE\.config\gnupg"
 
-
-# pi ai agent
-$Env:AI_AGENT= pi
-$Env:PI_CODING_AGENT = true
-$Env:PI_CODING_AGENT_DIR = "$Env:USERPROFILE\.config\pi\agent"
-
-
-
-
 # Prepend (high priority)
 $Env:Path = "$Env:USERPROFILE\scoop\shims;" + $Env:Path
 
@@ -470,7 +464,6 @@ $Env:Path = "$Env:USERPROFILE\scoop\shims;" + $Env:Path
 
 $Env:Path += ";C:\msys64\mingw64\bin"
 $Env:Path += ";$Env:USERPROFILE\.cargo\bin"
-$Env:Path += ";$Env:USERPROFILE\scoop\apps\rustup\current\.cargo\bin"
 $Env:Path += ";$Env:USERPROFILE\.local\bin"
 $Env:Path += ";$Env:USERPROFILE\scoop\apps\perl\current\perl\bin"
 $Env:Path += ";C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.8\bin"
