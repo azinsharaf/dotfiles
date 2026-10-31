@@ -1,5 +1,2 @@
 # Redirect all zsh dotfiles to ~/.config/zsh
 export ZDOTDIR="$HOME/.config/zsh"
-
-# Pi agent directory — overrides default ~/.pi
-export PI_CODING_AGENT_DIR="$HOME/.config/pi/agent"
