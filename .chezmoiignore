@@ -101,3 +101,15 @@ scripts/macos/**
 {{ if eq .chezmoi.os "windows" }}
 dot_config/ghostty/**
 {{ end }}
+
+# zsh → Linux + macOS only (not Windows)
+{{ if eq .chezmoi.os "windows" }}
+.zshenv
+.config/zsh
+.config/zsh/**
+{{ end }}
+
+# bashrc → Linux + macOS only (not Windows)
+{{ if eq .chezmoi.os "windows" }}
+.bashrc
+{{ end }}
