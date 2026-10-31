@@ -51,6 +51,18 @@ dot_config/nvim_personal/**
 .agents/skills/understand-knowledge
 .agents/skills/understand-onboard
 
+# pi agent — sensitive + runtime data under ~/.config/pi
+# (track only settings.json, extensions/, themes/, pi-starship.toml)
+.config/pi/agent/auth.json
+.config/pi/agent/models-store.json
+.config/pi/agent/mcp-auth.json
+.config/pi/agent/sessions
+.config/pi/agent/sessions/**
+.config/pi/agent/npm/node_modules
+.config/pi/agent/npm/node_modules/**
+.config/pi/agent/git
+.config/pi/agent/git/**
+
 
 # ── OS-CONDITIONAL IGNORES ──
 
