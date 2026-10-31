@@ -35,13 +35,21 @@
 [verify]
 
 [windows]
-    shell = "nu"
+    shell = "pwsh"
 
+{{- if eq .chezmoi.os "windows" }}
 [cd]
-    command = "nu"
+    command = "pwsh"
 
 [shell]
-    command = "nu"
+    command = "pwsh"
+{{- else }}
+[cd]
+    command = "zsh"
+
+[shell]
+    command = "zsh"
+{{- end }}
 
 [macos]
     shell = "zsh"
