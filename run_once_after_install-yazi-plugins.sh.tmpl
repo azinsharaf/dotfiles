@@ -1,0 +1,17 @@
+{{- if ne .chezmoi.os "windows" -}}
+#!/bin/bash
+set -e
+
+if ! command -v ya &>/dev/null; then
+    echo "ya (yazi pack) not found; skipping yazi plugin install."
+    exit 0
+fi
+
+if [ ! -f "${HOME}/.config/yazi/package.toml" ]; then
+    echo "yazi package.toml not found; skipping."
+    exit 0
+fi
+
+echo "Installing yazi plugins..."
+ya pack -i
+{{- end -}}

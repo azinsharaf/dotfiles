@@ -1,0 +1,19 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- disable netrw early (before nvim-tree loads)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- vim.g.lsp_handlers_enabled = false
+vim.g.matchup_matchparen_deferred = 1
+vim.g.highlightedyank_highlight_duration = 200
+
+-- One pynvim path per OS (chezmoi picks at apply time)
+{{ if eq .chezmoi.os "darwin" }}
+vim.g.python3_host_prog = "~/Library/Python/3.12/bin/python3"
+{{ else }}
+vim.g.python3_host_prog = "{{ .chezmoi.homeDir }}/.venvs/pynvim/Scripts/python.exe"
+{{ end }}
+
+vim.deprecate = function() end

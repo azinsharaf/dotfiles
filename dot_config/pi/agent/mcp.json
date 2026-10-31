@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "ticktick": {
+      "url": "https://mcp.ticktick.com"
+    },
+    "atlassian": {
+      "url": "https://mcp.atlassian.com/v2/mcp"
+    }
+  }
+}
