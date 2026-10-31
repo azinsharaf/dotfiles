@@ -30,32 +30,33 @@ resize_mode = "prefix+r"
 cycle_pane_next = "prefix+tab"
 cycle_pane_previous = "prefix+shift+tab"
 
-# other usefull key maps
+# other useful key maps
 goto = "prefix+g"
+
 
 [[keys.command]]
 key = "prefix+w"
 type = "popup"
-command = "nu ~/.config/herdr/scripts/pick-project.nu"
+command = "zsh /home/azin/.config/herdr/scripts/zsh/pick-project.zsh"
 description = "switch project"
 
 [[keys.command]]
 key = "ctrl+tab"
 type = "shell"
-command = "nu ~/.config/herdr/scripts/tab-toggle.nu"
+command = "zsh /home/azin/.config/herdr/scripts/zsh/tab-toggle.zsh"
 description = "toggle to previously focused tab"
 
 [[keys.command]]
-key = "prefix+slash"
+key = "prefix+f"
 type = "plugin_action"
 command = "herdr-bar.open"
 description = "command bar"
+
 
 [theme]
 name = "tokyo-night"
 
 [terminal]
-default_shell = "nu"
 new_cwd = "follow"
 
 [ui]
