@@ -2,7 +2,7 @@
 Host bitbucket.org
     HostName bitbucket.org
     User git
-    IdentityFile ~/.ssh/id_ed25519_work
+    IdentityFile ~/.ssh/id_ed25519_bitbucket
 
 # Personal Account (GitHub)
 Host github.com
@@ -15,7 +15,7 @@ Host github.com
 Host azin-macbook-pro
     HostName {{ .macbookProIP }}
     User {{ .macbookProUser }}
-    IdentityFile ~/.ssh/azin-macbook-pro
+    IdentityFile ~/.ssh/azin_omarchy_to_macbook
 {{ end }}
 
 {{ if .dockerServerIP }}
@@ -23,7 +23,7 @@ Host azin-macbook-pro
 Host docker-server
     HostName {{ .dockerServerIP }}
     User {{ .dockerServerUser }}
-    IdentityFile ~/.ssh/docker-server
+    IdentityFile ~/.ssh/azin_omarchy_to_docker
 {{ end }}
 
 {{ if .proxmoxServerIP }}
@@ -31,5 +31,9 @@ Host docker-server
 Host proxmox-server
     HostName {{ .proxmoxServerIP }}
     User {{ .proxmoxServerUser }}
-    IdentityFile ~/.ssh/proxmox-server
+    IdentityFile ~/.ssh/azin_omarchy_to_proxmox
 {{ end }}
+
+Host *
+    AddKeysToAgent yes
+    IdentitiesOnly yes

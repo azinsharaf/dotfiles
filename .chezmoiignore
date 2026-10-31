@@ -29,6 +29,9 @@ venv/**
 __pycache__/**
 *.pyc
 
+# nvim_personal — backup of pre-LazyVim personal config; not applied to home
+dot_config/nvim_personal/**
+
 # Unused AI agent app folders (only opencode is in use)
 .claude
 .continue
