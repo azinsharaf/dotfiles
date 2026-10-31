@@ -6,6 +6,10 @@
     dockerServerUser = {{ promptStringOnce . "dockerServerUser" "Docker server username"   | quote }}
     proxmoxServerIP   = {{ promptStringOnce . "proxmoxServerIP"   "Proxmox server IP address" | quote }}
     proxmoxServerUser = {{ promptStringOnce . "proxmoxServerUser" "Proxmox server username"   | quote }}
+    git_name_personal = {{ promptStringOnce . "git_name_personal" "Git name (personal)"  | quote }}
+    git_email_personal = {{ promptStringOnce . "git_email_personal" "Git email (personal)"  | quote }}
+    git_name_work = {{ promptStringOnce . "git_name_work" "Git name (work)"  | quote }}
+    git_email_work = {{ promptStringOnce . "git_email_work" "Git email (work)"  | quote }}
 {{ else }}
 [data]
 {{ end }}
