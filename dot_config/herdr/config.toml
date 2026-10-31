@@ -1,0 +1,95 @@
+onboarding = false
+
+[keys]
+prefix = "ctrl+a"
+
+# Tabs — herdr defaults
+previous_tab = "prefix+p"
+next_tab     = "prefix+n"
+
+# Pane focus — herdr defaults (Vim-style hjkl)
+focus_pane_left  = "prefix+h"
+focus_pane_down  = "prefix+j"
+focus_pane_up    = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# Tab/Pane management — herdr defaults
+new_tab = "prefix+c"
+close_tab = "prefix+shift+x"
+close_pane = "prefix+x"
+
+# Pane layout
+split_vertical = "prefix+v"
+split_horizontal = "prefix+minus"
+
+# Pane zoom
+zoom = "prefix+z"
+
+# Resize mode and pane cycling — herdr defaults
+resize_mode = "prefix+r"
+cycle_pane_next = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
+
+# other useful key maps
+goto = "prefix+g"
+
+
+[[keys.command]]
+key = "prefix+w"
+type = "popup"
+command = "zsh /home/azin/.config/herdr/scripts/zsh/pick-project.zsh"
+description = "switch project"
+
+[[keys.command]]
+key = "ctrl+tab"
+type = "shell"
+command = "zsh /home/azin/.config/herdr/scripts/zsh/tab-toggle.zsh"
+description = "toggle to previously focused tab"
+
+[[keys.command]]
+key = "prefix+f"
+type = "plugin_action"
+command = "herdr-bar.open"
+description = "command bar"
+
+
+[theme]
+name = "tokyo-night"
+
+[terminal]
+new_cwd = "follow"
+
+[ui]
+host_cursor = "native"
+agent_panel_sort = "spaces"
+tab_bar_position = "bottom"
+sidebar_start_collapsed = false
+sidebar_collapsed_mode = "compact"
+show_agent_labels_on_pane_borders = true
+
+tab_bar_right = [
+  { type = "zoom" },
+  { type = "hostname" },
+]
+tab_bar_right_separator = " · "
+
+status_indicators = "symbols"
+window_title = "{hostname}: {workspace}"
+
+[ui.sidebar.agents]
+row_gap = 0
+rows = [
+    ["state_icon", "agent"],
+    ["terminal_title_stripped"],
+    ["workspace", "tab"]
+]
+
+[ui.toast]
+delivery = "system"
+delay_seconds = 1
+
+[ui.toast.herdr]
+position = "bottom-right"
+
+[session]
+resume_agents_on_restore = false

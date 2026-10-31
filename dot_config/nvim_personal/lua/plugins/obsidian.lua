@@ -8,11 +8,13 @@ local function get_vault_paths()
 
 	local os_name = vim.loop.os_uname().sysname
 	if os_name == "Windows_NT" then
-		obsidian_vault_personal = Path:new(vim.env.USERPROFILE, "Azin_Notes_Personal"):absolute()
-		obsidian_vault_work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "Azin_Notes_Work"):absolute()
+		obsidian_vault_personal = Path:new(vim.env.USERPROFILE, "azin_notes"):absolute()
+		obsidian_vault_work = Path:new(vim.env.USERPROFILE, "OneDrive - Wood Rodgers Inc", "5 - azin_obsidian_work")
+			:absolute()
 	else
-		obsidian_vault_personal = Path:new(vim.fn.expand("~"), "Azin_Notes_Personal"):absolute()
-		obsidian_vault_work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc/Azin_Notes_Work"):absolute()
+		obsidian_vault_personal = Path:new(vim.fn.expand("~"), "azin_notes"):absolute()
+		obsidian_vault_work = Path:new(vim.fn.expand("~"), "OneDrive - Wood Rodgers Inc/5 - azin_obsidian_work")
+			:absolute()
 	end
 
 	return {
@@ -104,8 +106,8 @@ return {
 		require("obsidian").setup({
 
 			workspaces = {
-				{ name = "Azin_Notes_Personal", path = get_vault_paths().personal_notes },
-				{ name = "Azin_Notes_Work", path = get_vault_paths().work_notes },
+				{ name = "personal_notes", path = get_vault_paths().personal_notes },
+				{ name = "work_notes", path = get_vault_paths().work_notes },
 			},
 			link = {
 				style = "wiki",
@@ -196,20 +198,20 @@ return {
 				separator = string.rep("-", 80),
 			},
 
-			---@class obsidian.config.CheckboxOpts
-			---
-			---@field enabled? boolean
-			---
-			---Order of checkbox state chars, e.g. { " ", "x" }
-			---@field order? string[]
-			---
-			---Whether to create new checkbox on paragraphs
-			---@field create_new? boolean
-			checkbox = {
-				enabled = false,
-				create_new = true,
-				order = { " ", "x", "~", "!", ">" },
-			},
+		---@class obsidian.config.CheckboxOpts
+		---
+		---@field enabled? boolean
+		---
+		---Order of checkbox state chars, e.g. { " ", "x" }
+		---@field order? string[]
+		---
+		---Whether to create new checkbox on paragraphs
+		---@field create_new? boolean
+		checkbox = {
+			enabled = false,
+			create_new = true,
+			order = { " ", "x", "~", "!", ">" },
+		},
 
 			---@class obsidian.config.CommentOpts
 			---@field enabled boolean

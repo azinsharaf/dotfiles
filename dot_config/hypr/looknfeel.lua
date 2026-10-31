@@ -34,10 +34,10 @@
 -- })
 
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#layout
--- Switch to scrolling layout for ultrawide-friendly centered columns.
+-- Use master layout so windows tile without horizontal scrolling.
 hl.config({
   general = {
-    layout = "scrolling",
+    layout = "master",
   },
 })
 
@@ -45,17 +45,6 @@ hl.config({
 -- Only Ghostty terminal should be transparent; everything else fully opaque.
 o.window(".*", { tag = "-default-opacity" })
 o.window({ class = "com.mitchellh.ghostty" }, { opacity = "0.92 0.88" })
-
-
-hl.config({
-  scrolling = {
-    -- Each column is 45% of screen width.
-    -- 1 window  = 45% width (centered)
-    -- 2 windows = 90% width total (centered as a pair)
-    -- 3+ windows = scroll horizontally.
-    column_width = 0.45,
-  },
-})
 
 -- https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/
 -- hl.config({
