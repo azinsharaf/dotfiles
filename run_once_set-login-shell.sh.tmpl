@@ -1,0 +1,28 @@
+{{- if ne .chezmoi.os "windows" -}}
+#!/bin/bash
+set -e
+
+ZSH_PATH=$(command -v zsh 2>/dev/null || true)
+if [ -z "$ZSH_PATH" ]; then
+    echo "zsh not found; skipping login shell change."
+    exit 0
+fi
+
+# Determine current login shell
+if [ "$(uname -s)" = "Darwin" ]; then
+    CURRENT=$(dscl . -read "/Users/$USER" UserShell 2>/dev/null | awk '{print $2}' || true)
+else
+    CURRENT=$(getent passwd "$USER" 2>/dev/null | cut -d: -f7 || true)
+fi
+
+if [ "$CURRENT" = "$ZSH_PATH" ]; then
+    echo "Login shell is already zsh: $CURRENT"
+    exit 0
+fi
+
+echo "Current login shell: ${CURRENT:-(unknown)}"
+echo "Changing login shell to: $ZSH_PATH"
+echo "You will be prompted for your password..."
+chsh -s "$ZSH_PATH"
+echo "Done. Log out and back in for the change to take effect."
+{{- end -}}

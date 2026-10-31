@@ -1,0 +1,14 @@
+{{- if eq .chezmoi.os "windows" -}}
+if (-not (Get-Command ya -ErrorAction SilentlyContinue)) {
+    Write-Host "ya (yazi pack) not found; skipping yazi plugin install."
+    exit 0
+}
+
+if (-not (Test-Path "$env:USERPROFILE\.config\yazi\package.toml")) {
+    Write-Host "yazi package.toml not found; skipping."
+    exit 0
+}
+
+Write-Host "Installing yazi plugins..."
+ya pkg install
+{{- end -}}

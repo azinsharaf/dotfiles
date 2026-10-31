@@ -1,0 +1,33 @@
+# A compact, font-safe Pi footer.
+format = """
+$provider\
+$model\
+$thinking\
+$directory\
+$git_branch\
+$git_status\
+$activity\
+$context"""
+
+[model]
+format = "[$model]($style) "
+symbol = ""
+style = "bold blue"
+
+[directory]
+format = "[$path]($style) "
+symbol = ""
+style = "cyan bold"
+
+[thinking]
+style = "dimmed cyan"
+
+[git_branch]
+format = "[git:$branch]($style) "
+symbol = ""
+style = "bold purple"
+
+[activity]
+format = "[$text]($style)"
+symbol = "*"
+style = "bold yellow"
