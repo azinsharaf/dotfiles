@@ -259,6 +259,9 @@ $Env:XDG_DATA_HOME = "$Env:USERPROFILE\.local\share"
 $Env:XDG_STATE_HOME = "$Env:USERPROFILE\.local\state"
 $Env:XDG_CACHE_HOME = "$Env:USERPROFILE\.cache"
 
+# Pi agent directory — overrides default ~/.pi
+$Env:PI_CODING_AGENT_DIR = "$Env:USERPROFILE\.config\pi\agent"
+
 $Env:MPV_HOME = "$Env:USERPROFILE\.config\mpv"
 $Env:YOUTUBETUI_CONFIG_HOME = "$Env:USERPROFILE\.config\youtube-tui"
 
