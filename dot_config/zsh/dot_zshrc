@@ -46,6 +46,38 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+# ── Autosuggestions ──
+# Accept suggestion: Right Arrow / End
+# Partial accept: Alt+Right
+_zsh_autosuggest_paths=(
+  /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+  /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+)
+for _p in "${_zsh_autosuggest_paths[@]}"; do
+  [[ -f "$_p" ]] && { source "$_p"; break; }
+done
+unset _p _zsh_autosuggest_paths
+
+# ── Syntax highlighting (load last) ──
+_zsh_highlight_paths=(
+  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+)
+for _p in "${_zsh_highlight_paths[@]}"; do
+  [[ -f "$_p" ]] && { source "$_p"; break; }
+done
+unset _p _zsh_highlight_paths
+
+# ── History search with arrow keys ──
+# Type a prefix, then ↑/↓ to search history matching it
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A'  up-line-or-beginning-search    # Up arrow
+bindkey '^[[B'  down-line-or-beginning-search  # Down arrow
+
 # ── Aliases ──
 alias ls='eza --group-directories-first 2>/dev/null || ls --color=auto'
 alias l='eza -lah --group-directories-first --icons 2>/dev/null || ls -lah'
