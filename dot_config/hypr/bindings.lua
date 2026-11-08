@@ -5,7 +5,7 @@ require("default.hypr.bindings.media")
 require("default.hypr.bindings.clipboard")
 require("default.hypr.bindings.utilities")
 require("default.hypr.bindings.applications")
-require("default.hypr.bindings.voxtype")
+require("default.hypr.bindings.dictation")
 
 -- ============================================
 -- Vim-style window focus (h/j/k/l)
