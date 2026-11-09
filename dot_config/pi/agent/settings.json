@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.3.0",
+  "lastChangelogVersion": "1.5.0",
   "defaultProvider": "openrouter",
   "hideThinkingBlock": true,
   "packages": [
@@ -8,5 +8,17 @@
     "npm:@narumitw/pi-starship",
     "npm:@narumitw/pi-plan-mode",
     "https://github.com/ayghri/i-have-adhd"
-  ]
+  ],
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "collapseChangelog": true,
+  "doubleEscapeAction": "none",
+  "treeFilterMode": "default",
+  "warnings": {
+    "anthropicExtraUsage": false
+  },
+  "tuiMode": "fullscreen",
+  "fullscreenWheelScrollLines": "auto",
+  "theme": "system"
 }
