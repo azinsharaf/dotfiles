@@ -121,7 +121,7 @@
 leader_key = "ctrl+a"
 
 [[keybindings.command]]
-key = "prefix+alt+s"
+key = "prefix+alt+p"
 type = "popup"
 command = 'dir=$(zoxide query -l | fzf) && tuios switch-session --create --cwd "$dir" "$(basename "$dir")"'
 description = "Open a project"
