@@ -113,3 +113,8 @@ dot_config/ghostty/**
 {{ if eq .chezmoi.os "windows" }}
 .bashrc
 {{ end }}
+
+# tuios open-project.ps1 → Windows only (Linux uses inline bash)
+{{ if ne .chezmoi.os "windows" }}
+dot_config/tuios/open-project.ps1
+{{ end }}
