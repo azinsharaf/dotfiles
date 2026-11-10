@@ -120,11 +120,19 @@
 [keybindings]
 leader_key = "ctrl+a"
 
+{{- if eq .chezmoi.os "windows" }}
+[[keybindings.command]]
+key = "prefix+alt+p"
+type = "popup"
+command = 'pwsh -NoProfile -File {{ .chezmoi.homeDir }}/.config/tuios/open-project.ps1'
+description = "Open a project"
+{{- else }}
 [[keybindings.command]]
 key = "prefix+alt+p"
 type = "popup"
 command = 'dir=$(zoxide query -l | fzf) && tuios switch-session --create --cwd "$dir" "$(basename "$dir")"'
 description = "Open a project"
+{{- end }}
 
 [startup]
 tiled = true
@@ -133,6 +141,9 @@ open_default_window = false
 layout = "bsp"
 
 [appearance]
+{{- if eq .chezmoi.os "windows" }}
+preferred_shell = "pwsh"
+{{- end }}
 theme = "tokyonight"
 border_style = "normal"
 window_title_style = "tab"
