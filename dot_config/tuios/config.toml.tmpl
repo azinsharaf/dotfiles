@@ -157,3 +157,13 @@ motion = "full"
 
 [appearance.sidebar]
 enabled = false
+
+# Show the current session name in the dock (status bar).
+[dock]
+left = ["mode", "session", "workspaces", "trail", "tape"]
+center = ["windows"]
+right = ["notifications", "copy-help", "cpu", "ram", "clock", "session-controls"]
+
+[dock.session]
+format = "{session}"
+fg = "accent"
