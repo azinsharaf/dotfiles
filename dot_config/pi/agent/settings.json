@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.5.0",
+  "lastChangelogVersion": "1.5.2",
   "defaultProvider": "openrouter",
   "hideThinkingBlock": true,
   "packages": [
@@ -18,7 +18,14 @@
   "warnings": {
     "anthropicExtraUsage": false
   },
-  "tuiMode": "fullscreen",
-  "fullscreenWheelScrollLines": "auto",
-  "theme": "system"
+  "tuiMode": "regular",
+  "theme": "system",
+  "modelThinkingLevels": {
+    "openrouter/~anthropic/claude-sonnet-latest": "medium"
+  },
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.8",
+    "{\"source\":\"npm:@narumitw/pi-starship\",\"scope\":\"user\"}": "0.67.2",
+    "{\"source\":\"npm:@narumitw/pi-plan-mode\",\"scope\":\"user\"}": "0.60.1"
+  }
 }
