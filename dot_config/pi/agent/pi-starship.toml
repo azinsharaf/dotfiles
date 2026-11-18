@@ -1,33 +1,26 @@
-# A compact, font-safe Pi footer.
-format = """
-$provider\
-$model\
-$thinking\
-$directory\
-$git_branch\
-$git_status\
-$activity\
-$context"""
+# Balanced Pi footer with Nerd Font symbols.
+format = "$brand$model$thinking$directory$git_branch$git_status$activity$context$time"
+
+[brand]
+symbol = ""
 
 [model]
-format = "[$model]($style) "
-symbol = ""
-style = "bold blue"
-
-[directory]
-format = "[$path]($style) "
-symbol = ""
-style = "cyan bold"
+symbol = "󰚩"
 
 [thinking]
-style = "dimmed cyan"
+symbol = "󰔟"
+
+[directory]
+symbol = "󰉋"
 
 [git_branch]
-format = "[git:$branch]($style) "
-symbol = ""
-style = "bold purple"
+symbol = ""
 
 [activity]
-format = "[$text]($style)"
-symbol = "*"
-style = "bold yellow"
+symbol = "󰑮"
+
+[context]
+symbol = "󰍛"
+
+[time]
+symbol = ""
