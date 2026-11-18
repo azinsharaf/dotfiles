@@ -173,6 +173,12 @@ window_rules:
   - commands: ["move --workspace 5"]
     match:
       - window_process: { regex: "SmartClient" }
+      - window_process: { regex: "(?i)bst" }
+
+  - commands: ["move --workspace 1"]
+    match:
+      - window_process: { regex: "(?i)teams" }
+      - window_process: { regex: "(?i)olk|outlook" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
