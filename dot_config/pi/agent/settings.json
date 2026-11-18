@@ -1,7 +1,16 @@
 {
   "lastChangelogVersion": "1.5.2",
   "defaultProvider": "openrouter",
+  "enabledModels": [
+    "~anthropic/claude-sonnet-latest",
+    "~anthropic/claude-haiku-latest",
+    "~openai/gpt-sol-latest",
+    "deepseek/deepseek-v4-pro-0813"
+  ],
   "hideThinkingBlock": true,
+  "compaction": {
+    "enabled": true
+  },
   "packages": [
     "npm:pi-acp",
     "npm:@narumitw/pi-btw",
@@ -10,7 +19,8 @@
     "https://github.com/ayghri/i-have-adhd"
   ],
   "terminal": {
-    "showTerminalProgress": true
+    "showTerminalProgress": true,
+    "showImages": true
   },
   "collapseChangelog": true,
   "doubleEscapeAction": "none",
@@ -20,12 +30,9 @@
   },
   "tuiMode": "regular",
   "theme": "system",
-  "modelThinkingLevels": {
-    "openrouter/~anthropic/claude-sonnet-latest": "medium"
-  },
   "extensionChangelogVersions": {
     "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.8",
     "{\"source\":\"npm:@narumitw/pi-starship\",\"scope\":\"user\"}": "0.67.2",
-    "{\"source\":\"npm:@narumitw/pi-plan-mode\",\"scope\":\"user\"}": "0.60.1"
+    "{\"source\":\"npm:@narumitw/pi-plan-mode\",\"scope\":\"user\"}": "0.60.3"
   }
 }
