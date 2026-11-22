@@ -1,0 +1,97 @@
+{
+  "bar": {
+    "background": "opaque",
+    "layout": {
+      "center": [
+        {
+          "format": "ddd d MMM HH:mm",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "id": "omarchy.clock",
+          "verticalFormat": "HH\n—\nmm"
+        }
+      ],
+      "centerBegin": [
+        {
+          "id": "omarchy.indicators"
+        }
+      ],
+      "centerEnd": [
+        {
+          "cities": [
+            {
+              "name": "Los Angeles",
+              "zone": "America/Los_Angeles"
+            },
+            {
+              "lat": 35.69439,
+              "lon": 51.42151,
+              "name": "Tehran",
+              "region": "IR",
+              "zone": "Asia/Tehran"
+            }
+          ],
+          "id": "omarchy.elsewhen"
+        },
+        {
+          "id": "omarchy.weather"
+        },
+        {
+          "id": "omarchy.system-update"
+        }
+      ],
+      "left": [
+        {
+          "id": "omarchy.menu"
+        },
+        {
+          "id": "omarchy.workspaces"
+        }
+      ],
+      "right": [
+        {
+          "hidden": [],
+          "id": "omarchy.tray",
+          "pinned": [
+            "chrome_status_icon_1",
+            "Fcitx",
+            "zoom",
+            "remmina-icon"
+          ]
+        },
+        {
+          "id": "omarchy.keyboard-layout"
+        },
+        {
+          "id": "omarchy.agents"
+        },
+        {
+          "id": "omarchy.bluetooth"
+        },
+        {
+          "id": "omarchy.network"
+        },
+        {
+          "id": "omarchy.audio"
+        },
+        {
+          "id": "omarchy.monitor"
+        },
+        {
+          "id": "omarchy.power"
+        }
+      ],
+      "tray": []
+    },
+    "position": "top"
+  },
+  "idle": {
+    "lock": 300,
+    "screensaver": 150
+  },
+  "plugins": [
+    {
+      "id": "io.voxtype.settings"
+    }
+  ],
+  "version": 1
+}
