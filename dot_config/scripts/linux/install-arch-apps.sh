@@ -30,8 +30,6 @@ aur_packages=(
     carapace
     television
     herdr
-    opencode
-    pi                    # AI agent
     tuicr                 # TUI code review for git
     ai-usagebar-bin       # AI usage bar widget
     spotatui-bin          # Spotify TUI
