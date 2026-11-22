@@ -79,6 +79,8 @@ Documents/**
 .config/files/**
 scoop/**
 .config/scripts/windows/**
+.config/uv/scripts
+.config/uv/scripts/**
 {{ end }}
 
 # qutebrowser Linux path → hide on Windows (Windows uses AppData path)
