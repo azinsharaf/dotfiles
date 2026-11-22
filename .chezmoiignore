@@ -78,7 +78,6 @@ Documents/**
 .config/yasb/**
 .config/files/**
 scoop/**
-scripts/windows/**
 .config/scripts/windows/**
 {{ end }}
 
@@ -94,13 +93,11 @@ scripts/windows/**
 .config/xdg-terminals.list
 .config/autostart
 .config/autostart/**
-scripts/linux/**
 .config/scripts/linux/**
 {{ end }}
 
 # macOS-only paths → ignore on Windows / Linux
 {{ if ne .chezmoi.os "darwin" }}
-scripts/macos/**
 {{ end }}
 
 # Ghostty → Linux + macOS only (not Windows)
