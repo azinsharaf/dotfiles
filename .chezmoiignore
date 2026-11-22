@@ -91,6 +91,7 @@ scripts/windows/**
 {{ if ne .chezmoi.os "linux" }}
 .config/hypr/**
 .config/mimeapps.list
+.config/xdg-terminals.list
 .config/autostart
 .config/autostart/**
 scripts/linux/**
