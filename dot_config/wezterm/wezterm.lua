@@ -10,8 +10,8 @@ local config = {
 	color_scheme = "Tokyo Night",
 
 	-- Font rendering (Mac-like crispness on Windows)
-	font_size = 13,
-	line_height = 1.15,
+	font_size = 14,
+	line_height = 1.0,
 	cell_width = 1.0,
 	-- FreeType: grayscale hinting (Normal) for glyph-shape accuracy, subpixel
 	-- rendering (HorizontalLcd) for perceived horizontal resolution on
