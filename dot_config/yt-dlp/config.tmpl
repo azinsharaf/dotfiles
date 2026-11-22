@@ -5,4 +5,8 @@
 --remote-components=ejs:github
 
 # Cookies from Zen browser
+{{- if eq .chezmoi.os "windows" }}
 --cookies-from-browser=firefox:{{ .chezmoi.homeDir | replace "\\" "/" }}/scoop/persist/zen-browser/profile
+{{- else if eq .chezmoi.os "linux" }}
+--cookies-from-browser "firefox:{{ .chezmoi.homeDir }}/.config/zen/6724oz7l.Default (release)"
+{{- end }}
