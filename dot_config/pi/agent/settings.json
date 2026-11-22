@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.5.2",
+  "lastChangelogVersion": "1.6.0",
   "defaultProvider": "openrouter",
   "enabledModels": [
     "~anthropic/claude-sonnet-latest",
@@ -32,7 +32,7 @@
   "theme": "system",
   "extensionChangelogVersions": {
     "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.8",
-    "{\"source\":\"npm:@narumitw/pi-starship\",\"scope\":\"user\"}": "0.67.2",
+    "{\"source\":\"npm:@narumitw/pi-starship\",\"scope\":\"user\"}": "0.67.3",
     "{\"source\":\"npm:@narumitw/pi-plan-mode\",\"scope\":\"user\"}": "0.60.3"
-  }
+  },
 }
