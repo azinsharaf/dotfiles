@@ -36,6 +36,9 @@ aur_packages=(
     ai-usagebar-bin       # AI usage bar widget
     spotatui-bin          # Spotify TUI
     zoom                  # Video conferencing
+    youtube-tui           # YouTube TUI client
+    tuios-bin             # TUI window manager
+    sealwax               # Installed on machine; purpose TBD
 )
 
 # ── Install main repo packages ──
