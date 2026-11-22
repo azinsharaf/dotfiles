@@ -17,8 +17,10 @@
         "bar": {
             "width": 10,
             // "border": false,
-            "charTotal": "-",
-            "charElapsed": "╸"
+            "char": {
+                "total": "-",
+                "elapsed": "╸"
+            }
         },
         "percent": {
             "type": 6
