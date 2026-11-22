@@ -59,7 +59,12 @@
     "ctrl-shift-l": "layout.switch",
     "f2": "tab.rename",
     "shift-f2": "space.rename",
-    "ctrl-a": "mod.open:tmux-prefix"
+    "ctrl-a": "mod.open:tmux-prefix",
+    "alt-e": "mod.open:herdr-nvim",
+    "alt-o": "herdr-nvim.pick",
+    "alt-shift-e": "herdr-nvim.reveal",
+    "alt-s": "mod.open:omnisearch",
+    "ctrl-shift-g": "mod.open:lazygit"
   },
   "terminal": {
     "ctrl-backspace": "send:\u0017",
@@ -71,7 +76,9 @@
     "ctrl-v": "terminal.paste_image",
     "ctrl-insert": "terminal.copy",
     "shift-insert": "terminal.paste",
-    "ctrl-a": "mod.open:tmux-prefix"
+    "ctrl-a": "mod.open:tmux-prefix",
+    "alt-s": "mod.open:omnisearch",
+    "ctrl-shift-g": "mod.open:lazygit"
   },
   "mod:tmux-prefix": {
     "ctrl-a": "tmux-prefix.send-prefix"
