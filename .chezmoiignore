@@ -153,3 +153,27 @@ scoop/**
 .config/herdr-app/layouts/win98.json
 .config/herdr-app/layouts/win98.svg
 .config/herdr-app/mods/**/gpui-kit.d.ts
+
+# herdr-app built-in mods — shipped with the app, not user-installed
+# (only track user-installed mods like herdr-nvim, lazygit, skillshare, etc.)
+.config/herdr-app/mods/agents
+.config/herdr-app/mods/changes
+.config/herdr-app/mods/confirm
+.config/herdr-app/mods/files
+.config/herdr-app/mods/help
+.config/herdr-app/mods/machine-add
+.config/herdr-app/mods/menu
+.config/herdr-app/mods/new-menu
+.config/herdr-app/mods/pane
+.config/herdr-app/mods/peek
+.config/herdr-app/mods/picker
+.config/herdr-app/mods/prompt
+.config/herdr-app/mods/spaces
+.config/herdr-app/mods/tabs
+.config/herdr-app/mods/terminals-bar
+.config/herdr-app/mods/terminals-pane
+.config/herdr-app/mods/toast
+.config/herdr-app/mods/win98
+.config/herdr-app/mods/workspace-chrome
+.config/herdr-app/mods/workspace-status
+.config/herdr-app/mods/worktree
