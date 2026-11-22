@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Pick a project from zoxide history and attach/create a TUIOS session for it
+proj=$(zoxide query -l | fzf --prompt "Project> " --height 20)
+[[ -z "$proj" ]] && exit 0
+
+name=$(basename "$proj" | tr '. ' '-')
+
+# Check if session already exists
+exists=$(tuios ls --json 2>/dev/null | jq -r --arg n "$name" 'any(.[]; .name == $n)')
+
+if [[ "$exists" != "true" ]]; then
+    # Create detached session
+    tuios new "$name" --cwd "$proj" --detach
+
+    # Get the initial shell window ID
+    initial_id=$(tuios list-windows --session "$name" --json | jq -r '.windows[0].window_id')
+
+    # Create nvim pane (left) and pi pane (right)
+    tuios call new-window '{"session":"'$name'","name":"nvim","command":["nvim","."],"workspace":1}' >/dev/null
+    tuios call new-window '{"session":"'$name'","name":"pi","command":["pi"],"workspace":1}' >/dev/null
+
+    # Close the initial empty shell pane
+    tuios call close-window '{"session":"'$name'","window":"'$initial_id'"}' >/dev/null
+fi
+
+tuios attach "$name"
