@@ -34,5 +34,5 @@
     "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.8",
     "{\"source\":\"npm:@narumitw/pi-starship\",\"scope\":\"user\"}": "0.67.3",
     "{\"source\":\"npm:@narumitw/pi-plan-mode\",\"scope\":\"user\"}": "0.60.3"
-  },
+  }
 }
