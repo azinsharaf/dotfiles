@@ -36,7 +36,6 @@ aur_packages=(
     zoom                  # Video conferencing
     youtube-tui           # YouTube TUI client
     tuios-bin             # TUI window manager
-    sealwax               # Installed on machine; purpose TBD
 )
 
 # ── Install main repo packages ──
