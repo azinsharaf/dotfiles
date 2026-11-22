@@ -89,6 +89,8 @@ dot_config/qutebrowser/**
 # Linux-only paths → ignore on Windows / macOS
 {{ if ne .chezmoi.os "linux" }}
 dot_config/hypr/**
+.config/autostart
+.config/autostart/**
 scripts/linux/**
 {{ end }}
 
