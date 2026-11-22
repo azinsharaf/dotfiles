@@ -79,6 +79,8 @@ Documents/**
 .config/files/**
 scoop/**
 .config/scripts/windows/**
+.config/fzf
+.config/fzf/**
 .config/uv/scripts
 .config/uv/scripts/**
 {{ end }}
