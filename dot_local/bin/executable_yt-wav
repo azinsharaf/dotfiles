@@ -1,0 +1,32 @@
+#!/bin/bash
+# Download YouTube audio and convert to WAV
+# Usage: yt-wav <youtube-url> [youtube-url...]
+
+OUTPUT_DIR="$HOME/Downloads/music"
+mkdir -p "$OUTPUT_DIR"
+
+if [ $# -eq 0 ]; then
+    echo "Usage: yt-wav <youtube-url> [youtube-url...]"
+    echo "Downloads audio from YouTube and saves as WAV in ~/Downloads/music/"
+    exit 1
+fi
+
+for url in "$@"; do
+    echo "Downloading: $url"
+    yt-dlp \
+        --extract-audio \
+        --audio-format wav \
+        --audio-quality 0 \
+        --output "$OUTPUT_DIR/%(title)s.%(ext)s" \
+        "$url"
+    
+    if [ $? -eq 0 ]; then
+        echo "✓ Saved to $OUTPUT_DIR"
+    else
+        echo "✗ Failed to download: $url"
+    fi
+done
+
+echo
+echo "Done. Files saved to: $OUTPUT_DIR"
+ls -lh "$OUTPUT_DIR"
