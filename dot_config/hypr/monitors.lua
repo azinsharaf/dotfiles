@@ -5,7 +5,7 @@ local omarchy_gdk_scale = 1
 local omarchy_monitor_scale = 1
 
 hl.env("GDK_SCALE", tostring(omarchy_gdk_scale))
-hl.monitor({ output = "DP-1", mode = "5120x1440@240", position = "0x0", scale = omarchy_monitor_scale })
+hl.monitor({ output = "DP-1", mode = "5120x1440@240", position = "0x0", scale = 1.25 })
 
 -- Configure a specific monitor.
 -- hl.monitor({ output = "DP-2", mode = "2560x1440@144", position = "0x0", scale = 1 })
