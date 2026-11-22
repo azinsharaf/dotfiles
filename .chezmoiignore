@@ -90,6 +90,7 @@ scripts/windows/**
 # Linux-only paths → ignore on Windows / macOS
 {{ if ne .chezmoi.os "linux" }}
 .config/hypr/**
+.config/mimeapps.list
 .config/autostart
 .config/autostart/**
 scripts/linux/**
