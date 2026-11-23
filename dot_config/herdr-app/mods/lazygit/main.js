@@ -189,9 +189,15 @@ function show(target, address) {
 async function toggle() {
   const dialog = memory().dialog;
   if (dialog) {
-    hide(dialog);
-    await cleanup(await listInstances(), null);
-    return;
+    const live = await listInstances();
+    // A dialog whose terminal is gone (lazygit quit) is stale: clear it and open a new one.
+    if (live.some(t => t.address === dialog.terminal)) {
+      hide(dialog);
+      await cleanup(live, null);
+      return;
+    }
+    memory().dialog = null;
+    closeOverlay(dialog.overlay);
   }
   const [terminals, located] = await Promise.all([
     listInstances(),
