@@ -140,7 +140,7 @@
                     "width": 1,
                     "color": "accent"
                   },
-                  "radius": 10,
+                  "radius": 0,
                   "gap": 8,
                   "lone": true
                 }
