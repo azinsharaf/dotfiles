@@ -80,6 +80,9 @@ scoop/**
 
 # Linux-only paths → ignore on Windows / macOS
 {{ if ne .chezmoi.os "linux" }}
+.bash_profile
+.config/omarchy
+.config/omarchy/**
 .config/hypr/**
 .config/mimeapps.list
 .config/xdg-terminals.list
