@@ -1,0 +1,21 @@
+{{- if .dockerServerIP }}
+[sftp.docker-server]
+host = {{ .dockerServerIP | quote }}
+user = {{ .dockerServerUser | quote }}
+port = 22
+key_file = "~/.ssh/docker-server"
+{{ end }}
+{{- if .proxmoxServerIP }}
+[sftp.proxmox-server]
+host = {{ .proxmoxServerIP | quote }}
+user = {{ .proxmoxServerUser | quote }}
+port = 22
+key_file = "~/.ssh/proxmox-server"
+{{ end }}
+{{- if .macbookProIP }}
+[sftp.azin-macbook-pro]
+host = {{ .macbookProIP | quote }}
+user = {{ .macbookProUser | quote }}
+port = 22
+key_file = "~/.ssh/azin-macbook-pro"
+{{ end }}

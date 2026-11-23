@@ -5,20 +5,8 @@
 .config/spotatui/.spotify_token_cache.json
 
 
-AppData/Roaming/FlowLauncher/Cache/**
-AppData/Roaming/FlowLauncher/Logs/**
-AppData/Roaming/FlowLauncher/Plugins/**
-AppData/Roaming/FlowLauncher/Settings/**/*.bak
-AppData/Roaming/FlowLauncher/Settings/History.json
 
 
-scoop/persist/flow-launcher/UserData/Cache/**
-scoop/persist/flow-launcher/UserData/Logs/**
-scoop/persist/flow-launcher/UserData/Plugins/**
-scoop/persist/flow-launcher/UserData/Settings/**/*.bak
-scoop/persist/flow-launcher/UserData/Settings/History.json
-scoop/persist/flow-launcher/UserData/Settings/MultipleTopMostRecord.json
-scoop/persist/flow-launcher/UserData/Settings/UserSelectedRecord.json
 
 # gh: hosts.yml contains the OAuth token in non-keyring configurations; keep it out of the repo
 .config/gh/hosts.yml
