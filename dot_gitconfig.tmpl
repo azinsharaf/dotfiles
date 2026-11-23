@@ -15,3 +15,14 @@
 [core]
 	autocrlf = false
 
+[credential "https://github.com"]
+	helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !gh auth git-credential
+
+# Fallback identity (includeIf above overrides it per remote)
+[user]
+	name = {{ .git_name_personal | quote }}
+	email = {{ .git_email_personal | quote }}
