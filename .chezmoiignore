@@ -145,8 +145,8 @@ scoop/**
 .config/herdr-app/icons/**
 .config/herdr-app/telemetry
 .config/herdr-app/telemetry/**
-.config/herdr-app/themes
-.config/herdr-app/themes/**
+.config/herdr-app/themes/*
+!.config/herdr-app/themes/lazyvim.json
 .config/herdr-app/layouts/main.json
 .config/herdr-app/layouts/.state
 .config/herdr-app/layouts/terminals.json

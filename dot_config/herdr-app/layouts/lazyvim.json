@@ -1,0 +1,88 @@
+{
+  "id": "root",
+  "type": "column",
+  "titlebar": "none",
+  "traffic_lights": [12, 8],
+  "theme": "lazyvim",
+  "font": "JetBrainsMono Nerd Font Mono",
+  "ui_font": "JetBrainsMono Nerd Font Mono",
+  "terminal_padding": [4, 8],
+  "background": "chrome",
+  "preview": "mods/lazyvim/preview.png",
+  "toast": "lazyvim-notify",
+  "children": [
+    {
+      "id": "tabs",
+      "type": "block",
+      "size": { "px": 28 },
+      "window_drag": true,
+      "content": { "mod": "lazyvim", "props": { "role": "bufferline" } }
+    },
+    {
+      "id": "body",
+      "type": "row",
+      "divider": { "width": 1, "color": "border" },
+      "children": [
+        {
+          "id": "sidebar",
+          "type": "column",
+          "size": { "px": 300 },
+          "min": 160,
+          "max": 560,
+          "background": "chrome",
+          "divider": { "width": 1, "color": "border" },
+          "children": [
+            {
+              "id": "sources",
+              "type": "block",
+              "size": { "px": 26 },
+              "content": { "mod": "lazyvim", "props": { "role": "sources" } }
+            },
+            {
+              "id": "explorer-body",
+              "type": "stack",
+              "active": "tree",
+              "size": { "weight": 3 },
+              "children": [
+                { "id": "tree", "type": "block", "content": { "mod": "lazyvim", "props": { "role": "explorer" } } },
+                { "id": "files", "type": "block", "content": { "mod": "files" } },
+                { "id": "changes", "type": "block", "content": { "mod": "changes" } }
+              ]
+            },
+            {
+              "id": "trouble",
+              "type": "block",
+              "size": { "weight": 2 },
+              "min": 60,
+              "content": { "mod": "lazyvim", "props": { "role": "trouble" } }
+            }
+          ]
+        },
+        {
+          "id": "main",
+          "type": "block",
+          "background": "chrome",
+          "padding": 4,
+          "content": {
+            "tab": "active",
+            "pane": {
+              "gap": 4,
+              "radius": 2,
+              "background": "background",
+              "border": { "width": 1, "color": "raised" },
+              "focus": { "width": 1, "color": "accent" },
+              "lone": true,
+              "header": { "content": { "mod": "lazyvim" }, "height": 22, "position": "top", "reveal": "always" }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "status",
+      "type": "block",
+      "size": { "px": 24 },
+      "content": { "mod": "lazyvim", "props": { "role": "lualine" } }
+    }
+  ]
+}

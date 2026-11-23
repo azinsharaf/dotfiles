@@ -1,0 +1,1 @@
+{ "place": "none", "title": "Cmdline", "overlay": { "kind": "popup", "at": "top", "offset": 120, "width": 600, "height": 300, "frame": "none" } }

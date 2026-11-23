@@ -82,5 +82,20 @@
   },
   "mod:tmux-prefix": {
     "ctrl-a": "tmux-prefix.send-prefix"
+  },
+  "layout:lazyvim": {
+    "cmd-shift-p": "mod.open:lazyvim-cmdline",
+    "cmd-p": "lazyvim.goto",
+    "ctrl-shift-p": "mod.open:lazyvim-cmdline",
+    "ctrl-shift-o": "lazyvim.goto",
+    "cmd-o": "mod.open:lazyvim-picker",
+    "ctrl-shift-e": "mod.open:lazyvim-picker",
+    "ctrl-space": "mod.open:lazyvim-whichkey",
+    "cmd-;": "mod.open:lazyvim-flash",
+    "ctrl-;": "mod.open:lazyvim-flash",
+    "cmd-shift-a": "mod.open:lazyvim-context",
+    "ctrl-shift-a": "mod.open:lazyvim-context",
+    "cmd-shift-i": "mod.open:lazyvim-inbox",
+    "ctrl-shift-i": "mod.open:lazyvim-inbox"
   }
 }
