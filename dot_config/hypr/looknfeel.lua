@@ -42,9 +42,9 @@ hl.config({
 })
 
 
--- Only Ghostty terminal should be transparent; everything else fully opaque.
+-- Only Ghostty and herdr-app should be transparent; everything else fully opaque.
 o.window(".*", { tag = "-default-opacity" })
-o.window({ class = "com.mitchellh.ghostty" }, { opacity = "0.92 0.88" })
+o.window({ class = "^(com.mitchellh.ghostty|herdr-app)$" }, { opacity = "0.92 0.88" })
 
 -- https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/
 -- hl.config({
