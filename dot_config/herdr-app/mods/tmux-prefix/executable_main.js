@@ -23,6 +23,9 @@ const BINDINGS = [
   ["J", "Next space", "space.next", {}, true],
   ["K", "Previous space", "space.prev", {}, true],
   ["z", "Zoom pane", "pane.zoom"],
+  ["f", "Command bar", "mod.open", { name: "bar" }],
+  ["y", "Yazi", "mod.open", { name: "yazi" }],
+  ["g", "Lazygit", "mod.open", { name: "lazygit" }],
   ["d", "Minimize window", "window.minimize"],
   ...Array.from({ length: 10 }, (_, i) => [String(i), `Tab ${i === 0 ? 10 : i}`, "tab.select", { index: i === 0 ? 10 : i }]),
 ];
