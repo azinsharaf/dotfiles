@@ -81,6 +81,7 @@ scoop/**
 # Linux-only paths → ignore on Windows / macOS
 {{ if ne .chezmoi.os "linux" }}
 .bash_profile
+.profile
 .config/omarchy
 .config/omarchy/**
 .config/hypr/**
