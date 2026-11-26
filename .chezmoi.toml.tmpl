@@ -10,6 +10,8 @@
     git_email_personal = {{ promptStringOnce . "git_email_personal" "Git email (personal)"  | quote }}
     git_name_work = {{ promptStringOnce . "git_name_work" "Git name (work)"  | quote }}
     git_email_work = {{ promptStringOnce . "git_email_work" "Git email (work)"  | quote }}
+    work_onedrive = {{ promptStringOnce . "work_onedrive" "Work OneDrive folder name" | quote }}
+    work_python_toolbox = {{ promptStringOnce . "work_python_toolbox" "Work python toolbox path" | quote }}
 {{ else }}
 [data]
 {{ end }}
